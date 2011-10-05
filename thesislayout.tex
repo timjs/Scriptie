@@ -1,0 +1,215 @@
+% ThesisLayout.tex
+%
+% Author:  Tim Steenvoorden
+% Changed: 27 Apr 2011
+%
+\startenvironment ThesisLayout
+\environment ~/Documents/DocumentDefinitions
+
+% ------------------------------------------------------------------------------
+% General
+% ------------------------------------------------------------------------------
+
+\setupcolors
+  [state=start]
+
+% ------------------------------------------------------------------------------
+% Language
+% ------------------------------------------------------------------------------
+
+\setuplabeltext[en]
+  [chapter={Chapter }]
+
+% ------------------------------------------------------------------------------
+% Typeface
+% ------------------------------------------------------------------------------
+
+\usetypescript[serif][hanging][normal]
+
+\definefontfeature[default][default]
+  [onum=yes]%FIXME: hack
+\definefontfeature[smallcaps][smallcaps]
+  [onum=yes]%FIXME: hack
+
+\definetypeface[pageros][rm][serif][palatino]
+\definetypeface[pageros][ss][sans][helvetica][default][rscale=0.91]
+\definetypeface[pageros][mm][math][palatino]
+\definetypeface[pageros][tt][mono][modern]
+
+\setupbodyfont[pageros,11pt]
+
+\setupcapitals
+  [sc=yes]
+
+% ------------------------------------------------------------------------------
+% Pagelayout
+% ------------------------------------------------------------------------------
+
+\setuppapersize[A4][A4]
+
+\setuplayout
+  [width=middle,
+   cutspace=42mm,
+   backspace=26mm,
+   height=middle,
+   topspace=26mm,
+   bottomspace=\dimexpr(42mm-3\lineheight),
+   margin=26mm,
+   header=\lineheight,
+   headerdistance=\lineheight,
+   footerdistance=2\lineheight,
+   footer=\lineheight]
+
+\setuppagenumbering
+  [alternative=doublesided,
+   location=]% See \setupheader/footertexts
+
+\setupheader
+  [state=empty,
+   style=\sc]
+\setupfooter
+  [style=\sc]
+
+\setupheadertexts
+  [][section]
+  [chapter][]
+\setupfootertexts
+  [][pagenumber]
+  [pagenumber][]
+
+% ------------------------------------------------------------------------------
+% Text
+% ------------------------------------------------------------------------------
+
+\setupalign[hanging]
+
+\setupindenting[yes,medium]
+
+\setupurl
+  [style=\it]
+
+\setupfootnotes
+  [numbercommand=] % Geen superscript onder aan de pagina
+\setupfootnotedefinition
+  [location=left,
+   distance=0.5em]
+
+\setupinmargin
+  [style=\it]
+
+\setupformulas
+  [align=right,
+   margin=yes]
+
+\setupabbreviations
+  [textstyle=\sc\lowercase]
+
+% ------------------------------------------------------------------------------
+% Definitions
+% ------------------------------------------------------------------------------
+
+\setupitemize[each]
+  [packed]
+  [headstyle=\it]
+
+\setupquote
+  [location=margin,
+   leftmargin=standard,
+   style=\it]
+
+% ------------------------------------------------------------------------------
+% Heads
+% ------------------------------------------------------------------------------
+
+\setuphead[chapter]
+  [style=\tfa\sc]
+\setuphead[section]
+  [style=\sc,
+   before=\blank,
+   after=\blank]
+\setuphead[subsection]
+  [textstyle=\it]
+
+% ------------------------------------------------------------------------------
+% Lists
+% ------------------------------------------------------------------------------
+
+\setupcombinedlist[content]
+  [alternative=a,
+   level=section,
+   pagestyle=\quad\it]
+
+% ------------------------------------------------------------------------------
+% Figures
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+% Tables
+% ------------------------------------------------------------------------------
+
+% ------------------------------------------------------------------------------
+% Sectionblocks
+% ------------------------------------------------------------------------------
+
+\startsectionblockenvironment[frontpart]
+  \setuppagenumbering
+    [conversion=romannumerals]
+\stopsectionblockenvironment
+
+\startsectionblockenvironment[bodypart]
+  \writebetweenlist[chapter]{\blank}
+  \setuppagenumber
+    [number=1]
+\stopsectionblockenvironment
+
+\startsectionblockenvironment[appendix]
+  \writebetweenlist[chapter]{\blank}
+\stopsectionblockenvironment
+
+\startsectionblockenvironment[backpart]
+  \writebetweenlist[chapter]{\blank}
+\stopsectionblockenvironment
+
+% ------------------------------------------------------------------------------
+% Publications
+% ------------------------------------------------------------------------------
+
+\setupbibtex
+  [database=bibliography]
+   %sort=author]
+
+\setuppublications
+  [alternative=aps]
+
+% ------------------------------------------------------------------------------
+% Synonyms
+% ------------------------------------------------------------------------------
+
+\abbreviation{LHS}{Left Hand Side}
+\abbreviation{RHS}{Right Hand Side}
+\abbreviation{LHC}{Large Hadron Collider}
+
+% ------------------------------------------------------------------------------
+% Extras
+% ------------------------------------------------------------------------------
+
+\define[1]\todo
+  {\inmargin{Todo}\underbar{#1}}
+
+\starttexdefinition starttodo #1
+  \todo{#1}
+  \blank[none]
+  \startcolor[darkgray]
+\stoptexdefinition
+
+\starttexdefinition stoptodo
+  \stopcolor
+\stoptexdefinition
+
+\definestartstop[introduction]
+  [style=\it]
+
+\environment ~/Documents/DocumentModes
+\stopenvironment
+
+% vim: ts=2 sw=2 et
