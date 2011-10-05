@@ -1,0 +1,153 @@
+\startcomponent lagrange
+\product Thesis
+\environment ThesisLayout
+
+\chapter[chp:lagrange]{The Lagrange equations with complex mass}
+
+\startintroduction
+In this chapter we start with the classical Lagrangian. By using the Hamilton-Jacobi equations, we will derive the non-linear and linear Schrödinger equations. But there will be one difference with the default derivation. In stead of a real Lagrangian, we assume a \emph{complex} Lagrangian.
+\stopintroduction
+
+% ------------------------------------------------------------------------------
+\section{Free particle with complex mass}
+
+The starting point of these calculations is the assumption that mass is not a \emph{real} quantity. In addition to its real part, we add an \emph{imaginary} part as in
+\startformula
+m := m_\Re + i m_\Im.
+\stopformula
+We will discuss the physical interpretation of this imaginary part in \todo{\see[chp:somewhere]}.
+
+The Lagrangian is defined by the difference of the kinetic energy $T$ and the potential $V$. We consider a free particle, so our Lagrangian is given by
+\placeformula
+\startformula
+L = \half m \dot{x}^2.
+\stopformula
+Now, putting in the assumed complex mass we get a Lagrangian which also has a real and an imaginary part.
+\placeformula
+\startalignedformula
+\NC  L  \NC  = \half (m_\Re + i m_\Im) \dot{x}^2  \NR
+\NC     \NC  = \half m_\Re \dot{x}^2 + \half m_Im \dot{x}^2  \NR
+\NC     \NC  =: L_\Re + i L_\Im                   \NR[for:complex_lagrangian]
+\stopalignedformula
+As a consequence, the same happens to the action.
+\placeformula
+\startalignedformula
+\NC  S  \NC  = \int_{t_0}^{t_1} L \,\d t                                        \NR
+\NC     \NC  = \int_{t_0}^{t_1} L_\Re + i L_\Im \,\d t                          \NR
+\NC     \NC  = \int_{t_0}^{t_1} L_\Re \,\d t + i \int_{t_0}^{t_1} L_\Im \,\d t  \NR
+\NC     \NC  =: S_\Re + i S_\Im                                                 \NR[for:complex_action]
+\stopalignedformula
+
+\subsection{Lagrangian stress test}
+
+Our task now, is to show that the introduction of our complex mass does not violate any classical laws of physics. The first equations to test are the Euler-Lagrange equations. Our system only depends on $x$ and $\dot{x}$, so we have just one equation to test.
+\startalignedformula
+\NC  \dd t \pdiff{L}{\dot{x}}                 \NC  = \pdiff{L}{x}  \NR
+\stopalignedformula
+Which gives us
+\startalignedformula
+\NC  \dd t (m_\Re \dot{x} + i m_\Im \dot{x})  \NC  = 0             \NR
+\NC  m_\Re \ddot{x} + i m_\Im \ddot{x}        \NC  = 0             \NR
+\stopalignedformula
+Because our mass, complex or not, is not zero, we get $\ddot{x} = 0$. This implies that our particle is not accelerated. It is not, because we are dealing with a free particle.
+
+The next equations to test are those of Hamilton. With the common definition of the momentum $p$ as
+\placeformula
+\startalignedformula
+\NC  p  \NC  = \pdiff{L}{\dot{x}}               \NR
+\NC     \NC  = m_\Re \dot{x} + i m_\Im \dot{x}  \NR[for:p in xdot]
+\stopalignedformula
+and using \see[for:complex_lagrangian] the Hamiltonian becomes
+\startsubformulas[for:hamiltonian]
+\placeformula
+\startalignedformula
+\NC  H  \NC  = p \dot{x} - L                              \NR[for:hamiltonian:def]
+\NC     \NC  = (m_\Re \dot{x} + i m_\Im \dot{x}) \dot{x}
+             - \half (m_\Re + i m_\Im) \dot{x}^2          \NR
+\NC     \NC  = \half (m_\Re + i m_\Im) \dot{x}^2          \NR[for:hamiltonian:free]
+\stopalignedformula
+\stopsubformulas
+
+Now we can check the Hamilton equations. The first one states
+\startformula
+\pdiff{H}{x} = -\dot{p}.
+\stopformula
+The \LHS\ is zero, since \see[for:hamiltonian:free] does not depend on $x$. The \RHS\ can be expressed in terms of $\dot{x}$ by \see[for:p in xdot]. The time derivative of $\dot{x}$ is $\ddot{x}$ and we already stated that our particle is not accelerating. So the \RHS\ is also zero and the first equation is satisfied.
+
+The second Hamilton equations states
+\startformula
+\pdiff{H}{p} = \dot{x}.
+\stopformula
+In this case we have to use \see[for:hamiltonian:def]. Derivated to $p$ this gives $\dot{x}$, which is exactly as wanted.
+
+The last (additional) relation between the Hamiltonian and the Lagrangian is
+\startformula
+\pdiff{H}{t} = - \pdiff{L}{t}.
+\stopformula
+Which is easily satisfied because both $H$ and $L$ are not direct functions of time.
+
+\subsection{Hello Schrödinger}
+
+The next step towards the non-linear Schrödinger equations is the Hamilton-Jacobi equation
+\placeformula[for:hamilton-jacobi]
+\startformula
+\pdiff{S}{t} = - H.
+\stopformula
+Here $S$ is \emph{Hamilton's principal function}. This is a function of $q$ and $\bar{p}$, a constant of motion. We have the relations:
+\startformula
+S = S(q, p)
+\stopformula
+
+\starttodo{Don't know how to write this down.}
+$\bar{p}$ is formed after solving $S$ as
+\startformula
+S = S(q, \alpha)
+\stopformula
+with $\alpha$ a constant. This is a solution for $S$ in \see[for:hamilton-jacobi]. We define
+\startformula
+\bar{p} := \alpha
+\stopformula
+and we get the relations
+\startformula
+-\pdiff{H}{q} = \dot{\bar{p}} = 0
+\stopformula
+\stoptodo
+
+This equation states that \unknown. $S$ is called \emph{Hamilton's principal function}. 
+
+Let's calculate this principal function. From \see[for:hamilton-jacobi] and \see[for:hamiltonian:free] we know
+\startformula
+\pdiff{S}{t} = -\half (m_\Re + i m_\Im) \dot{x}^2
+\stopformula
+Integrating to $t$ gives
+\startalignedformula
+\NC S \NC = \int -\half (m_\Re + i m_\Im) \dot{x}^2 \d t \NR
+\NC   \NC = 
+\stopalignedformula
+
+% ------------------------------------------------------------------------------
+\section{A more general approach}
+
+Let us now start with the Lagrangian, defined by the difference of the kinetic energy $T$ and the potential $V$ as
+\startformula
+L \bigl( \{q_j(t)\}, \{\dot{q}_j(t)\}, t \bigr)
+:= T(\{q_j(t)\}, \{\dot{q}_j(t)\}, t) - V(\{q_j(t)\}, t).
+\stopformula
+Our definition states that $L$ is a function of $N$ generalized coordinates $q_j(t)$, their time derivatives $\dot{q}_j(t)$ and the time $t$. The notation $\{q_j(t)\}$ implies a set of $N$ coordinates labeled by $j \in \{1 \ldots N\}$.
+
+Now we can define the action as the integral of the Lagrangian over time.
+\startformula
+S(t_0,t_1) := \int_{t_0}^{t_1} \left( \{q_j(t)\}, \{\dot{q}_j(t)\}, t \right) \;\d t
+\stopformula
+
+\section{Schrödinger for --real--}
+
+\startformula
+\d S = \pdiff{S}{x} \dot{x} \d t + \pdiff{S}{\bar{p}} \dot{\bar{p}} + \pdiff{S}{t} \d t
+\stopformula
+\startformula
+S = \int \left( \pdiff{S}{x} \dot{x} + \pdiff{S}{t} \right)
+
+\stopcomponent
+
+% vim: spell spelllang=en
