@@ -48,10 +48,10 @@ De vorm van $r(T)$ en $q(T)$ doen er nu even niet toe. We vinden voor de Lagrang
 \todo{\tex{wall}?}
 
 \startalignedformula
-\NC   L (X, \dot{X})
-   \NC=  \half m \dot{X}^2 - V(X)  \NR
-\NC\NC=  \half m (\dot{r} + \dot{q})^2 - V(r + q)  \NR
-\NC\NC=  \half m \dot{r}^2 + \half m \dot{q}^2 + m \dot{r} \dot{q} - V(r + q)  \NR
+L (X, \dot{X})
+&=  \half m \dot{X}^2 - V(X)  \\
+&=  \half m (\dot{r} + \dot{q})^2 - V(r + q)  \\
+&=  \half m \dot{r}^2 + \half m \dot{q}^2 + m \dot{r} \dot{q} - V(r + q)  \\
 \stopalignedformula
 
 Waarin we de eerste drie termen herkennen uit \see[for:LagrangiaanVoorGravitatieVeld]. Nu kunnen we helaas niet meteen het klassieke deel en het quantum deel van elkaar scheiden. Maar voor onze klassieke Lagrangiaan
@@ -75,9 +75,9 @@ L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 + m (\dd{T} \dot{r} q - \ddot{
 Door de Dirichlet voorwaarde valt $\dd{T} \dot{r} q$ weg wanneer we overstappen op de actie (zie \see[sec:DirichletVoorwaarde]). De laatste manipulatie volgt uit de Euler-Lagrange vergelijking op de klassieke Lagrangiaan.
 
 \startalignedformula
-\NC  \dd{T} \pdiff{L_r}{\dot{r}}  \NC=  \pdiff{L_r}{r}  \NR
-\NC  \dd{T} m \dot{r}             \NC=  - \tdiff{V}{r}  \NR
-\NC  m \ddot{r}                   \NC=  - \tdiff{V}{r}  \NR
+\dd{T} \pdiff{L_r}{\dot{r}}  &=  \pdiff{L_r}{r}  \\
+\dd{T} m \dot{r}             &=  - \tdiff{V}{r}  \\
+m \ddot{r}                   &=  - \tdiff{V}{r}  \\
 \stopalignedformula
 
 We herkennen $m \ddot{r}$ en we krijgen
@@ -97,25 +97,25 @@ Dat is dus de eis die we moeten opleggen aan de potentiaal. Het volgende moet on
 Met andere woorden
 
 \startalignedformula
-\NC  \dd{r} [ - \tdiff{V}{r} q - V(r) + V(r + q) ]        \NC=  0  \NR
-\NC  \tdiff{V^2}{^2 r} q + \tdiff{V}{r} - \tdiff{V}{r + q}  \NC=  0  \NR
+\dd{r} [ - \tdiff{V}{r} q - V(r) + V(r + q) ]            &=  0  \\
+\tdiff{V^2}{^2 r} q + \tdiff{V}{r} - \tdiff{V}{(r + q)}  &=  0  \\
 \stopalignedformula
 
 Hieraan voldoen precies de tweedegraads polynomen in $X$.
 
 \startalignedformula
-\NC  V(r + q)           \NC=  a + b (r + q) + c (r + q)^2  \NR
-\NC  \tdiff{V}{r}       \NC=  b + 2 c (r + q)  \NR
-\NC  \tdiff{V^2}{^2 r}  \NC=  2 c  \NR
+V(r + q)           &=  a + b (r + q) + c (r + q)^2  \\
+%\tdiff{V}{r}       &=  b + 2 c (r + q)  \\
+%\tdiff{V^2}{^2 r}  &=  2 c  \\
 \stopalignedformula
 
 Zodat
 
-\startalignedformula
-\NC   \tdiff{V^2}{^2 r} q + \tdiff{V}{r} - \tdiff{V}{r + q}
-   \NC=  2 c q + b + 2 c (r + q) - b - 2 c (r + q)   \NR
-\NC\NC=  0  \NR
-\stopalignedformula
+\startformula
+\tdiff{V^2}{^2 r} q + \tdiff{V}{r} - \tdiff{V}{(r + q)}
+=  2 c q + b + 2 c (r + q) - b - 2 c (r + q)
+=  0
+\stopformula
 
 \section{}
 
