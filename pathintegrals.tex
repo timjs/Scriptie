@@ -1,0 +1,131 @@
+\startcomponent pathintgrals
+\environment thesislayout
+
+\chapter{Feynman Padintegralen}
+
+\todo{Titels aanpassen}
+
+\startemphasize
+\todo{Inleiding}
+\stopemphasize
+
+\section{}
+
+\startitemize
+\item \todo{Wat zijn padintegralen?}
+\item \todo{Wat doen ze?}
+\item \todo{Hoe werken ze?}
+\item \todo{Waar zijn ze goed voor?}
+\stopitemize
+
+\section{}
+
+\startitemize
+\item \todo{Hoe kunnen we ze uitrekenen?}
+\item \todo{Welke methoden zijn er?}
+\stopitemize
+
+\section{}
+
+\todo{Welke klasse kunnen we exact uitrekenen?}
+
+In de vorige sectie hebben we kunnen zien dat een padintegraal met $V \approx x$ eenvoudig exact op te lossen is. Lang niet alle padintegralen zijn analytisch oplosbaar. Welke restrictie moeten we opleggen? Aangezien we de kinetische-energie term van de Lagrangiaan niet kunnen aanpassen, kunnen we deze vraag reduceren tot: waar moet de potentiaal $V$ aan voldoen?
+
+Laten we nogmaals de padintegraal uitrekenen voor één deeltje met spin $0$ en massa $m$, maar nu met een algemene potentiaal
+
+\startformula
+V(X).
+\stopformula
+
+We passen dezelfde truc toe als in \see[sec:gravitatieveld] waarbij we $X(T)$ opsplitsen in een klassiek pad $r(T)$ en quantumfluctuaties $q(T)$
+
+\startformula
+X(T)  :=  r(T) + q(T)
+\stopformula
+
+De vorm van $r(T)$ en $q(T)$ doen er nu even niet toe. We vinden voor de Lagrangiaan
+
+\todo{\tex{wall}?}
+
+\startalignedformula
+\NC   L (X, \dot{X})
+   \NC=  \half m \dot{X}^2 - V(X)  \NR
+\NC\NC=  \half m (\dot{r} + \dot{q})^2 - V(r + q)  \NR
+\NC\NC=  \half m \dot{r}^2 + \half m \dot{q}^2 + m \dot{r} \dot{q} - V(r + q)  \NR
+\stopalignedformula
+
+Waarin we de eerste drie termen herkennen uit \see[for:LagrangiaanVoorGravitatieVeld]. Nu kunnen we helaas niet meteen het klassieke deel en het quantum deel van elkaar scheiden. Maar voor onze klassieke Lagrangiaan
+
+\startformula
+L_r (r, \dot{r})  :=  \half m \dot{r}^2 - V(r),
+\stopformula
+
+moet de Euler-Lagrange vergelijking gelden.
+
+Dit houden we in ons achterhoofd. Wanneer we de klassieke Lagrangiaan invullen in \see[for:LagrangiaanVoorAlgemenePotentiaal] lopen we een extra $V(r)$ op. Daarnaast kunnen we $\dot{r} \dot{q}$ vervangen door
+
+\startformula
+\dd{T} \dot{r} q  =  \ddot{r} q + \dot{r} \dot{q}
+\stopformula
+
+\startformula
+L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 + m (\dd{T} \dot{r} q - \ddot{r} q) - V(r + q)
+\stopformula
+
+Door de Dirichlet voorwaarde valt $\dd{T} \dot{r} q$ weg wanneer we overstappen op de actie (zie \see[sec:DirichletVoorwaarde]). De laatste manipulatie volgt uit de Euler-Lagrange vergelijking op de klassieke Lagrangiaan.
+
+\startalignedformula
+\NC  \dd{T} \pdiff{L_r}{\dot{r}}  \NC=  \pdiff{L_r}{r}  \NR
+\NC  \dd{T} m \dot{r}             \NC=  - \tdiff{V}{r}  \NR
+\NC  m \ddot{r}                   \NC=  - \tdiff{V}{r}  \NR
+\stopalignedformula
+
+We herkennen $m \ddot{r}$ en we krijgen
+
+\startformula
+L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 - \tdiff{V}{r} q - V(r + q)
+\stopformula
+
+Laten we eens goed naar dit resultaat kijken. Dit is onze Lagrangiaan voor een deeltje in een dimensie. We hebben het pad $X(T)$ opgesplitst in een klassiek- en een quantum deel. Het doel is om onze Lagrangiaan ook zo op te splitsen. Stiekem hebben we dit al een beetje gedaan: de klassieke Lagrangiaan $L_r$ staat er al in. Dat betekent dat alle andere termen samen het quantumdeel moeten vormen. Maar sommige zijn nog afhankelijk van $r$!
+
+Dat is dus de eis die we moeten opleggen aan de potentiaal. Het volgende moet onafhankelijk zijn van $r$.
+
+\startformula
+\half m \dot{q}^2 - \tdiff{V}{r} q - V(r) + V(r + q)
+\stopformula
+
+Met andere woorden
+
+\startalignedformula
+\NC  \dd{r} [ - \tdiff{V}{r} q - V(r) + V(r + q) ]        \NC=  0  \NR
+\NC  \tdiff{V^2}{^2 r} q + \tdiff{V}{r} - \tdiff{V}{r + q}  \NC=  0  \NR
+\stopalignedformula
+
+Hieraan voldoen precies de tweedegraads polynomen in $X$.
+
+\startalignedformula
+\NC  V(r + q)           \NC=  a + b (r + q) + c (r + q)^2  \NR
+\NC  \tdiff{V}{r}       \NC=  b + 2 c (r + q)  \NR
+\NC  \tdiff{V^2}{^2 r}  \NC=  2 c  \NR
+\stopalignedformula
+
+Zodat
+
+\startalignedformula
+\NC   \tdiff{V^2}{^2 r} q + \tdiff{V}{r} - \tdiff{V}{r + q}
+   \NC=  2 c q + b + 2 c (r + q) - b - 2 c (r + q)   \NR
+\NC\NC=  0  \NR
+\stopalignedformula
+
+\section{}
+
+\todo{Hier pas rekenmethode met Fourierdecompositie}
+
+\section{}
+
+\todo{Hoe reduceren (benaderen) we een andere klasse tot bovenstaande?}
+
+\stopcomponent
+
+% vim: spell spelllang=nl
+
