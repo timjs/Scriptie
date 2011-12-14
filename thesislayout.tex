@@ -1,10 +1,10 @@
-% ThesisLayout.tex
+% thesislayout.tex
 %
 % Author:  Tim Steenvoorden
 % Changed: 27 Apr 2011
 %
-\startenvironment ThesisLayout
-\environment ~/Documents/DocumentDefinitions
+\startenvironment thesislayout
+\environment documentdefinitions
 
 % ------------------------------------------------------------------------------
 % General
@@ -17,8 +17,8 @@
 % Language
 % ------------------------------------------------------------------------------
 
-\setuplabeltext[en]
-  [chapter={Chapter }]
+\setuplabeltext[nl]
+  [chapter={Hoofdstuk }]
 
 % ------------------------------------------------------------------------------
 % Typeface
@@ -49,20 +49,20 @@
 
 \setuplayout
   [width=middle,
-   cutspace=42mm,
    backspace=26mm,
+   cutspace=42mm,
    height=middle,
    topspace=26mm,
-   bottomspace=\dimexpr(42mm-3\lineheight),
+   bottomspace=42mm,
    margin=26mm,
    header=\lineheight,
    headerdistance=\lineheight,
-   footerdistance=2\lineheight,
+   footerdistance=\lineheight,
    footer=\lineheight]
 
 \setuppagenumbering
   [alternative=doublesided,
-   location=]% See \setupheader/footertexts
+   location=]% Zie \setupheader/footertexts
 
 \setupheader
   [state=empty,
@@ -174,12 +174,12 @@
 % Publications
 % ------------------------------------------------------------------------------
 
-\setupbibtex
-  [database=bibliography]
+%\setupbibtex
+  %[database=bibliography]
    %sort=author]
 
-\setuppublications
-  [alternative=aps]
+%\setuppublications
+  %[alternative=aps]
 
 % ------------------------------------------------------------------------------
 % Synonyms
@@ -193,23 +193,6 @@
 % Extras
 % ------------------------------------------------------------------------------
 
-\define[1]\todo
-  {\inmargin{Todo}\underbar{#1}}
-
-\starttexdefinition starttodo #1
-  \todo{#1}
-  \blank[none]
-  \startcolor[darkgray]
-\stoptexdefinition
-
-\starttexdefinition stoptodo
-  \stopcolor
-\stoptexdefinition
-
-\definestartstop[introduction]
-  [style=\it]
-
-\environment ~/Documents/DocumentModes
 \stopenvironment
 
 % vim: ts=2 sw=2 et
