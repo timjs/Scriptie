@@ -1,5 +1,5 @@
-\startcomponent pathintgrals
-\environment thesislayout
+\startcomponent pathintegrals
+\environment    thesislayout
 
 \chapter{Feynman Padintegralen}
 
@@ -25,14 +25,95 @@
 \item \todo{Welke methoden zijn er?}
 \stopitemize
 
-\section{}
+\section[sec:gravitatieveld,sec:quantumfluctuatie,sec:Dirichlet voorwaarde]{Quantumfluctuaties}
 
-\todo{Welke klasse kunnen we exact uitrekenen?}
+Nu we een redelijk beeld hebben van padintegralen, kunnen we een simpel voorbeeld uitrekenen. We nemen een deeltje zonder spin met massa $m$. Laten we het niet te gemakkelijk maken, en een potentiaal kiezen ongelijk nul.%, de zwaartekrachtpotentiaal
+\startformula
+V(X)  =  m g X
+\stopformula
+%Hierbij is $X(T)$ niet het klassieke pad van het deeltje. We willen immers een quantummechanische berekening uitvoeren en \todo{formulering}. 
 
-In de vorige sectie hebben we kunnen zien dat een padintegraal met $V \approx x$ eenvoudig exact op te lossen is. Lang niet alle padintegralen zijn analytisch oplosbaar. Welke restrictie moeten we opleggen? Aangezien we de kinetische-energie term van de Lagrangiaan niet kunnen aanpassen, kunnen we deze vraag reduceren tot: waar moet de potentiaal $V$ aan voldoen?
+Om de propagator uit te rekenen met een padintegraal -- zoals we die afgeleid hebben in \see[sec:padintegraal] -- moeten we een beeld hebben van hoe $X(T)$ er uit ziet. Helaas is $X(T)$ niet het klassieke pad.\footnote{Anders hoeven we niet eens aan padintegralen te beginnen\periods} Toch zou het handig zijn als we gebruik kunnen maken van de oplossing van de klassieke Euler-Lagrange vergelijking. Een goede reden om er voor te zorgen dat het klassieke pad onderdeel is van $X(T)$. Wat we overhouden zijn de afwijking ten opzichte van het klassieke pad. Wanneer we deze afsplitsing toepassen ontstaat
+\startformula
+X(T)  :=  r(T) + q(T),
+\stopformula
+met $r(T)$ het klassieke pad en dus de oplossing van de Euler-Lagrange vergelijking en $q(T)$ de afwijking op het klassieke pad ofwel de \emph{quantumfluctuaties}.
+
+Begin en eindpunt van het pad liggen vast. Dat betekent dat de afwijking op $T=0$ en $T=t$ nul moet zijn, zodat de quantumfluctuaties hier geen invloed hebben. Dit heet de \emph{Dirichlet randvoorwaarde}.\todo{citaat}
+\startformula
+q(0) = q(t) = 0
+\stopformula
+
+Laten we eens kijken wat er gebeurt met de Lagrangiaan wanneer we $X(T)$ invullen.
+\placeformula[for:Lagrangiaan voor gravitatieveld]
+\startalignedformula
+L (X, \dot{X})
+&=  \half m \dot{X}^2 - m g X  \\
+&=  \half m (\dot{r} + \dot{q})^2 - m g (r + q)  \\
+&=  \half m \dot{r}^2 - m g r + \half m \dot{q}^2 - m g q + m \dot{r} \dot{q}  \\
+%&=  L_r(r, \dot{r}) + \half m \dot{q}^2 - m g q + m \dot{r} \dot{q}  \\
+\stopalignedformula
+Na een kleine herordening zien we dat we een klassieke Lagrangiaan kunnen afsplitsen.
+\startformula
+L_r  :=  \half m \dot{r}^2 - m g r
+\stopformula
+%\startalignedformula
+%\phantom{L (X, \dot{X})}
+%&=  \half m \dot{r}^2 + \half m \dot{q}^2 + m \dot{r} \dot{q} - m g r - m g q  \\
+%\stopalignedformula
+Wel blijven we zitten met de kruisterm\periods
+
+Om de kruisterm weg te werken zullen we een truc toepassen. We houden in ons achterhoofd dat we deze Lagrangiaan zo meteen gaan integreren. Voor de padintegraal hebben we immers de \emph{actie} nodig. Ook hebben we een randvoorwaarde, namelijk die van Dirichlet. Laten we eerst de Euler-Lagrange vergelijking oplossen voor $L_r$. Zo vinden we het klassieke pad.
+%Voor de klassieke Lagrangiaan $L_r$ kunnen we de Euler-Lagrange vergelijking oplossen. 
+\startalignedformula
+\tdiff{}{T} \pdiff{L_r}{\dot{r}}  &=  \pdiff{L_r}{r}  \\
+\tdiff{}{T} m \dot{r}             &=  - m g  \\
+              \ddot{r}            &=  - g  \\
+\stopalignedformula
+Dat wisten we natuurlijk al lang, $g$ is immers de valversnelling van een klassiek deeltje in een zwaartekrachtpotentiaal. Dit kunnen we nu mooi invullen in \see[for:Lagrangiaan voor gravitatieveld].
+\startalignedformula
+L (X, \dot{X})
+%&=  L_r(r, \dot{r}) + \half m \dot{q}^2 - m g q + m \dot{r} \dot{q}  \\
+&=  L_r(r, \dot{r}) + \half m \dot{q}^2 + m (\ddot{r} q + \dot{r} \dot{q})  \\
+\stopalignedformula
+De term tussen haakjes is precies de afgeleide van $\dot{r} q$ naar $T$!
+\startalignedformula
+\phantom{L (X, \dot{X})}
+&=  L_r(r, \dot{r}) + \half m \dot{q}^2 + m \dd{T} (\dot{r} q)  \\
+\stopalignedformula
+
+Laat $T$ nou precies de variabele zijn waarnaar we integreren in de actie. Wanneer we van $T=0$ tot $T=t$ integreren, valt de term weg door de Dirichlet randvoorwaarde.
+\startformula
+\int_0^t  \dd{T} (\dot{r} q)  \,\d T
+=  \left[\dot{r} q \right]_0^t
+=  0
+\stopformula
+De actie ziet er dan als volgt uit.
+\startalignedformula
+S (t, 0)
+&=  \int_0^t  L(X, \dot{X})  \,\d T  \\
+&=  \int_0^t  \left( L_r(r, \dot{r}) + \half m \dot{q}^2 + m \dd{T} (\dot{r} q) \right)  \,\d T  \\
+&=  \int_0^t  L_r(r, \dot{r}) \,\d T + \int_0^t \half m \dot{q}^2 \,\d T  \\
+\stopalignedformula
+
+We kunnen een klassieke deel en een quantum deel afsplitsen.
+\startalignedformula
+S_r(t,0)  &:=  \int_0^t  L_r(r, \dot{r})  \,\d T  \\
+S_q(t,0)  &:=  \int_0^t \half m \dot{q}^2 \,\d T  \\
+\stopalignedformula
+%Maar het gaat voornamelijk om de laatste term. We hebben niet voor niets zoveel werk gedaan om deze te krijgen. Wanneer we de term integreren, en de Dirichlet randvoorwaarden toepassen valt deze weg!
+%\startalignedformula
+%\phantom{S (t, 0)}
+%&=  \int_0^t  \left( L_r(r, \dot{r}) + \half m \dot{q}^2 + m \dd{T} (\dot{r} q) \right)  \,\d T  \\
+%\stopalignedformula
+
+We hebben de actie -- en dus onze padintegraal -- weten op te splitsen in een klassiek deel en een quantum deel. De volgende stap is het uitrekenen van deze twee delen. Maar het is ook interessant om te weten wanneer we deze splitsing kunnen toepassen. Blijkbaar kan dit bij potentialen in de vorm van $V \sim x$ en $V=0$ (neem $g=0$). Welke potentialen nog meer?
+
+\section{Additieve vorm}
+
+In de vorige sectie hebben we kunnen zien dat een padintegraal met $V \sim x$ eenvoudig exact op te lossen is. Lang niet alle padintegralen zijn analytisch oplosbaar. Welke restrictie moeten we opleggen? Aangezien we de kinetische-energie term van de Lagrangiaan niet kunnen aanpassen, kunnen we deze vraag reduceren tot: waar moet de potentiaal $V$ aan voldoen?
 
 Laten we nogmaals de padintegraal uitrekenen voor één deeltje met spin $0$ en massa $m$, maar nu met een algemene potentiaal
-
 \startformula
 V(X).
 \stopformula
@@ -43,10 +124,9 @@ We passen dezelfde truc toe als in \see[sec:gravitatieveld] waarbij we $X(T)$ op
 X(T)  :=  r(T) + q(T)
 \stopformula
 
-De vorm van $r(T)$ en $q(T)$ doen er nu even niet toe. We vinden voor de Lagrangiaan
+De vorm van $r(T)$ en $q(T)$ doen er wederom niet toe. We vinden voor de Lagrangiaan
 
-\todo{\tex{wall}?}
-
+\placeformula[for:Lagrangiaan voor algemene potentiaal]
 \startalignedformula
 L (X, \dot{X})
 &=  \half m \dot{X}^2 - V(X)  \\
@@ -54,65 +134,53 @@ L (X, \dot{X})
 &=  \half m \dot{r}^2 + \half m \dot{q}^2 + m \dot{r} \dot{q} - V(r + q)  \\
 \stopalignedformula
 
-Waarin we de eerste drie termen herkennen uit \see[for:LagrangiaanVoorGravitatieVeld]. Nu kunnen we helaas niet meteen het klassieke deel en het quantum deel van elkaar scheiden. Maar voor onze klassieke Lagrangiaan
-
+Waarin we de eerste drie termen herkennen uit \see[for:Lagrangiaan voor gravitatieveld]. Nu kunnen we helaas niet meteen het klassieke deel en het quantum deel van elkaar scheiden. Maar voor onze klassieke Lagrangiaan
 \startformula
 L_r (r, \dot{r})  :=  \half m \dot{r}^2 - V(r),
 \stopformula
+moet de Euler-Lagrange vergelijking gelden. Dit houden we in ons achterhoofd.
 
-moet de Euler-Lagrange vergelijking gelden.
-
-Dit houden we in ons achterhoofd. Wanneer we de klassieke Lagrangiaan invullen in \see[for:LagrangiaanVoorAlgemenePotentiaal] lopen we een extra $V(r)$ op. Daarnaast kunnen we $\dot{r} \dot{q}$ vervangen door
-
+Wanneer we $L_r$ invullen in \see[for:Lagrangiaan voor algemene potentiaal] lopen we een extra $V(r)$ op. Daarnaast kunnen we $\dot{r} \dot{q}$ vervangen door
 \startformula
-\dd{T} \dot{r} q  =  \ddot{r} q + \dot{r} \dot{q}
+\dd{T} (\dot{r} q)  =  \ddot{r} q + \dot{r} \dot{q}
 \stopformula
-
+zodat
 \startformula
 L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 + m (\dd{T} \dot{r} q - \ddot{r} q) - V(r + q)
 \stopformula
 
-Door de Dirichlet voorwaarde valt $\dd{T} \dot{r} q$ weg wanneer we overstappen op de actie (zie \see[sec:DirichletVoorwaarde]). De laatste manipulatie volgt uit de Euler-Lagrange vergelijking op de klassieke Lagrangiaan.
+Door de Dirichlet voorwaarde valt $\dd{T} \dot{r} q$ weg wanneer we overstappen op de actie (zie \see[sec:Dirichlet voorwaarde]). De laatste manipulatie volgt uit de Euler-Lagrange vergelijking op de klassieke Lagrangiaan.
 
 \startalignedformula
-\dd{T} \pdiff{L_r}{\dot{r}}  &=  \pdiff{L_r}{r}  \\
-\dd{T} m \dot{r}             &=  - \tdiff{V}{r}  \\
-m \ddot{r}                   &=  - \tdiff{V}{r}  \\
+\tdiff{}{T} \pdiff{L_r}{\dot{r}}      &=  \pdiff{L_r}{r}  \\
+\tdiff{}{T} \left[ m \dot{r} \right]  &=  - V'(r)  \\
+m \ddot{r}                            &=  - V'(r)  \\
 \stopalignedformula
 
 We herkennen $m \ddot{r}$ en we krijgen
-
 \startformula
-L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 - \tdiff{V}{r} q - V(r + q)
+L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 - V'(r) q - V(r + q)
 \stopformula
 
-Laten we eens goed naar dit resultaat kijken. Dit is onze Lagrangiaan voor een deeltje in een dimensie. We hebben het pad $X(T)$ opgesplitst in een klassiek- en een quantum deel. Het doel is om onze Lagrangiaan ook zo op te splitsen. Stiekem hebben we dit al een beetje gedaan: de klassieke Lagrangiaan $L_r$ staat er al in. Dat betekent dat alle andere termen samen het quantumdeel moeten vormen. Maar sommige zijn nog afhankelijk van $r$!
-
-Dat is dus de eis die we moeten opleggen aan de potentiaal. Het volgende moet onafhankelijk zijn van $r$.
-
-\startformula
-\half m \dot{q}^2 - \tdiff{V}{r} q - V(r) + V(r + q)
-\stopformula
-
+Laten we eens goed naar dit resultaat kijken. Dit is onze Lagrangiaan voor een deeltje in een dimensie. We hebben het pad $X(T)$ opgesplitst in een klassiek- en een quantum deel. Het doel is om onze Lagrangiaan ook zo op te splitsen. Stiekem hebben we dit al een beetje gedaan: de klassieke Lagrangiaan $L_r$ staat er al in. Dat betekent dat alle andere termen samen het quantumdeel moeten vormen. Maar sommige zijn nog afhankelijk van $r$. Dat is dus de eis die we moeten opleggen aan de potentiaal.
+%Het volgende moet onafhankelijk zijn van $r$.
+%\startformula
+%\half m \dot{q}^2 - V'(r) q - V(r) + V(r + q)
+%\stopformula
 Met andere woorden
-
 \startalignedformula
-\dd{r} [ - \tdiff{V}{r} q - V(r) + V(r + q) ]            &=  0  \\
-\tdiff{V^2}{^2 r} q + \tdiff{V}{r} - \tdiff{V}{(r + q)}  &=  0  \\
+\dd{r} \left[ - V'(r) q - V(r) + V(r + q) \right]            &=  0  \\
+\implies V''(r) q + V'(r) - V'(r + q)  &=  0  \\
 \stopalignedformula
-
-Hieraan voldoen precies de tweedegraads polynomen in $X$.
-
+Hieraan voldoen precies tweedegraads polynomen in $X$.
 \startalignedformula
 V(r + q)           &=  a + b (r + q) + c (r + q)^2  \\
 %\tdiff{V}{r}       &=  b + 2 c (r + q)  \\
 %\tdiff{V^2}{^2 r}  &=  2 c  \\
 \stopalignedformula
-
 Zodat
-
 \startformula
-\tdiff{V^2}{^2 r} q + \tdiff{V}{r} - \tdiff{V}{(r + q)}
+V''(r) q + V'(r) - V'(r + q)
 =  2 c q + b + 2 c (r + q) - b - 2 c (r + q)
 =  0
 \stopformula
@@ -127,5 +195,5 @@ Zodat
 
 \stopcomponent
 
-% vim: spell spelllang=nl
+% vim: spell spelllang=nl syn=timtex
 
