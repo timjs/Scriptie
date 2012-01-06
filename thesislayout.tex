@@ -1,10 +1,11 @@
-% thesislayout.tex
-%
-% Author:  Tim Steenvoorden
-% Changed: 27 Apr 2011
-%
+%D scriptielayout.tex
+%D
+%D Author:  Tim Steenvoorden
+%D Changed: 27 Apr 2011
+%D
+%D \todo{testen}
 \startenvironment thesislayout
-\environment documentdefinitions
+\environment      documentdefinitions
 
 % ------------------------------------------------------------------------------
 % General
@@ -24,19 +25,24 @@
 % Typeface
 % ------------------------------------------------------------------------------
 
-\usetypescript[serif][hanging][normal]
-
 \definefontfeature[default][default]
   [onum=yes]%FIXME: hack
 \definefontfeature[smallcaps][smallcaps]
   [onum=yes]%FIXME: hack
 
-\definetypeface[pageros][rm][serif][palatino]
+\definefontfeature[hanging][default]
+  [protrusion=pure]
+\definefontfeature[oldstyle][default]
+  [onum=yes,mode=node,script=latn]
+
+\definetypeface[pageros][rm][serif][palatino]%[default][features=oldstyle]
 \definetypeface[pageros][ss][sans][helvetica][default][rscale=0.91]
 \definetypeface[pageros][mm][math][palatino]
 \definetypeface[pageros][tt][mono][modern]
 
 \setupbodyfont[pageros,11pt]
+
+%\setupalign[hanging]
 
 \setupcapitals
   [sc=yes]
@@ -77,11 +83,15 @@
   [][pagenumber]
   [pagenumber][]
 
+\setupmargindata[inmargin]
+  [location=outer,
+   style=\it]
+\setupmarginframed[inmargin]
+  [align=inner]
+
 % ------------------------------------------------------------------------------
 % Text
 % ------------------------------------------------------------------------------
-
-\setupalign[hanging]
 
 \setupindenting[yes,medium]
 
@@ -89,17 +99,16 @@
   [style=\it]
 
 \setupfootnotes
-  [numbercommand=] % Geen superscript onder aan de pagina
+  [numbercommand=]% Geen superscript onder aan de pagina
 \setupfootnotedefinition
   [location=left,
    distance=0.5em]
 
-\setupinmargin
-  [style=\it]
-
 \setupformulas
   [align=right,
-   margin=yes]
+   margin=yes,
+   spacebefore=medium,
+   indentnext=auto]
 
 \setupabbreviations
   [textstyle=\sc\lowercase]
@@ -122,7 +131,7 @@
 % ------------------------------------------------------------------------------
 
 \setuphead[chapter]
-  [style=\tfa\sc]
+  [style=\tfb]
 \setuphead[section]
   [style=\sc,
    before=\blank,
@@ -190,9 +199,14 @@
 \abbreviation{LHC}{Large Hadron Collider}
 
 % ------------------------------------------------------------------------------
-% Extras
+% Modes
 % ------------------------------------------------------------------------------
+
+\startmode[correction]
+\version[temporary]
+\setupinterlinespace[big]
+\stopmode
 
 \stopenvironment
 
-% vim: ts=2 sw=2 et
+% vim: ts=2 sw=2 et syn=timtex spell
