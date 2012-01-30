@@ -25,6 +25,12 @@
 % Typeface
 % ------------------------------------------------------------------------------
 
+\usemodule[simplefonts]
+
+\setmainfont[Palatino LT Std]
+\setmathfont[Palatino]
+
+\starthiding
 \definefontfeature[default][default]
   [onum=yes]%FIXME: hack
 \definefontfeature[smallcaps][smallcaps]
@@ -46,6 +52,7 @@
 
 \setupcapitals
   [sc=yes]
+\stophiding
 
 % ------------------------------------------------------------------------------
 % Pagelayout
