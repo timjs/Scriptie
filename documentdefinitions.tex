@@ -22,7 +22,13 @@
    rightquote=\upperrightsingleninequote,
    leftquotation=\upperleftdoublesixquote,
    rightquotation=\upperrightdoubleninequote]
-  
+
+\setupquote[2]
+  [left={\symbol[leftquotation]},
+   right={\symbol[rightquotation]}]
+\setupquotation[2]
+  [left={\symbol[leftquote]},
+   right={\symbol[rightquote]}]
 
 % -----------------------------------------------------------------------------
 % Typeface
@@ -41,7 +47,7 @@
               ../figuren,../afbeeldingen,../figures,../images}]
 
 % -----------------------------------------------------------------------------
-% Text
+% Emphasize & Alert
 % -----------------------------------------------------------------------------
 
 \define[1]\emph
@@ -54,17 +60,10 @@
 
 \define[1]\online
   {\useurl[online][#1]
-   \goto{\url[online]}[url(#1)]}
+   \url[online]}
 
 \defineparagraphs[sidebysidetext]
   [n=2]
-
-\setupquote[2]
-  [left={\symbol[leftquotation]},
-   right={\symbol[rightquotation]}]
-\setupquotation[2]
-  [left={\symbol[leftquote]},
-   right={\symbol[rightquote]}]
 
 % -----------------------------------------------------------------------------
 % Todo's
@@ -80,10 +79,24 @@
   %[level=current,% Waarom weet ik ook niet, maar het werkt.
    %interaction=pagenumber]
 
-\starttexdefinition todo #1
-  \inmargin{Todo}
-  \underbar{#1}
-  %\writetolist[todo]{}{#1}
+\defineregister[todos]
+\setupregister[todos]
+  [n=1,
+   indicator=no,
+   before={\blank[none]}]
+
+\starttexdefinition todo
+  \dodoublegroupempty\dotodo
+\stoptexdefinition
+
+\starttexdefinition dotodo #1#2
+  \doifemptyelse{#2}
+    {\inmargin{Todo}
+     \underbar{#1}
+     \todos{Todo+#1}}
+    {\inmargin{#1}
+     \underbar{#2}
+     \todos{#1+#2}}
 \stoptexdefinition
 
 % -----------------------------------------------------------------------------

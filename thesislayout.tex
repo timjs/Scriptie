@@ -1,22 +1,16 @@
-%D scriptielayout.tex
-%D
-%D Author:  Tim Steenvoorden
-%D Changed: 27 Apr 2011
-%D
-%D \todo{testen}
+% scriptielayout.tex
+%
+% Author:  Tim Steenvoorden
+% Changed: 30 Jan 2012
+%
 \startenvironment thesislayout
 \environment      documentdefinitions
 
 % ------------------------------------------------------------------------------
-% General
-% ------------------------------------------------------------------------------
-
-\setupcolors
-  [state=start]
-
-% ------------------------------------------------------------------------------
 % Language
 % ------------------------------------------------------------------------------
+
+\mainlanguage[nl]
 
 \setuplabeltext[nl]
   [chapter={Hoofdstuk }]
@@ -27,8 +21,8 @@
 
 \usemodule[simplefonts]
 
-\setmainfont[Palatino LT Std]
-\setmathfont[Palatino]
+\setmainfont[Palatino]
+\setmathfont[Asana]
 
 \starthiding
 \definefontfeature[default][default]
@@ -66,11 +60,11 @@
    cutspace=42mm,
    height=middle,
    topspace=26mm,
-   bottomspace=42mm,
+   bottomspace=\dimexpr(42mm-3\lineheight),
    margin=26mm,
    header=\lineheight,
    headerdistance=\lineheight,
-   footerdistance=\lineheight,
+   footerdistance=2\lineheight,
    footer=\lineheight]
 
 \setuppagenumbering
@@ -117,8 +111,8 @@
    spacebefore=medium,
    indentnext=auto]
 
-\setupabbreviations
-  [textstyle=\sc\lowercase]
+\setupsynonyms[abbreviation]
+  [synonymstyle=\cap]
 
 % ------------------------------------------------------------------------------
 % Definitions
@@ -147,7 +141,7 @@
   [textstyle=\it]
 
 % ------------------------------------------------------------------------------
-% Lists
+% Lists & Registers
 % ------------------------------------------------------------------------------
 
 \setupcombinedlist[content]
@@ -156,12 +150,11 @@
    pagestyle=\quad\it]
 
 % ------------------------------------------------------------------------------
-% Figures
+% Figures & Tables
 % ------------------------------------------------------------------------------
 
-% ------------------------------------------------------------------------------
-% Tables
-% ------------------------------------------------------------------------------
+\setuptabulate
+  [rulethickness=0.8pt]
 
 % ------------------------------------------------------------------------------
 % Sectionblocks
