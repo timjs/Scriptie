@@ -125,7 +125,7 @@
    right=)]
 
 % -----------------------------------------------------------------------------
-% Math
+% Math Commands
 % -----------------------------------------------------------------------------
 
 \usemodule[mathsets]
@@ -204,16 +204,36 @@
 \define\third
   {{\textstyle\frac13}}
 
-\starttexdefinition complexstartalignedformula [#1]
-  \startformula %\stopformula
-    \startalign[#1]
+% -----------------------------------------------------------------------------
+% Math Alignment
+% -----------------------------------------------------------------------------
+
+\definemathalignment[gather]
+  [n=1,
+   m=2,%FIXME: probably not the right place
+   align=left,
+   distance=1em plus 1 fill]
+
+\define\startsplit
+  {\dosingleempty\dostartsplit}
+
+\starttexdefinition dostartsplit [#1]#2 \stopsplit
+  \define\SC{\NC}
+  \define\SR{\NR\NC\NC}
+  \startalign[#1]
+    \NC #2 \NR[+]
+  \stopalign
 \stoptexdefinition
 
-\definecomplexorsimpleempty\startalignedformula %\stopalignedformula
+\define\startspread
+  {\dosingleempty\dostartspread}
 
-\starttexdefinition stopalignedformula
-    \stopalign
-  \stopformula
+\starttexdefinition dostartspread [#1]#2 \stopspread
+  \define\SC{\NC}
+  \define\SR{\NR\NC}
+  \startgather[#1]
+    \NC #2 \NR[+]
+  \stopgather
 \stoptexdefinition
 
 % -----------------------------------------------------------------------------
