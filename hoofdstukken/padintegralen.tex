@@ -19,6 +19,30 @@
 \item \todo{Waar zijn ze goed voor?}
 \stopitemize
 
+\subsection{}
+
+Om een gevoel te krijgen voor de padintegraal beginnen we met een simpel voorbeeld \todo{woordgebruik}. We nemen de algemene oplossing van de Schrödingerverglijking \todo{controleren}
+  \startformula
+  \Psi = A \e^{-\frac{i}{\hslash} (E t - i \vec{p} \cdot \vec{x})}.
+  \stopformula
+De fase van dit golfpakket kunnen is dan
+  \startformula
+  \phi = -(E t - i \vec{p} \cdot \vec{x})
+  \stopformula
+  \startformula\startsplit
+  \tdiff{\phi}{t}  \SC
+  = \frac{-(E - \vec{p} \cdot \vec{v})}{\hslash}  \SR
+  = \frac{- T - V + \vec{p} \cdot \vec{v}}{\hslash}  \SR
+  = \frac{- \half m v^2 - V + m \vec{v} \cdot \vec{v}}{\hslash}  \SR
+  = \frac{\half m v^2 - V}{\hslash}  \SR
+  = \frac{T - V}{\hslash}  \SR
+  = \frac{L}{\hslash}
+  \stopsplit\stopformula
+  \startformula
+  \Delta\phi = \int \frac{L}{\hslash} \;\d t = \frac{S}{\hslash}
+  \stopformula
+Dus het faseverschil tussen de twee tijdstipppen waarop we het deeltje bekijken wordt gegeven door de klassieke actie over de gereduceerde constante van Planck.
+
 \section{}
 
 \startitemize
