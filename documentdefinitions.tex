@@ -208,7 +208,6 @@
 
 \definemathalignment[gather]
   [n=1,
-   m=2,%FIXME: probably not the right place
    align=left,
    distance=1em plus 1 fill]
 
@@ -229,9 +228,19 @@
 \starttexdefinition dostartspread [#1]#2 \stopspread
   \define\SC{\NC}
   \define\SR{\NR\NC}
-  \startgather[#1]
+  \startgather[m=2,#1]
     \NC #2 \NR[+]
   \stopgather
+\stoptexdefinition
+
+\define\startsteps
+  {\dosingleempty\dostartsteps}
+
+\starttexdefinition dostartsteps [#1]#2 \stopsteps
+  \define\SR{\NR\NC\NC\implies\NC}
+  \startalign[m=2,#1]
+    \NC\NC \NC #2 \NR[+]
+  \stopalign
 \stoptexdefinition
 
 % -----------------------------------------------------------------------------
