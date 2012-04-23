@@ -1,0 +1,14 @@
+# Default
+.DS_Store
+*.log
+*.swp
+*.tmp
+
+# ConTeXt
+*.tuc
+
+# Compiled
+*.pdf
+
+# Tests
+test*
