@@ -19,7 +19,7 @@
 \usemodule[simplefonts]
 
 \setmainfont[Pagella]
-\setmathfont[Asana]
+\setmathfont[Palatino]
 
 \starthiding
 \definefontfeature[default][default]
@@ -66,7 +66,7 @@
 
 \setuppagenumbering
   [alternative=doublesided,
-   location=]% Zie \setupheader/footertexts
+   location=]% See \setupheader/footertexts
 
 \setupheader
   [state=empty,
@@ -97,7 +97,7 @@
   [style=\it]
 
 \setupfootnotes
-  [numbercommand=]% Geen superscript onder aan de pagina
+  [numbercommand=]% We don't want subscripts at the bottom of the page.
 \setupfootnotedefinition
   [location=left,
    distance=0.5em]
@@ -109,7 +109,7 @@
    indentnext=auto]
 
 \setupsynonyms[abbreviation]
-  [synonymstyle=\cap]
+  [synonymstyle=\sc]
 
 % ------------------------------------------------------------------------------
 % Definitions
