@@ -197,10 +197,14 @@
 
 \define[1]\E
   {\math{\cdot 10^{#1}}}
+\define[1]\unitfrac
+  {{\textstyle\frac{1}{#1}}}
 \define\half
-  {{\textstyle\frac12}}
+  {\unitfrac{2}}
 \define\third
-  {{\textstyle\frac13}}
+  {\unitfrac{3}}
+\define\rhbar
+  {\unitfrac{\hbar}}
 
 % -----------------------------------------------------------------------------
 % Math Alignment
