@@ -220,35 +220,50 @@
    align=left,
    distance=1em plus 1 fill]
 
-\define\startsplit
-  {\dosingleempty\dostartsplit}
+\starttexdefinition startsplit
+  \dosingleempty\dostartsplit
+\stoptexdefinition
 
-\starttexdefinition dostartsplit [#1]#2 \stopsplit
+\starttexdefinition dostartsplit [#1]
   \define\SC{\NC}
   \define\SR{\NR\NC\NC}
   \startalign[#1]
-    \NC #2 \NR[+]
+    \NC
+\stoptexdefinition
+
+\starttexdefinition stopsplit
+    \NR[+]
   \stopalign
 \stoptexdefinition
 
-\define\startspread
-  {\dosingleempty\dostartspread}
+\starttexdefinition startspread
+  \dosingleempty\dostartspread
+\stoptexdefinition
 
-\starttexdefinition dostartspread [#1]#2 \stopspread
+\starttexdefinition dostartspread [#1]
   \define\SC{\NC}
   \define\SR{\NR\NC}
   \startgather[m=2,#1]
-    \NC #2 \NR[+]
+    \NC
+\stoptexdefinition
+
+\starttexdefinition stopspread
+    \NR[+]
   \stopgather
 \stoptexdefinition
 
-\define\startsteps
-  {\dosingleempty\dostartsteps}
+\starttexdefinition startsteps
+  \dosingleempty\dostartsteps
+\stoptexdefinition
 
-\starttexdefinition dostartsteps [#1]#2 \stopsteps
+\starttexdefinition dostartsteps [#1]
   \define\SR{\NR\NC\NC\implies\NC}
   \startalign[m=2,#1]
-    \NC\NC \NC #2 \NR[+]
+    \NC\NC \NC
+\stoptexdefinition
+
+\starttexdefinition stopsteps
+    \NR[+]
   \stopalign
 \stoptexdefinition
 
