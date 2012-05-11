@@ -4,11 +4,28 @@
 *.swp
 *.tmp
 
+# MetaPost
+*mpgraph*
+
+# TikZ
+*.pgf
+
 # ConTeXt
+*.tui
+*.tuo
 *.tuc
+*.top
+*.toc
+*.ted
+
+# BibTeX
+*.aux
+*.blg
+*.bbl
 
 # Compiled
 *.pdf
+*.xls
 
 # Tests
 test*
