@@ -130,9 +130,12 @@
 % ------------------------------------------------------------------------------
 
 \setuphead[chapter]
-  [style=\tfb]
+  [style=\tfb,
+   color=orange]
 \setuphead[section]
   [style=\sc,
+   color=orange,
+   alternative=margin,
    before=\blank,
    after=\blank]
 \setuphead[subsection]
@@ -150,6 +153,10 @@
 % ------------------------------------------------------------------------------
 % Figures & Tables
 % ------------------------------------------------------------------------------
+
+\setupcaptions
+  [headstyle=\sc,
+   headcolor=orange]
 
 \setuptabulate
   [rulethickness=0.8pt]
@@ -195,6 +202,17 @@
 \abbreviation{LHS}{Left Hand Side}
 \abbreviation{RHS}{Right Hand Side}
 \abbreviation{LHC}{Large Hadron Collider}
+
+% ------------------------------------------------------------------------------
+% TikZ
+% ------------------------------------------------------------------------------
+
+\usemodule[tikz]
+
+\tikzstyle{every picture}=[thick,>=latex,font=\small]
+
+\colorlet{light orange}{orange!33}
+\colorlet{mid orange}{orange!66}
 
 % ------------------------------------------------------------------------------
 % Modes
