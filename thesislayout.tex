@@ -47,6 +47,23 @@
 \stophiding
 
 % ------------------------------------------------------------------------------
+% Drawings & Color
+% ------------------------------------------------------------------------------
+
+\usemodule[tikz]
+\usetikzlibrary[decorations.markings]
+
+\tikzstyle{every picture}=[thick,>=stealth,font=\small]
+\tikzstyle{every node}=[black]
+
+\definecolor[orange]
+  [h=30,s=1,v=1]
+\definecolor[mid orange]
+  [h=30,s=0.66,v=1]
+\definecolor[light orange]
+  [h=30,s=0.33,v=1]
+
+% ------------------------------------------------------------------------------
 % Pagelayout
 % ------------------------------------------------------------------------------
 
@@ -109,8 +126,8 @@
    spacebefore=medium,
    indentnext=auto]
 
-\setupsynonyms[abbreviation]
-  [synonymstyle=\sc]
+%\setupsynonyms[abbreviation]
+  %[synonymstyle=\sc]
 
 % ------------------------------------------------------------------------------
 % Definitions
@@ -131,7 +148,10 @@
 
 \setuphead[chapter]
   [style=\tfb,
-   color=orange]
+   color=orange,
+   numbercolor=light orange,
+   numberstyle={\switchtobodyfont[48pt]},
+   alternative=margin]
 \setuphead[section]
   [style=\sc,
    color=orange,
@@ -139,7 +159,8 @@
    before=\blank,
    after=\blank]
 \setuphead[subsection]
-  [textstyle=\it]
+  [textstyle=\it,
+   aligntitle=float]
 
 % ------------------------------------------------------------------------------
 % Lists & Registers
@@ -151,8 +172,19 @@
    pagestyle=\quad\it]
 
 % ------------------------------------------------------------------------------
-% Figures & Tables
+% Figures, Tables & Intermezzi
 % ------------------------------------------------------------------------------
+
+\defineframedtext[intermezzo]
+  [style=small,
+   width=2\marginwidth,
+   frame=off,
+   background=color,
+   backgroundcolor=light orange]
+
+\setupfloat[intermezzo]
+  [default={outermargin,none},
+   maxwidth=\marginwidth]
 
 \setupcaptions
   [headstyle=\sc,
@@ -203,23 +235,15 @@
 \abbreviation{RHS}{Right Hand Side}
 \abbreviation{LHC}{Large Hadron Collider}
 
-% ------------------------------------------------------------------------------
-% TikZ
-% ------------------------------------------------------------------------------
-
-\usemodule[tikz]
-
-\tikzstyle{every picture}=[thick,>=latex,font=\small]
-
-\colorlet{light orange}{orange!33}
-\colorlet{mid orange}{orange!66}
+\abbreviation{QED}{Quantum Electro Dynamics}
+\abbreviation{CALTECH}{California Institute of Technology}
 
 % ------------------------------------------------------------------------------
 % Modes
 % ------------------------------------------------------------------------------
 
 \startmode[correction]
-\version[temporary]
+\version[concept]
 \setupinterlinespace[big]
 \stopmode
 
