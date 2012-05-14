@@ -1,0 +1,42 @@
+\startcomponent paden
+\product        scriptie
+\environment    thesislayout
+
+\chapter[chp:paden]{Oneindig veel paden}
+
+\startemphasize
+De meeste teksten introduceren de kwantummechanica aan de hand van canonieke kwantisatie en de bijbehorende operatoralgebra van \unknown. In dit eerste hoofdstuk bekijken we de veel paden formulering van de kwantummechanica. Deze alternatieve methode levert ons niet alleen een krachtige rekenmethode op, maar ook een heel andere kijk op verplaatsing van kwantumdeeltjes.
+
+Aan de hand van een tweetal experimenten bekijken we de verschillen tussen het klassieke pad van een deeltje en de kwantummechanische paden. Hierbij komt ook de relatie tussen waarschijnlijkheid en fase ter sprake. Door dit experiment stap voor stap uit te breiden komen we uiteindelijk bij de \emph{padintegraal} van Feynman. Dit is de basis voor de rest van dit werk.
+\stopemphasize
+
+\section[sec:klassiek pad]{Het klassieke pad}
+
+Het eerste experiment dat wij in dit hoofdstuk beschouwen is simpel van opzet. We nemen een bron $B$ van deeltjes met massa $m$. Op afstand $x$ zetten we een detector $D$ die de uitgezonden deeltjes opvangt (zie ook \see[fig:simpel experiment]). In de rest van dit hoofdstuk zullen we dit experiment stap voor stap uitbreiden.
+
+In de klassieke wereld is het niet ingewikkeld om het \emph{klassieke pad} $\bar{x}(t)$ uit te rekenen dat een deeltje van $B$ naar $D$ aflegt. Natuurlijk zijn de wetten van Newton een goed hulpmiddel, maar laten wij gebruik maken van de (meer analytische) formalismen van Lagrange \cite[].
+
+Lagrange karakteriseert een systeem met de vergelijking
+  \startformula
+  L := T - V
+  \stopformula
+de naar hem vernoemde \emph{Lagrangiaan}. Hierbij zijn $T$ de kinetische energie van het systeem en $V$ de potentiaal waarin het systeem zich bevind. Op deze manier houden we rekening met zowel de interne eigenschappen van het systeem als met de eigenschappen van de omgeving. Voor een deeltje met kinetische energie $\half m \dot{x}^2$ bewegend in een potentiaal $V(x,t)$ variërend in plaats en tijd ontstaat
+  \startformula
+  L(x,\dot{x},t) = \half m \dot{x}^2 - V(x,t).
+  \stopformula
+Hier is L expliciet een functie van $x$, $\dot{x}$ en $t$.
+
+Om nu het pad te berekenen dat ons deeltje van de bron naar de detector aflegt maken we gebruik van het \emph{princiepe van kleinste actie}. Dit wil zeggen dat we een grootheid $S$ (de actie) kunnen invoeren die we voor elk pad kunnen uitrekenen. He pad dat het deeltje uiteindelijk aflegt is dat pad waarbij $S$ minimaal is. Met andere woorden: $S$ verandert niet in eerste orde wanneer het klassieke pad $\bar{x}(t)$ een beetje verandert. We definieeren de actie als
+  \startformula
+  S := \int_{t_i}^{t_f} L(x,\dot{x},t) \;\d t
+  \stopformula
+
+\section[sec:twee speleten,sec:kwantum pad]{Twee spleten}
+
+\section[sec:reflecties]{Reflecties}
+
+\section{Fases en acties}
+
+\stopcomponent
+
+% vim: spell spl=nl cole=1

@@ -2,17 +2,44 @@
 \product        scriptie
 \environment    thesislayout
 
-\chapter{Feynman Padintegralen}
-
-\todo{Titels aanpassen}
+\chapter[chp:paden]{Oneindig veel paden}
 
 \startemphasize
-\todo{Inleiding}
+In dit hoofdstuk introduceren we de Feynman padintegraal, een alternatieve methode om kwantummechanische berekeningen uit te voeren. Allereerst proberen we met een heuristische afleiding een gevoel te geven voor de herkomst van de padintegraal, waarna we een voorbeeld bekijken waarin we de padintegraal zullen gebruiken.
+
+Wanneer we een goed beeld hebben kunnen we over gaan tot de concrete afleiding van Feynman's padintegraal. Deze geven we met behulp van \unknown. Hierna bekijken we enkele oplos methodes. In het bijzonder leiden we af wanneer we een padintegraal exact kunnen oplossen door deze te schrijven in een \emph{additieve vorm}. Daarna bestuderen we benaderingsmethoden zoals Fourierdecompositie.
 \stopemphasize
 
-\section[sec:padintegraal]{Padintegralen}
-\todo{Andere titel}
+\startemphasize
+In dit eerste hoofdstuk geven we een inleiding tot de \emph{veel paden methode} in de kwantummechanica. Deze alternatieve kijk op de kwantummechanica levert niet alleen een andere manier van rekenen op. Het levert ons ook een andere blik op 
+\stopemphasize
 
+\starttikzpicture
+\draw[help lines] (0,0) grid (5,5);
+\draw[orange] plot[smooth] (\x,{(cos(sin(\x)))^2});
+\stoptikzpicture
+
+\section[sec:klassiek pad]{Het klassieke pad}
+
+
+
+\section[sec:twee speleten,sec:kwantum pad]{Twee spleten}
+
+\section[sec:reflecties]{Reflecties}
+
+\section{Fases en acties}
+
+\section[sec:padintegraal]{Padintegralen}
+
+\placeintermezzo
+  {Richard P. Feynman}
+\startintermezzo
+\subject{Richard P. Feynman\\ (1918--1988)}
+
+Een Amerikaans natuurkundige, het grootste deel van zijn leven werkzaam bij het \infull{CALTECH} (\CALTECH). In 1965 ontving hij de Nobel prijs (samen met Sin-Itiro Tomonaga en Julian Schwinger) voor zijn werk in kwantum elektro dynamica (\QED). Daarnaast is hij bekend van de Feynmandiagrammen binnen de subatomaire fysica.
+\stopintermezzo
+
+In \unknown\ kwam Richard Feynman met een alternatieve methode om kwantummechanische berekeningen uit te voeren. In plaats van \unknown\ 
 Om een gevoel te krijgen voor wat een padintegraal eigenlijk is en hoe Feynman op dit opmerkelijke idee is gekomen bekijken we in deze sectie enkele voorbeelden. We beginnen met een heuristische afleiding van de padintegraal en vervolgens bekijken we een voorbeeld van een berekening. Daarna geven we een concrete afleiding van de Feynman padintegraal die we in de rest van dit document zullen gebruiken.
 
 \starthiding \subsection{Heuristische afleiding Schrödingervergelijking}
@@ -90,7 +117,7 @@ Maar hoe moeten we dit conceptueel opvatten? We hebben gezien dat de fase $\phi$
    \coordinate[label=above:$D$] (D) at (10,10);
 
    \foreach \x [count=\l from 0] in {-2,...,12}
-     \draw[thin,draw=light orange] (0,10) -- (\x,0) node[below] {$p_{\l}$} -- (10,10);
+     \draw[thin,light orange] (B) -- (\x,0) node[below] {$p_{\l}$} -- (D);
    \draw[thin,orange] (B) -- (5,0) -- (D);
    \draw[ultra thick] (-3,0) -- (13,0) node[right] {$r$};
    \stoptikzpicture}
@@ -100,20 +127,43 @@ Beschouw nu het volgende experiment. Vanuit een bron $B$ bombarderen we een refl
 \todo{Pijlen ipv bolletjes}
 \placefigure[][fig:fasoren]
   {Het optellen van de fasoren van elke afzonderlijk pad $p_i$ resulteert in de fasor van het klassieke pad van $B$ naar $D$.}
-  {\starttikzpicture
+  {\starttikzpicture[auto,near start]
    \draw[help lines] (-0.9,-0.9) grid (6.9,3.9);
 
    \draw[->] (-1,0) -- (7,0) node[right] {$\Re$};
    \draw[->] (0,-1) -- (0,4) node[above] {$\Im$};
 
-   \draw[light orange,mark=*] plot file {phasors.data};
-   %\foreach \p/\label [remember=\p as \lastp (initially {(0,0)})] in {(0,0)/S, (1.00,-0.09)/A, (0.52,-0.97)/B, (-0.37,-0.52)/C, (-0.33,0.48)/D, (0.42,1.14)/E, (1.40,1.35)/F, (2.40,1.26)/G, (3.38,1.08)/H, (4.38,0.99)/I, (5.36,1.19)/J, (6.10,1.85)/K, (6.15,2.85)/L, (5.25,3.30)/M, (4.78,2.42)/N, (5.78,2.34)/O}
-   %  \draw[->,gray] \lastp -- \p node {$\label$};
+   \path (0,0) coordinate (P0)
+     \foreach \a [count=\i] in {355.05, 241.74, 153.24, 87.55, 41.51, 11.62, 354.94, 349.59, 354.94, 11.62, 41.51, 87.55, 153.24, 241.74, 355.05}
+       { ++(\a:1) coordinate (P\i)};
 
-   \coordinate[label=below right:$B$] (B) at (0,0);
-   \coordinate[label=below:$D$] (D) at (5.78,2.34);
+   \startscope[->,light orange]
+     \draw (P0) -- node[swap] {$p_{0}$} (P1);
+     \foreach \to [remember=\to as \from (initially 1)] in {2,...,8}
+        \draw (P\from) -- node {$p_{\from}$} (P\to);
+     \foreach \to [remember=\to as \from (initially 8)] in {9,...,14}
+        \draw (P\from) -- node[swap] {$p_{\from}$} (P\to);
+     \draw (P14) -- node {$p_{14}$} (P15);
+   \stopscope
 
-   \draw[->,ultra thick,orange] (B) -- (D);
+   \draw[->,ultra thick,orange] (P0) node[above right] {$B$} -- (P15) node[below] {$D$};
+   \stoptikzpicture
+   \starttikzpicture
+   \draw[help lines] (-0.9,-0.9) grid (6.9,3.9);
+
+   \draw[->] (-1,0) -- (7,0) node[right] {$\Re$};
+   \draw[->] (0,-1) -- (0,4) node[above] {$\Im$};
+
+   \path (0,0) coordinate (P0)
+     \foreach \a [count=\i] in {355.05, 241.74, 153.24, 87.55, 41.51, 11.62, 354.94, 349.59, 354.94, 11.62, 41.51, 87.55, 153.24, 241.74, 355.05}
+       { ++(\a:1) coordinate (P\i)};
+
+   \draw[->,light orange] (P0) -- node[midway] {$p_{0}$} (P1);
+   \foreach \to [remember=\to as \from (initially 1)] in {2,...,14}
+      \draw[->,light orange] (P\from) -- node[near start] {$p_{\from}$} (P\to);
+   \draw[->,light orange] (P14) -- node[midway] {$p_{14}$} (P15);
+
+   \draw[->,ultra thick,orange] (P0) node[below right] {$B$} -- (P15) node[below] {$D$};
    \stoptikzpicture}
 
 Met de \emph{som over alle paden} doelt Feynman niet op het idee om alle paden bij elkaar op te tellen, maar om de fases $\phi_i$ behorende bij elk pad $p_i$ te sommeren. Dit kunnen we ons als volgt voorstellen. Elk pad $p_1,\dots,p_{14}$ heeft een bijbehorende fase $\phi_i$ gekoppeld aan de top van de golf met positie $x^{\text{(top)}}_i$. De bijbehorende fasoren zijn getekend in \see[fig:fasoren]. Wanneer we al deze fasoren optellen, komen we uit op de fasor van het klassieke pad.  In \see[fig:fasoren] is ook goed te zien dat paden die verder van het klassieke pad $p_7$ liggen een grotere afwijking hebben. Daardoor hebben zij de neiging elkaar uit te doven.
@@ -121,176 +171,19 @@ Met de \emph{som over alle paden} doelt Feynman niet op het idee om alle paden b
 \placefigure[][fig:acties]
   {Acties bij elk pad $p_i$. $p_7$ is minimaal en zodoende het klassieke pad van $B$ naar $D$.}
   {\starttikzpicture[scale=0.5]
-   \draw[help lines] (-7.1,-0.1) grid (7.7,5.7);
+   \draw[help lines] (-7.1,-0.1) grid (7.7,6.7);
 
    \draw[->] (-7.2,0) -- (7.7,0);
-   \draw[->] (-7,-0.2) -- (-7,5.7) node[above] {$\phi \sim \int L/\hslash \;\d t$};
+   \draw[->] (-7,-0.2) -- (-7,6.7) node[above] {$\phi \sim \int L/\hslash \;\d t$};
 
    \foreach \x [count=\l from 0] in {-7,...,7}
      \draw (\x,0.1) -- (\x,-0.1) node[below] {$p_{\l}$};
 
-   \draw[draw=light orange,smooth,mark=*,mark options={orange}]
-        plot[samples at={-7,...,7}] (\x,{\x*\x/10});
+   \draw[light orange,smooth,mark=*,mark options={orange}]
+        plot[samples at={-7,...,7}] (\x,{\x*\x/10+1});
    \stoptikzpicture}
 
 \subsection{Concrete afleiding padintegraal}
-
-\section{}
-
-\startitemize
-\item \todo{Hoe kunnen we ze uitrekenen?}
-\item \todo{Welke methoden zijn er?}
-\stopitemize
-
-\section[sec:gravitatieveld,sec:kwantumfluctuatie,sec:Dirichlet voorwaarde]{Quantumfluctuaties}
-
-Nu we een redelijk beeld hebben van padintegralen, kunnen we een simpel voorbeeld uitrekenen. We nemen een deeltje zonder spin met massa $m$. Laten we het niet te gemakkelijk maken, en een potentiaal kiezen ongelijk nul:%, de zwaartekrachtpotentiaal
-  \startformula
-  V(X)  =  m g X.
-  \stopformula
-
-Om de propagator uit te rekenen met een padintegraal -- zoals we die afgeleid hebben in \see[sec:padintegraal] -- moeten we een beeld hebben van hoe $X(T)$ er uit ziet. Helaas is $X(T)$ niet het klassieke pad.
-Toch zou het handig zijn als we gebruik kunnen maken van de oplossing van de klassieke Euler-Lagrange vergelijking. Dit is een goede reden om er voor te zorgen dat het klassieke pad onderdeel is van $X(T)$. Wat we overhouden zijn de afwijkingen ten opzichte van het klassieke pad. Wanneer we deze afsplitsing toepassen ontstaat
-  \startformula
-  X(T)  :=  r(T) + q(T).
-  \stopformula
-Hierin is $r(T)$ het klassieke pad en dus de oplossing van de Euler-Lagrange vergelijking. $q(T)$ is de afwijking ten opzichte van het klassieke pad ofwel de \emph{kwantumfluctuaties}.
-Het begin en eindpunt van het pad liggen vast. Dat betekent dat de afwijking op $T=0$ en $T=t$ nul moet zijn, zodat de kwantumfluctuaties hier geen invloed hebben:
-  \startformula
-  q(0) = q(t) = 0.
-  \stopformula
-Dit wordt de \emph{Dirichlet randvoorwaarde} genoemd \todo{citaat}.
-
-Laten we eens kijken wat er gebeurt met de Lagrangiaan wanneer we de opsplitsing van $X(T)$ invullen:
-  \placeformula[for:Lagrangiaan voor gravitatieveld]
-  \startformula\startsplit
-  L (X, \dot{X})  \SC
-  =  \half m \dot{X}^2 - m g X  \SR
-  =  \half m (\dot{r} + \dot{q})^2 - m g (r + q)  \SR
-  =  \half m \dot{r}^2 - m g r + \half m \dot{q}^2 - m g q + m \dot{r} \dot{q}.
-  \stopsplit\stopformula
-Na een kleine herordening zien we dat we een klassieke Lagrangiaan kunnen afsplitsen
-  \startformula
-  L_r  :=  \half m \dot{r}^2 - m g r.
-  \stopformula
-  %\startformula\startsplit
-  %\phantom{L (X, \dot{X})}
-  %\SC=  \half m \dot{r}^2 + \half m \dot{q}^2 + m \dot{r} \dot{q} - m g r - m g q  \SR
-  %\stopsplit\stopformula
-Wel blijven we zitten met de kruisterm $m g q$.
-Om deze weg te werken zullen we een truc toepassen. We houden in ons achterhoofd dat we deze Lagrangiaan zo meteen gaan integreren. Voor de padintegraal hebben we immers de \emph{actie} nodig. Ook kunnen we de randvoorwaarde van Dirichlet gebruiken. Laten we eerst de Euler-Lagrange vergelijking oplossen voor $L_r$. Zo vinden we het klassieke pad $r(t)$.
-  \startformula\startsteps
-  \tdiff{}{T} \pdiff{L_r}{\dot{r}}  \NC=  \pdiff{L_r}{r}  \SR
-  \tdiff{}{T} m \dot{r}  \NC=  - m g  \SR
-  \ddot{r}  \NC=  - g
-  \stopsteps\stopformula
-Dat wisten we natuurlijk al lang, $g$ is immers de valversnelling van een klassiek deeltje in een zwaartekrachtspotentiaal. Dit kunnen we nu mooi invullen in \see[for:Lagrangiaan voor gravitatieveld].
-  \startformula
-  L (X, \dot{X})  =  L_r(r, \dot{r}) + \half m \dot{q}^2 + m (\ddot{r} q + \dot{r} \dot{q})
-  %\SC=  L_r(r, \dot{r}) + \half m \dot{q}^2 - m g q + m \dot{r} \dot{q}  \SR
-  \stopformula
-De term tussen haakjes is precies de afgeleide van $\dot{r} q$ naar $T$, dus:
-  \startformula
-  L (X, \dot{X})  =  L_r(r, \dot{r}) + \half m \dot{q}^2 + m \dd{T} (\dot{r} q),
-  \stopformula
-$T$ is precies de variabele waarnaar we integreren in de actie. Wanneer we van $T=0$ tot $T=t$ integreren, valt de term weg door de Dirichlet randvoorwaarde:
-  \startformula
-  \int_0^t  \dd{T} (\dot{r} q)  \,\d T
-  =  \left.\dot{r} q \right|_0^t
-  =  0
-  \stopformula
-De actie ziet er dan uit als
-  \startformula\startsplit
-  S (t, 0)  \SC
-  =  \int_0^t  L(X, \dot{X})  \,\d T  \SR
-  =  \int_0^t  \left( L_r(r, \dot{r}) + \half m \dot{q}^2 + m \dd{T} (\dot{r} q) \right)  \,\d T  \SR
-  =  \int_0^t  L_r(r, \dot{r}) \,\d T + \int_0^t \half m \dot{q}^2 \,\d T.
-  \stopsplit\stopformula
-Deze actie kunnen we opsplitsen in een klassiek deel en een kwantum deel
-  \startformula\startspread
-  S_r(t,0)  :=  \int_0^t  L_r(r, \dot{r})  \,\d T  \SC
-  S_q(t,0)  :=  \int_0^t \half m \dot{q}^2 \,\d T,
-  \stopspread\stopformula
-waarbij $S_q$ precies de actie is van een vrij deeltje.
-
-%Maar het gaat voornamelijk om de laatste term. We hebben niet voor niets zoveel werk gedaan om deze te krijgen. Wanneer we de term integreren, en de Dirichlet randvoorwaarden toepassen valt deze weg!
-  %\startformula\startsplit
-  %\phantom{S (t, 0)}
-  %\SC=  \int_0^t  \left( L_r(r, \dot{r}) + \half m \dot{q}^2 + m \dd{T} (\dot{r} q) \right)  \,\d T  \SR
-  %\stopsplit\stopformula
-
-We hebben de actie -- en dus onze padintegraal -- weten op te splitsen in een klassiek deel en een kwantum deel. De volgende stap is het uitrekenen van deze twee delen. Maar het is ook interessant om te weten wanneer we deze opsplitsing kunnen toepassen. Blijkbaar kan dit bij potentialen van de vorm van $V \sim x$ en $V = 0$ (neem $g = 0$ in bovenstaande redenering). Welke potentialen nog meer?
-
-\section{Additieve vorm}
-
-In de vorige sectie hebben we kunnen zien dat een padintegraal met $V \sim x$ eenvoudig exact op te lossen is. Lang niet alle padintegralen zijn analytisch oplosbaar. Welke restrictie moeten we opleggen? Aangezien we de kinetische-energie term van de Lagrangiaan niet kunnen aanpassen, kunnen we deze vraag reduceren tot: waar moet de potentiaal $V$ aan voldoen?
-
-Laten we nogmaals de padintegraal uitrekenen voor één deeltje met spin $0$ en massa $m$, maar nu met een algemene potentiaal $V(X)$.
-We passen dezelfde truc toe als in \see[sec:gravitatieveld] waarbij we $X(T)$ opsplitsen in een klassiek pad $r(T)$ en kwantumfluctuaties $q(T)$:
-  \startformula
-  X(T)  :=  r(T) + q(T)
-  \stopformula
-De vorm van $r(T)$ en $q(T)$ doen er wederom niet toe. We vinden voor de Lagrangiaan
-  \placeformula[for:Lagrangiaan voor algemene potentiaal]
-  \startformula\startsplit
-  L (X, \dot{X})  \SC
-  =  \half m \dot{X}^2 - V(X)  \SR
-  =  \half m (\dot{r} + \dot{q})^2 - V(r + q)  \SR
-  =  \half m \dot{r}^2 + \half m \dot{q}^2 + m \dot{r} \dot{q} - V(r + q)
-  \stopsplit\stopformula
-Waarin we de eerste drie termen herkennen uit \see[for:Lagrangiaan voor gravitatieveld]. Nu kunnen we helaas niet meteen het klassieke deel en het kwantum deel van elkaar scheiden. Maar voor onze klassieke Lagrangiaan
-  \startformula
-  L_r (r, \dot{r})  :=  \half m \dot{r}^2 - V(r),
-  \stopformula
-moet nog steeds de Euler-Lagrange vergelijking gelden. Dit houden we in ons achterhoofd.
-
-Wanneer we $L_r$ invullen in \see[for:Lagrangiaan voor algemene potentiaal] houden we een extra $V(r)$ over. Daarnaast kunnen we $\dot{r} \dot{q}$ herschrijven met
-  \startformula
-  \dd{T} (\dot{r} q)  =  \ddot{r} q + \dot{r} \dot{q}
-  \stopformula
-zodat
-  \placeformula[for:Lagrangiaan voor algemene potentiaal met substituties]
-  \startformula
-  L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 + m (\dd{T} \dot{r} q - \ddot{r} q) - V(r + q)
-  \stopformula
-Door de Dirichlet randvoorwaarde valt $\dd{T} \dot{r} q$ weg wanneer we overstappen op de actie (zie \see[sec:Dirichlet voorwaarde]). De laatste manipulatie komt uit de Euler-Lagrange vergelijking voor de klassieke Lagrangiaan:
-  \startformula\startsteps
-  \tdiff{}{T} \pdiff{L_r}{\dot{r}}  \NC=  \pdiff{L_r}{r}  \SR
-  \tdiff{}{T} m \dot{r}  \NC=  - V'(r)  \SR
-  m \ddot{r}  \NC=  - V'(r).
-  \stopsteps\stopformula
-Wanneer we dit invullen in \see[for:Lagrangiaan voor algemene potentiaal met substituties] krijgen we
-  \startformula
-  L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 - V'(r) q - V(r + q).
-  \stopformula
-
-Laten we eens goed naar dit resultaat kijken. Dit is onze Lagrangiaan voor een deeltje in één dimensie. We hebben het pad $X(T)$ opgesplitst in een klassiek- en een kwantum deel. Het doel is om onze Lagrangiaan ook zo op te splitsen. Stiekem hebben we dit al een beetje gedaan: de klassieke Lagrangiaan $L_r$ staat er al in. Dat betekent dat alle andere termen samen het kwantum deel moeten vormen. Maar sommige termen zijn nog afhankelijk van $r$. De eis die we moeten opleggen is dus dat deze termen onafhankelijk van $r$ moeten zijn.
-Met andere woorden:
-  \startformula\startspread[m=3]
-  \dd{r} \left( - V'(r) q - V(r) + V(r + q) \right)  =  0  \SC
-  \implies  \SC
-  V''(r) q + V'(r) - V'(r + q)  =  0
-  \stopspread\stopformula
-Hieraan voldoen precies tweedegraads polynomen in $X$:
-  \startformula
-  V(r + q) =  a + b (r + q) + c (r + q)^2,
-  \stopformula
-  %\tdiff{V}{r}       \SC=  b + 2 c (r + q)  \SR
-  %\tdiff{V^2}{^2 r}  \SC=  2 c  \SR
-zodat:
-  \startformula
-  V''(r) q + V'(r) - V'(r + q)
-  =  2 c q + b + 2 c (r + q) - b - 2 c (r + q)
-  =  0.
-  \stopformula
-
-\section{}
-
-\todo{Hier pas rekenmethode met Fourierdecompositie}
-
-\section{}
-
-\todo{Hoe reduceren (benaderen) we een andere klasse tot bovenstaande?}
 
 \stopcomponent
 
