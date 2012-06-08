@@ -14,23 +14,6 @@ Wanneer we een goed beeld hebben kunnen we over gaan tot de concrete afleiding v
 In dit eerste hoofdstuk geven we een inleiding tot de \emph{veel paden methode} in de kwantummechanica. Deze alternatieve kijk op de kwantummechanica levert niet alleen een andere manier van rekenen op. Het levert ons ook een andere blik op 
 \stopemphasize
 
-\starttikzpicture
-\draw[help lines] (0,0) grid (5,5);
-\draw[orange] plot[smooth] (\x,{(cos(sin(\x)))^2});
-\stoptikzpicture
-
-\section[sec:klassiek pad]{Het klassieke pad}
-
-
-
-\section[sec:twee speleten,sec:kwantum pad]{Twee spleten}
-
-\section[sec:reflecties]{Reflecties}
-
-\section{Fases en acties}
-
-\section[sec:padintegraal]{Padintegralen}
-
 \placeintermezzo
   {Richard P. Feynman}
 \startintermezzo
@@ -39,10 +22,7 @@ In dit eerste hoofdstuk geven we een inleiding tot de \emph{veel paden methode} 
 Een Amerikaans natuurkundige, het grootste deel van zijn leven werkzaam bij het \infull{CALTECH} (\CALTECH). In 1965 ontving hij de Nobel prijs (samen met Sin-Itiro Tomonaga en Julian Schwinger) voor zijn werk in kwantum elektro dynamica (\QED). Daarnaast is hij bekend van de Feynmandiagrammen binnen de subatomaire fysica.
 \stopintermezzo
 
-In \unknown\ kwam Richard Feynman met een alternatieve methode om kwantummechanische berekeningen uit te voeren. In plaats van \unknown\ 
-Om een gevoel te krijgen voor wat een padintegraal eigenlijk is en hoe Feynman op dit opmerkelijke idee is gekomen bekijken we in deze sectie enkele voorbeelden. We beginnen met een heuristische afleiding van de padintegraal en vervolgens bekijken we een voorbeeld van een berekening. Daarna geven we een concrete afleiding van de Feynman padintegraal die we in de rest van dit document zullen gebruiken.
-
-\starthiding \subsection{Heuristische afleiding Schrödingervergelijking}
+\subsection{Heuristische afleiding Schrödingervergelijking}
 
 Bekijk een algemene vlakke golf
   \startformula
@@ -69,121 +49,21 @@ Dit leid direct tot de Schrödingervergelijking
   \startformula
   i \hslash \pdiff{\Psi}{t} = - \frac{\hslash}{2m} \nabla^2 \Psi + V \Psi.
   \stopformula
-\stophiding
 
-\starthiding
 Het idee van Feynman is om een deeltje dat vertrekt in punt $A$ en aankomt in punt $B$ niet één pad aflegt, maar alle mogelijke paden tussen $A$ en $B$ kan afleggen. Deze paden hoeven niet aan fysische wetten te voldoen zoals de Tweede Wet van Newton of het Principe van Hamilton en kunnen met gelijke kans worden gekozen.
-\stophiding
 
 \subsection[sec:heurpad]{Heuristische afleiding padintegraal}
 
-De basis voor de padintegraal van Feynman is de Schrödingervergelijking. \todo{Beetje extra info} Bekijk de volgende (algemene) oplossing van de Schrödingervergelijking:
-  \placeformula[for:Vlakke golf]
-  \startformula
-  \Psi(\vec{r}, t) = A \e^{i (\vec{p} \cdot \vec{r} - E t) / \hslash}.
-  \stopformula
-Dit is een \emph{vlakke golf} met amplitude $A$ en complexe fase
-  \startformula
-  \phi := (\vec{p} \cdot \vec{r} - E t) / \hslash.
-  \stopformula
-We gaan proberen de \emph{top} van deze golf te beschrijven met de Lagrangiaan van dit systeem. Wanneer $\vec{r}$ de plaats aangeeft van deze top, dan wordt de faseverandering op dat punt gegeven door:
-  \startformula\startsplit
-  \tdiff{\phi}{t}  \SC
-  = (\vec{p} \cdot \vec{v} - E) / \hslash  \SR
-  = (m \vec{v} \cdot \vec{v} - \half m v^2 - V) / \hslash  \SR
-  = (\half m v^2 - V) / \hslash  \SR
-  = L / \hslash.
-  \stopsplit\stopformula
-Dus het faseverschil tussen twee tijdstippen $t_1$ en $t_2$ wordt dan
-  \startformula
-  \phi_2 - \phi_1 = \int_{t_1}^{t_2} L(t) / \hslash \;\d t = S(t_2,t_1) / \hslash.
-  \stopformula
-Wat we hebben gedaan is het \emph{faseverschil} op twee tijdstippen uitgedrukt in de bijbehorende (klassieke) \emph{actie} gewogen met $\hslash$. Wanneer we nu weer naar de golf in \see[for:Vlakke golf] kijken, is het geen vreemde gedachte deze te herschrijven naar
-  \placeformula[for:Vlakke golf met actie]
-  \startformula
-  \Psi(\vec{r}, t) = A \e^{i \int L(t) / \hslash \;\d t} = A \e^{i S(t) / \hslash}.
-  \stopformula
-\todo{We verliezen hier wat nauwkeurigheid}
-Dit is de basis van de padintegraal van Feynman.
+In \unknown\ kwam Richard Feynman met een alternatieve methode om kwantummechanische berekeningen uit te voeren. In plaats van \unknown\ 
+Om een gevoel te krijgen voor wat een padintegraal eigenlijk is en hoe Feynman op dit opmerkelijke idee is gekomen bekijken we in deze sectie enkele voorbeelden. We beginnen met een heuristische afleiding van de padintegraal en vervolgens bekijken we een voorbeeld van een berekening. Daarna geven we een concrete afleiding van de Feynman padintegraal die we in de rest van dit document zullen gebruiken.
 
 \subsection{Conceptuele afleiding padintegraal}
 
-Maar hoe moeten we dit conceptueel opvatten? We hebben gezien dat de fase $\phi$ kan worden uitgedrukt in de klassieke Lagrangiaan. Deze fase is complex en kunnen we ons voorstellen als een eenheidsvector in het complexe vlak onder hoek $\phi$ met de $x$-as. Dit noemen we een \emph{fasor}. $\phi$ is afhankelijk van de tijd en dus draait onze fasor rond met snelheid $\tdiff{\phi}{t}$ die grofweg gelijk is aan $L/\hslash$ (zie \see[sec:heurpad] hier boven).
+Maar hoe moeten we dit conceptueel opvatten? We hebben gezien dat de fase $\phi$ kan worden uitgedrukt in de klassieke Lagrangiaan. Deze fase is complex en kunnen we ons voorstellen als een eenheidsvector in het complexe vlak onder hoek $\phi$ met de $x$-as. Dit noemen we een \emph{fasor}.
 
-\placefigure[][fig:paden]
-  {Een aantal mogelijke paden van een deeltje uit bron $B$ naar detector $D$ gereflecteerd door $r$.}
-  {\starttikzpicture[scale=0.5]
-   \coordinate[label=above:$B$] (B) at ( 0,10);
-   \coordinate[label=above:$D$] (D) at (10,10);
+>>> $\phi$ is afhankelijk van de tijd en dus draait onze fasor rond met snelheid $\tdiff{\phi}{t}$ die grofweg gelijk is aan $L/\hslash$ (zie \see[sec:heurpad] hier boven).
 
-   \foreach \x [count=\l from 0] in {-2,...,12}
-     \draw[thin,light orange] (B) -- (\x,0) node[below] {$p_{\l}$} -- (D);
-   \draw[thin,orange] (B) -- (5,0) -- (D);
-   \draw[ultra thick] (-3,0) -- (13,0) node[right] {$r$};
-   \stoptikzpicture}
-
-Beschouw nu het volgende experiment. Vanuit een bron $B$ bombarderen we een reflecterende plaat $r$ met een deeltje met massa $m$ (bijvoorbeeld een elektron). Vervolgens detecteren we deze weer in detector $D$. Het klassieke pad van $B$ naar $D$ is het pad waarbij de hoek van inval gelijk is aan de hoek van terugkaatsing. Het idee van Feynman is echter dat een kwantummechanisch deeltje \emph{alle mogelijke} paden van $B$ naar $D$ kan afleggen \emph{met even grote waarschijnlijkheid}. Een aantal van deze paden zijn weergegeven in \see[fig:paden].
-
-\todo{Pijlen ipv bolletjes}
-\placefigure[][fig:fasoren]
-  {Het optellen van de fasoren van elke afzonderlijk pad $p_i$ resulteert in de fasor van het klassieke pad van $B$ naar $D$.}
-  {\starttikzpicture[auto,near start]
-   \draw[help lines] (-0.9,-0.9) grid (6.9,3.9);
-
-   \draw[->] (-1,0) -- (7,0) node[right] {$\Re$};
-   \draw[->] (0,-1) -- (0,4) node[above] {$\Im$};
-
-   \path (0,0) coordinate (P0)
-     \foreach \a [count=\i] in {355.05, 241.74, 153.24, 87.55, 41.51, 11.62, 354.94, 349.59, 354.94, 11.62, 41.51, 87.55, 153.24, 241.74, 355.05}
-       { ++(\a:1) coordinate (P\i)};
-
-   \startscope[->,light orange]
-     \draw (P0) -- node[swap] {$p_{0}$} (P1);
-     \foreach \to [remember=\to as \from (initially 1)] in {2,...,8}
-        \draw (P\from) -- node {$p_{\from}$} (P\to);
-     \foreach \to [remember=\to as \from (initially 8)] in {9,...,14}
-        \draw (P\from) -- node[swap] {$p_{\from}$} (P\to);
-     \draw (P14) -- node {$p_{14}$} (P15);
-   \stopscope
-
-   \draw[->,ultra thick,orange] (P0) node[above right] {$B$} -- (P15) node[below] {$D$};
-   \stoptikzpicture
-   \starttikzpicture
-   \draw[help lines] (-0.9,-0.9) grid (6.9,3.9);
-
-   \draw[->] (-1,0) -- (7,0) node[right] {$\Re$};
-   \draw[->] (0,-1) -- (0,4) node[above] {$\Im$};
-
-   \path (0,0) coordinate (P0)
-     \foreach \a [count=\i] in {355.05, 241.74, 153.24, 87.55, 41.51, 11.62, 354.94, 349.59, 354.94, 11.62, 41.51, 87.55, 153.24, 241.74, 355.05}
-       { ++(\a:1) coordinate (P\i)};
-
-   \draw[->,light orange] (P0) -- node[midway] {$p_{0}$} (P1);
-   \foreach \to [remember=\to as \from (initially 1)] in {2,...,14}
-      \draw[->,light orange] (P\from) -- node[near start] {$p_{\from}$} (P\to);
-   \draw[->,light orange] (P14) -- node[midway] {$p_{14}$} (P15);
-
-   \draw[->,ultra thick,orange] (P0) node[below right] {$B$} -- (P15) node[below] {$D$};
-   \stoptikzpicture}
-
-Met de \emph{som over alle paden} doelt Feynman niet op het idee om alle paden bij elkaar op te tellen, maar om de fases $\phi_i$ behorende bij elk pad $p_i$ te sommeren. Dit kunnen we ons als volgt voorstellen. Elk pad $p_1,\dots,p_{14}$ heeft een bijbehorende fase $\phi_i$ gekoppeld aan de top van de golf met positie $x^{\text{(top)}}_i$. De bijbehorende fasoren zijn getekend in \see[fig:fasoren]. Wanneer we al deze fasoren optellen, komen we uit op de fasor van het klassieke pad.  In \see[fig:fasoren] is ook goed te zien dat paden die verder van het klassieke pad $p_7$ liggen een grotere afwijking hebben. Daardoor hebben zij de neiging elkaar uit te doven.
-
-\placefigure[][fig:acties]
-  {Acties bij elk pad $p_i$. $p_7$ is minimaal en zodoende het klassieke pad van $B$ naar $D$.}
-  {\starttikzpicture[scale=0.5]
-   \draw[help lines] (-7.1,-0.1) grid (7.7,6.7);
-
-   \draw[->] (-7.2,0) -- (7.7,0);
-   \draw[->] (-7,-0.2) -- (-7,6.7) node[above] {$\phi \sim \int L/\hslash \;\d t$};
-
-   \foreach \x [count=\l from 0] in {-7,...,7}
-     \draw (\x,0.1) -- (\x,-0.1) node[below] {$p_{\l}$};
-
-   \draw[light orange,smooth,mark=*,mark options={orange}]
-        plot[samples at={-7,...,7}] (\x,{\x*\x/10+1});
-   \stoptikzpicture}
-
-\subsection{Concrete afleiding padintegraal}
+Met de \emph{som over alle paden} doelt Feynman niet op het idee om alle paden bij elkaar op te tellen, maar om de fases $\phi_i$ behorende bij elk pad $p_i$ te sommeren. Dit kunnen we ons als volgt voorstellen. In \see[fig:fasoren] is ook goed te zien dat paden die verder van het klassieke pad $p_7$ liggen een grotere afwijking hebben. Daardoor hebben zij de neiging elkaar uit te doven.
 
 \stopcomponent
 
