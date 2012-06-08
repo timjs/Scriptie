@@ -16,52 +16,103 @@
 % Typeface
 % ------------------------------------------------------------------------------
 
-\usemodule[simplefonts]
+\startmode[*mkiv]
+  \usemodule[simplefonts]
 
-\setmainfont[Aldus LT Std]
-  [features=oldstyle]
-\setmathfont[Palatino]
+  \setmainfont[Aldus LT Std]
+    [features=oldstyle]
+  \setmathfont[palatino]
 
-\starthiding
-\definefontfeature[default][default]
-  [onum=yes]%FIXME: hack
-\definefontfeature[smallcaps][smallcaps]
-  [onum=yes]%FIXME: hack
+  \definebodyfontenvironment[48pt]
 
-\definefontfeature[hanging][default]
-  [protrusion=pure]
-\definefontfeature[oldstyle][default]
-  [onum=yes,mode=node,script=latn]
+  \setupbodyfont[11pt]
+\stopmode
 
-\definetypeface[pageros][rm][serif][palatino]%[default][features=oldstyle]
-\definetypeface[pageros][ss][sans][helvetica][default][rscale=0.91]
-\definetypeface[pageros][mm][math][palatino]
-\definetypeface[pageros][tt][mono][modern]
+\startmode[*mkii]
+  \definefontfeature[default][default]
+    [onum=yes]
+  \definefontfeature[smallcaps][smallcaps]
+    [onum=yes]
 
-\setupbodyfont[pageros,11pt]
+  %\definefontfeature[hanging][default]
+    %[protrusion=pure]
 
-%\setupalign[hanging]
+  \definetypeface[aldus][rm][Xserif][Aldus LT Std]
+  \definetypeface[aldus][mm][math][palatino]
+
+  \setupbodyfont[aldus,11pt]
+
+  %\setupalign[hanging]
+\stopmode
 
 \setupcapitals
   [sc=yes]
-\stophiding
 
 % ------------------------------------------------------------------------------
 % Drawings & Color
 % ------------------------------------------------------------------------------
 
-\usemodule[tikz]
-\usetikzlibrary[decorations.markings]
+\startmode[quick]
+  \definetyping[tikzpicture]
+    [style={\tfx\tt\setupinterlinespace[small]},
+     space=fixed]
+\stopmode
 
-\tikzstyle{every picture}=[thick,>=stealth,font=\small]
-\tikzstyle{every node}=[black]
+\startnotmode[quick]
+  \usemodule[tikz]
 
-\definecolor[orange]
-  [h=30,s=1,v=1]
-\definecolor[mid orange]
-  [h=30,s=0.66,v=1]
-\definecolor[light orange]
-  [h=30,s=0.33,v=1]
+  \setuptikz
+    [boxed=yes]
+
+  % Every:
+  \setuptikzstyle[every picture]
+    [>=stealth,font=\tfx]
+  \setuptikzstyle[every node]
+    [black]
+
+  % Paths:
+  \setuptikzstyle[axis lines]
+    [->,thick,gray]
+  \setuptikzstyle[screen lines]
+    [thick]
+  \setuptikzstyle[lines]
+    [orange]
+  \setuptikzstyle[alt lines]
+    [light orange]
+  \setuptikzstyle[emph lines]
+    [very thick,orange]
+  \setuptikzstyle[slit]
+    [white,radius=0.5]
+
+  % Nodes:
+  \setuptikzstyle[apparatus]
+    [rectangle,inner sep=2pt]
+  \setuptikzstyle[source]
+    [fill,apparatus]
+  \setuptikzstyle[detector]
+    [draw,apparatus]
+  %\setuptikzstyle[slit]
+    %[fill,white,circle]
+\stopnotmode
+
+\startmode[*mkiv]
+  \definecolor[orange]
+    [h=30,s=1,v=1]
+  \definecolor[mid orange]
+    [h=30,s=0.66,v=1]
+  \definecolor[light orange]
+    [h=30,s=0.33,v=1]
+
+  %\colorlet{mid orange}{orange!66}
+  %\colorlet{light orange}{orange!33}
+\stopmode
+
+\startmode[*mkii]
+  \setupcolors
+    [state=start]
+  \definecolor[light orange]
+    [r=0.996,g=0.800,b=0.620]
+\stopmode
 
 % ------------------------------------------------------------------------------
 % Pagelayout
@@ -102,8 +153,11 @@
 \setupmargindata[inmargin]
   [location=outer,
    style=\it]
-\setupmarginframed[inmargin]
-  [align=inner]
+
+\startmode[*mkiv]
+  \setupmarginframed[inmargin]
+    [align=inner]
+\stopmode
 
 % ------------------------------------------------------------------------------
 % Text
@@ -111,13 +165,15 @@
 
 \setupindenting[yes,medium]
 
+\setupblank[line]
+
 \setupurl
   [style=\it]
 
-\setupfootnotes
+\setupnote[footnote]
   [numbercommand=]% We don't want subscripts at the bottom of the page.
-\setupfootnotedefinition
-  [location=left,
+\setupnotation[footnote]
+  [alternative=left,
    distance=0.5em]
 
 \setupformulas
@@ -129,33 +185,63 @@
 %\setupsynonyms[abbreviation]
   %[synonymstyle=\sc]
 
+\setupframedtexts
+  [width=local,
+   %offset=0.5ex,
+   frame=off,
+   background=color,
+   backgroundcolor=light orange,
+   before={\blank[halfline]},
+   after={\blank[halfline]}]
+   %top={\blank[halfline]},
+   %bottom={\blank[halfline]}]
+
+\defineframedtext[intermezzo]
+  [style=small,
+   width=2\marginwidth]
+
 % ------------------------------------------------------------------------------
 % Definitions
 % ------------------------------------------------------------------------------
 
-\setupitemize[each]
+\setupitemgroup[itemize][each]
   [packed]
-  [headstyle=\it]
+  [headstyle=\it,
+   color=orange,
+   before=,
+   after=]
 
 \setupquote
   [location=margin,
    leftmargin=standard,
    style=\it]
 
+\defineenumeration[postulate]
+  [text={Postulaat},
+   headstyle=\sc,
+   headcolor=orange,
+   alternative=serried,%*mkiv
+   location=serried,%*mkii
+   indentnext=auto,
+   width=broad,
+   before=\startframedtext,
+   after=\stopframedtext]
+
 % ------------------------------------------------------------------------------
 % Heads
 % ------------------------------------------------------------------------------
 
 \setuphead[chapter]
-  [style=\tfb,
+  [alternative=inmargin,
+   style=\tfb,
    color=orange,
-   numbercolor=light orange,
    numberstyle={\switchtobodyfont[48pt]},
-   alternative=margin]
+   numbercolor=light orange,
+   after={\blank\blank}]
 \setuphead[section]
-  [style=\sc,
+  [alternative=margin,
+   style=\sc,
    color=orange,
-   alternative=margin,
    before=\blank,
    after=\blank]
 \setuphead[subsection]
@@ -172,15 +258,8 @@
    pagestyle=\quad\it]
 
 % ------------------------------------------------------------------------------
-% Figures, Tables & Intermezzi
+% Floats
 % ------------------------------------------------------------------------------
-
-\defineframedtext[intermezzo]
-  [style=small,
-   width=2\marginwidth,
-   frame=off,
-   background=color,
-   backgroundcolor=light orange]
 
 \setupfloat[intermezzo]
   [default={outermargin,none},
@@ -188,7 +267,8 @@
 
 \setupcaptions
   [headstyle=\sc,
-   headcolor=orange]
+   headcolor=orange,
+   minwidth=\dimexpr(\textwidth-3em)]
 
 \setuptabulate
   [rulethickness=0.8pt]
@@ -220,12 +300,12 @@
 % Publications
 % ------------------------------------------------------------------------------
 
-%\setupbibtex
-  %[database=bibliography]
-   %sort=author]
+\setupbibtex
+  [database=bronnen,
+   sort=author]
 
-%\setuppublications
-  %[alternative=aps]
+\setuppublications
+  [alternative=ams]
 
 % ------------------------------------------------------------------------------
 % Synonyms
@@ -243,8 +323,12 @@
 % ------------------------------------------------------------------------------
 
 \startmode[correction]
-\version[concept]
-\setupinterlinespace[big]
+  \version[concept]
+  \setupinterlinespace[big]
+\stopmode
+
+\startmode[draft]
+  \version[temporary]
 \stopmode
 
 \stopenvironment
