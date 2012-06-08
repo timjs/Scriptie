@@ -40,7 +40,7 @@
    right={\symbol[rightquote]}]
 
 % -----------------------------------------------------------------------------
-% Typeface FIXME
+% Typeface TODO
 % -----------------------------------------------------------------------------
 
 \definefontfeature[tabular][default]
@@ -117,7 +117,7 @@
     {\getvalue{in#1}[#1:#2]}
     {\writestatus{warning}{referenceformat in#1 not defined}
      \in[#1:#2]}
-\stoptexdefinition
+\stoptexdefinition % #3 is optional and gobbled bij \in
 
 \definereferenceformat[insec]
   [left=§]
@@ -183,9 +183,10 @@
 \define[1]\pp
   {{\textstyle\pdiff{}{#1}}}
 
-\define[1]\vec % cannot be \redefine'ed
+%FIXME: cannot be \redefine'ed
+\define[1]\vec
   {{\bf #1}}
-\define[1]\mat % cannot be \redefine'ed
+\define[1]\mat
   {\text{\ss\bf #1}}
 %\define[1]\op
   %{\hat{#1}}
