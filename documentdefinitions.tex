@@ -19,6 +19,9 @@
   \def\setupnotation[footnote]{\setupfootnotedefinition}
 \stopmode
 
+\startmode[*mkiv]%FIXME
+  \def\completepublications[#1]{}
+\stopmode
 
 % -----------------------------------------------------------------------------
 % Language
@@ -32,10 +35,10 @@
    leftquotation=\upperleftdoublesixquote,
    rightquotation=\upperrightdoubleninequote]
 
-\setupquote[2]
+\setupdelimitedtext[quote][2]
   [left={\symbol[leftquotation]},
    right={\symbol[rightquotation]}]
-\setupquotation[2]
+\setupdelimitedtext[quotation][2]
   [left={\symbol[leftquote]},
    right={\symbol[rightquote]}]
 
@@ -283,20 +286,30 @@
 % TikZ pictures
 % -----------------------------------------------------------------------------
 
-\define\setuptikz
-  {\dosingleargument\dosetuptikz}
+\starttexdefinition setuptikz
+  \dosingleargument\dosetuptikz
+\stoptexdefinition
+
 \starttexdefinition dosetuptikz [#1]
+  \getparameters[tikzparam][#1]
+  \doifinset{\tikzparamboxed}{yes,on}
+    {\dotikzboxed}
+\stoptexdefinition
+
+\starttexdefinition dotikzboxed
   \let\normalstarttikzpicture\starttikzpicture
   \let\normalstoptikzpicture\stoptikzpicture
 
   \redefine\starttikzpicture
     {\hbox\bgroup\normalstarttikzpicture} 
   \redefine\stoptikzpicture
-    {\normalstoptikzpicture\egroup} 
+    {\normalstoptikzpicture\egroup}
 \stoptexdefinition
 
-\define\setuptikzstyle
-  {\dodoubleargument\dosetuptikzstyle}
+\starttexdefinition setuptikzstyle
+  \dodoubleargument\dosetuptikzstyle
+\stoptexdefinition
+
 \starttexdefinition dosetuptikzstyle [#1][#2]
   \tikzset{#1/.style={#2}}
 \stoptexdefinition
@@ -327,4 +340,3 @@
 \stopenvironment
 
 % vim: ts=2 sw=2 et
-

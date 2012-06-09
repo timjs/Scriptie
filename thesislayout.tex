@@ -22,13 +22,7 @@
   \setmainfont[Aldus LT Std]
     [features=oldstyle]
   \setmathfont[palatino]
-
-  \definebodyfontenvironment[48pt]
-
-  \setupbodyfont[11pt]
-\stopmode
-
-\startmode[*mkii]
+\stopmode \startmode[*mkii]
   \definefontfeature[default][default]
     [onum=yes]
   \definefontfeature[smallcaps][smallcaps]
@@ -40,10 +34,13 @@
   \definetypeface[aldus][rm][Xserif][Aldus LT Std]
   \definetypeface[aldus][mm][math][palatino]
 
-  \setupbodyfont[aldus,11pt]
+  \setupbodyfont[aldus]
 
   %\setupalign[hanging]
 \stopmode
+
+\definebodyfontenvironment[48pt]
+\setupbodyfont[11pt]
 
 \setupcapitals
   [sc=yes]
@@ -53,12 +50,10 @@
 % ------------------------------------------------------------------------------
 
 \startmode[quick]
-  \definetyping[tikzpicture]
-    [style={\tfx\tt\setupinterlinespace[small]},
-     space=fixed]
-\stopmode
-
-\startnotmode[quick]
+  \useexternalfigure[tikzpicture][dummy]
+  \long\def\starttikzpicture#1\stoptikzpicture
+    {\externalfigure[tikzpicture]}
+\stopmode \startnotmode[quick]
   \usemodule[tikz]
 
   \setuptikz
@@ -102,12 +97,7 @@
     [h=30,s=0.66,v=1]
   \definecolor[light orange]
     [h=30,s=0.33,v=1]
-
-  %\colorlet{mid orange}{orange!66}
-  %\colorlet{light orange}{orange!33}
-\stopmode
-
-\startmode[*mkii]
+\stopmode \startmode[*mkii]
   \setupcolors
     [state=start]
   \definecolor[light orange]
@@ -152,12 +142,8 @@
 
 \setupmargindata[inmargin]
   [location=outer,
+   align=inner,
    style=\it]
-
-\startmode[*mkiv]
-  \setupmarginframed[inmargin]
-    [align=inner]
-\stopmode
 
 % ------------------------------------------------------------------------------
 % Text
