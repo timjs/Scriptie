@@ -14,7 +14,7 @@
 % -----------------------------------------------------------------------------
 
 \startmode[*mkii]
-  \def\word{}
+  \def\word{}%FIXME
   \def\setupmargindata[inmargin]{\setupinmargin}
   \def\setupnotation[footnote]{\setupfootnotedefinition}
 \stopmode
@@ -143,8 +143,6 @@
 \let\phi=\varphi
 \let\epsilon=\varepsilon
 
-\usemodule[mathsets]
-
 \definemathcommand[arcsinh][nolop]
   {\mfunction{arcsinh}}
 \definemathcommand[arccosh][nolop]
@@ -154,35 +152,21 @@
 \definemathcommand[e][nolop]
   {\mfunction{e}}
 
-\definemathset[bra]
-  [left=\langle,
-   right=\vert]
-\definemathset[ket]
-  [left=\vert,
-   right=\rangle]
-\definemathset[braket]
-  [left=\langle,
-   right=\rangle]
-\definemathset[com]
-  [left={[},
-   middle={,},
-   right={]}]
-\definemathset[anticom]
-  [middle={,}]
-\definemathset[expect]
-  [left=\langle,
-   right=\rangle]
+\define\total
+  {{\rm d}}
+\define[2]\tdiff
+  {\frac{\total #1}{\total #2}}
+\define[1]\ddiff
+  {\tdiff{}{#1}}
+\define[2]\pdiff
+  {\frac{\partial #1}{\partial #2}}
 
 \redefine\d
   {{\rm d}}
-\define[2]\tdiff
-  {\frac{\d #1}{\d #2}}
 \define[1]\dd
   {{\textstyle\tdiff{}{#1}}}
 \define\p
   {\partial}
-\define[2]\pdiff
-  {\frac{\p #1}{\p #2}}
 \define[1]\pp
   {{\textstyle\pdiff{}{#1}}}
 
