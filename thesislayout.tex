@@ -17,6 +17,10 @@
 % ------------------------------------------------------------------------------
 
 \startmode[*mkiv]
+  %\definefontfeature[default][default]
+    %[protrusion=punctuation]
+  %\setupalign[hanging]
+
   \usemodule[simplefonts]
 
   \setmainfont[Aldus LT Std]
@@ -28,15 +32,15 @@
   \definefontfeature[smallcaps][smallcaps]
     [onum=yes]
 
-  %\definefontfeature[hanging][default]
-    %[protrusion=pure]
+  % Niet ondersteund met XeTeX...
+  %\usetypescript[serif][hanging][normal]
+  %\setupalign[hanging]
 
+  \definetypeface[aldus][rm][serif][palatino]
   \definetypeface[aldus][rm][Xserif][Aldus LT Std]
   \definetypeface[aldus][mm][math][palatino]
 
   \setupbodyfont[aldus]
-
-  %\setupalign[hanging]
 \stopmode
 
 \definebodyfontenvironment[48pt]
@@ -50,7 +54,6 @@
 % ------------------------------------------------------------------------------
 
 \startmode[quick]
-  \useexternalfigure[tikzpicture][dummy]
   \long\def\starttikzpicture#1\stoptikzpicture
     {\externalfigure[tikzpicture]}
 \stopmode \startnotmode[quick]
