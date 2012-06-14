@@ -33,8 +33,8 @@
     [onum=yes]
 
   % Niet ondersteund met XeTeX...
-  %\usetypescript[serif][hanging][normal]
-  %\setupalign[hanging]
+  \usetypescript[serif][hanging][normal]
+  \setupalign[hanging]
 
   \definetypeface[aldus][rm][serif][palatino]
   \definetypeface[aldus][rm][Xserif][Aldus LT Std]
@@ -83,12 +83,12 @@
     [white,radius=0.5]
 
   % Nodes:
-  \setuptikzstyle[apparatus]
-    [rectangle,inner sep=2pt]
   \setuptikzstyle[source]
-    [fill,apparatus]
+    [fill,rectangle,inner sep=2pt]
   \setuptikzstyle[detector]
-    [draw,apparatus]
+    [draw,rectangle,inner sep=2pt]
+  \setuptikzstyle[point]
+    [draw,circle,inner sep=2pt]
   %\setuptikzstyle[slit]
     %[fill,white,circle]
 \stopnotmode
@@ -162,7 +162,8 @@
 \setupnote[footnote]
   [numbercommand=]% We don't want subscripts at the bottom of the page.
 \setupnotation[footnote]
-  [alternative=left,
+  [location=left,
+   alternative=left,% For *mkiv
    distance=0.5em]
 
 \setupformulas
