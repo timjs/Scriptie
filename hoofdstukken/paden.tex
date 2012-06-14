@@ -84,8 +84,8 @@ Om een poging te wagen de \quote{verloren} deeltjes terug te vinden passen we de
    \coordinate[source,label=left:$B$] (B) at (0,5);
    \coordinate[detector,label=above right:$D$] (D) at (10,7);
 
-   \draw[just lines] (B) -- (D);
-   %\shade[top color=light orange,bottom color=light orange,middle color=orange] (B) -- (10,2) -- (10,8) -- cycle;
+   %\draw[just lines] (B) -- (D);
+   \shade[top color=light orange,bottom color=light orange,middle color=orange] (B) -- (10,2) -- (10,8) -- cycle;
 
    \draw[axis lines,<->] (11,5) -- node[auto=right] {$y$} (11,7);
    \draw[axis lines] (-1,0) -- (11,0) node[right] {$x$};
@@ -103,7 +103,7 @@ Het patroon in \see[fig:spreiding] lijkt er op het diffractiepatroon van een gol
 We moeten concluderen dat we niet meer kunnen spreken van \emph{het} pad dat een deeltje aflegt: een elektron heeft de mogelijkheid om meerdere paden af te leggen. Daarnaast kunnen we niet meer bepalen op welke plek een elektron aan komt. We kunnen alleen spreken over de \emph{waarschijnlijkheid} $P$ waarmee we een elektron op hoogte $y$ kunnen detecteren.
 Uit \see[fig:spreiding] blijkt immers dat het nog steeds het meest waarschijnlijk is om een deeltje recht tegenover de bron aan te treffen, maar er zijn ook deeltjes die verder weg van deze as terecht komen. De kans hierop wordt wel steeds kleiner naarmate we ons verder van deze as begeven.
 
-\section[sec:twee speleten,sec:postulaten]{Twee spleten}
+\section[sec:twee spleten,sec:postulaten]{Twee spleten}
 
 Om het de elektronen moeilijker te maken om direct van $B$ naar $D$ te reizen, plaatsen we tussen de bron en de detector een scherm $s$ met daarin twee spleten $S_1$ en $S_2$ zoals in \see[fig:twee spleten] is weergegeven. We hebben net al gezien dat een elektron over verschillende paden kan reizen. De vraag is nu of een elektron uit $B$ zal \quote{kiezen} om via $S_1$ naar $D$ te reizen, of via $S_2$.
 Dit is het welbekende twee spleten experiment van Young. We zullen hier de uitkomsten kort herhalen en koppelen aan de postulaten waarmee Feynman de kwantummechanica opbouwt.
@@ -229,10 +229,7 @@ Wat we hebben gedaan is het \emph{faseverschil} op twee tijdstippen uitdrukken i
   %\Psi(\vec{r}, t) = A \e^{i \int L(t) / \hslash \;\d t} = A \e^{i S(t) / \hslash}.
   %\stopformula
 
-\section{Reflecties}
-
-We stappen even af van ons spleten-experiment en bekijken een nieuwe opstelling \cite[Feynman:100771,Klauber:2010tc]. In plaats van deeltjes rechtstreeks van een bron $B$ naar een detector $D$ te sturen, schieten we de elektronen richting een reflecterende plaat $r$. Klassiek gezien zou een deeltje het pad volgen waarbij de hoek van inval gelijk is aan de hoek van terugkaatsing. Hiervoor hebben we al gezien dat er veel meer paden mogelijk zijn. In \see[fig:reflecties] zijn, naast het klassieke pad, veertien van zulke paden getekend.
-Voor elk pad $p_i$ kunnen we een actie $S_i$ uitrekenen met behulp van \see[for:actie]. In \see[fig:acties] is mooi te zien dat de actie bij pad $p_7$ minimaal is, dit is dan ook precies het klassiek pad. 
+\section[sec:reflecties]{Reflecties}
 
 \placefigure[][fig:reflecties]
   {Een reflectie-experiment. Bron $B$ schiet deeltjes af op een reflecterende plaat $r$, die vervolgens door detector $D$ worden geregistreerd. Er zijn vijftien mogelijke paden getekend waarop een deeltje van $B$ naar $D$ kan komen. Het benadrukte pad is het klassieke pad.}
@@ -245,6 +242,9 @@ Voor elk pad $p_i$ kunnen we een actie $S_i$ uitrekenen met behulp van \see[for:
    \draw[thin,orange] (B) -- (5,0) -- (D);
    \draw[ultra thick] (-3,0) -- (13,0) node[right] {$r$};
    \stoptikzpicture}
+
+We stappen even af van ons spleten-experiment en bekijken een nieuwe opstelling \cite[Feynman:100771,Klauber:2010tc]. In plaats van deeltjes rechtstreeks van een bron $B$ naar een detector $D$ te sturen, schieten we de elektronen richting een reflecterende plaat $r$. Klassiek gezien zou een deeltje het pad volgen waarbij de hoek van inval gelijk is aan de hoek van terugkaatsing. Hiervoor hebben we al gezien dat er veel meer paden mogelijk zijn. In \see[fig:reflecties] zijn, naast het klassieke pad, veertien van zulke paden getekend.
+Voor elk pad $p_i$ kunnen we een actie $S_i$ uitrekenen met behulp van \see[for:actie]. In \see[fig:acties] is mooi te zien dat de actie bij pad $p_7$ minimaal is, dit is dan ook precies het klassiek pad. 
 
 \placefigure[][fig:acties]
   {Acties bij elk pad $p_0$ tot en met $p_{14}$ zoals weergegeven in \see[fig:reflecties]. $p_7$ is minimaal en zodoende het klassieke pad van $B$ naar $D$.}
@@ -293,61 +293,76 @@ In de vorige sectie hebben we gezien dat de actie een maat is voor de fase op he
    \draw[emph lines,->] (P0) node[above right] {$B$} -- (P15) node[above] {$D$};
    \stoptikzpicture}
 
-\section{Nog meer spleten}
+\section[sec:meer spleten,sec:padintegraal]{Nog meer spleten}
 
-We hebben nu genoeg informatie over padintegralen verzameld om een concrete afleiding te geven. Effectief lopen we de postulaten uit \see[sec:postulaten] in omgekeerde volgorde af. Let op.
+We hebben genoeg informatie over padintegralen verzameld om een concrete afleiding te geven. Hiervoor keren we weer terug naar experimenten met spleten. In voorgaande secties vonden onze experimenten plaats in een twee dimensionale ruimte. Nu doen we een stapje terug en beschouwen een pad van een bron $B$ naar een detector $D$ in één dimensie. Ons deeltje bevind zich op tijdstip $t_B$ in $x_B$ en op $t_D$ in $x_D$. Om een pad te kunnen karakteriseren splitsen we de tijd op in $N$ \emph{snedes} van grootte $\Delta t$ zodat
+  \placeformula[for:delta t]
+  \startformula
+  \Delta t := \frac{t_D - t_B}{N}.
+  \stopformula
+In \see[fig:tijdsnedes] is een mogelijk pad getekend om van bron naar detector.
+We hebben het pad in de tijd uitgerekt, zodat we op ieder tijdstip $t_n$ kunnen aangeven waar het deeltje zich bevindt. Zo een positie is op te vatten als een \emph{spleet} in een scherm op snede $n$. Het is natuurlijk goed mogelijk dat het deeltje op een snede een \emph{andere} spleet had gekozen.\footnote{Lees: het deeltje heeft een ander pad afgelegd.} Hier komen we later op terug.
+Merk op dat het deeltje, zoals we hebben beredeneerd in \see[sec:reflecties], niet terug kan in de tijd. Wel kan het heen en weer bewegen in de plaats en hoeft dus niet met constante snelheid van $B$ naar $D$ te reizen.
 
-\placefigure
+\placefigure[][fig:tijdsnedes]
   {}
-  {\starttikzpicture[scale=0.7]
-   \draw[axis lines] (-0.2,0) -- (10.2,0) node[right] {$x$};
-   \draw[axis lines] (0,-0.2) -- (0,9.7) node[above] {$t$};
-   \foreach \y in {1,...,9}
-     \draw[help lines] (-0.1,\y) -- (10,\y);
-   \draw[<->] (-0.5,5) -- node[left] {$\Delta t$} (-0.5,6);
+  {\starttikzpicture[yscale=0.5]
+   \draw[axis lines] (0.5,0) -- (9.5,0) node[right] {$t$};
+   \draw[axis lines] (0,0.5) -- (0,10.5) node[above] {$x$};
+   \foreach \t in {2,...,8}
+     \draw[help lines] (\t,1) -- (\t,10);
+   \draw[<->] (5,-0.5) -- node[below] {$\Delta t$} (6,-0.5);
 
-   \coordinate[label=below left:$B$] (B) at (1,1);
-   \coordinate[label=above right:$D$] (D) at (9,9);
+   \coordinate[source,label=below left:$B$] (B) at (1,3);
+   \coordinate[detector,label=above right:$D$] (D) at (9,9);
 
-   %\foreach \x [count=\n from 1] in {1,3,4,7,5,6,8,9}
-     %\coordinate (P\n) at (\x,\n);
-
-   \draw[just lines] plot[mark=*,mark options={orange}] coordinates {(B) (3,2) (4,3) (7,4) (5,5) (6,6) (8,7) (9,8) (D)};
+   %\draw[just lines] (B)
+   %  \foreach \x [count=\t from 2] in {3,4,7,5,6,8,9}
+   %    {-- (\t,\x)}
+   %  -- (D);
+   \draw[just lines] plot coordinates {(B) (2,2) (3,4) (4,7) (5,5) (6,6) (7,8) (8,9) (D)};
    \stoptikzpicture}
 
+Om de padintegraal af te leiden lopen we effectief de postulaten uit \see[sec:postulaten] in omgekeerde volgorde af. 
 Uit het derde postulaat weten we dat de \emph{bijdrage} aan een pad proportioneel is met de actie. Wanneer we van tijdsnede $n$ naar snede $n+1$ gaan kunnen we de bijdrage $\psi_{n \to n+1}$ uitrekenen met
   \startformula
   \psi_{n \to n+1} = A \e^{i S / \hslash}.
   \stopformula
-We moeten wel $S$ voor dit korte pad kunnen uitrekenen. Dit kan met een benadering van de Lagrangiaan tot op eerste orde:
+Wel moeten we de actie voor dit korte pad kunnen uitrekenen. Dit kan met een benadering van de Lagrangiaan,
+  \define\LApprox{\math{L\left( \frac{x_{n+1} + x_n}{2}, \frac{x_{n+1} - x_n}{\Delta t}, \frac{t_{n+1} + t_n}{2} \right)}}
+zodat
   \startformula
-  S \approx L\left( \frac{x_{n+1} + x_n}{2}, \frac{x_{n+1} - x_n}{\Delta t}, \frac{t_{n+1} + t_n}{2} \right) \Delta t.
+  S \approx \LApprox \Delta t.
   \stopformula
-De bijdrage voor een stukje pad tussen tijdstip $t_n$ en $t_{n+1}$ is dan bij benadering
+Dit is correct tot op eerste orde. De bijdrage voor een stukje pad tussen tijdstip $t_n$ en $t_{n+1}$ is dan bij benadering
   \startformula
-  \psi_{n \to n+1}
-  \approx A \exp\left[ \frac{i}{\hslash} L\left( \frac{x_{n+1} + x_n}{2}, \frac{x_{n+1} - x_n}{\Delta t}, \frac{t_{n+1} + t_n}{2} \right) \Delta t \right].
+  \psi_{n \to n+1} \approx A \exp\left[ \frac{i}{\hslash} \LApprox \Delta t \right].
   \stopformula
-Maar we willen de bijdrage van het \emph{volledige} pad. Aangezien we in \see[sec:postulaten] ook hebben gezien dat we de bijdrage als een fase kunnen opvatten, krijgen we de totale fase door de fases van de afzonderlijke tijdsnedes te sommeren:
+Maar we willen de bijdrage van het \emph{volledige} pad.
+\todo{Anders} Aangezien we in \see[sec:postulaten] ook hebben gezien dat we de bijdrage als een fase kunnen opvatten, kunnen we de totale fase berekenen door de fases van de afzonderlijke tijdsnedes te sommeren:
 \todo{Iets met die constante}
   \startformula\startsplit
   \psi_{0 \to N} \SC
-  \approx A \exp\left[ \frac{i}{\hslash} \sum_{n=0}^{N-1} L\left( \frac{x_{n+1} + x_n}{2}, \frac{x_{n+1} - x_n}{\Delta t}, \frac{t_{n+1} + t_n}{2} \right) \Delta t \right] \SR
-  = A \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hslash} L\left( \frac{x_{n+1} + x_n}{2}, \frac{x_{n+1} - x_n}{\Delta t}, \frac{t_{n+1} + t_n}{2} \right) \Delta t \right].
+  \approx A \exp\left[ \frac{i}{\hslash} \sum_{n=0}^{N-1} \LApprox \Delta t \right] \SR
+  = A \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hslash} \LApprox \Delta t \right].
   \stopsplit\stopformula
-\todo{Moet later}
-Om de correcte uitdrukking voor de bijdrage van één pad te krijgen, stappen we over op oneindig veel tijdsnedes. Met andere woorden: we nemen de limiet van $\Delta t$ naar $0$:
+
+Om de \emph{waarschijnlijkheidsamplitude} uit te rekenen bij de overgang van $B$ naar $D$ moeten we, volgens het tweede postulaat, de som nemen over \emph{alle mogelijke paden} van $x_B$ naar $x_D$. Tot nu toe hebben we alleen maar één pad uitgerekend. Daarbij zijn we er van uit gegaan dat ons pad op ieder tijdstip $t_n$ over vastgelegde punten $x_n$ loopt.\footnote{Ofwel: het deeltje gaat door specifieke spleten.} Deze plaats is natuurlijk willekeurig te kiezen uit \emph{alle mogelijke punten} $x$. Om elk mogelijk pad van $B$ naar $D$ te krijgen, moeten we dus integreren over alle mogelijke tussenpunten voor elke tijdsnede $t_n$. In \see[fig:tijdsnedes] kunnen we zien dat $t_0$ en $t_N$ hierop een uitzondering zijn, deze twee punten liggen immers vast. We krijgen dus $N-1$ keer een integraal over $x_n$ met $n$ van $1$ tot $N-1$. Dit leid tot
+  \placeformula[for:integraal over alle punten]
   \startformula
-  \psi_{0 \to N}
-  = \lim_{\Delta t \to 0} A \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hslash} L\left( \frac{x_{n+1} + x_n}{2}, \frac{x_{n+1} - x_n}{\Delta t}, \frac{t_{n+1} + t_n}{2} \right) \Delta t \right].
+  \psi \approx \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \psi_{0 \to N} \;\d x_1 \;\d x_2 \;\cdots \;\d x_{N-1}.
   \stopformula
 
-Om de \emph{waarschijnlijkheidsamplitude} uit te rekenen bij de overgang van $B$ naar $D$ moeten we, volgens het tweede postulaat, de som nemen over \emph{alle mogelijke paden} van $B$ naar $D$. Tot nu toe hebben we alleen maar één pad uitgerekend. Daarbij zijn we er van uit gegaan dat ons pad langs specifieke punten $x_n$ loopt op tijdstip $t_n$. Deze plaats is natuurlijk willekeurig te kiezen uit \emph{alle mogelijke punten} $x$. Om elk mogelijk pad van $B$ naar $D$ te krijgen, kunnen we dus integreren over alle mogelijke tussen punten. Dit moeten we wel doen voor elke tijdsnede $t_n$ behalve voor $t_0$ en $t_N$. We krijgen dus $N-2$ keer een integraal over $x_n$ op tijdstip $t_n$ zodat
+In \see[for:integraal over alle punten] hebben we nog te maken met een benadering. Door onze tijdsnedes steeds smaller te maken, krijgen we de correcte uitdrukking voor de waarschijnlijkheidsamplitude. We nemen dus de limiet van $N$ naar $\infty$ zodat $\Delta t$ naar $0$ gaat volgens de definitie van \see[for:delta t]. 
+  \startformula\startsplit
+  \psi \SC
+  = \lim_{N \to \infty} \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \psi_{0 \to N} \;\d x_1 \;\d x_2 \;\cdots \;\d x_{N-1} \SR
+  =: \int_{x_B}^{x_D} \e^{i S / \hslash} \;\D x
+  \stopsplit\stopformula
+bla
   \startformula
-  \psi = \int \cdots \iint \psi_{0 \to N} \;\d x_1 \;\d x_2 \;\cdots \;\d x_{N-1}.
+  \psi = \lim_{\Delta t \to 0} A \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hslash} L\left( \frac{x_{n+1} + x_n}{2}, \frac{x_{n+1} - x_n}{\Delta t}, \frac{t_{n+1} + t_n}{2} \right) \Delta t \right].
   \stopformula
-
-\section{De Feynman padintegraal}
 
 \stopcomponent
 
