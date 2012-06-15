@@ -1,0 +1,19 @@
+
+\coordinate[source,label=left:$B$] (B) at (0,5);
+\coordinate[detector,label=right:$D$] (D) at (10,5);
+\coordinate[label=above right:$S_1$] (S1) at (5,7);
+\coordinate[label=below right:$S_2$] (S2) at (5,3);
+%\node[slit] (S1) at (5,7) [label=above right:$S_1$] {};
+%\node[slit] (S2) at (5,3) [label=below right:$S_2$] {};
+
+\draw[screen lines] (5,1) -- (S1) -- (S2) -- (5,9) node[above] {$s$};
+\fill[slit] (S1) circle;
+\fill[slit] (S2) circle;
+
+\draw[just lines] (B) -- (S1) -- (D);
+\draw[just lines] (B) -- (S2) -- (D);
+
+%\draw[screen lines] (10,1) -- (10,9) node[above] {$d$};
+\draw[axis lines] (-1,0) -- (11,0) node[right] {$x$};
+
+% vim: syn=context

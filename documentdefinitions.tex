@@ -17,6 +17,7 @@
   \def\word{\lowercase}%FIXME
   \def\setupmargindata[inmargin]{\setupinmargin}
   \def\setupnotation[footnote]{\setupfootnotedefinition}
+  \def\small{\tfx}
 \stopmode
 
 \startmode[*mkiv]%FIXME
@@ -299,6 +300,22 @@
 \starttexdefinition dosetuptikzstyle [#1][#2]
   \tikzset{#1/.style={#2}}
 \stoptexdefinition
+
+\starttexdefinition externaltikzpicture
+  \dodoubleempty\doexternaltikzpicture
+\stoptexdefinition
+
+\startmode[quick]
+  \starttexdefinition doexternaltikzpicture [#1][#2]
+    \externalfigure[tikzpicture]
+  \stoptexdefinition
+\stopmode \startnotmode[quick]
+  \starttexdefinition doexternaltikzpicture [#1][#2]
+    \starttikzpicture[#2]
+      \processfile{\tikzparamprefix #1.tikz}
+    \stoptikzpicture
+  \stoptexdefinition
+\stopnotmode
 
 % -----------------------------------------------------------------------------
 % Tabbed data

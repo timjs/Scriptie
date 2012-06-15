@@ -1,0 +1,41 @@
+
+% Be aware of the space in the definitions below!
+\def\setuptikzstyle[#1] [#2]
+  {\tikzset{#1/.style={#2}}}
+\def\letcolor[#1] [#2]
+  {\colorlet{#1}{#2}}
+
+\letcolor[light orange]
+  [orange!33]
+
+% Every:
+\setuptikzstyle[every picture]
+  [>=stealth,font=\small]
+\setuptikzstyle[every node]
+  [black]
+
+% Paths:
+\setuptikzstyle[axis lines]
+  [->,thick,gray]
+\setuptikzstyle[screen lines]
+  [thick]
+\setuptikzstyle[just lines]
+  [orange]
+\setuptikzstyle[light lines]
+  [light orange]
+\setuptikzstyle[emph lines]
+  [very thick,orange]
+\setuptikzstyle[slit]
+  [white,radius=0.5]
+
+% Nodes:
+\setuptikzstyle[source]
+  [fill,rectangle,inner sep=2pt]
+\setuptikzstyle[detector]
+  [draw,rectangle,inner sep=2pt]
+\setuptikzstyle[point]
+  [draw,circle,inner sep=2pt]
+%\setuptikzstyle[slit]
+  %[fill,white,circle]
+
+% vim: syn=context

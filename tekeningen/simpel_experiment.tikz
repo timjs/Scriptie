@@ -1,0 +1,8 @@
+
+\coordinate[source,label=left:$B$] (B) at (0,5);
+\coordinate[detector,label=right:$D$] (D) at (10,5);
+
+\draw[just lines] (B) -- (D);
+\draw[axis lines] (-1,0) -- (11,0) node[right] {$x$};
+
+% vim: syn=context

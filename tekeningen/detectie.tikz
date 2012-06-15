@@ -1,0 +1,11 @@
+
+\coordinate[source,label=left:$B$] (B) at (0,5);
+\coordinate[detector,label=above right:$D$] (D) at (10,7);
+
+%\draw[just lines] (B) -- (D);
+\shade[top color=light orange,bottom color=light orange,middle color=orange] (B) -- (10,2) -- (10,8) -- cycle;
+
+\draw[axis lines,<->] (11,5) -- node[auto=right] {$y$} (11,7);
+\draw[axis lines] (-1,0) -- (11,0) node[right] {$x$};
+
+% vim: syn=context

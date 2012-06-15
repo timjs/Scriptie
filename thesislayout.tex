@@ -32,7 +32,7 @@
   \definefontfeature[smallcaps][smallcaps]
     [onum=yes]
 
-  % Niet ondersteund met XeTeX...
+  % Niet ondersteund door XeTeX...
   \usetypescript[serif][hanging][normal]
   \setupalign[hanging]
 
@@ -53,44 +53,14 @@
 % Drawings & Color
 % ------------------------------------------------------------------------------
 
-\startmode[quick]
-  \long\def\starttikzpicture#1\stoptikzpicture
-    {\externalfigure[tikzpicture]}
-\stopmode \startnotmode[quick]
+\startnotmode[quick]
   \usemodule[tikz]
 
   \setuptikz
-    [boxed=yes]
+    [boxed=yes,
+     prefix={tekeningen/}]
 
-  % Every:
-  \setuptikzstyle[every picture]
-    [>=stealth,font=\tfx]
-  \setuptikzstyle[every node]
-    [black]
-
-  % Paths:
-  \setuptikzstyle[axis lines]
-    [->,thick,gray]
-  \setuptikzstyle[screen lines]
-    [thick]
-  \setuptikzstyle[just lines]
-    [orange]
-  \setuptikzstyle[light lines]
-    [light orange]
-  \setuptikzstyle[emph lines]
-    [very thick,orange]
-  \setuptikzstyle[slit]
-    [white,radius=0.5]
-
-  % Nodes:
-  \setuptikzstyle[source]
-    [fill,rectangle,inner sep=2pt]
-  \setuptikzstyle[detector]
-    [draw,rectangle,inner sep=2pt]
-  \setuptikzstyle[point]
-    [draw,circle,inner sep=2pt]
-  %\setuptikzstyle[slit]
-    %[fill,white,circle]
+  \environment tikzstyles
 \stopnotmode
 
 \startmode[*mkiv]
