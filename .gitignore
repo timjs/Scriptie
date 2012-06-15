@@ -18,6 +18,11 @@
 *.toc
 *.ted
 
+# Beamer
+*.out
+*.nav
+*.snm
+
 # BibTeX
 *.aux
 *.blg
