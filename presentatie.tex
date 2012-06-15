@@ -1,0 +1,49 @@
+\documentclass{beamer}
+
+\usepackage{pxfonts}
+\usepackage{fontspec}
+%\usepackage{unicode-math}
+%\defaultfontfeatures
+  %{Scale=MatchLowercase}
+\setmainfont{Aldus LT Std}
+\setsansfont{Optima LT Std}
+%\setmathfont{Asana Math}
+
+%\usepackage[dutch]{babel}
+\usepackage{polyglossia}
+\setdefaultlanguage{dutch}
+
+\usepackage{tikz}
+\input tikzstyles
+\newcommand{\includetikzpicture}[2][]
+  {\begin{tikzpicture}[#1]
+     \input tekeningen/#2.tikz
+   \end{tikzpicture}}
+
+\usecolortheme[named={orange}]{structure}
+
+% Outer:
+\useoutertheme{miniframes}
+\usecolortheme{dolphin}%whale,seahorse,dolphin
+
+% Inner:
+\useinnertheme{rectangles}
+\usecolortheme{rose}%lily,orchid,rose
+
+\title{Oneindig veel paden en complexe acties}
+\author{Tim Steenvoorden}
+\date{20 juni 2012}
+
+\begin{document}
+
+\begin{frame}
+  \begin{figure}
+  \includetikzpicture[scale=0.5]{detectie}
+  \caption{Bla}
+  \end{figure}
+\end{frame}
+
+\input beamerconference
+
+\end{document}
+
