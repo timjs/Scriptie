@@ -59,32 +59,32 @@ Dat wisten we natuurlijk al lang, $g$ is immers de valversnelling van een klassi
   \stopformula
 De term tussen haakjes is precies de afgeleide van $\dot{r} q$ naar $T$, dus:
   \startformula
-  L (X, \dot{X})  =  L_r(r, \dot{r}) + \half m \dot{q}^2 + m \dd{T} (\dot{r} q),
+  L (X, \dot{X})  =  L_r(r, \dot{r}) + \half m \dot{q}^2 + m \ddiff{T} (\dot{r} q),
   \stopformula
 $T$ is precies de variabele waarnaar we integreren in de actie. Wanneer we van $T=0$ tot $T=t$ integreren, valt de term weg door de Dirichlet randvoorwaarde:
   \startformula
-  \int_0^t  \dd{T} (\dot{r} q)  \,\d T
+  \int_0^t  \ddiff{T} (\dot{r} q) \d T
   =  \left.\dot{r} q \right|_0^t
   =  0
   \stopformula
 De actie ziet er dan uit als
   \startformula\startsplit
   S (t, 0)  \SC
-  =  \int_0^t  L(X, \dot{X})  \,\d T  \SR
-  =  \int_0^t  \left( L_r(r, \dot{r}) + \half m \dot{q}^2 + m \dd{T} (\dot{r} q) \right)  \,\d T  \SR
-  =  \int_0^t  L_r(r, \dot{r}) \,\d T + \int_0^t \half m \dot{q}^2 \,\d T.
+  =  \int_0^t  L(X, \dot{X}) \d T  \SR
+  =  \int_0^t  \left( L_r(r, \dot{r}) + \half m \dot{q}^2 + m \ddiff{T} (\dot{r} q) \right) \d T  \SR
+  =  \int_0^t  L_r(r, \dot{r}) \d T + \int_0^t \half m \dot{q}^2 \d T.
   \stopsplit\stopformula
 Deze actie kunnen we opsplitsen in een klassiek deel en een kwantum deel
   \startformula\startspread
-  S_r(t,0)  :=  \int_0^t  L_r(r, \dot{r})  \,\d T  \SC
-  S_q(t,0)  :=  \int_0^t \half m \dot{q}^2 \,\d T,
+  S_r(t,0)  :=  \int_0^t  L_r(r, \dot{r}) \d T  \SC
+  S_q(t,0)  :=  \int_0^t \half m \dot{q}^2 \d T,
   \stopspread\stopformula
 waarbij $S_q$ precies de actie is van een vrij deeltje.
 
 %Maar het gaat voornamelijk om de laatste term. We hebben niet voor niets zoveel werk gedaan om deze te krijgen. Wanneer we de term integreren, en de Dirichlet randvoorwaarden toepassen valt deze weg!
   %\startformula\startsplit
   %\phantom{S (t, 0)}
-  %\SC=  \int_0^t  \left( L_r(r, \dot{r}) + \half m \dot{q}^2 + m \dd{T} (\dot{r} q) \right)  \,\d T  \SR
+  %\SC=  \int_0^t  \left( L_r(r, \dot{r}) + \half m \dot{q}^2 + m \ddiff{T} (\dot{r} q) \right) \d T  \SR
   %\stopsplit\stopformula
 
 We hebben de actie -- en dus onze padintegraal -- weten op te splitsen in een klassiek deel en een kwantum deel. De volgende stap is het uitrekenen van deze twee delen. Maar het is ook interessant om te weten wanneer we deze opsplitsing kunnen toepassen. Blijkbaar kan dit bij potentialen van de vorm van $V \sim x$ en $V = 0$ (neem $g = 0$ in bovenstaande redenering). Welke potentialen nog meer?
@@ -114,14 +114,14 @@ moet nog steeds de Euler-Lagrange vergelijking gelden. Dit houden we in ons acht
 
 Wanneer we $L_r$ invullen in \see[for:Lagrangiaan voor algemene potentiaal] houden we een extra $V(r)$ over. Daarnaast kunnen we $\dot{r} \dot{q}$ herschrijven met
   \startformula
-  \dd{T} (\dot{r} q)  =  \ddot{r} q + \dot{r} \dot{q}
+  \ddiff{T} (\dot{r} q)  =  \ddot{r} q + \dot{r} \dot{q}
   \stopformula
 zodat
   \placeformula[for:Lagrangiaan voor algemene potentiaal met substituties]
   \startformula
-  L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 + m (\dd{T} \dot{r} q - \ddot{r} q) - V(r + q)
+  L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 + m (\ddiff{T} \dot{r} q - \ddot{r} q) - V(r + q)
   \stopformula
-Door de Dirichlet randvoorwaarde valt $\dd{T} \dot{r} q$ weg wanneer we overstappen op de actie (zie \see[sec:Dirichlet voorwaarde]). De laatste manipulatie komt uit de Euler-Lagrange vergelijking voor de klassieke Lagrangiaan:
+Door de Dirichlet randvoorwaarde valt $\ddiff{T} \dot{r} q$ weg wanneer we overstappen op de actie (zie \see[sec:Dirichlet voorwaarde]). De laatste manipulatie komt uit de Euler-Lagrange vergelijking voor de klassieke Lagrangiaan:
   \startformula\startsteps
   \tdiff{}{T} \pdiff{L_r}{\dot{r}}  \NC=  \pdiff{L_r}{r}  \SR
   \tdiff{}{T} m \dot{r}  \NC=  - V'(r)  \SR
@@ -135,7 +135,7 @@ Wanneer we dit invullen in \see[for:Lagrangiaan voor algemene potentiaal met sub
 Laten we eens goed naar dit resultaat kijken. Dit is onze Lagrangiaan voor een deeltje in één dimensie. We hebben het pad $X(T)$ opgesplitst in een klassiek- en een kwantum deel. Het doel is om onze Lagrangiaan ook zo op te splitsen. Stiekem hebben we dit al een beetje gedaan: de klassieke Lagrangiaan $L_r$ staat er al in. Dat betekent dat alle andere termen samen het kwantum deel moeten vormen. Maar sommige termen zijn nog afhankelijk van $r$. De eis die we moeten opleggen is dus dat deze termen onafhankelijk van $r$ moeten zijn.
 Met andere woorden:
   \startformula\startspread[m=3]
-  \dd{r} \left( - V'(r) q - V(r) + V(r + q) \right)  =  0  \SC
+  \ddiff{r} \left( - V'(r) q - V(r) + V(r + q) \right)  =  0  \SC
   \implies  \SC
   V''(r) q + V'(r) - V'(r + q)  =  0
   \stopspread\stopformula

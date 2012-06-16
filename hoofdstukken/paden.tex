@@ -34,7 +34,7 @@ Om nu het pad te berekenen dat ons deeltje van de bron naar de detector aflegt m
 We definiëren de actie als een integraal over de Lagrangiaan:
   \placeformula[for:actie]
   \startformula
-  S := \int_{t_i}^{t_f} L(x,\dot{x},t) \;\d t.
+  S := \int_{t_i}^{t_f} L(x,\dot{x},t) \d t.
   \stopformula
 Hierbij is de actie $S$ zelf niet zozeer interessant, als wel de manier waarop we deze uitrekenen. Om $S$ te berekenen hebben we namelijk de naburige paden nodig om \emph{dat} pad uit te zoeken dat de kleinste actie heeft. Iets om in ons achterhoofd te houden.
 
@@ -49,14 +49,14 @@ bla
 bla
   \startformula\startsplit
   S(\bar{x} + \delta x) \SC
-  = \int_{t_i}^{t_f} L(\dot{x} + \delta \dot{x}, x + \delta x, t) \;\d t \SR
-  = \int_{t_i}^{t_f} \left( L(x, \dot{x}, t) + \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \;\d t \SR
-  = S(x) + \int_{t_i}^{t_f} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \;\d t
+  = \int_{t_i}^{t_f} L(\dot{x} + \delta \dot{x}, x + \delta x, t) \d t \SR
+  = \int_{t_i}^{t_f} \left( L(x, \dot{x}, t) + \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
+  = S(x) + \int_{t_i}^{t_f} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t
   \stopsplit\stopformula
 bla
   \startformula
   \delta S = \delta x \left. \pdiff{L}{\dot{x}} \right|_{t_i}^{t_f}
-  - \int_{t_i}^{t_f} \delta x \left( \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \right) \;\d t
+  - \int_{t_i}^{t_f} \delta x \left( \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \right) \d t
   \stopformula
 bla
   \startformula
@@ -170,7 +170,7 @@ Wanneer we met een deeltje meereizen over zijn pad zal $\phi$ veranderen met sne
   \stopsplit\stopformula
 Het faseverschil tussen twee tijdstippen $t_1$ en $t_2$ wordt dan
   \startformula
-  \phi_2 - \phi_1 = \int_{t_1}^{t_2} L(t) / \hslash \;\d t = S(t_2,t_1) / \hslash.
+  \phi_2 - \phi_1 = \int_{t_1}^{t_2} L(t) / \hslash \d t = S(t_2,t_1) / \hslash.
   \stopformula
 
 Wat we hebben gedaan is het \emph{faseverschil} op twee tijdstippen uitdrukken in de bijbehorende (klassieke) actie gewogen met $\hslash$. Wanneer we dit antwoord combineren met de golf in \see[for:vlakke golf] komen we op het laatste postulaat van Feynman.
@@ -180,7 +180,7 @@ Wat we hebben gedaan is het \emph{faseverschil} op twee tijdstippen uitdrukken i
 %Wanneer we nu weer naar de golf in \see[for:vlakke golf] kijken, is het geen vreemde gedachte deze te herschrijven naar
   %\placeformula[for:vlakke golf met actie]
   %\startformula
-  %\Psi(\vec{r}, t) = A \e^{i \int L(t) / \hslash \;\d t} = A \e^{i S(t) / \hslash}.
+  %\Psi(\vec{r}, t) = A \e^{i \int L(t) / \hslash \d t} = A \e^{i S(t) / \hslash}.
   %\stopformula
 
 \section[sec:reflecties]{Reflecties}
@@ -252,14 +252,14 @@ Maar we willen de bijdrage van het \emph{volledige} pad.
 Om de \emph{waarschijnlijkheidsamplitude} uit te rekenen bij de overgang van $B$ naar $D$ moeten we, volgens het tweede postulaat, de som nemen over \emph{alle mogelijke paden} van $x_B$ naar $x_D$. Tot nu toe hebben we alleen maar één pad uitgerekend. Daarbij zijn we er van uit gegaan dat ons pad op ieder tijdstip $t_n$ over vastgelegde punten $x_n$ loopt.\footnote{Ofwel: het deeltje gaat door specifieke spleten.} Deze plaats is natuurlijk willekeurig te kiezen uit \emph{alle mogelijke punten} $x$. Om elk mogelijk pad van $B$ naar $D$ te krijgen, moeten we dus integreren over alle mogelijke tussenpunten voor elke tijdsnede $t_n$. In \see[fig:tijdsnedes] kunnen we zien dat $t_0$ en $t_N$ hierop een uitzondering zijn, deze twee punten liggen immers vast. We krijgen dus $N-1$ keer een integraal over $x_n$ met $n$ van $1$ tot $N-1$. Dit leid tot
   \placeformula[for:integraal over alle punten]
   \startformula
-  \psi \approx \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \psi_{0 \to N} \;\d x_1 \;\d x_2 \;\cdots \;\d x_{N-1}.
+  \psi \approx \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \psi_{0 \to N} \d x_1 \d x_2 \;\cdots \d x_{N-1}.
   \stopformula
 
 In \see[for:integraal over alle punten] hebben we nog te maken met een benadering. Door onze tijdsnedes steeds smaller te maken, krijgen we de correcte uitdrukking voor de waarschijnlijkheidsamplitude. We nemen dus de limiet van $N$ naar $\infty$ zodat $\Delta t$ naar $0$ gaat volgens de definitie van \see[for:delta t]. 
   \startformula\startsplit
   \psi \SC
-  = \lim_{N \to \infty} \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \psi_{0 \to N} \;\d x_1 \;\d x_2 \;\cdots \;\d x_{N-1} \SR
-  =: \int_{x_B}^{x_D} \e^{i S / \hslash} \;\D x
+  = \lim_{N \to \infty} \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \psi_{0 \to N} \d x_1 \d x_2 \;\cdots \d x_{N-1} \SR
+  =: \int_{x_B}^{x_D} \e^{i S / \hslash} \D x
   \stopsplit\stopformula
 bla
   \startformula

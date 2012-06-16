@@ -163,15 +163,11 @@
   {\frac{\partial #1}{\partial #2}}
 
 \redefine\d
-  {{\rm d}}
+  {\;\total}
 \define\D
-  {{\cal D}}
-\define[1]\dd
-  {{\textstyle\tdiff{}{#1}}}
+  {\;{\cal D}}
 \define\p
-  {\partial}
-\define[1]\pp
-  {{\textstyle\pdiff{}{#1}}}
+  {\;\partial}
 
 %FIXME: cannot be \redefine'ed
 \define[1]\vec
@@ -307,7 +303,7 @@
 
 \startmode[quick]
   \starttexdefinition doexternaltikzpicture [#1][#2]
-    \externalfigure[tikzpicture]
+    \externalfigure[#1]
   \stoptexdefinition
 \stopmode \startnotmode[quick]
   \starttexdefinition doexternaltikzpicture [#1][#2]
