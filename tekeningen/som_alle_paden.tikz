@@ -16,6 +16,6 @@
 %\draw[->,light orange] (P14) -- node[midway] {$p_{14}$} (P15);
 
 % Verbind tot slot de twee eindpunten:
-\draw[emph lines,->] (P0) node[above right] {$B$} -- (P15) node[above] {$D$};
+\draw[heavy lines,->] (P0) node[above right] {$B$} -- (P15) node[above] {$D$};
 
 % vim: syn=context

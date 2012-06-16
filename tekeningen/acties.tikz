@@ -1,8 +1,8 @@
 
-\draw[help lines] (-7.1,-0.1) grid (7.7,6.7);
+\draw[help lines] (-7,0) grid (7.5,6.5);
 
-\draw[axis lines] (-7.2,0) -- (7.7,0);
-\draw[axis lines] (-7,-0.2) -- (-7,6.7) node[above] {$\phi \sim S$};
+\draw[axis lines] (-7.5,0) -- (8,0);
+\draw[axis lines] (-7,-0.5) -- (-7,7) node[above] {$\phi \sim S$};
 
 \foreach \x [count=\l from 0] in {-7,...,7}
  \node[below] at (\x,0) {$p_{\l}$};
