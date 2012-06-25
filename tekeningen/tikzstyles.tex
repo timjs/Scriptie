@@ -5,8 +5,18 @@
 \def\letcolor[#1] [#2]
   {\colorlet{#1}{#2}}
 
+\def\Gauss#1#2% mu sigma
+  {1/(#2 * sqrt(2*pi)) * exp(-1/2 * ((\x - #1)/#2)^2)}
+\def\Diffraction
+  {(cos(10*pi * sin(\x/10)))^2}
+\def\Inference#1% N
+  {((sin(#1 * \Displacement))/(\Displacement))^2}
+\def\Displacement{2*pi * sin(\x/10)}
+
 \letcolor[light orange]
   [orange!33]
+\letcolor[background orange]
+  [orange!10]
 
 % Every:
 \setuptikzstyle[every picture]
@@ -35,6 +45,8 @@
   [draw,rectangle,inner sep=2pt]
 \setuptikzstyle[point]
   [draw,circle,inner sep=2pt]
+\setuptikzstyle[number]
+  [draw,circle,inner sep=1pt]
 %\setuptikzstyle[slit]
   %[fill,white,circle]
 
