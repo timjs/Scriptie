@@ -1,50 +1,540 @@
-\documentclass{beamer}
+\documentclass[
+  compress,
+  %handout,
+  %draft,
+]
+{beamer}
 
-\usepackage{pxfonts}
+%\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+%\usepackage{lmodern}
+
 \usepackage{fontspec}
-%\usepackage{unicode-math}
-%\defaultfontfeatures
-  %{Scale=MatchLowercase}
+\defaultfontfeatures
+  {Scale=MatchLowercase,
+   Ligatures={TeX}}
+%\usepackage{mathspec}
 \setmainfont{Aldus LT Std}
 \setsansfont{Optima LT Std}
 %\setmathfont{Asana Math}
 
+\let\phi\varphi
+\let\epsilon\varepsilon
+
+\usepackage{calc}
 %\usepackage[dutch]{babel}
 \usepackage{polyglossia}
 \setdefaultlanguage{dutch}
 
 \usepackage{tikz}
-\input tekeninge/tikzstyles
-\newcommand{\includetikzpicture}[2][]
-  {\begin{tikzpicture}[#1]
-     \input tekeningen/#2.tikz
-   \end{tikzpicture}}
+%\usetikzlibrary{spy}
+\input tekeningen/tikzstyles
+\newcommand{\includetikzpicture}[2][]{
+  \begin{tikzpicture}[#1]
+    \input tekeningen/#2.tikz
+  \end{tikzpicture}
+}
 
-\usecolortheme[named={orange}]{structure}
+\newcommand{\e}{
+  \ensuremath{\mathrm{e}}
+}
+\renewcommand{\d}{
+  \ensuremath{\;\text{d}}
+}
+\newcommand{\D}{
+  \ensuremath{\;\mathcal{D}}
+}
+\newenvironment{twocolumns}[1][0.5]{
+  \begin{columns}
+    \begin{column}{#1\textwidth}
+      \newcommand{\nextcolumn}[1][]{
+      \end{column}
+      \begin{column}[##1]{\textwidth-#1\textwidth}
+      }
+    }{
+    \end{column}
+  \end{columns}
+}
+\renewenvironment<>{figure}{
+  \begin{actionenv}#1
+    \begin{originalfigure}
+    }{
+    \end{originalfigure}
+  \end{actionenv}
+}
+
+%\setbeameroption{show notes}
 
 % Outer:
-\useoutertheme{miniframes}
-\usecolortheme{dolphin}%whale,seahorse,dolphin
+\useoutertheme{smoothbars}%miniframes,smoothbars
+\usecolortheme{whale}%whale,seahorse,dolphin
 
 % Inner:
-\useinnertheme{rectangles}
+\useinnertheme{rectangles}%rectangles,circles
 \usecolortheme{rose}%lily,orchid,rose
 
+% Adjustments:
+%\definecolor{darkred}{RGB}{163,0,0}%dark red beaver
+%\definecolor{darkred}{RGB}{174,59,39}%preview ru
+%\definecolor{darkred}{rgb}{0.68,0.23,0.15}
+%\definecolor{darkred}{RGB}{190,50,25}%eigen waarde ru
+%\definecolor{darkred}{rgb}{0.75,0.20,0.10}
+%\definecolor{darkred}{RGB}{158,45,29}%algemene waarde ru
+%\definecolor{darkred}{rgb}{0.62,0.18,0.11}
+%\definecolor{darkorange}{RGB}{177,98,30}
+
+\usecolortheme[named={orange}]{structure}
+\setbeamercolor{alerted text}{fg=structure}
+%\setbeamercolor{section in head/foot}{fg=white,bg=black}
+%\setbeamercolor{frametitle}{fg=structure,bg=white}
+%\setbeamercolor{subsection in head/foot}{fg=white,bg=orange}
+%\setbeamercolor{subsection in head/foot}{fg=white,bg=darkorange}
+%\usecolortheme{beaver}
+
+\everymath{\displaystyle}
+
+\AtBeginSection[]{
+  \begin{frame}{Plan}
+    \tableofcontents[currentsection,hideothersubsections]
+  \end{frame}
+}
+
 \title{Oneindig veel paden en complexe acties}
+\subtitle{Bachelorstage bij Theoretische Hoge Energiefysica}
 \author{Tim Steenvoorden}
+\institute{Onder begeleiding van Wim Beenakker}
 \date{20 juni 2012}
+\titlegraphic{\includegraphics[width=0.1\textwidth]{afbeeldingen/ru-logo}}
 
 \begin{document}
 
 \begin{frame}
-  \begin{figure}
-  \includetikzpicture[scale=0.5]{detectie}
-  \caption{Bla}
-  \end{figure}
+  \titlepage
 \end{frame}
 
-\input beamerconference
+\section*{Introductie}
+\subsection*{Wat gaan we doen?}
+
+\begin{frame}{Er was eens\dots}
+
+  Een gerenommeerd theoretisch natuurkundige die
+
+  \begin{itemize}
+    \item veel heeft bijgedragen aan de \emph{Snaartheorie}
+    \item de \emph{Humboldt-prijs} heeft gewonnen
+    \item leken enthousiasmeert voor het vak
+  \end{itemize}
+
+\end{frame}
+
+\begin{frame}{Zijn naam}
+  \begin{twocolumns}
+
+    \begin{block}{Holger Bech Nielsen}
+      Professor aan het Niels Bohr-instituut in Kopenhagen
+    \end{block}
+
+    \nextcolumn
+
+    \includegraphics[width=\columnwidth]{afbeeldingen/holger_bech_nielsen}
+
+  \end{twocolumns}
+\end{frame}
+
+\begin{frame}{Controversieel idee}
+
+  \begin{quote}
+    Wat gebeurt er met de natuurkunde wanneer we een imaginair deel toevoegen aan de actie?
+  \end{quote}
+
+  \pause
+  \begin{itemize}
+    \item ``Dingen die nu gebeuren worden niet alleen beïnvloed door het verleden, maar ook door de toekomst.''
+    \item ``We krijgen het Higgsdeeltje nooit te zien, dit heeft het deeltje in de toekomst al besloten.''
+    %\item ``We kunnen net zo goed een simpel kansexperiment doen met een pakje kaarten, om te besluiten of we de LHC moeten sluiten.''
+    \item \dots
+  \end{itemize}
+
+  \pause
+  \bigskip
+  Een geniaal idee of een beetje over de top?
+
+\end{frame}
+
+\section*{}
+
+\begin{frame}{Plan}
+  \tableofcontents[hideallsubsections]
+\end{frame}
+
+\section[Idee]{Is dit een aanvaardbaar idee?}
+\subsection*{Is dit een aanvaardbaar idee?}
+
+\begin{frame}{Valt wel mee}
+
+  \begin{itemize}
+    \item Toevoeging aan bestaande wetten
+    \item Ook gebeurt van klassiek naar kwantum
+    \item \emph{Zolang ze in de klassieke limiet geen invloed hebben!}
+  \end{itemize}
+
+  \bigskip
+
+  \pause
+  \begin{twocolumns}
+
+    \begin{block}{De Broglie golflengte}
+      $ \lambda = \frac{h}{p} $
+    \end{block}
+
+    \nextcolumn
+
+    Klein ten opzichte van object
+
+    $\implies$
+
+    kwantum effecten verwaarloosbaar.
+
+  \end{twocolumns}
+
+\end{frame}
+
+\section[Methoden]{Met welke rekenmethoden kunnen we dit testen?}
+\subsection*{Met welke rekenmethoden kunnen we dit testen?}
+
+\begin{frame}{Zoektocht}
+
+  \begin{itemize}
+    \item Maakt gebruik van de \emph{klassieke actie}:\\
+      $ S = \int_{t_A}^{t_B} L(x,\dot{x},t) \d t $
+    \item Legt link tussen actie en \emph{kwantummechanica}
+    \item Doet iets met \emph{complexe getallen}
+  \end{itemize}
+
+  \bigskip
+
+  \pause
+  \begin{twocolumns}
+
+    \begin{block}{Feynman padintegraal}
+      $ K(B,A) = \int_{x_A}^{x_B} \exp[ i S / \hslash ] \D x(t) $
+    \end{block}
+
+    \nextcolumn
+
+    Integraal over \emph{alle mogelijke paden} van $A$ naar $B$.
+
+  \end{twocolumns}
+
+\end{frame}
+
+\section[Werking]{Hoe werken deze methoden ook al weer?}
+\subsection*{Hoe werken deze methoden ook al weer?}
+
+\begin{frame}{Twee spleten experiment}
+
+  \pause
+  \begin{figure}
+    \begin{tikzpicture}[scale=0.6]
+      \coordinate[source,label=left:$B$] (B) at (0,5);
+      \pause
+      \coordinate (D) at (10,5);
+      \draw[screen lines] (10,1) -- (10,9) node[above] {$D$};
+
+      \pause
+      \coordinate (S1) at (5,7);
+      \coordinate (S2) at (5,3);
+      \draw[screen lines] (5,1) -- (S1) -- (S2) -- (5,9) node[above] {$s$};
+      \pause
+      \fill[slit] (S1) circle;
+      \fill[slit] (S2) circle;
+
+      \pause
+      \draw[just lines] (B) -- (S1) -- (D);
+      \pause
+      \draw[just lines] (B) -- (S2) -- (D);
+    \end{tikzpicture}
+  \end{figure}
+
+\end{frame}
+
+% Overlays!
+\begin{frame}{Interferentie}
+  \begin{twocolumns}
+
+    \begin{figure}
+      \begin{tikzpicture}[scale=0.4]
+        \coordinate[source,label=left:$B$] (B) at (0,5);
+        \coordinate (D) at (10,5);
+        \draw[screen lines] (10,1) -- (10,9) node[above] {$D$};
+
+        \coordinate (S1) at (5,7);
+        \coordinate (S2) at (5,3);
+        \draw[screen lines] (5,1) -- (S1) -- (S2) -- (5,9) node[above] {$s$};
+
+        \fill<2,3,6->[slit] (S1) circle;
+        \draw<2,3,6->[just lines] (B) -- node[auto,number] {1} (S1) -- (D);
+
+        \fill<4,5,6->[slit] (S2) circle;
+        \draw<4,5,6->[just lines] (B) -- node[auto,swap,number] {2} (S2) -- (D);
+      \end{tikzpicture}
+    \end{figure}
+
+    \nextcolumn
+
+    \begin{figure}
+      \begin{tikzpicture}[xscale=0.5,just lines,domain=-4.5:4.5]
+        \useasboundingbox (-5,-1.2) rectangle (5,2.2);
+        \draw<3->[yshift=50] plot (\x,{\Gauss{-2}{1}}) node[right,number] {1};
+        \draw<5->[yshift=20] plot (\x,{\Gauss{ 2}{1}}) node[right,number] {2};
+        \draw<6->[help lines] (-5,0) -- (5,0) node[right] {$+$};
+        \draw<6->[yshift=-30] plot (\x,{\Gauss{-2}{1} + \Gauss{2}{1}});
+        %\draw<7->[heavy lines] (-5,-1) -- (4.5,2);
+      \end{tikzpicture}
+    \end{figure}
+
+  \end{twocolumns}
+  \begin{twocolumns}
+
+    \begin{block}<8->{Kansen niet optellen!}
+      $ P \neq P_1 + P_2 $
+    \end{block}
+
+    \nextcolumn
+
+    \begin{figure}<7->
+      $\neq$
+
+      \includegraphics[width=\columnwidth]{afbeeldingen/inference}
+    \end{figure}
+
+  \end{twocolumns}
+\end{frame}
+
+\begin{frame}{Postulaten}
+
+  \note{Hiervoor introduceert Feynman drie postulaten waarmee hij de kwantummechanica opbouwt.}
+
+  \begin{twocolumns}[0.3]
+    \begin{block}{Postulaat 1}
+      $ P = |\psi|^2 $
+    \end{block}
+    \nextcolumn
+    $\psi$ is de complexe \emph{waarschijnlijkheidsamplitude}
+  \end{twocolumns}
+
+  \pause
+  \begin{twocolumns}[0.3]
+    \begin{block}{Postulaat 2}
+      $ \psi = \psi_1 + \psi_2 $
+    \end{block}
+    \nextcolumn
+    die we \emph{wel} bij elkaar mogen optellen
+  \end{twocolumns}
+
+  \pause
+  \begin{twocolumns}[0.3]
+    \begin{block}{Postulaat 3}
+      $ \psi_n \sim \exp [i S_n / \hslash] $
+    \end{block}
+    \nextcolumn
+    en wordt berekend met de actie! 
+  \end{twocolumns}
+
+\end{frame}
+
+\section[Berekening]{Hoe ziet zo'n berekening er uit?}
+\subsection*{Hoe ziet zo'n berekening er uit?}
+
+\begin{frame}{Reflecties}
+
+  \begin{figure}
+    \begin{tikzpicture}[scale=0.5]
+      \useasboundingbox (-3,-1) rectangle (13,10);
+      \coordinate<2->[source,label=above:$B$] (B) at ( 0,10);
+      \coordinate<3->[detector,label=above:$D$] (D) at (10,10);
+
+      \draw<4->[ultra thick] (-3,0) -- (13,0) node[right] {$r$};
+
+      \draw<5,6>[thin,orange] (B) -- (5,0) node[below] {\alert{$p$}} -- (D);
+      \foreach \x [count=\l from 0] in {-2,...,12}
+        \draw<7->[thin,light orange] (B) -- (\x,0) node[below] {$p_{\l}$} -- (D);
+      \draw<7->[thin,orange] (B) -- (5,0) node[below] {\alert{$p_7$}} -- (D);
+    \end{tikzpicture}
+
+    \visible<6->{Alle paden mogen meedoen, \emph{ook} paden die klassiek onmogelijk zijn.}
+  \end{figure}
+
+\end{frame}
+
+% Overlays!
+\begin{frame}{Fases en acties}
+  \begin{twocolumns}[0.7]
+
+    \begin{itemize}
+      \item<1-> Voor elk pad klassieke actie uitrekenen
+      \item<3-> Geeft ons een \emph{fasor}
+        $ \psi_n \sim \exp [i \alert{S / \hslash} ] \equiv \exp [i \alert{\phi} ] $
+    \end{itemize}
+
+    \nextcolumn
+
+    \begin{figure}<4->
+      \begin{tikzpicture}[scale=0.7]
+        \draw[axis lines] (-0.2,0) -- (2.2,0) node[right] {$\Re$};
+        \draw[axis lines] (0,-0.2) -- (0,2.2) node[above] {$\Im$};
+
+        \draw[->] (0,0) -- node[auto] {$1$} (30:2) node[right] {$\psi_n$};
+        \draw[just lines] (1,0) arc[start angle=0,end angle=30,radius=1] node[below right,orange] {$\phi$};
+      \end{tikzpicture}
+    \end{figure}
+
+  \end{twocolumns}
+
+  \begin{figure}<2->
+    \begin{tikzpicture}[scale=0.5]
+      \draw[help lines] (-8,0) grid (7.5,6.5);
+
+      \draw[axis lines] (-8.5,0) -- (8,0);
+      \draw[axis lines] (-8,-0.5) -- (-8,7) node[below left] {$S$};
+
+      \foreach \x [count=\l from 0] in {-7,...,7}
+        \node[below] at (\x,0) {$p_{\l}$};
+        \node[below] at (0,0) {\alert{$p_7$}};
+
+      \draw[light lines] plot[samples at={-7,...,7},smooth,mark=*,mark options={orange}] (\x,{\x*\x/10+1});
+    \end{tikzpicture}
+  \end{figure}
+
+  \note{We zien heel mooi dat de actie bij het klassieke pad $p_7$ minimaal is.}
+
+\end{frame}
+
+% Overlays!
+\begin{frame}{Som over paden}
+  \begin{twocolumns}[0.7]
+
+  \begin{figure}
+    \begin{tikzpicture}
+      \fill<9>[background orange] (3,1) circle[radius=1.5];
+      \fill<10>[background orange] (0.5,0) circle[radius=1];
+
+      \draw[help lines] (-0.9,-0.9) grid (6.9,3.9);
+
+      \draw[axis lines] (-1,0) -- (7,0) node[right] {$\Re$};
+      \draw[axis lines] (0,-1) -- (0,4) node[above] {$\Im$};
+
+      \path (0,0) coordinate (P0)
+      \foreach \a [count=\i from 1] in {355.05, 241.74, 153.24, 87.55, 41.51, 11.62, 354.94, 349.59, 354.94, 11.62, 41.51, 87.55, 153.24, 241.74, 355.05}
+        { ++(\a:1) coordinate (P\i)};
+
+      \path<7-> (P15) node[above] {$D$};
+      \draw<7->[heavy lines,->] (P0) -- (P15);
+
+      \path<2-> (P0) node[below right] {$B$};
+      \draw<3->[just lines,->] (P0) -- node {$\psi_{0}$} (P1);
+      \draw<4->[just lines,->] (P1) -- node {$\psi_{1}$} (P2);
+      \draw<5->[just lines,->] (P2) -- node {$\psi_{2}$} (P3);
+      \foreach \to [remember=\to as \from (initially 3)] in {4,...,15}
+        \draw<6->[just lines,->] (P\from) -- node {$\psi_{\from}$} (P\to);
+    \end{tikzpicture}
+  \end{figure}
+
+  \nextcolumn
+
+  \begin{itemize}
+    \item<8-> Lengte resulterende vector geeft kans
+    \item<9-> Dichtbij klassieke pad: fase varieert weinig
+    \item<10-> Totaal niet klassieke paden: fases variëren snel% ten opzichte van elkaar
+  \end{itemize}
+
+  \end{twocolumns}
+\end{frame}
+
+\begin{frame}{Imaginair deel}
+  \begin{twocolumns}
+
+    \begin{align*}
+      S &\mapsto S_r + iS_i \\
+      \phi &\mapsto \phi_r + i\phi_i
+    \end{align*}
+
+    \pause
+    \nextcolumn
+
+    \begin{figure}
+      \begin{tikzpicture}[scale=0.7]
+        \draw[axis lines] (-0.2,0) -- (2.2,0) node[right] {$\Re$};
+        \draw[axis lines] (0,-0.2) -- (0,2.2) node[above] {$\Im$};
+
+        \draw[->] (0,0) -- node[auto] {??} (60:3) node[right] {$\psi_n$};
+        \draw[just lines] (1,0) arc[start angle=0,end angle=60,radius=1] node[right,orange] {??};
+      \end{tikzpicture}
+    \end{figure}
+
+  \end{twocolumns}
+
+  Veranderingen aan fasor $\psi$:
+
+  \begin{itemize}
+    \item hoek
+    \item lengte\\
+      (``absorptie'' of ``impact'' door reflecterende plaat)
+  \end{itemize}
+
+  \bigskip
+
+  Simulatie om effecten te onderzoeken
+
+\end{frame}
+
+\section*{Conclusie}
+\subsection*{Wat hebben we gezien?}
+
+\begin{frame}{(Voorlopige) antwoorden}
+
+  \begin{enumerate}
+    \item Aanvaardbaar om bestaande wetten uit te breiden
+    \item Testen met padintegralen
+    \item Oplossen door sommeren van fasoren
+    \item Complexe actie verandert lengte en hoek fasor
+  \end{enumerate}
+
+\end{frame}
 
 \end{document}
 
-% vim: syn=latex
+\begin{frame}{Details}
+
+  \begin{tikzpicture}[
+      %scale=0.5,
+      spy using overlays={circle,magnification=2,size=2cm,connect spies}
+    ]
+    \draw[help lines] (-0.9,-0.9) grid (6.9,3.9);
+
+    \draw[axis lines] (-1,0) -- (7,0) node[right] {$\Re$};
+    \draw[axis lines] (0,-1) -- (0,4) node[above] {$\Im$};
+
+    \path (0,0) coordinate (P0)
+    \foreach \a [count=\i from 1] in {355.05, 241.74, 153.24, 87.55, 41.51, 11.62, 354.94, 349.59, 354.94, 11.62, 41.51, 87.55, 153.24, 241.74, 355.05}
+    { ++(\a:1) coordinate (P\i)};
+
+    \path (P0) node[below right] {$B$};
+    \foreach \to [remember=\to as \from (initially 0)] in {1,...,15}
+    \draw[light lines,->] (P\from) -- node {$p_{\from}$} (P\to);
+    \path (P15) node[above] {$D$};
+
+    \draw[heavy lines,->] (P0) -- (P15);
+
+    \spy on (P7) in node at (10,3);
+    \spy on (P0) in node at (10,-1);
+  \end{tikzpicture}
+
+  \begin{itemize}
+    \item Dicht bij klassiek pad varieert de fase weinig
+    \item Totaal niet klassieke paden variëren snel ten opzichte van elkaar
+  \end{itemize}
+
+\end{frame}
+
+% vim: syn=latex spell spl=nl
