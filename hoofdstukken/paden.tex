@@ -28,42 +28,58 @@ de naar hem vernoemde \emph{Lagrangiaan}. Hierbij zijn $T$ de kinetische energie
   \stopformula
 Hier is $L$ expliciet een functie van $x$, $\dot{x}$ en $t$. We maken gebruik van de notatie $\dot{x} = \tdiff{x}{t} = v$.
 
-Om nu het pad te berekenen dat ons deeltje van de bron naar de detector aflegt maken we gebruik van \emph{het principe van de kleinste actie}. Dit wil zeggen dat we een grootheid $S$ (de \emph{actie}) invoeren die we voor elk pad kunnen uitrekenen. Het pad dat het deeltje uiteindelijk aflegt is dat pad waarbij $S$ minimaal is. Met andere woorden: $S$ verandert niet in eerste orde wanneer het klassieke pad $\bar{x}(t)$ een beetje verandert.
+Om nu het pad te berekenen dat ons deeltje van de bron naar de detector aflegt maken we gebruik van \emph{het principe van de kleinste actie}. Dit wil zeggen dat we een grootheid $S$ (de \emph{actie}) invoeren die we voor elk pad kunnen uitrekenen. Het pad dat het deeltje uiteindelijk aflegt is dat pad waarbij $S$ minimaal is.
+% Met andere woorden: $S$ verandert niet in eerste orde wanneer het klassieke pad $\bar{x}(t)$ een beetje verandert.
 
-\todo{Bovenstaande kwantitatief maken door voorbeeld met variatierekening uit te werken? => Voor het gegeven voorbeeld van een vrij deeltje v(x,t)}
-
-We definiëren de actie als een integraal over de Lagrangiaan:
+Om dit kwantitatief te maken, moeten we eerst een definitie geven van de actie. Deze wordt gegeven door een integraal van de Lagrangiaan van begintijdstip $t_{\text{b}}$ tot eindtijdstip $t_{\text{b}}$:
   \placeformula[for:actie]
   \startformula
-  S := \int_{t_i}^{t_f} L(x,\dot{x},t) \d t.
+  S := \int_{t_{\text{b}}}^{t_{\text{b}}} L(x,\dot{x},t) \d t.
   \stopformula
-Hierbij is de actie $S$ zelf niet zozeer interessant, als wel de manier waarop we deze uitrekenen. Om $S$ te berekenen hebben we namelijk de naburige paden nodig om \emph{dat} pad uit te zoeken dat de kleinste actie heeft. Iets om in ons achterhoofd te houden.
+Er zijn natuurlijk veel verschillende manieren om van een positie $x_b$ op tijdstip $t_{\text{b}}$ naar positie $x_e$ op $t_{\text{b}}$ te komen. De positie $x$ in de Lagrangiaan is immers een functie van $t$ en kan vele vormen aannemen.
 
-bla
+Stel dat het klassieke pad wordt gegeven door de functie $\bar{x}(t)$. Alle andere paden zijn variaties op dit pad. Deze representeren we met een functie $\delta x(t)$, zodat een willekeurig pad te schrijven is als de som van het klassieke pad en de variaties daarop:
   \startformula
-  \delta x(t_i) = \delta x(t_f) = 0
+  x(t) := \bar{x}(t) + \delta x(t).
   \stopformula
-bla
+Van deze afwijking weten we dat
+  \placeformula[for:variatie-restrictie]
   \startformula
-  \delta S = S(\bar{x} + \delta x) - S(\bar{x}) = 0
+  \delta x(t_{\text{b}}) = \delta x(t_{\text{b}}) = 0,
   \stopformula
-bla
+aangezien de begin- en eindpunten niet veranderen. Wanneer we willen dat de actie een minimum\footnote{Of eigenlijk een extremum.} heeft, wil dat zeggen dat $S$ niet verandert wanneer we het pad waarover we hem berekenen een klein beetje verandert. Op eerste orde geldt dan
+  \placeformula[for:variatie-eis]
+  \startformula
+  \delta S = S(\bar{x} + \delta x) - S(\bar{x}) = 0.
+  \stopformula
+Voor de actie over een alternatief pad krijgen we
+  \startformula
+  S(\bar{x} + \delta x)
+  = \int_{t_{\text{b}}}^{t_{\text{b}}} L(x + \delta x, \dot{x} + \delta \dot{x}, t) \d t.
+  \stopformula
+En wanneer we dit expanderen tot op eerste orde
   \startformula\startsplit
   S(\bar{x} + \delta x) \SC
-  = \int_{t_i}^{t_f} L(\dot{x} + \delta \dot{x}, x + \delta x, t) \d t \SR
-  = \int_{t_i}^{t_f} \left( L(x, \dot{x}, t) + \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
-  = S(x) + \int_{t_i}^{t_f} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t
+  = \int_{t_{\text{b}}}^{t_{\text{b}}} \left( L(x, \dot{x}, t) + \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
+  = S(x) + \int_{t_{\text{b}}}^{t_{\text{b}}} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t
   \stopsplit\stopformula
-bla
-  \startformula
-  \delta S = \delta x \left. \pdiff{L}{\dot{x}} \right|_{t_i}^{t_f}
-  - \int_{t_i}^{t_f} \delta x \left( \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \right) \d t
-  \stopformula
-bla
-  \startformula
-  \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} = 0
-  \stopformula
-bla
+Dus voor de variatie in $S$ zoals gegeven in \see[for:variatie-eis] geldt
+  \startformula\startsplit
+  \delta S \SC
+  = \int_{t_{\text{b}}}^{t_{\text{b}}} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
+  = \delta x \left. \pdiff{L}{\dot{x}} \right|_{t_{\text{b}}}^{t_{\text{b}}}
+    - \int_{t_{\text{b}}}^{t_{\text{b}}} \delta x \left( \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \right) \d t
+  = 0.
+  \stopsplit\stopformula
+Hierbij hebben we gebruik gemaakt van partiële integratie. De eerste term valt weg door de restrictie die we aan $\delta x(t)$ hebben opgelegd in \see[for:variatie-restrictie]. Om de integraal nul te krijgen, moet de integrand nul zijn zodat:
+  \placeformula[for:euler-lagrange]
+  \startformula\startsteps
+  \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \SC= 0            \SR
+                 \ddiff{t} \pdiff{L}{\dot{x}} \SC= \pdiff{L}{x}
+  \stopsteps\stopformula
+Deze differentiaalvergelijking levert ons een beweging op wanneer de Lagrangiaan van een deeltje bekend is. Hij staat bekend als de \emph{Euler-Lagrange vergelijking}. Verderop in deze tekst zullen we hem nog eens tegenkomen.
+
+Bij de berekening van deze bewegingsvergelijking is de actie $S$ zelf niet zozeer interessant. Wat een veel grotere rol speelt is de manier waarop we deze uitrekenen. Om $S$ te berekenen hebben we namelijk de naburige paden nodig om \emph{dat} pad uit te zoeken dat de kleinste actie heeft. Iets om in ons achterhoofd te houden.
 
 \section[sec:kwantum pad]{Kwantummechanische paden}
 
