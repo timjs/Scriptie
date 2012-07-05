@@ -141,8 +141,9 @@
 % Math Commands
 % -----------------------------------------------------------------------------
 
-\let\phi=\varphi
-\let\epsilon=\varepsilon
+\let\phi\varphi
+\let\epsilon\varepsilon
+\let\hbar\hslash
 
 \definemathcommand[arcsinh][nolop]
   {\mfunction{arcsinh}}
@@ -155,12 +156,24 @@
 
 \define\total
   {{\rm d}}
-\define[2]\tdiff
-  {\frac{\total #1}{\total #2}}
-\define[1]\ddiff
-  {\tdiff{}{#1}}
-\define[2]\pdiff
-  {\frac{\partial #1}{\partial #2}}
+ 
+\starttexdefinition diff
+  \doquadruplegroupempty\dodiff
+\stoptexdefinition
+\starttexdefinition dodiff #1#2#3#4
+  \iffourthargument
+    \frac{#1^{#2} #3}{#1 #4^{#2}}
+  \else
+    \frac{#1 #2}{#1 #3}
+  \fi
+\stoptexdefinition
+
+\define\tdiff
+  {\diff{\total}}
+\define\pdiff
+  {\diff{\partial}}
+\define\ddiff
+  {\diff{\total}{}}
 
 \redefine\d
   {\;\total}
@@ -198,16 +211,18 @@
 
 \define[1]\E
   {\math{\cdot 10^{#1}}}
+\define[1]\reci
+  {\math{\frac{1}{#1}}}
 \define[1]\unitfrac
   {{\textstyle\frac{1}{#1}}}
 \define\half
-  {\unitfrac{2}}
+  {\reci{2}}
 \define\third
-  {\unitfrac{3}}
+  {\reci{3}}
 \define\rhbar
-  {\unitfrac{\hbar}}
+  {\reci{\hbar}}
 \define\rhslash
-  {\unitfrac{\hslash}}
+  {\reci{\hslash}}
 
 % -----------------------------------------------------------------------------
 % Math Alignment

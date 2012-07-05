@@ -22,8 +22,8 @@ Toch zou het handig zijn als we gebruik kunnen maken van de oplossing van de kla
   \startformula
   X(T)  :=  r(T) + q(T).
   \stopformula
-Hierin is $r(T)$ het klassieke pad en dus de oplossing van de Euler-Lagrange vergelijking. $q(T)$ is de afwijking ten opzichte van het klassieke pad ofwel de \emph{kwantumfluctuaties}.
-Het begin en eindpunt van het pad liggen vast. Dat betekent dat de afwijking op $T=0$ en $T=t$ nul moet zijn, zodat de kwantumfluctuaties hier geen invloed hebben:
+Hierin is $r(T)$ het klassieke pad en dus de oplossing van de Euler-Lagrange vergelijking. Verder is $q(T)$ de afwijking ten opzichte van het klassieke pad ofwel de \emph{kwantumfluctuaties}.
+Het begin- en eindpunt van het pad liggen vast. Dat betekent dat de afwijking op $T=0$ en $T=t$ nul moet zijn, zodat de kwantumfluctuaties hier geen invloed hebben:
   \startformula
   q(0) = q(t) = 0.
   \stopformula
@@ -45,7 +45,7 @@ Na een kleine herordening zien we dat we een klassieke Lagrangiaan kunnen afspli
   %\phantom{L (X, \dot{X})}
   %\SC=  \half m \dot{r}^2 + \half m \dot{q}^2 + m \dot{r} \dot{q} - m g r - m g q  \SR
   %\stopsplit\stopformula
-Wel blijven we zitten met de kruisterm $m g q$.
+Wel blijven we zitten met de kruisterm $m \dot{r} \dot{q}$.
 Om deze weg te werken zullen we een truc toepassen. We houden in ons achterhoofd dat we deze Lagrangiaan zo meteen gaan integreren. Voor de padintegraal hebben we immers de \emph{actie} nodig. Ook kunnen we de randvoorwaarde van Dirichlet gebruiken. Laten we eerst de Euler-Lagrange vergelijking oplossen voor $L_r$. Zo vinden we het klassieke pad $r(t)$.
   \startformula\startsteps
   \tdiff{}{T} \pdiff{L_r}{\dot{r}}  \NC=  \pdiff{L_r}{r}  \SR
@@ -104,9 +104,9 @@ De vorm van $r(T)$ en $q(T)$ doen er wederom niet toe. We vinden voor de Lagrang
   L (X, \dot{X})  \SC
   =  \half m \dot{X}^2 - V(X)  \SR
   =  \half m (\dot{r} + \dot{q})^2 - V(r + q)  \SR
-  =  \half m \dot{r}^2 + \half m \dot{q}^2 + m \dot{r} \dot{q} - V(r + q)
+  =  \half m \dot{r}^2 + \half m \dot{q}^2 + m \dot{r} \dot{q} - V(r + q),
   \stopsplit\stopformula
-Waarin we de eerste drie termen herkennen uit \see[for:Lagrangiaan voor gravitatieveld]. Nu kunnen we helaas niet meteen het klassieke deel en het kwantum deel van elkaar scheiden. Maar voor onze klassieke Lagrangiaan
+waarin we de eerste drie termen herkennen uit \see[for:Lagrangiaan voor gravitatieveld]. Nu kunnen we helaas niet meteen het klassieke deel en het kwantum deel van elkaar scheiden. Maar voor onze klassieke Lagrangiaan
   \startformula
   L_r (r, \dot{r})  :=  \half m \dot{r}^2 - V(r),
   \stopformula
@@ -129,13 +129,13 @@ Door de Dirichlet randvoorwaarde valt $\ddiff{T} \dot{r} q$ weg wanneer we overs
   \stopsteps\stopformula
 Wanneer we dit invullen in \see[for:Lagrangiaan voor algemene potentiaal met substituties] krijgen we
   \startformula
-  L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 - V'(r) q - V(r + q).
+  L (X, \dot{X})  =  L_r + V(r) + \half m \dot{q}^2 + V'(r) q - V(r + q).
   \stopformula
 
 Laten we eens goed naar dit resultaat kijken. Dit is onze Lagrangiaan voor een deeltje in één dimensie. We hebben het pad $X(T)$ opgesplitst in een klassiek- en een kwantum deel. Het doel is om onze Lagrangiaan ook zo op te splitsen. Stiekem hebben we dit al een beetje gedaan: de klassieke Lagrangiaan $L_r$ staat er al in. Dat betekent dat alle andere termen samen het kwantum deel moeten vormen. Maar sommige termen zijn nog afhankelijk van $r$. De eis die we moeten opleggen is dus dat deze termen onafhankelijk van $r$ moeten zijn.
 Met andere woorden:
   \startformula\startspread[m=3]
-  \ddiff{r} \left( - V'(r) q - V(r) + V(r + q) \right)  =  0  \SC
+  \ddiff{r} \left( V'(r) q V(r) - V(r + q) \right)  =  0  \SC
   \implies  \SC
   V''(r) q + V'(r) - V'(r + q)  =  0
   \stopspread\stopformula
@@ -148,7 +148,7 @@ Hieraan voldoen precies tweedegraads polynomen in $X$:
 zodat:
   \startformula
   V''(r) q + V'(r) - V'(r + q)
-  =  2 c q + b + 2 c (r + q) - b - 2 c (r + q)
+  =  2 c q + b + 2 c r - b - 2 c (r + q)
   =  0.
   \stopformula
 

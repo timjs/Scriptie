@@ -1,0 +1,3 @@
+open scriptie.tex hoofdstukken/methoden.tex hoofdstukken/paden.tex
+open documentdefinitions.tex thesislayout.tex
+open scriptie.pdf
