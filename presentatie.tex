@@ -1,6 +1,6 @@
 \documentclass[
   compress,
-  %handout,
+  handout,
   %draft,
 ]
 {beamer}
@@ -400,7 +400,7 @@
 
       \foreach \x [count=\l from 0] in {-7,...,7}
         \node[below] at (\x,0) {$p_{\l}$};
-        \node[below] at (0,0) {\alert{$p_7$}};
+      \node[below] at (0,0) {\alert{$p_7$}};
 
       \draw[light lines] plot[samples at={-7,...,7},smooth,mark=*,mark options={orange}] (\x,{\x*\x/10+1});
     \end{tikzpicture}
