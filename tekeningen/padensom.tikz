@@ -9,13 +9,11 @@
  \foreach \a [count=\i from 1] in {355.05, 241.74, 153.24, 87.55, 41.51, 11.62, 354.94, 349.59, 354.94, 11.62, 41.51, 87.55, 153.24, 241.74, 355.05}
    { ++(\a:1) coordinate (P\i)};
 
-% Teken nu alle pijlen door de coordinaten met elkaar te verbinden:
-%\draw[->,light orange] (P0) -- node[midway] {$p_{0}$} (P1);
-\foreach \to [remember=\to as \from (initially 0)] in {1,...,15}
-  \draw[light lines,->] (P\from) -- node {$p_{\from}$} (P\to);
-%\draw[->,light orange] (P14) -- node[midway] {$p_{14}$} (P15);
+% Verbind de twee eindpunten:
+\draw[heavy lines,->] (P0) node[below right] {$B$} -- (P15) node[above] {$D$};
 
-% Verbind tot slot de twee eindpunten:
-\draw[heavy lines,->] (P0) node[above right] {$B$} -- (P15) node[above] {$D$};
+% Teken alle pijlen door de coordinaten met elkaar te verbinden:
+\foreach \to [remember=\to as \from (initially 0)] in {1,...,15}
+  \draw[light lines,->] (P\from) -- node {$\psi_{\from}$} (P\to);
 
 % vim: syn=context

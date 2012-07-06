@@ -1,0 +1,7 @@
+
+\draw[just lines] plot[smooth,samples=50,domain=0:10] (\x,{12*\Gauss{5}{1}});
+
+\draw[axis lines] (-0.5,0) -- (10.5,0) node[right] {$y$};
+\draw[axis lines] (0,-0.5) -- (0,5.5) node[above] {$I(y)$};
+
+% vim: syn=context

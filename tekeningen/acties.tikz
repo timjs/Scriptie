@@ -1,11 +1,13 @@
 
-\draw[help lines] (-7,0) grid (7.5,6.5);
+\draw[help lines] (-8,0) grid (7.5,6.5);
 
-\draw[axis lines] (-7.5,0) -- (8,0);
-\draw[axis lines] (-7,-0.5) -- (-7,7) node[above] {$\phi \sim S$};
+\draw[axis lines] (-8.5,0) -- (8,0);
+\draw[axis lines] (-8,-0.5) -- (-8,7) node[above] {$\phi \sim S$};
 
 \foreach \x [count=\l from 0] in {-7,...,7}
- \node[below] at (\x,0) {$p_{\l}$};
+  \node[below] at (\x,0) {$p_{\l}$};
+% FIXME
+\node[orange,below] at (0,0) {$p_{7}$};
 
 \draw[light lines] plot[samples at={-7,...,7},smooth,mark=*,mark options={orange}] (\x,{\x*\x/10+1});
 

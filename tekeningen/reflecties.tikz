@@ -3,8 +3,9 @@
 \coordinate[detector,label=above:$D$] (D) at (10,10);
 
 \foreach \x [count=\l from 0] in {-2,...,12}
- \draw[thin,light orange] (B) -- (\x,0) node[below] {$p_{\l}$} -- (D);
-\draw[thin,orange] (B) -- (5,0) -- (D);
+  \draw[thin,light orange] (B) -- (\x,0) node[below] {$p_{\l}$} -- (D);
+
+\draw[thin,orange] (B) -- (5,0) node[orange,below] {$p_7$} -- (D);
 \draw[ultra thick] (-3,0) -- (13,0) node[right] {$r$};
 
 % vim: syn=context

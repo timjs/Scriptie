@@ -84,27 +84,32 @@ Bij de berekening van deze bewegingsvergelijking is de actie $S$ zelf niet zozee
 \section[sec:kwantum pad]{Kwantummechanische paden}
 
 In de vorige sectie produceerde de bron alleen klassieke deeltjes.
-\todo{De Broglie erbij halen. Lengteschaal in de kwantummechanica introduceren.}
+We noemen een deeltje klassiek als zijn afmetingen groot zijn ten opzichte van een kwantummechanische lengteschaal. Als kwantummechanische lengteschaal hanteren we de De~Broglie golflengte:
+  \placeformula[for:de broglie]
+  \startformula
+  \lambda = \frac{h}{p}.
+  \stopformula
+Wanneer een deeltje een grootte heeft in de orde van een De~Broglie golflengte, mogen we kwantummechanische effecten dus \emph{niet} verwaarlozen.
 Laten we eens kijken wat er gebeurt wanneer we een bron gebruiken die kwantummechanische deeltjes maakt, zoals elektronen.
 %Dit kunnen we doen door bijvoorbeeld een spanning te zetten op een gloeidraad.
 Wanneer we nu de detector aanzetten, merken we dat we niet meer alle deeltjes meten die door $B$ zijn uitgezonden.
 %We passen de opstelling dusdanig aan dat we detector $D$ vervangen door een detectiescherm $d$. Hierop kunnen we, nadat we enige tijd elektronen hebben geproduceerd, een spreiding waarnemen zoals te zien in \see[fig:detectiescherm].
-Om een poging te wagen de \quote{verloren} deeltjes terug te vinden passen we de detector dusdanig aan dat we $D$ in verticale richting kunnen bewegen over een afstand $y$ (zie \see[fig:detectie]). Nu kunnen we de \emph{intensiteit} $I$ verkrijgen door het signaal van de detector op verschillende hoogtes te integreren over de tijd. Wanneer we dit uitzetten tegen de hoogte $y$ ontstaat een patroon zoals weergegeven in \see[fig:spreiding].
+Om een poging te wagen de \quote{verloren} deeltjes terug te vinden passen we de detector dusdanig aan dat we $D$ in verticale richting kunnen bewegen over een afstand $y$ (zie \see[fig:detectie]). Nu kunnen we de \emph{intensiteit} $I$ verkrijgen door het signaal van de detector op verschillende hoogtes te integreren over de tijd. Wanneer we dit uitzetten tegen de hoogte $y$ ontstaat een patroon zoals weergegeven in \see[fig:spreiding-enkel].
 
 \placefigure[][fig:detectie]
   {In plaats van klassieke deeltjes produceert bron $B$ nu elektronen. We passen detector $D$ zo aan dat deze verticaal kan bewegen over een afstand $y$.}
   {\externaltikzpicture[detectie][scale=0.5]}
 
-\placefigure[][fig:spreiding]
-  {Spreiding zoals gemeten door de detector na integratie over de tijd. \todo{Grafieken tekenen}}
-  {\externaltikzpicture[spreiding][scale=0.5]}
+\placefigure[][fig:spreiding-enkel]
+  {Spreiding zoals gemeten door de detector na integratie over de tijd.}
+  {\externaltikzpicture[spreiding-enkel][scale=0.5]}
 
-Het patroon in \see[fig:spreiding] lijkt op het diffractiepatroon van een golf door één spleet. Toch kunnen we te weten komen of we echt met deeltjes te maken hebben. Bij een zwakke elektronenbron geeft de detector af en toe een signaal, niet continu. Dit wijst er op dat we losse objecten meten. Ook is de sterkte van het signaal altijd even groot (we gaan uit van een zeer gevoelige detector). We meten dus telkens één elektron en niet een halve of een andere breuk.
+Het patroon in \see[fig:spreiding-enkel] lijkt op het diffractiepatroon van een golf door één spleet. Toch kunnen we te weten komen of we echt met deeltjes te maken hebben. Bij een zwakke elektronenbron geeft de detector af en toe een signaal, niet continu. Dit wijst er op dat we losse objecten meten. Ook is de sterkte van het signaal altijd even groot (we gaan uit van een zeer gevoelige detector). We meten dus telkens één elektron en niet een halve of een andere breuk.
 
 \todo{Assen duidelijk maken, goed van plaatje gebruik maken.}
 
 We moeten concluderen dat we niet meer kunnen spreken van \emph{het} pad dat een deeltje aflegt: een elektron heeft de mogelijkheid om meerdere paden af te leggen. Daarnaast kunnen we niet meer bepalen op welke plek een elektron aan komt. We kunnen alleen spreken over de \emph{waarschijnlijkheid} $P$ waarmee we een elektron op hoogte $y$ kunnen detecteren.
-Uit \see[fig:spreiding] blijkt immers dat het nog steeds het meest waarschijnlijk is om een deeltje recht tegenover de bron aan te treffen, maar er zijn ook deeltjes die verder weg van deze as terecht komen. De kans hierop wordt wel steeds kleiner naarmate we ons verder van deze as begeven.
+Uit \see[fig:spreiding-enkel] blijkt immers dat het nog steeds het meest waarschijnlijk is om een deeltje recht tegenover de bron aan te treffen, maar er zijn ook deeltjes die verder weg van deze as terecht komen. De kans hierop wordt wel steeds kleiner naarmate we ons verder van deze as begeven.
 
 \section[sec:twee spleten,sec:postulaten]{Twee spleten}
 
@@ -115,13 +120,13 @@ Dit is het welbekende twee-spleten experiment van Young. We zullen hier de uitko
   {Het twee-spleten experiment. Tussen bron $B$ en detector $D$ plaatsen we een scherm met daarin twee spleten $S_1$ en $S_2$. Deeltjes uit $B$ kunnen twee paden afleggen om in $D$ aan te komen.}
   {\externaltikzpicture[twee_spleten][scale=0.5]}
 
-De spleten $S_1$ en $S_2$ kunnen we beschouwen als afzonderlijke bronnen. De elektronen uit $S_1$ zullen een spreiding vertonen zoals we hebben gezien in \see[fig:spreiding]. Hetzelfde geldt voor elektronen uit $S_2$. Wanneer we beide spreidingen optellen ontstaat een patroon zoals te zien in \see[fig:spreidingen]{a}. Klaar! Of toch niet\dots
+De spleten $S_1$ en $S_2$ kunnen we beschouwen als afzonderlijke bronnen. De elektronen uit $S_1$ zullen een spreiding vertonen zoals we hebben gezien in \see[fig:spreiding-enkel]. Hetzelfde geldt voor elektronen uit $S_2$. Wanneer we beide spreidingen optellen ontstaat een patroon zoals te zien in \see[fig:spreidingen]{a}. Klaar! Of toch niet\dots
 
 \placefigure[][fig:spreidingen]
-  {a. Spreiding door optellen van de losse spreidingen behorende bij spleet $S_1$ en spleet $S_2$. b. Spreiding zoals gemeten door de detector bij het twee-spleten experiment. \todo{Grafieken tekenen}}
+  {a. Spreiding door optellen van de losse spreidingen behorende bij spleet $S_1$ en spleet $S_2$. b. Spreiding zoals gemeten door de detector bij het twee-spleten experiment.}
   \startcombination[2*1]
-  {\externaltikzpicture[spreiding_dubbel][scale=0.5]}        {a}
-  {\externaltikzpicture[spreiding_interferentie][scale=0.5]} {b}
+  {\externaltikzpicture[spreiding-dubbel][scale=0.5]}        {a}
+  {\externaltikzpicture[spreiding-interferentie][scale=0.5]} {b}
   \stopcombination
 
 Wanneer we het experiment uitvoeren en de intensiteit uitzetten tegen de hoogte blijkt er een veel ingewikkelder patroon te ontstaan (zie \see[fig:spreidingen]{b}). Het moge duidelijk zijn dat bovenstaande redenatie niet klopt. Blijkbaar kunnen we niet zomaar de waarschijnlijkheden van $S_1$ en $S_2$ bij elkaar optellen, met andere woorden:
