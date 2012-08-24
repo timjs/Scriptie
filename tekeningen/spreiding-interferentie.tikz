@@ -2,4 +2,13 @@
 \draw[axis lines] (-0.5,0) -- (10.5,0) node[right] {$y$};
 \draw[axis lines] (0,-0.5) -- (0,5.5) node[above] {$I(y)$};
 
+%\draw plot (\x,{\Diffraction});
+%\draw plot (\x,{\Inference{1}});
+%\draw plot (\x,{\Inference{2}});
+%\draw plot (\x,{\Displacement});
+
+%FIXME
+\draw[just lines] plot (\x,{\Diffraction*\Inference{2}});
+
+
 % vim: syn=context

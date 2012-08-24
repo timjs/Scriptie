@@ -126,13 +126,17 @@
 \definereferenceformat[insec]
   [left=§]
 \definereferenceformat[inchp]
-  [text=\word{\labeltext{chapter}}]
+  %[text=\word{\labeltext{chapter}}]
+  [text=hoofdstuk]
 \definereferenceformat[inapp]
-  [text=\word{\labeltext{appendix}}]
+  %[text=\word{\labeltext{appendix}}]
+  [text=appendix]
 \definereferenceformat[infig]
-  [text=\word{\labeltext{figure}}]
+  %[text=\word{\labeltext{figure}}]
+  [text=figuur]
 \definereferenceformat[intab]
-  [text=\word{\labeltext{table}}]
+  %[text=\word{\labeltext{table}}]
+  [text=tabel]
 \definereferenceformat[infor]
   [left=(,
    right=)]
@@ -144,6 +148,7 @@
 \let\phi\varphi
 \let\epsilon\varepsilon
 \let\hbar\hslash
+\let\BIG\bigg
 
 \definemathcommand[arcsinh][nolop]
   {\mfunction{arcsinh}}
@@ -153,6 +158,15 @@
   {\mfunction{arctanh}}
 \definemathcommand[e][nolop]
   {\mfunction{e}}
+
+\definemathcommand[erf][nolop]
+  {\mfunction{erf}}
+\definemathcommand[erfi][nolop]
+  {\mfunction{erfi}}
+\definemathcommand[frec][nolop]
+  {\mfunction{frec}}
+\definemathcommand[fres][nolop]
+  {\mfunction{fres}}
 
 \define\total
   {{\rm d}}
@@ -183,10 +197,10 @@
   {\;\partial}
 
 %FIXME: cannot be \redefine'ed
-\define[1]\vec
-  {{\bf #1}}
-\define[1]\mat
-  {\text{\ss\bf #1}}
+%\define[1]\vec
+%  {{\bf #1}}
+%\define[1]\mat
+%  {\text{\ss\bf #1}}
 %\define[1]\op
   %{\hat{#1}}
 
@@ -219,6 +233,10 @@
   {\reci{2}}
 \define\third
   {\reci{3}}
+\define\rpi
+  {\reci{\pi}}
+\define\halfpi
+  {\frac{\pi}{2}}
 \define\rhbar
   {\reci{\hbar}}
 \define\rhslash
@@ -233,13 +251,13 @@
    align=left,
    distance=1em plus 1 fill]
 
-\starttexdefinition startsplit
-  \dosingleempty\dostartsplit
-\stoptexdefinition
+\definecomplexorsimpleempty\startsplit
 
-\starttexdefinition dostartsplit [#1]
+\starttexdefinition complexstartsplit [#1]
   \define\SC{\NC}
   \define\SR{\NR\NC\NC}
+  %\def\complexSR[##1]{\NR[##1]\NC\NC}
+  %\definecomplexorsimpleempty\SR
   \startalign[#1]
     \NC
 \stoptexdefinition
@@ -249,13 +267,13 @@
   \stopalign
 \stoptexdefinition
 
-\starttexdefinition startspread
-  \dosingleempty\dostartspread
-\stoptexdefinition
+\definecomplexorsimpleempty\startspread
 
-\starttexdefinition dostartspread [#1]
+\starttexdefinition complexstartspread [#1]
   \define\SC{\NC}
   \define\SR{\NR\NC}
+  \define\SO{\NC\implies\NC}%FIXME
+  \define\SOO{\NC\NC\implies\NC}%FIXME
   \startgather[m=2,#1]
     \NC
 \stoptexdefinition
@@ -265,13 +283,11 @@
   \stopgather
 \stoptexdefinition
 
-\starttexdefinition startsteps
-  \dosingleempty\dostartsteps
-\stoptexdefinition
+\definecomplexorsimpleempty\startsteps
 
-\starttexdefinition dostartsteps [#1]
-  \define\SR{\NR\NC\NC\implies\NC}
+\starttexdefinition complexstartsteps [#1]
   \define\SC{\NC}
+  \define\SR{\NR\NC\NC\implies\NC}
   \startalign[m=2,#1]
     \NC\NC \NC
 \stoptexdefinition
@@ -354,4 +370,4 @@
 
 \stopenvironment
 
-% vim: ts=2 sw=2 et
+% vim: ft=context ts=2 sw=2 et

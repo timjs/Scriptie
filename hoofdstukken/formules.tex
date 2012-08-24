@@ -1,0 +1,101 @@
+\startcomponent formules
+\product        scriptie
+\environment    thesislayout
+
+\chapter[app:formules]{Gebruikte standaardfuncties}
+
+\section[sec:fresnelintegralen]{Fresnelintegralen}
+
+Bij de berekeningen in hoofdstuk \see[chp:afleiding] maken we gebruik van \emph{Fesnelintegralen}. Dit zijn de functies $\fres[z]$ en $\frec[z]$. Ze zijn gedefinieerd als een integraal over respectievelijk de sinus en de cosinus van $\halfpi t^2$. De integratiegrenzen lopen van nul tot aan het argument $z$.
+  \placeformula[for:fresnel definitie]
+  \startformula\startspread
+  \fres[z] := \int_0^z \sin\left[ \halfpi t^2 \right] \d t \SC
+  \frec[z] := \int_0^z \cos\left[ \halfpi t^2 \right] \d t.
+  \stopspread\stopformula
+Door hun definitie als integraal, erven ze ook de eigenschappen hiervan. Zo kunnen we een min-teken uit het argument trekken.
+  \placeformula[for:fresnel min eigenschap]
+  \startformula\startspread
+  \fres[-z] = -\fres[z] \SC
+  \frec[-z] = -\frec[z]
+  \stopspread\stopformula
+Als argument kunnen we ook een complex getal opgeven. In het geval dat het argument volledig imaginair is, kunnen we de complexe eenheid $i$ uit het argument trekken. In het geval van de sinus levert ons dat een \emph{extra min} op.
+  \placeformula[for:fresnel complex eigenschap]
+  \startformula\startspread
+  \fres[i z] = - i \fres[z] \SC
+  \frec[i z] =   i \frec[z]
+  \stopspread\stopformula
+Verder kunnen we in \see[fig:fresnelintegralen] zien dat beide functies in het oneindige convergeren naar een half.
+  \placeformula[for:fresnel limiet eigenschap]
+  \startformula\startspread
+  \fres[\infty] = \half \SC
+  \frec[\infty] =   \half \frec[z]
+  \stopspread\stopformula
+
+\placefigure[][fig:fresnelintegralen]
+  {Fresnelintegralen, links de sinus, rechts de cosinus.}
+  \startcombination[2*1]
+  {\externalfigure[fres][width=0.5\textwidth]} {$\fres[z]$}
+  {\externalfigure[frec][width=0.5\textwidth]} {$\frec[z]$}
+  \stopcombination
+
+\page%FIXME
+
+Fresnelintegralen kunnen we gebruiken bij het integreren van niet triviale exponenten. Zo komen we in \see[sec:integreren] een kwadratische functie tegen in een exponent. Deze Gaussische functie is op te lossen met de identiteit
+  \placeformula[for:exponent identiteit]
+  \startformula\startsplit
+  \int \exp[\alpha z^2 + \beta z + \gamma] \d z \SC
+  = \frac{1-i}{2} \sqrt{\frac{\pi}{\alpha}} \exp\left[ \gamma - \frac{\beta^2}{4\alpha} \right] \SR
+  \cdot \left( \frec\left[ \frac{1+i}{2} \frac{\beta + 2 \alpha z}{\sqrt{\pi \alpha}} \right]
+  - i \fres\left[ \frac{1+i}{2} \frac{\beta + 2 \alpha z}{\sqrt{\pi \alpha}} \right] \right).
+  \stopsplit\stopformula
+Wanneer we bovenstaande willen uitrekenen met grenzen $\pm\infty$ wordt de integraal gegeven door
+  \placeformula[for:exponent identiteit oneindig]
+  \startformula
+  \int_{-\infty}^\infty \exp[\alpha z^2 + \beta z + \gamma] \d z
+  = \frac{\sqrt{\pi}}{2\sqrt{\alpha}} \exp\left[ \gamma - \frac{\beta^2}{4\alpha} \right].
+  \stopformula
+
+\section[sec:dirac delta]{Dirac deltafunctie}
+
+De \emph{een-dimensionale Dirac deltafunctie} $\delta(x)$ is een oneindig hoge, oneindig dunne piek met oppervlakte één. We definiëren hem stuksgewijs.
+  \placeformula[for:dirac delta]
+  \startformula
+  \delta(x) := \startcases
+    \NC \infty \MC \text{als } x = 0 \NR
+    \NC 0 \MC \text{als } x \neq 0 \NR
+  \stopcases\stopformula
+Met extra kanttekening dat wanneer we over de deltafunctie integreren, er één uit moet komen.
+  \placeformula[for:dirac integral]
+  \startformula
+  \int_{-\infty}^{+\infty} \delta(x) \d x = 1
+  \stopformula
+
+\placefigure[][fig:dirac delta]
+  {Dirac deltadistributie}
+  {\externalfigure[deltapeak][width=0.5\textwidth]}
+
+Het product van een nette functie $f(x)$ en de deltafunctie $\delta(x)$ levert overal nul op, \emph{behalve} op $x=0$. We \emph{selecteren} als het ware de waarde van $f(x)$ op $x=0$. Met behulp van bovenstaande definitie geldt
+  \startformula
+  \int_{-\infty}^{+\infty} f(x) \delta(x) \d x = f(0) \int_{-\infty}^{+\infty} \delta(x) \d x = f(0).
+  \stopformula
+Hierbij hoeven de grenzen niet van $-\infty$ tot $+\infty$ te lopen. Een klein gebeid rond $x=0$ is al voldoende.
+Bovenstaande kunnen we generaliseren tot
+  \placeformula[for:diract delta algemeen]
+  \startformula\startspread[m=3]
+  \delta(x-a) := \startcases
+    \NC \infty \MC \text{als } x = a \NR
+    \NC 0 \MC \text{als } x \neq a \NR
+  \stopcases \SC
+  \text{waarbij} \SC
+  \int_{-\infty}^{+\infty} \delta(x-a) \d x = 1
+  \stopspread\stopformula
+
+Er zijn verschillende integralen die een Dirac deltafunctie opleveren. Een waarvan wij gebruik maken is
+  \placeformula[for:delta indentiteit]
+  \startformula
+  \int_0^\infty \exp[i x z] \d z = \pi \delta(x).
+  \stopformula
+
+\stopcomponent
+
+% vim: ft=context spell spl=nl cole=1

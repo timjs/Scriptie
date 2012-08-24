@@ -1,0 +1,322 @@
+\startcomponent afleiding
+\product        scriptie
+\environment    thesislayout
+
+\chapter[chp:afleiding]{Maten en integralen}
+
+\startemphasize
+\todo{Inleiding}
+\stopemphasize
+
+\section{Begin van het begin}
+
+We beginnen weer met de opzet van het reflectie-experiment uit \see[chp:reflecties]. We nemen een bron $B$. Op afstand $2r$ zetten we een detector $D$. Onder de bron en de detector plaatsen we een reflecterende plaat van lengte $2l$ op afstand $y$. Het geheel centreren we rond de $y$-as zodat het klassieke pad door de oorsprong gaat. Een deeltje dat door $B$ uitgezonden wordt, reflecteert in punt $X$ op de plaat en komt vervolgens in $D$ terecht.
+
+\placefigure[][fig:reflecties afstanden]
+  {Het reflectie-experiment met alle gebruikte afstanden. Bron $B$ staat op een afstand $r$ links van de $y$-as. Rechts van de $y$-as staat detector $D$, ook op afstand $r$. De plaat staat op afstand $y$ van de bron en de detector. De plaat loopt van $-l$ tot $l$ op de $x$-as en heeft dus een lengte van $2l$. Het reflectiepunt $X$ ligt op de $x$-as op een afstand $x$. Een deeltje legt eerst een traject af van $B$ naar $X$ in $t_1$ seconden, vervolgens legt het het traject van $X$ naar $D$ af in $t_2$ seconden. Het klassieke pad is licht weergegeven en loop door de oorsprong.}
+  {\starttikzpicture[scale=0.8]
+   \coordinate[source,label=above:$B$] (B) at (-5,4);
+   \coordinate[detector,label=above:$D$] (D) at (5,4);
+   \coordinate (I) at (0,4);
+   \coordinate (V) at (5,0);
+   \coordinate[label=below:$X$] (X) at (3,0);
+
+   \draw[axis lines] (-7,0) -- (7,0) node[right] {$x$};
+   \draw[axis lines] (0,-0.5) -- (0,5) node[above] {$y$};
+
+   \draw[distance lines] (B) -- node[distance label] {$r$} (I);
+   \draw[distance lines] (I) -- node[distance label] {$r$} (D);
+   \draw[distance lines] (D) -- node[distance label] {$y$} (V);
+   \draw[distance lines] (0,-0.3) -- node[distance label] {$x$} (3,-0.3);
+
+
+   \draw[ultra thick] (-6,0) node[below] {$-l$} -- (6,0) node[below] {$l$};
+
+   %\draw[thin,orange] (B) -- (-4,0) -- (D);
+   \draw[thin,light orange] (B) -- (0,0) -- (D);
+   \draw[thin,orange] (B) -- node[auto] {$t_1$} (X) -- node[auto] {$t_2$} (D);
+   \stoptikzpicture}
+
+Allereerst bekijken we het traject van $B$ naar $X$. Op $t=0$ vertrekt een deeltje uit $B$, dat is de positie $(-r,y)$. We nemen aan dat na een tijd $t_1$ het deeltje te vinden is op de plaat, dus op $y=0$ en $x$ tussen $-l$ en $l$. Dit noemen we het \emph{reflectiepunt} $X$. Hierna vervolgt het deeltje zijn weg naar $D$ op $(r,y)$ waar het $t_2$ later aankomt. Wij vragen ons af:
+  \startquote
+  Wat is de kans om een deeltje in $D$ aan te treffen op tijdstip $t_1 + t_2$ als het zich op $t_1$ op de plaat bevond.
+  \stopquote
+
+We hebben al eerder de overgangsamplitude voor een vrij deeltje berekend in \see[for:kernel vrij deeltje]. Deze kunnen we eenvoudig generaliseren naar twee dimensies:
+  \placeformula[for:kernel twee dimensies]
+  \startformula
+  K(x,y,t;x',y',t') = \frac{m}{2\pi i \hbar (t-t')} \exp\left[ \frac{i m}{2\hbar} \frac{(x-x')^2 + (y-y')^2}{t-t'} \right].
+  \stopformula
+Merk op dat we in de voorfactor de wortel kwijt zijn aangezien we twee vrijheidsgraden hebben en we de voorfactor moeten kwadrateren.
+De overgangsamplitude voor de overgang van $B$ naar $X$ wordt dan
+  \placeformula[for:kernel van bron]
+  \startformula\startsplit
+  K(X,B) \SC
+  = K(x,0,t_1; -r,y,0) \SR
+  = \frac{m}{2\pi i \hbar t_1} \exp\left[ \frac{i m}{2 \hbar} \frac{(x + r)^2 + y^2}{t_1} \right].
+  \stopsplit\stopformula
+En voor de overgang van $X$ naar $D$
+  \placeformula[for:kernel naar detector]
+  \startformula\startsplit
+  K(D,X) \SC
+  = K(r,y,t_1+t_2; x,0,t_1) \SR
+  = \frac{m}{2\pi i \hbar t_2} \exp\left[ \frac{i m}{2 \hbar} \frac{(r - x)^2 + y^2}{t_2} \right].
+  \stopsplit\stopformula
+Dit zijn twee gebeurtenissen die na elkaar plaatsvinden op hetzelfde pad. Net zoals in \see[sec:padintegraal] moeten we de overgangsamplitudes met elkaar vermenigvuldigen. Daarnaast moeten we nog integreren over alle mogelijke reflectiepunten $X$. Dat wil zeggen, alle mogelijke waarden van $x$, en die lag tussen $-l$ en $l$.
+  \placeformula[for:integraal opgesteld]
+  \startformula\startsplit
+  \psi(r) \SC
+  = \int_{-l}^{l} K(D,X) \cdot K(X,B) \d x \SR
+  = \left(\frac{m}{2\pi i \hbar}\right)^2 \reci{t_1 t_2}
+  \int_{-l}^{l} \exp\left[ \frac{im}{2\hbar} \left( \frac{(x + r)^2 + y^2}{t_1} + \frac{(r - x)^2 + y^2}{t_2} \right) \right] \d x
+  \stopsplit\stopformula
+We hebben nu een formule voor de \emph{waarschijnlijkheidsamplitude} van een deeltje om van de bron, via de plaat, naar de detector te komen. Deze is afhankelijk van $r$, de plaats waar de detector staat.
+
+\section[sec:integreren]{Einde van het begin}
+
+De volgende stap is natuurlijk het uitrekenen van deze integraal. Helaas is hij niet snel op te lossen.
+Na enig herschijf werk volgt
+  \placeformula[for:integraal herschreven]
+  \startformula\startsplit
+  \psi(r) \SC
+  = - \left(\frac{m}{2\pi\hbar}\right)^2 \reci{t_1 t_2}
+    \int_{-l}^{l} \exp\left[ \frac{im}{2\hbar} \reci{t_1 t_2} \left( \left((x + r)^2 + y^2\right) t_2 + \left((r - x)^2 + y^2\right) t_1 \right) \right] \d x \SR
+  = - \left(\frac{m}{2\pi\hbar}\right)^2 \reci{t_1 t_2}
+    \int_{-l}^{l} \exp\left[ \frac{im}{2\hbar t_1 t_2} \left( (t_1 + t_2) x^2 + 2r (t_2 - t_1) x + (r^2 + y^2)(t_1 + t_2) \right) \right] \d x.
+  \stopsplit\stopformula
+We zien dat we te maken hebben met een kwadratische functie in een exponent. Met behulp van een standaardintegraal kunnen we bovenstaande uitdrukken in \emph{Fresnelintegralen} (zie ook \see[app:formules] achterin):
+  \placeformula[for:amplitude opgesteld]
+  \startformula\startsplit
+  \psi (r) = \SC
+  - \left(\frac{m}{2\pi\hbar}\right)^2 \reci{t_1 t_2} \frac{1-i}{2} \sqrt{\frac{2\pi\hbar t_1 t_2}{i m (t_1 + t_2)}} \SR
+  \cdot \exp\left[ \frac{im}{2\hbar t_1 t_2} \left( (r^2 + y^2)(t_1 + t_2) - \frac{4 r^2 (t_2 - t_1)^2}{4(t_1 + t_2)} \right) \right] \SR
+  \cdot \big(\frec[u(x)] - i \fres[u(x)]\big) \Big|_{-l}^{l}
+  \stopsplit\stopformula
+Waarbij onze integratievariabele alleen nog te vinden is in $u(x)$:
+  \placeformula[for:grens]
+  \startformula\startsplit
+  u(x) \SC
+  = \frac{1+i}{2} \sqrt{\frac{im}{2\hbar t_1 t_2}} \frac{2 r(t_2 - t_1) + 2 (t_1 + t_2) x}{\sqrt{\pi (t_1 + t_2)}} \SR
+  = i \sqrt{\frac{m}{\pi\hbar}} \frac{(x + r) t_1 + (x - r) t_2}{\sqrt{t_1 t_2 (t_1 + t_2)}}
+  \stopsplit\stopformula
+Merk op dat deze uitdrukking dimensieloos is. Na het invullen van de grenzen vinden we
+  \placeformula[for:grens ingevuld]
+  \startformula
+  u(\pm l) = i \sqrt{\frac{m}{\pi\hbar}} \frac{(\pm l + r) t_1 + (\pm l - r) t_2}{\sqrt{t_1 t_2 (t_1 + t_2)}}.
+  \stopformula
+
+We definiëren twee nieuwe variabelen $u_+$ en $u_-$ aan de hand van bovenstaande uitdrukking, maar \emph{zonder} de imaginaire eenheid $i$. Door gebruik te maken van de eigenschappen van Fresnelintegralen (zoals beschreven in \see[sec:fresnelintegralen]) kunnen we deze later uit de argumenten halen.
+  \placeformula[for:grens definitie]
+  \startformula
+  u_\pm := \frac{u(\pm l)}{i} = \sqrt{\frac{m}{\pi\hbar}} \frac{(\pm l + r) t_1 + (\pm l - r) t_2}{\sqrt{t_1 t_2 (t_1 + t_2)}}
+  \stopformula
+Wanneer we nu de grenzen invullen krijgen we namelijk
+  \placeformula[for:amplitude grensfactor]
+  \startformula\startsplit
+  \big(\frec[u(x)] - i \fres[u(x)]\big) \Big|_{-l}^{l} \SC
+  = \frec[u(l)] - i \fres[u(l)] - \frec[u(-l)] + i \fres[u(-l)] \SR
+  = i \frec[u_+] + i^2 \fres[u_+] - i \frec[u_-] - i^2 \fres[u_-l] \SR
+  = i \big( \frec[u_+] - \frec[u_-] + i (\fres[u_+] - \fres[u_-]) \big)
+  \stopsplit\stopformula
+
+Laten we ook de voorfactor op de eerste regel vereenvoudigen:
+  \placeformula[for:amplitude voorfactor]
+  \startformula\startsplit
+  - \left(\frac{m}{2\pi\hbar}\right)^2 \reci{t_1 t_2} \frac{1-i}{2} \sqrt{\frac{2\pi\hbar t_1 t_2}{i m (t_1 + t_2)}} \SC
+  = - \reci{8} \frac{m^2}{\pi^2 \hbar^2} \sqrt{\frac{\pi\hbar}{m}} (1-i)(1-i) \reci{\sqrt{t_1 t_2 (t_1 + t_2)}} \SR
+  = \frac{i}{4} \left( \frac{m}{\pi\hbar} \right)^{3/2} \reci{\sqrt{t_1 t_2 (t_1 + t_2)}}
+  \stopsplit\stopformula
+De exponent van de tweede regel vereenvoudigt tot
+  \placeformula[for:amplitude exponentfactor]
+  \startformula\startsplit
+  \SC
+  \exp\left[ \frac{im}{2\hbar t_1 t_2} \left( (r^2 + y^2)(t_1 + t_2) - \frac{4r^2 (t_2 - t_1)^2}{4(t_1 + t_2)} \right) \right] \SR
+  = \exp\left[ \frac{im}{2\hbar} \reci{t_1 t_2} \left( \frac{r^2}{t_1 + t_2} \left( (t_1 + t_2)^2 - (t_2 - t_1)^2 \right) + y^2(t_1 + t_2) \right) \right] \SR
+  = \exp\left[ \frac{im}{2\hbar} \left( \frac{r^2}{t_1 + t_2} + y^2 \left(\reci{t_1} + \reci{t_2}\right) \right) \right].
+  \stopsplit\stopformula
+Na deze vereenvoudigingen vinden we voor de waarschijnlijkheidsamplitude
+  \placeformula[for:amplitude herschreven]
+  \startformula\startsplit
+  \psi(r) = \SC
+  - \reci{4} \left( \frac{m}{\pi\hbar} \right)^{3/2} \reci{\sqrt{t_1 t_2 (t_1 + t_2)}} \SR
+  \cdot \exp\left[ \frac{im}{2\hbar} \left( \frac{r^2}{t_1 + t_2} + y^2 \left(\reci{t_1} + \reci{t_2}\right) \right) \right] \SR
+  \cdot \big( \frec[u_+] - \frec[u_-] + i (\fres[u_+] - \fres[u_-]) \big).
+  \stopsplit\stopformula
+Waarbij de min ontstaat door vermenigvuldiging van de imaginaire eenheden uit de voorfactor in \see[for:amplitude voorfactor] en de ingevulde grenzen in \see[for:amplitude grensfactor].
+
+\section{Begin van het einde}
+
+De waarschijnlijkheidsdichtheid dat een deeltje door de plaat wordt gereflecteerd, is de modulus kwadraat van de amplitude berekend in \see[for:amplitude herschreven]:
+  \placeformula[for:dichtheid]
+  \startformula\startsplit
+  p(r) \SC
+  = \left|\psi(r)\right|^2 \SR
+  = \left(- \reci{4} \left(\frac{m}{\pi\hbar}\right)^{3/2} \reci{\sqrt{t_1 t_2 (t_1 + t_2)}} \right)^2
+    \left( \left(\frec[u_+] - \frec[u_-]\right)^2 + \left(\fres[u_+] - \fres[u_-]\right)^2 \right) \SR
+  = \reci{16} \left(\frac{m}{\pi\hbar}\right)^3 \reci{t_1 t_2 (t_1 + t_2)}
+    \left( \left(\frec[u_+] - \frec[u_-]\right)^2 + \left(\fres[u_+] - \fres[u_-]\right)^2 \right).
+  \stopsplit\stopformula
+We raken de exponent kwijt, aangezien deze alleen een complexe fase bevat.
+
+De Fresnelintegralen kunnen we samenvoegen door de definitie uit \see[for:fresnel definitie]. Door de overgang van min naar plus voor de tweede term klappen de grenzen om:
+  \placeformula[for:dichtheid fresnel cosinus]
+  \startformula\startsplit
+  \frec[u_+] - \frec[u_-] \SC
+  = \int_0^{u_+} \cos\left[ \halfpi p^2 \right] \d p + \int_{u_-}^0 \cos\left[ \halfpi p^2 \right] \d p \SR
+  = \int_{u_-}^{u_+} \cos\left[ \halfpi p^2 \right] \d p.
+  \stopsplit\stopformula
+Wanneer we dit kwadrateren ontstaat een dubbele integraal
+  \placeformula[for:dichtheid kwadraat cosinus]
+  \startformula
+  \left(\frec[u_+] - \frec[u_-]\right)^2
+  = \int_{u_-}^{u_+} \int_{u_-}^{u_+} \cos\left[ \halfpi p^2 \right] \cos\left[ \halfpi q^2 \right] \d p \d q.
+  \stopformula
+De stappen in \see[for:dichtheid fresnel cosinus] en \see[for:dichtheid kwadraat cosinus] kunnen we herhalen voor de sinus:
+  \placeformula[for:dichtheid kwadraat sinus]
+  \startformula
+  \left(\fres[u_+] - \fres[u_-]\right)^2
+  = \int_{u_-}^{u_+} \int_{u_-}^{u_+} \sin\left[ \halfpi p^2 \right] \sin\left[ \halfpi q^2 \right] \d p \d q.
+  \stopformula
+Beide integralen gaan over dezelfde variabelen. Wanneer we we ze optellen kunnen we met behulp van goniometrische identiteiten de uitdrukking verder vereenvoudigen:
+  \placeformula[for:dichtheid som]
+  \startformula\startsplit
+  \SC
+  \quad\int_{u_-}^{u_+} \int_{u_-}^{u_+} \left( \cos\left[ \halfpi p^2 \right] \cos\left[ \halfpi q^2 \right]
+  + \sin\left[ \halfpi p^2 \right] \sin\left[ \halfpi q^2 \right] \right) \d p \d q \SR
+  = \int_{u_-}^{u_+} \int_{u_-}^{u_+} \cos\left[ \halfpi (p^2 - q^2) \right] \d p \d q \SR
+  = \int_{u_-}^{u_+} \int_{u_-}^{u_+} \cos\left[ \halfpi (p - q) (p + q) \right] \d p \d q.
+  \stopsplit\stopformula
+De waarschijnlijkheidsdichtheid wordt dan
+  \placeformula[for:dichtheid klaar]
+  \startformula
+  p(r)
+  = \reci{16} \left(\frac{m}{\pi\hbar}\right)^3 \reci{t_1 t_2 (t_1 + t_2)}
+    \int_{u_-}^{u_+} \int_{u_-}^{u_+} \cos\left[ \halfpi (p - q) (p + q) \right] \d p \d q.
+  \stopformula
+
+\section{Einde van het einde}
+
+We hebben nu een dichtheid, maar we willen de kans zelf weten. Hiervoor moeten we alle mogelijke posities van de detector meenemen. Dat wil zeggen: we moeten integreren over $r$:
+  \placeformula[for:waarschijnlijkheid]
+  \startformula\startsplit
+  P \SC
+  = 2 \int_0^\infty p(r) \d r \SR
+  = \reci{8} \left(\frac{m}{\pi\hbar}\right)^3 \reci{t_1 t_2 (t_1 + t_2)}
+    \int_0^\infty \int_{u_-}^{u_+} \int_{u_-}^{u_+} \cos\left[ \halfpi (p - q) (p + q) \right] \d p \d q \d r
+  \stopsplit\stopformula
+De detector stond op afstand $r$ van de $y$-as. De oplettende lezer merkt op dat we, door $r$ als integratievariabele te nemen, ook de positie van de bron verplaatsen. Dit levert ons echter geen problemen op. We hadden de bron immers ook op een (andere) positie kunnen vastzetten, en de variabele $r$ kunnen hernoemen zodat we alleen de detector verplaatsen. Dit levert echter dezelfde berekening op, maar met extra variabelen om het klassieke pad bij te houden.
+
+Als we \see[for:waarschijnlijkheid] goed bestuderen zien we een uitdaging. De integratievariabele $r$ komt alleen voor in de \emph{grenzen}! Laten we hiervoor $u_\pm$ uit \see[for:grens definitie] nog eens bekijken:
+  \placeformula[for:grens manipulatie]
+  \startformula\startsplit
+  u_\pm \SC
+  = \sqrt{\frac{m}{\pi\hbar}} \frac{(\pm l + r) t_1 + (\pm l - r) t_2}{\sqrt{t_1 t_2 (t_1 + t_2)}} \SR
+  = \sqrt{\frac{m}{\pi\hbar}} \frac{(\pm l + r) t_1 + (\pm l - r) t_2}{t_1 \sqrt{t_2 (1 + t_2/t_1)}} \SR
+  = \sqrt{\frac{m}{\pi\hbar}} \frac{\pm l + r + (\pm l/t_1 - r/t_1) t_2}{\sqrt{t_2 (1 + t_2/t_1)}}
+  \stopsplit\stopformula
+We hebben de vergelijking zo aangepast dat de term $r/t_1$ te voorschijn komt. Bekijk nog eens het klassieke pad in \see[fig:reflecties afstanden]. Tijdens het eerste traject legt het deeltje een horizontale afstand af van $r$ in tijd $t_1$. De $x$-component van de snelheid is klassiek gezien dus
+  \placeformula[for:snelheid klassiek]
+  \startformula
+  v = \frac{r}{t_1}
+  \stopformula
+Dat betekend dat de term $r/t_1$ de klassieke, horizontale snelheid representeert waarmee het deeltje van de bron naar de detector beweegt. Deze vullen we in, in de grenzen
+  \startformula\startsplit
+  u_\pm \SC
+  = \sqrt{\frac{m}{\pi\hbar}} \frac{\pm l + r + (\pm l/t_1 - v) t_2}{\sqrt{t_2 (1 + t_2/t_1)}} \SR
+  = \sqrt{\frac{m}{\pi\hbar}} \frac{r - v t_2 \pm l (1 + t_2/t_1)}{\sqrt{t_2 (1 + t_2/t_1)}} \SR
+  = \sqrt{\frac{m}{\pi\hbar}} \frac{r - v t_2 \pm l (1 + t_2/t_1)}{\sqrt{t_2 (1 + t_2/t_1)}}
+  \stopsplit\stopformula
+De term $r - v t_2$ is de afgelegde afstand ten opzichte van het gemiddelde. En, zoals we hebben gezien in \see[sec:spreiding], representeert de term $l(1 + t_2/t_1)$ de spreiding ten opzichte van het gemiddelde. We voeren twee nieuwe variabelen in om deze twee delen te representeren:
+  \placeformula[for:afstand tot mediaan,for:spreiding]
+  \startformula\startspread
+  r' := \sqrt{\frac{m}{\pi\hbar}} \frac{r - v t_2}{\sqrt{t_2 (1 + t_2/t_1)}} \SC
+  l' := \sqrt{\frac{m}{\pi\hbar}} \frac{l (1 + t_2/t_1)}{\sqrt{t_2 (1 + t_2/t_1)}}.
+  \stopspread\stopformula
+Hiermee kunnen we de grenzen herschrijven naar
+  \placeformula[for:grenzen herschreven]
+  \startformula
+  u_\pm = r' \pm l'.
+  \stopformula
+
+Terug naar de waarschijnlijkheid. We vullen onze aangepaste grenzen in en stappen over van $r$ op $r'$ met de substitutie
+  \placeformula[for:substitutie r']
+  \startformula
+  \d r \to \sqrt{\frac{\pi\hbar}{m}} \sqrt{t_2 (1 + t_2/t_2)} \d r'.
+  \stopformula
+Zodat
+  \placeformula[for:waarschijnlijkheid substitutie]
+  \startformula\startsplit
+  P \SC
+  = \reci{8} \left(\frac{m}{\pi\hbar}\right)^3 \reci{t_1 t_2 (t_1 + t_2)} \cdot 2 \sqrt{\frac{\pi\hbar}{m}} \sqrt{t_2 (1 + t_2/t_2)} \SR
+    \quad\cdot \int_0^\infty \int_{r'-l'}^{r'+l'} \int_{r'-l'}^{r'+l'} \cos\left[ \halfpi (p - q) (p + q) \right] \d p \d q \d r' \SR
+  = \reci{4} \left(\frac{m}{\pi\hbar}\right)^{5/2} \reci{t_1 \sqrt{t_1 t_2 (t_1 + t_2)}}
+    \int_0^\infty \int_{r'-l'}^{r'+l'} \int_{r'-l'}^{r'+l'} \cos\left[ \halfpi (p - q) (p + q) \right] \d p \d q \d r'
+  \stopsplit\stopformula
+Heeft dit ons geholpen? Wel als we nog een substitutie toepassen, we transleren over $r'$:
+  \startformulas
+  \startformula\startsteps
+  p' \SC:= p - r' \SR
+  \d p \SC\to \d p' \SR
+  \pm l \SC\to \pm l'
+  \stopsteps\stopformula
+  \startformula\startsteps
+  q' \SC:= q - r' \SR
+  \d q \SC\to \d q' \SR
+  \pm l \SC\to \pm l'
+  \stopsteps\stopformula
+  \stopformulas \noindentation
+Onze integraal wordt dan
+  \placeformula[for:waarschijnlijkheid overhalen]
+  \startformula
+  P = \reci{4} \left(\frac{m}{\pi\hbar}\right)^{5/2} \reci{t_1 \sqrt{t_1 t_2 (t_1 + t_2)}}
+    \int_0^\infty \int_{-l'}^{l'} \int_{-l'}^{l'} \cos\left[ \halfpi (p' - q') (p' + q' + 2r') \right] \d p' \d q' \d r'
+  \stopformula
+Nu kunnen we de integraal over $r'$ over de andere integralen trekken. Hiervoor moeten we de cosinus integreren over $r'$. Dit doen we door te realiseren dat dit het reële deel is van een complexe integraal:
+  \placeformula[for:integraal cosinus commplex]
+  \startformula\startsplit
+  \SC
+  \quad\int_0^\infty \cos\left[ \halfpi (p' - q') (p' + q' + 2r') \right] \d r' \SR
+  = \Re\left( \int_0^\infty \exp\left[ i \halfpi (p' - q') (p' + q' + 2r') \right] \d r' \right) \SR
+  = \Re\left( \exp\left[ i \halfpi (p' - q') (p' + q') \right] \int_0^\infty \exp\left[ i \halfpi (p' - q') 2r' \right] \d r' \right) \SR
+  = \Re\left( \exp\left[ i \halfpi (p' - q') (p' + q') \right] \pi \delta\left( \pi (p' - q') \right) \right) \SR
+  = \pi \cos\left[ \halfpi (p' - q') (p' + q') \right] \delta\left( \pi (p' - q') \right).
+  \stopsplit\stopformula
+Wanneer we dit invullen in \see[for:waarschijnlijkheid overhalen] krijgen we
+  \placeformula[for:waarschijnlijkheid delta]
+  \startformula
+  P = \pi \reci{4} \left(\frac{m}{\pi\hbar}\right)^{5/2} \reci{t_1 \sqrt{t_1 t_2 (t_1 + t_2)}}
+    \int_{-l'}^{l'} \int_{-l'}^{l'} \cos\left[ \halfpi (p' - q') (p' + q') \right] \delta\left( \pi (p' - q') \right) \d p' \d q'.
+  \stopformula
+We maken nog een laatste substitutie om er voor te zorgen dat we de deltafunctie kunnen uitintegreren:
+  \startformulas
+  \startformula\startsteps
+  p'' \SC:= \frac{p'}{\pi} \SR
+  \d p' \SC\to \reci{\pi} \d p'' \SR
+  \pm l' \SC\to \pm l' \pi
+  \stopsteps\stopformula
+  \startformula\startsteps
+  q'' \SC:= \frac{q'}{\pi} \SR
+  \d q' \SC\to \reci{\pi} \d q'' \SR
+  \pm l' \SC\to \pm l' \pi 
+  \stopsteps\stopformula
+  \stopformulas \noindentation
+Zodat
+  %\placeformula[for:waarschijnlijkheid substitutie delta]
+  \startformula
+  P = \pi \reci{\pi^2} \reci{4} \left(\frac{m}{\pi\hbar}\right)^{5/2} \reci{t_1 \sqrt{t_1 t_2 (t_1 + t_2)}}
+    \int_{-l'\pi}^{l'\pi} \int_{-l'\pi}^{l'\pi} \cos\left[ \half (p'' - q'') (p'' + q'') \right] \delta\left( (p'' - q'') \right) \d p'' \d q''
+  \stopformula
+Met de eigenschappen van de deltafunctie, zoals beschreven in \see[sec:dirac delta], krijgen we na lang werken een antwoord voor onze waarschijnlijkheid:
+  \placeformula[for:waarschijnlijheid eindantwoord]
+  \startformula\startsplit
+  P \SC
+  = \reci{\pi} \reci{4} \left(\frac{m}{\pi\hbar}\right)^{5/2} \reci{t_1 \sqrt{t_1 t_2 (t_1 + t_2)}}
+    \int_{-l'\pi}^{l'\pi} \cos\left[ 0 \right] \d q'' \SR
+  = \reci{4\pi} \left(\frac{m}{\pi\hbar}\right)^{5/2} \reci{t_1 \sqrt{t_1 t_2 (t_1 + t_2)}}.
+  \stopsplit\stopformula
+
+\todo{Conclusie}
+
+\stopcomponent
+
+% vim: ft=context spell spl=nl cole=1

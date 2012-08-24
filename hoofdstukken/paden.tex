@@ -5,20 +5,21 @@
 \chapter[chp:paden]{Oneindig veel paden}
 
 \startemphasize
-De meeste teksten introduceren de kwantummechanica aan de hand van canonieke kwantisatie en de bijbehorende operatoralgebra van Dirac en Von Neumann. In dit eerste hoofdstuk bekijken wij echter de veel-paden formulering van de kwantummechanica. Deze alternatieve methode levert ons niet alleen een krachtige rekenmethode op, maar ook een heel andere kijk op de voortbeweging van kwantumdeeltjes.
+De meeste teksten introduceren de kwantummechanica aan de hand van canonieke kwantisatie en de bijbehorende operatoralgebra van Dirac en Von Neumann. In dit eerste hoofdstuk bekijken wij echter de veel-paden formulering van Feynman. Deze alternatieve methode levert ons niet alleen een krachtige rekenmethode op, maar ook een heel andere kijk op de voortbeweging van kwantumdeeltjes.
 
-Aan de hand van een tweetal experimenten bekijken we de verschillen tussen het klassieke pad en de kwantummechanische paden die een deeltje kan afleggen. Hierbij komt onder andere de relatie tussen waarschijnlijkheid en fase ter sprake. Door dit experiment stap voor stap uit te breiden komen we uiteindelijk bij de padintegraal van Feynman. Dit is de basis voor de overige hoofdstukken.
+Aan de hand van een tweetal experimenten bekijken we de verschillen tussen het klassieke pad en de kwantummechanische paden die een deeltje kan afleggen. Hierbij komt onder andere de relatie tussen waarschijnlijkheid en fase ter sprake. Door de experimenten stap voor stap uit te breiden komen we uiteindelijk bij de padintegraal van Feynman. Dit is de basis voor de volgende hoofdstukken.
 \stopemphasize
 
 \section[sec:klassiek pad]{Het klassieke pad}
 
-Het eerste experiment dat wij in dit hoofdstuk beschouwen is simpel van opzet. We nemen een bron $B$ van deeltjes met massa $m$. Op afstand $x$ zetten we een detector $D$ die de uitgezonden deeltjes opvangt. Dit is weergegeven in \see[fig:simpel experiment]. Voor nu is het voldoende om klassieke deeltjes door $B$ te laten produceren. Later zullen we juist naar kwantummechanische deeltjes gaan kijken. Hiervoor zullen we in de rest van dit hoofdstuk dit experiment stap voor stap uitbreiden.
+Het eerste experiment dat wij in dit hoofdstuk beschouwen is simpel van opzet. We nemen een bron $B$ van deeltjes met massa $m$. Op afstand $x$ zetten we een detector $D$ die de uitgezonden deeltjes opvangt. Dit is weergegeven in \see[fig:simpel experiment]. Voor nu is het voldoende om klassieke deeltjes door $B$ te laten produceren. Later zullen we juist naar kwantummechanische deeltjes gaan kijken. Dit experiment zullen we hiervoor stap voor stap uitbreiden in de rest van dit hoofdstuk.
 
 \placefigure[][fig:simpel experiment]
   {Eerste opzet van ons experiment. Een bron $B$ met op een afstand $x$ een detector $D$. Klassieke deeltjes reizen over het pad met de kleinste actie van $B$ naar $D$.}
   {\externaltikzpicture[simpel_experiment][scale=0.5]}
 
 In de klassieke wereld is het niet ingewikkeld om het tijdsafhankelijke \emph{klassieke pad} $\bar{x}(t)$ uit te rekenen dat een deeltje van $B$ naar $D$ aflegt. Natuurlijk zijn de wetten van Newton een goed hulpmiddel, maar laten wij gebruik maken van het (meer analytische) formalisme van Lagrange \cite[Beenakker:2007uc,Goldstein:2002uj,Taylor:2005uj]. Lagrange karakteriseert een systeem met de vergelijking
+  \placeformula[for:lagrangiaan definitie]
   \startformula
   L := T - V,
   \stopformula
@@ -28,108 +29,110 @@ de naar hem vernoemde \emph{Lagrangiaan}. Hierbij zijn $T$ de kinetische energie
   \stopformula
 Hier is $L$ expliciet een functie van $x$, $\dot{x}$ en $t$. We maken gebruik van de notatie $\dot{x} = \tdiff{x}{t} = v$.
 
-Om nu het pad te berekenen dat ons deeltje van de bron naar de detector aflegt maken we gebruik van \emph{het principe van de kleinste actie}. Dit wil zeggen dat we een grootheid $S$ (de \emph{actie}) invoeren die we voor elk pad kunnen uitrekenen. Het pad dat het deeltje uiteindelijk aflegt is dat pad waarbij $S$ minimaal is.
+Om nu het pad te berekenen dat ons deeltje van de bron naar de detector aflegt maken we gebruik van \emph{het principe van de kleinste actie}. Dit wil zeggen dat we een grootheid $S$, de \emph{actie}, invoeren die we voor elk pad kunnen uitrekenen. Het pad dat het deeltje uiteindelijk aflegt is dat pad waarbij $S$ minimaal is.
 % Met andere woorden: $S$ verandert niet in eerste orde wanneer het klassieke pad $\bar{x}(t)$ een beetje verandert.
 
-Om dit kwantitatief te maken, moeten we eerst een definitie geven van de actie. Deze wordt gegeven door een integraal van de Lagrangiaan van begintijdstip $t_{\text{b}}$ tot eindtijdstip $t_{\text{b}}$:
-  \placeformula[for:actie]
+Om dit kwantitatief te maken, moeten we eerst een definitie geven van de actie. Deze wordt gegeven door een integraal van de Lagrangiaan van begintijdstip $t_{\text{b}}$ tot eindtijdstip $t_{\text{e}}$:
+  \placeformula[for:actie definitie]
   \startformula
-  S := \int_{t_{\text{b}}}^{t_{\text{b}}} L(x,\dot{x},t) \d t.
+  S := \int_{t_{\text{b}}}^{t_{\text{e}}} L(x,\dot{x},t) \d t.
   \stopformula
-Er zijn natuurlijk veel verschillende manieren om van een positie $x_b$ op tijdstip $t_{\text{b}}$ naar positie $x_e$ op $t_{\text{b}}$ te komen. De positie $x$ in de Lagrangiaan is immers een functie van $t$ en kan vele vormen aannemen.
+Er zijn natuurlijk veel verschillende manieren om van een positie $x_b$ op tijdstip $t_{\text{b}}$ naar positie $x_e$ op tijdstip $t_{\text{e}}$ te komen. De positie $x$ in de Lagrangiaan is immers een functie van $t$ en kan vele vormen aannemen.
 
 Stel dat het klassieke pad wordt gegeven door de functie $\bar{x}(t)$. Alle andere paden zijn variaties op dit pad. Deze representeren we met een functie $\delta x(t)$, zodat een willekeurig pad te schrijven is als de som van het klassieke pad en de variaties daarop:
+  \placeformula[for:variatie pad]
   \startformula
   x(t) := \bar{x}(t) + \delta x(t).
   \stopformula
 Van deze afwijking weten we dat
-  \placeformula[for:variatie-restrictie]
+  \placeformula[for:variatie restrictie]
   \startformula
-  \delta x(t_{\text{b}}) = \delta x(t_{\text{b}}) = 0,
+  \delta x(t_{\text{b}}) = \delta x(t_{\text{e}}) = 0,
   \stopformula
-aangezien de begin- en eindpunten niet veranderen. Wanneer we willen dat de actie een minimum\footnote{Of eigenlijk een extremum.} heeft, wil dat zeggen dat $S$ niet verandert wanneer we het pad waarover we hem berekenen een klein beetje verandert. Op eerste orde geldt dan
-  \placeformula[for:variatie-eis]
+aangezien de begin- en eindpunten niet veranderen. Wanneer we willen dat de actie een minimum\footnote{Of eigenlijk een extremum.} heeft, wil dat zeggen dat $S$ niet verandert wanneer we het pad waarover we hem berekenen een klein beetje verandert. Dit heet het \emph{Variatieprincipe van Hamilton}. Op eerste orde geldt dan
+  \placeformula[for:variatie eis]
   \startformula
   \delta S = S(\bar{x} + \delta x) - S(\bar{x}) = 0.
   \stopformula
-Voor de actie over een alternatief pad krijgen we
+Met andere woorden: de variatie in de actie, gegeven door de actie bij een alternatief pad minus de actie bij een klassiek pad, is nul. Voor de actie over een alternatief pad krijgen we
   \startformula
   S(\bar{x} + \delta x)
-  = \int_{t_{\text{b}}}^{t_{\text{b}}} L(x + \delta x, \dot{x} + \delta \dot{x}, t) \d t.
+  = \int_{t_{\text{b}}}^{t_{\text{e}}} L(x + \delta x, \dot{x} + \delta \dot{x}, t) \d t.
   \stopformula
 En wanneer we dit expanderen tot op eerste orde
   \startformula\startsplit
   S(\bar{x} + \delta x) \SC
-  = \int_{t_{\text{b}}}^{t_{\text{b}}} \left( L(x, \dot{x}, t) + \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
-  = S(x) + \int_{t_{\text{b}}}^{t_{\text{b}}} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t
+  = \int_{t_{\text{b}}}^{t_{\text{e}}} \left( L(x, \dot{x}, t) + \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
+  = S(x) + \int_{t_{\text{b}}}^{t_{\text{e}}} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t
   \stopsplit\stopformula
-Dus voor de variatie in $S$ zoals gegeven in \see[for:variatie-eis] geldt
+Dus voor de variatie in $S$ zoals gegeven in \see[for:variatie eis] geldt
   \startformula\startsplit
   \delta S \SC
-  = \int_{t_{\text{b}}}^{t_{\text{b}}} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
-  = \delta x \left. \pdiff{L}{\dot{x}} \right|_{t_{\text{b}}}^{t_{\text{b}}}
-    - \int_{t_{\text{b}}}^{t_{\text{b}}} \delta x \left( \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \right) \d t
+  = \int_{t_{\text{b}}}^{t_{\text{e}}} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
+  = \delta x \left. \pdiff{L}{\dot{x}} \right|_{t_{\text{b}}}^{t_{\text{e}}}
+    - \int_{t_{\text{b}}}^{t_{\text{e}}} \delta x \left( \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \right) \d t
   = 0.
   \stopsplit\stopformula
-Hierbij hebben we gebruik gemaakt van partiële integratie. De eerste term valt weg door de restrictie die we aan $\delta x(t)$ hebben opgelegd in \see[for:variatie-restrictie]. Om de integraal nul te krijgen, moet de integrand nul zijn zodat:
+Hierbij hebben we gebruik gemaakt van partiële integratie. De eerste term valt weg door de restrictie die we aan $\delta x(t)$ hebben opgelegd in \see[for:variatie restrictie]. Om de integraal nul te krijgen, moet de integrand nul zijn zodat:
   \placeformula[for:euler-lagrange]
   \startformula\startsteps
   \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \SC= 0            \SR
                  \ddiff{t} \pdiff{L}{\dot{x}} \SC= \pdiff{L}{x}
   \stopsteps\stopformula
-Deze differentiaalvergelijking levert ons een beweging op wanneer de Lagrangiaan van een deeltje bekend is. Hij staat bekend als de \emph{Euler-Lagrange vergelijking}. Verderop in deze tekst zullen we hem nog eens tegenkomen.
+Deze differentiaalvergelijking levert ons een beweging op wanneer de Lagrangiaan van een deeltje bekend is. Hij staat bekend als de \emph{Euler-Lagrange vergelijking}.
+%Verderop in deze tekst zullen we hem nog eens tegenkomen.
 
-Bij de berekening van deze bewegingsvergelijking is de actie $S$ zelf niet zozeer interessant. Wat een veel grotere rol speelt is de manier waarop we deze uitrekenen. Om $S$ te berekenen hebben we namelijk de naburige paden nodig om \emph{dat} pad uit te zoeken dat de kleinste actie heeft. Iets om in ons achterhoofd te houden.
+Bij de berekening van deze bewegingsvergelijking is de actie $S$ zelf niet zozeer interessant. Wat een veel grotere rol speelt is de manier waarop we deze uitrekenen. Om $S$ te berekenen hebben we namelijk de naburige paden nodig om \emph{dat} pad uit te zoeken dat de kleinste actie heeft. We hebben immers variaties $\delta x(t)$ op het klassieke pad $\bar{x}(t)$ bekeken en hiervan de minst afwijkende gekozen. Iets om in ons achterhoofd te houden.
 
 \section[sec:kwantum pad]{Kwantummechanische paden}
 
 In de vorige sectie produceerde de bron alleen klassieke deeltjes.
-We noemen een deeltje klassiek als zijn afmetingen groot zijn ten opzichte van een kwantummechanische lengteschaal. Als kwantummechanische lengteschaal hanteren we de De~Broglie golflengte:
+We noemen een deeltje klassiek als zijn afmetingen groot zijn ten opzichte van een kwantummechanische lengteschaal. Hiervoor hanteren we de De~Broglie golflengte
   \placeformula[for:de broglie]
   \startformula
   \lambda = \frac{h}{p}.
   \stopformula
-Wanneer een deeltje een grootte heeft in de orde van een De~Broglie golflengte, mogen we kwantummechanische effecten dus \emph{niet} verwaarlozen.
+Wanneer een deeltje een grootte heeft in de orde van een De~Broglie golflengte, mogen we kwantummechanische effecten \emph{niet} verwaarlozen.
 Laten we eens kijken wat er gebeurt wanneer we een bron gebruiken die kwantummechanische deeltjes maakt, zoals elektronen.
 %Dit kunnen we doen door bijvoorbeeld een spanning te zetten op een gloeidraad.
 Wanneer we nu de detector aanzetten, merken we dat we niet meer alle deeltjes meten die door $B$ zijn uitgezonden.
 %We passen de opstelling dusdanig aan dat we detector $D$ vervangen door een detectiescherm $d$. Hierop kunnen we, nadat we enige tijd elektronen hebben geproduceerd, een spreiding waarnemen zoals te zien in \see[fig:detectiescherm].
-Om een poging te wagen de \quote{verloren} deeltjes terug te vinden passen we de detector dusdanig aan dat we $D$ in verticale richting kunnen bewegen over een afstand $y$ (zie \see[fig:detectie]). Nu kunnen we de \emph{intensiteit} $I$ verkrijgen door het signaal van de detector op verschillende hoogtes te integreren over de tijd. Wanneer we dit uitzetten tegen de hoogte $y$ ontstaat een patroon zoals weergegeven in \see[fig:spreiding-enkel].
+Om een poging te wagen de \quote{verloren} deeltjes terug te vinden passen we de detector dusdanig aan dat we $D$ in verticale richting kunnen bewegen over een afstand $y$ ten opzichte van de horizontale as door $B$ (zie \see[fig:detectie]). Nu kunnen we de \emph{intensiteit} $I$ verkrijgen door het signaal van de detector op verschillende hoogtes te integreren over de tijd. Wanneer we dit uitzetten tegen de hoogte $y$ ontstaat een patroon zoals weergegeven in \see[fig:spreiding-enkel].
 
 \placefigure[][fig:detectie]
-  {In plaats van klassieke deeltjes produceert bron $B$ nu elektronen. We passen detector $D$ zo aan dat deze verticaal kan bewegen over een afstand $y$.}
+  {In plaats van klassieke deeltjes produceert bron $B$ nu elektronen. Niet alle elektronen komen in detector $D$ terecht, ze waaieren uit. We passen de detector zo aan dat deze verticaal kan bewegen over een afstand $y$ ten opzichte van de horizontale as door $B$.}
   {\externaltikzpicture[detectie][scale=0.5]}
 
 \placefigure[][fig:spreiding-enkel]
-  {Spreiding zoals gemeten door de detector na integratie over de tijd.}
-  {\externaltikzpicture[spreiding-enkel][scale=0.5]}
+  {Spreiding zoals gemeten door de detector na integratie over de tijd. Dit komt overeen met een diffractiepatroon van een golf door een spleet.}
+  %{\externaltikzpicture[spreiding-enkel][scale=0.5]}
+  {\externalfigure[diffractie][width=0.5\textwidth]}
 
 Het patroon in \see[fig:spreiding-enkel] lijkt op het diffractiepatroon van een golf door één spleet. Toch kunnen we te weten komen of we echt met deeltjes te maken hebben. Bij een zwakke elektronenbron geeft de detector af en toe een signaal, niet continu. Dit wijst er op dat we losse objecten meten. Ook is de sterkte van het signaal altijd even groot (we gaan uit van een zeer gevoelige detector). We meten dus telkens één elektron en niet een halve of een andere breuk.
 
-\todo{Assen duidelijk maken, goed van plaatje gebruik maken.}
-
 We moeten concluderen dat we niet meer kunnen spreken van \emph{het} pad dat een deeltje aflegt: een elektron heeft de mogelijkheid om meerdere paden af te leggen. Daarnaast kunnen we niet meer bepalen op welke plek een elektron aan komt. We kunnen alleen spreken over de \emph{waarschijnlijkheid} $P$ waarmee we een elektron op hoogte $y$ kunnen detecteren.
-Uit \see[fig:spreiding-enkel] blijkt immers dat het nog steeds het meest waarschijnlijk is om een deeltje recht tegenover de bron aan te treffen, maar er zijn ook deeltjes die verder weg van deze as terecht komen. De kans hierop wordt wel steeds kleiner naarmate we ons verder van deze as begeven.
+Uit \see[fig:spreiding-enkel] blijkt dat het nog steeds het meest waarschijnlijk is om een deeltje recht tegenover de bron aan te treffen, maar er zijn ook deeltjes die verder weg van deze as terecht komen. De kans hierop wordt wel steeds kleiner naarmate we ons verder van deze as begeven.
 
 \section[sec:twee spleten,sec:postulaten]{Twee spleten}
 
-Om het de elektronen moeilijker te maken om direct van $B$ naar $D$ te reizen, plaatsen we tussen de bron en de detector een scherm $s$ met daarin twee spleten $S_1$ en $S_2$ zoals in \see[fig:twee spleten] is weergegeven. We hebben net al gezien dat een elektron over verschillende paden kan reizen. De vraag is nu of een elektron uit $B$ zal \quote{kiezen} om via $S_1$ naar $D$ te reizen, of via $S_2$.
+Om het de elektronen moeilijker te maken om direct van $B$ naar $D$ te reizen, plaatsen we tussen de bron en de detector een scherm $s$ met daarin twee spleten $S_1$ en $S_2$ zoals weergegeven in \see[fig:twee spleten]. We hebben net al gezien dat een elektron over verschillende paden kan reizen. De vraag is nu of een elektron uit $B$ zal \quote{kiezen} om via $S_1$ naar $D$ te reizen, of via $S_2$.
 Dit is het welbekende twee-spleten experiment van Young. We zullen hier de uitkomsten kort herhalen en koppelen aan de postulaten waarmee Feynman de kwantummechanica opbouwt.
 
 \placefigure[][fig:twee spleten]
-  {Het twee-spleten experiment. Tussen bron $B$ en detector $D$ plaatsen we een scherm met daarin twee spleten $S_1$ en $S_2$. Deeltjes uit $B$ kunnen twee paden afleggen om in $D$ aan te komen.}
+  {Het twee-spleten experiment. Tussen bron $B$ en detector $D$ plaatsen we een scherm $s$ met daarin twee spleten $S_1$ en $S_2$. Deeltjes uit $B$ kunnen twee paden afleggen om in $D$ aan te komen.}
   {\externaltikzpicture[twee_spleten][scale=0.5]}
 
 De spleten $S_1$ en $S_2$ kunnen we beschouwen als afzonderlijke bronnen. De elektronen uit $S_1$ zullen een spreiding vertonen zoals we hebben gezien in \see[fig:spreiding-enkel]. Hetzelfde geldt voor elektronen uit $S_2$. Wanneer we beide spreidingen optellen ontstaat een patroon zoals te zien in \see[fig:spreidingen]{a}. Klaar! Of toch niet\dots
 
 \placefigure[][fig:spreidingen]
-  {a. Spreiding door optellen van de losse spreidingen behorende bij spleet $S_1$ en spleet $S_2$. b. Spreiding zoals gemeten door de detector bij het twee-spleten experiment.}
+  {a. Spreiding door optellen van de losse spreidingen behorende bij spleet $S_1$ en spleet $S_2$. b. Spreiding zoals gemeten door de detector bij het twee-spleten experiment. De grijs gestreepte lijn geeft het diffractiepatroon weer bij twee spleten.}
   \startcombination[2*1]
   {\externaltikzpicture[spreiding-dubbel][scale=0.5]}        {a}
-  {\externaltikzpicture[spreiding-interferentie][scale=0.5]} {b}
+  {\externalfigure[interferentie][width=0.45\textwidth]}      {b}
+  %{\externaltikzpicture[spreiding-interferentie][scale=0.5]} {b}
   \stopcombination
 
-Wanneer we het experiment uitvoeren en de intensiteit uitzetten tegen de hoogte blijkt er een veel ingewikkelder patroon te ontstaan (zie \see[fig:spreidingen]{b}). Het moge duidelijk zijn dat bovenstaande redenatie niet klopt. Blijkbaar kunnen we niet zomaar de waarschijnlijkheden van $S_1$ en $S_2$ bij elkaar optellen, met andere woorden:
+Wanneer we het experiment uitvoeren en de intensiteit uitzetten tegen de plaats van de detector blijkt er een veel ingewikkelder patroon te ontstaan (zie \see[fig:spreidingen]{b}). We zien een combinatie van een interferentie- en een diffractiepatroon. Het moge duidelijk zijn dat bovenstaande redenatie niet klopt. Blijkbaar kunnen we niet zomaar de waarschijnlijkheden van $S_1$ en $S_2$ bij elkaar optellen, met andere woorden:
   \startformula
   P \neq P_1 + P_2.
   \stopformula
@@ -165,92 +168,61 @@ Dit levert ons het tweede postulaat.
 
 %Het patroon in \see[fig:spreidingen]{b} komt ons echter bekend voor. Het is precies het interferentiepatroon van een golf uit $S_1$ met een golf uit $S_2$. De amplitude van een golf kunnen we het beste beschrijven met een complex getal $\psi$. %FIXME
 %In plaats van direct de waarschijnlijkheid $P$ te bekijken voeren we een nieuw begrip in, de \emph{waarschijnlijkheidsamplitude}. Dit is een complex getal $\psi$ dat we koppelen aan de waarschijnlijkheid met de formule
-
-%\section{Fases en acties}
-
 %Het patroon in \see[fig:spreidingen]{b} komt ons bekend voor. Het is precies het interferentiepatroon van een golf uit $S_1$ met een golf uit $S_2$. Een golf kunnen we het beste beschrijven met een complexe $\e$-macht.
 
-\todo{Verbeteringen in plaatjes vanuit presentatie overnemen.}
+\section{Fases en acties}
 
 \placefigure[right][fig:fasor]
-  {Een vector met lengte $1$ onder hoek $\phi$ in het complexe vlak. Dit komt overeen met een fasor $\e^{i \phi}$.}
+  {Een vector met lengte $A$ onder hoek $\phi$ in het complexe vlak. Dit komt overeen met een fasor $A \e^{i \phi}$.}
   {\externaltikzpicture[fasor]}
 
-\todo{Afleiding bijwerken: voor vaste impuls, vrij deeltje of niet, extra term wegpraten}
-
-Om inzicht te krijgen in wat de waarschijnlijkheidsamplitude eigenlijk is, maken we een uitstapje naar de golfmechanica van Schrödinger. De Schrödingervergelijking geeft ons een beschrijving van de beweging van een kwantummechanisch deeltje in de vorm van een golfvergelijking. De algemene oplossing van deze vergelijking is
+Om inzicht te krijgen in wat de waarschijnlijkheidsamplitude eigenlijk is, maken we een uitstapje naar de golfmechanica van Schrödinger. De Schrödingervergelijking geeft ons een beschrijving van de beweging van een kwantummechanisch deeltje in de vorm van een golfvergelijking.
+De oplossingen van de Schrödingervergelijking zijn golven. Een superpositie van deze golven geeft ons een beschrijving van de evolutie van een deeltje. Voor een deeltje met gegeven impuls $p$ en totale energie $E$ heeft zo een golf de vorm
   \placeformula[for:vlakke golf]
   \startformula
-  \Psi(\vec{r}, t) = A \e^{i (\vec{p} \cdot \vec{r} - E t) / \hslash}.
+  \Psi(x, t) = A \e^{i (p x - E t) / \hbar}.
   \stopformula
 Dit is een \emph{vlakke golf} met amplitude $A$ en complexe fase
   \startformula
-  \phi := (\vec{p} \cdot \vec{r} - E t) / \hslash.
+  \phi := (p x - E t) / \hbar.
   \stopformula
-Uitdrukkingen van de vorm $\e^{i \phi}$ noemen we een \emph{fasor}. Een fasor kunnen we weergeven in het complexe vlak als een eenheidsvector onder een hoek $\phi$ (zie \see[fig:fasor]).
-Wanneer we met een deeltje meereizen over zijn pad zal $\phi$ veranderen met snelheid:
+Uitdrukkingen van de vorm $A \e^{i \phi}$ noemen we een \emph{fasor}. Een fasor kunnen we weergeven in het complexe vlak als een vector met lengte $A$ onder een hoek $\phi$ (zie \see[fig:fasor]).
+Wanneer we met een deeltje meereizen over zijn pad zal $\phi$ veranderen met een snelheid van
 %Wanneer $\vec{r}$ de plaats aangeeft van de top van deze golf, dan wordt de faseverandering op dat punt gegeven door:
   \placeformula[for:faseverandering]
   \startformula\startsplit
   \tdiff{\phi}{t}  \SC
-  = (\vec{p} \cdot \vec{v} - E) / \hslash  \SR
-  = (m \vec{v} \cdot \vec{v} - \half m v^2 - V) / \hslash  \SR
-  = (\half m v^2 - V) / \hslash  \SR
-  = L / \hslash.
+  = \left(p v - E\right) / \hbar  \SR
+  = \left(m v^2 - \half m v^2 - V\right) / \hbar  \SR
+  = \left(\half m v^2 - V\right) / \hbar  \SR
+  = L / \hbar.
   \stopsplit\stopformula
-Het faseverschil tussen twee tijdstippen $t_1$ en $t_2$ wordt dan
+Het faseverschil tussen twee tijdstippen $t_1$ en $t_2$ wordt dan grof gezegd
+  \placeformula[for:faseverschil]
   \startformula
-  \phi_2 - \phi_1 = \int_{t_1}^{t_2} L(t) / \hslash \d t = S(t_2,t_1) / \hslash.
+  \phi_2 - \phi_1 = \int_{t_1}^{t_2} L(t) / \hbar \d t = S(t_2,t_1) / \hbar.
   \stopformula
 
-Wat we hebben gedaan is het \emph{faseverschil} op twee tijdstippen uitdrukken in de bijbehorende (klassieke) actie gewogen met $\hslash$. Wanneer we dit antwoord combineren met de golf in \see[for:vlakke golf] komen we op het laatste postulaat van Feynman.
+Wat we hebben gedaan is het \emph{faseverschil} op twee tijdstippen uitdrukken in de bijbehorende (klassieke) actie gewogen met $\hbar$. Merk op dat de constante van Planck precies de dimensie heeft van energie maal tijd, zodat de fase dimensieloos is. Wanneer we dit antwoord combineren met de golf in \see[for:vlakke golf] komen we op het laatste postulaat van Feynman.
   \startpostulate
-  De bijdrage van een pad aan de waarschijnlijkheidsamplitude is proportioneel met $\e^{i S / \hslash}$ waarbij de \emph{actie} $S$ wordt berekend over dit specifieke pad.
+  De bijdrage van een pad aan de waarschijnlijkheidsamplitude is proportioneel met $\e^{i S / \hbar}$ waarbij de \emph{actie} $S$ wordt berekend over dit specifieke pad.
   \stoppostulate
 %Wanneer we nu weer naar de golf in \see[for:vlakke golf] kijken, is het geen vreemde gedachte deze te herschrijven naar
   %\placeformula[for:vlakke golf met actie]
   %\startformula
-  %\Psi(\vec{r}, t) = A \e^{i \int L(t) / \hslash \d t} = A \e^{i S(t) / \hslash}.
+  %\Psi(\vec{r}, t) = A \e^{i \int L(t) / \hbar \d t} = A \e^{i S(t) / \hbar}.
   %\stopformula
-
-\section[sec:reflecties]{Reflecties}
-
-\placefigure[][fig:reflecties]
-  {Een reflectie-experiment. Bron $B$ schiet deeltjes af op een reflecterende plaat $r$, die vervolgens door detector $D$ worden geregistreerd. Er zijn vijftien mogelijke paden getekend waarop een deeltje van $B$ naar $D$ kan komen. Het benadrukte pad is het klassieke pad.}
-  {\externaltikzpicture[reflecties][scale=0.5]}
-
-We stappen even af van ons spleten-experiment en bekijken een nieuwe opstelling \cite[Feynman:100771,Klauber:2010tc]. In plaats van deeltjes rechtstreeks van een bron $B$ naar een detector $D$ te sturen, schieten we de elektronen richting een reflecterende plaat $r$. Klassiek gezien zou een deeltje het pad volgen waarbij de hoek van inval gelijk is aan de hoek van terugkaatsing. Hiervoor hebben we al gezien dat er kwantummechanisch gezien veel meer paden mogelijk zijn. In \see[fig:reflecties] zijn, naast het klassieke pad, veertien van zulke paden getekend.
-Voor elk pad $p_i$ kunnen we een actie $S_i$ uitrekenen met behulp van \see[for:actie]. In \see[fig:acties] is te zien dat de actie bij pad $p_7$ minimaal is, dit is dan ook precies het klassiek pad. 
-\todo{Opmerking maken over variatieprinciepe van Hamilton?}
-
-\placefigure[][fig:acties]
-  {Acties bij elk pad $p_0$ tot en met $p_{14}$ zoals weergegeven in \see[fig:reflecties]. De actie bij $p_7$ is minimaal en zodoende is $p_7$ het klassieke pad van $B$ naar $D$.}
-  {\externaltikzpicture[acties][scale=0.5]}
-
-%Een som over alle paden kunnen we ons als volgt voorstellen.
-%Elk pad $p_1,\dots,p_{14}$ heeft een bijbehorende fase $\phi_i$ gekoppeld aan de top van de golf zoals beredeneerd in \see[sec:fases]. De bijbehorende fasoren zijn getekend in \see[fig:padensom]. Wanneer we al deze fasoren optellen, komen we uit op de fasor van het klassieke pad.  
-
-In de vorige sectie hebben we gezien dat de actie een maat is voor de fase op het moment dat een deeltje zijn pad heeft doorlopen. Door bij elk pad een fasor op te stellen en deze te sommeren vinden we de waarschijnlijkheidsamplitude om van $B$ naar $D$ te komen. Dit is weergegeven in \see[fig:padensom]. Hierbij vallen enkele dingen op:
-\startitemize
-\item Alle paden tellen even zwaar mee. De paden die dichter bij het klassieke pad liggen hebben \emph{geen} voorkeur ten opzichte van de paden die totaal niet klassiek zijn.
-\item De relatie met het klassieke pad komt voort uit de destructieve interferentie \emph{van de fases} van de paden die ver van klassiek zijn en de constructieve interferentie bij de paden die bijna klassiek zijn.
-\item De klok op elk pad loopt \emph{vooruit}. Dit is impliciet gedefinieerd in \see[for:actie], waarin $L$ geïntegreerd wordt over de tijd in positieve richting. We hebben hier ook al gebruik van gemaakt bij de afleiding van \see[for:faseverandering]. Deeltjes op een pad kunnen dus niet teruggaan in de tijd en vervolgens weer vooruit lopen.
-\stopitemize
-
-\placefigure[][fig:padensom]
-  {}
-  {\externaltikzpicture[padensom]}
 
 \section[sec:meer spleten,sec:padintegraal]{Nog meer spleten}
 
-We hebben genoeg informatie over padintegralen verzameld om een concrete afleiding te geven. Hiervoor keren we weer terug naar experimenten met spleten. In voorgaande secties vonden onze experimenten plaats in een twee dimensionale ruimte. Nu doen we een stapje terug en beschouwen een pad van een bron $B$ naar een detector $D$ in één dimensie. Ons deeltje bevind zich op tijdstip $t_B$ in $x_B$ en op $t_D$ in $x_D$. Om een pad te kunnen karakteriseren splitsen we de tijd op in $N$ \emph{snedes} van grootte $\Delta t$ zodat
-  \placeformula[for:delta t]
+We hebben genoeg informatie over padintegralen verzameld om een concrete afleiding te geven. Hiervoor keren we weer terug naar de spleten-experimenten. In voorgaande secties vonden onze experimenten plaats in een twee dimensionale ruimte. Nu doen we een stapje terug en beschouwen een pad van een bron $B$ naar een detector $D$ in slechts één dimensie. Ons deeltje bevind zich op tijdstip $t_B$ in $x_B$ en op tijdstip $t_D$ in $x_D$. Om een pad te kunnen karakteriseren splitsen we de tijd op in $N$ \emph{snedes} van grootte $\Delta t$ zodat
+  \placeformula[for:delta t definitie]
   \startformula
   \Delta t := \frac{t_D - t_B}{N}.
   \stopformula
-In \see[fig:tijdsnedes] is een mogelijk pad getekend om van bron naar detector.
-We hebben het pad in de tijd uitgerekt, zodat we op ieder tijdstip $t_n$ kunnen aangeven waar het deeltje zich bevindt. Zo een positie is op te vatten als een \emph{spleet} in een scherm op snede $n$. Het is natuurlijk goed mogelijk dat het deeltje op een snede een \emph{andere} spleet had gekozen.\footnote{Lees: het deeltje heeft een ander pad afgelegd.} Hier komen we later op terug.
-Merk op dat het deeltje, zoals we hebben beredeneerd in \see[sec:reflecties], niet terug kan in de tijd. Wel kan het heen en weer bewegen in de plaats en hoeft dus niet met constante snelheid van $B$ naar $D$ te reizen.
+In \see[fig:tijdsnedes] is een mogelijk pad getekend van bron naar detector.
+Het pad is in de tijd uitgerekt, zodat we op ieder tijdstip $t_n$ kunnen aangeven waar het deeltje zich bevindt. Zo een positie is op te vatten als een \emph{spleet} in een scherm op tijdsnede $n$. Het is natuurlijk goed mogelijk dat het deeltje op een tijdsnede een \emph{andere} spleet had gekozen, met als gevolg dat het een ander pad aflegt. Hier komen we later op terug.
+Merk op dat het deeltje niet terug kan in de tijd. Wel kan het heen en weer bewegen in de plaats en hoeft dus niet met constante snelheid van $B$ naar $D$ te reizen.
 
 \placefigure[][fig:tijdsnedes]
   {}
@@ -258,106 +230,213 @@ Merk op dat het deeltje, zoals we hebben beredeneerd in \see[sec:reflecties], ni
 
 Om de padintegraal af te leiden lopen we effectief de postulaten uit \see[sec:postulaten] in omgekeerde volgorde af. 
 Uit het derde postulaat weten we dat de \emph{bijdrage} aan een pad proportioneel is met de actie. Wanneer we van tijdsnede $n$ naar snede $n+1$ gaan kunnen we de bijdrage $\psi_{n \to n+1}$ uitrekenen met
+  \placeformula[for:bijdrage]
   \startformula
-  \psi_{n \to n+1} = A \e^{i S / \hslash}.
+  \psi_{n \to n+1} = A \e^{i S / \hbar}.
   \stopformula
-Wel moeten we de actie voor dit korte pad kunnen uitrekenen. Dit kan met een benadering van de Lagrangiaan,
+Wel moeten we de actie voor dit korte pad kunnen uitrekenen. Dit kan met een benadering van de Lagrangiaan tot op eerste orde,
   \define\LApprox{\math{L\left( \frac{x_{n+1} + x_n}{2}, \frac{x_{n+1} - x_n}{\Delta t}, \frac{t_{n+1} + t_n}{2} \right)}}
 zodat
+  \placeformula[for:benadering actie]
   \startformula
   S \approx \LApprox \Delta t.
   \stopformula
-Dit is correct tot op eerste orde. De bijdrage voor een stukje pad tussen tijdstip $t_n$ en $t_{n+1}$ is dan bij benadering
+De bijdrage voor een stukje pad tussen tijdstippen $t_n$ en $t_{n+1}$ is dan bij benadering
   \startformula
-  \psi_{n \to n+1} \approx A \exp\left[ \ioverhb \LApprox \Delta t \right].
+  \psi_{n \to n+1} \approx A \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right].
   \stopformula
-Maar we willen de bijdrage van het \emph{volledige} pad.
-\todo{Anders} Aangezien we in \see[sec:postulaten] ook hebben gezien dat we de bijdrage als een fase kunnen opvatten, kunnen we de totale fase berekenen door de fases van de afzonderlijke tijdsnedes te sommeren:
-\todo{Iets met die constante}
+Maar we willen de bijdrage van het \emph{volledige} pad. Hier komen de fasoren weer om de hoek kijken.
+De gebeurtenissen $t_0, t_1, \dots, t_N$ vinden na elkaar plaats op hetzelfde pad. Stel je op tijdstip $t_0$ een fasor voor die langs de reële as ligt ($\phi_0=0$). We laten de fasor nu meereizen over het pad. Ondertussen draait hij rond met een snelheid die we in \see[for:faseverandering] hebben afgeleid. Wanneer hij is aangekomen op tijdstip $t_1$ is hij gedraaid met een hoek
+  \startformula
+  \phi_1 = \left(L\left( \frac{x_1 + x_0}{2}, \frac{x_1 - x_0}{\Delta t}, \frac{t_1 + t_0}{2} \right) \Delta t\right)/\hbar.
+  \stopformula Vervolgens draait hij weer verder wanneer hij naar $t_2$ beweegt. We moeten de \emph{fases} die bij iedere tijdsnede horen dus bij elkaar \emph{optellen}. Dit staat gelijk aan het \emph{vermenigvuldigen} van de bijbehorende \emph{fasoren}. De totale bijdrage van $t_0$ naar $t_N$ wordt dan
+  \placeformula[for:benadering product]
   \startformula\startsplit
   \psi_{0 \to N} \SC
-  \approx A \exp\left[ \ioverhb \sum_{n=0}^{N-1} \LApprox \Delta t \right] \SR
-  = A \prod_{n=0}^{N-1} \exp\left[ \ioverhb \LApprox \Delta t \right].
+  %\approx \exp\left[ \left( \frac{i}{\hbar} \sum_{n=0}^{N-1} \LApprox \Delta t \right)^A \right] \SR
+  \approx \prod_{n=0}^{N-1} \psi_{n \to n+1} \SR
+  %\approx \prod_{n=0}^{N-1} A \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right] \SR
+  = A^N \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right].
   \stopsplit\stopformula
 
-Om de \emph{waarschijnlijkheidsamplitude} uit te rekenen bij de overgang van $B$ naar $D$ moeten we, volgens het tweede postulaat, de som nemen over \emph{alle mogelijke paden} van $x_B$ naar $x_D$. Tot nu toe hebben we alleen maar één pad uitgerekend. Daarbij zijn we er van uit gegaan dat ons pad op ieder tijdstip $t_n$ over vastgelegde punten $x_n$ loopt.\footnote{Ofwel: het deeltje gaat door specifieke spleten.} Deze plaats is natuurlijk willekeurig te kiezen uit \emph{alle mogelijke punten} $x$. Om elk mogelijk pad van $B$ naar $D$ te krijgen, moeten we dus integreren over alle mogelijke tussenpunten voor elke tijdsnede $t_n$. In \see[fig:tijdsnedes] kunnen we zien dat $t_0$ en $t_N$ hierop een uitzondering zijn, deze twee punten liggen immers vast. We krijgen dus $N-1$ keer een integraal over $x_n$ met $n$ van $1$ tot $N-1$. Dit leid tot
-  \placeformula[for:integraal over alle punten]
+Om de \emph{waarschijnlijkheidsamplitude} uit te rekenen bij de overgang van $B$ naar $D$ moeten we, volgens het tweede postulaat, de som nemen over \emph{alle mogelijke paden} van $x_B$ naar $x_D$. Tot nu toe hebben we alleen maar één pad uitgerekend. Daarbij zijn we er van uit gegaan dat ons pad op ieder tijdstip $t_n$ over vastgelegde punten $x_n$ loopt. (Met andere woorden: we laten het deeltje door specifieke spleten gaan.) Deze plaats is natuurlijk willekeurig te kiezen uit \emph{alle mogelijke waarden} van $x$. Om elk mogelijk pad van $B$ naar $D$ te krijgen, moeten we dus integreren over alle mogelijke tussenpunten voor elke tijdsnede $t_n$. In \see[fig:tijdsnedes] kunnen we zien dat $t_0$ en $t_N$ hierop een uitzondering zijn, de bijbehorende $x$-waarden liggen immers vast. We krijgen dus $N-1$ keer een integraal over $x_n$ waarbij $n$ loopt van $1$ tot $N-1$. Dit leid tot
+  %\placeformula[for:integraal over alle punten]
   \startformula
   \psi \approx \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \psi_{0 \to N} \d x_1 \d x_2 \;\cdots \d x_{N-1}.
   \stopformula
-
-In \see[for:integraal over alle punten] hebben we nog te maken met een benadering. Door onze tijdsnedes steeds smaller te maken, krijgen we de correcte uitdrukking voor de waarschijnlijkheidsamplitude. We nemen dus de limiet van $N$ naar $\infty$ zodat $\Delta t$ naar $0$ gaat volgens de definitie van \see[for:delta t]. 
+Hier hebben we nog steeds te maken met een benadering. Door onze tijdsnedes smaller te maken, krijgen we de correcte uitdrukking voor de waarschijnlijkheidsamplitude. We nemen dus de limiet van $N$ naar oneindig zodat $\Delta t$ naar nul gaat volgens de definitie in \see[for:delta t definitie]. We krijgen
+  \placeformula[for:padintegraal definitie]
   \startformula\startsplit
   \psi \SC
   = \lim_{N \to \infty} \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \psi_{0 \to N} \d x_1 \d x_2 \;\cdots \d x_{N-1} \SR
-  =: \int_{x_B}^{x_D} \e^{i S / \hslash} \D x
+  %= \lim_{N \to \infty} A^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \exp\left[ \frac{i}{\hbar} S \right] \d x_1 \d x_2 \;\cdots \d x_{N-1}.
+  %= \lim_{N \to \infty} \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty A^N \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right] \d x_1 \d x_2 \;\cdots \d x_{N-1}.
+  =: \int_{x_B}^{x_D} \e^{i S / \hbar} \D x.
   \stopsplit\stopformula
-bla
+Hierbij is de uitdrukking
+  \placeformula[for:padintegraal maat]
   \startformula
-  \psi = \lim_{\Delta t \to 0} A \prod_{n=0}^{N-1} \exp\left[ \ioverhb L\left( \frac{x_{n+1} + x_n}{2}, \frac{x_{n+1} - x_n}{\Delta t}, \frac{t_{n+1} + t_n}{2} \right) \Delta t \right].
+  \int_{x_B}^{x_D} \D x := \lim_{N \to \infty} A^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \d x_1 \d x_2 \;\cdots \d x_{N-1}
+  \stopformula
+de \emph{maat} van de padintegraal.
+
+  %\startformula
+  %\psi = \lim_{\Delta t \to 0} A \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} L\left( \frac{x_{n+1} + x_n}{2}, \frac{x_{n+1} - x_n}{\Delta t}, \frac{t_{n+1} + t_n}{2} \right) \Delta t \right].
+  %\stopformula
+
+\section[sec:normalisatie,sec:kernel]{Waar alles om draait}
+
+Tot nu toe beschouwden we $\psi$ als een waarschijnlijkheidsamplitude. Wanneer we hier de modulus kwadraat van nemen, komen we achter de waarschijnlijkheid om een deeltje dat zich bevond in $x'$ op tijdstip $t'$ aan te treffen in $x$ op tijdstip $t$. Deze waarschijnlijkheidsamplitude kunnen we ook noteren als
+  \startformula
+  K(x,t;x',t') := \psi
+  \stopformula
+en wordt ook wel de \emph{kernel} genoemd. 
+Deze kernel is voor één dimensie en wordt volgens \see[for:padintegraal definitie] uitgerekend door
+  \startformula
+  K(x,t;x',t') = \int_{x=x(t)}^{x'=x(t')} \e^{i S / \hbar} \D x.
   \stopformula
 
-\section{De laatste spleet}
-
-Tot nu toe beschouwden we de kernel als een waarschijnlijkheidsamplitude. Wanneer we hier de modulus kwadraat van nemen, komen we achter de waarschijnlijkheid om een deeltje dat zich bevond in $x$ op $t$ aan te treffen in $x'$ op $t'$.
-Stel nu dat we de \emph{toestand} van het deeltje op positie $x$ en tijdstip $t$ al weten: hij is gegeven door de \emph{toestandsfunctie} $\psi(x,t)$. We willen de toestandsfunctie $\psi$ weten voor $x'$ op $t'$. Ook deze situatie kunnen we ook opvatten als een spletenexperiment, zoals getekend in \see[fig:todo]. 
-al We kunnen ook naar de kernel kijken als een \emph{overgangsamplituden}.
-
-We weten dus dat we een golffunctie $\psi(x,t)$ kunnen uitrekenen met
-  \startformula
-  \psi(x,t) = \int_{-\infty}^{\infty} K(x,t; x',t') \psi(x',t') \d x'
-  \stopformula
-We splitsen het pad als het ware op in een pad naar $x'$ op $t'$ en vervolgens naar $x$ op $t$. Stel nu dat we in een tijdsinterval $\Delta t$ van $x'$ naar $x$ willen. We kunnen de actie op eenzelfde manier benaderen als in \see[for:benadering actie], zodat bovenstaande vergelijking transformeert in
-  \placeformula[for:benaderde toestand]
-  \startformula
-  \psi(x,t + \Delta t) = \int_{-\infty}^{\infty} \reci{A} \exp\left[ \ioverhb
-    L\left( \frac{x + x'}{2}, \frac{x - x'}{\Delta t}, t + \frac{\Delta t}{2} \right)
-  \Delta t \right] \psi(x',t) \d x'.
-  \stopformula
+Maar hoe rekenen we zo een padintegraal nu uit?
 Laten we deze keer een concrete Lagrangiaan nemen
   \startformula
   L := \half m \dot{x}^2,
   \stopformula
-een vrij deeltje. Natuurlijk versimpelen we het probleem hier, maar het is voldoende voor de rest van deze tekst. Wanneer we dit invullen in \see[for:benaderde toestand] vinden we
-  \startformula\startsplit
-  \psi(x,t + \Delta t) \SC
-  = \int_{-\infty}^{\infty} \reci{A} \exp\left[
-    \ioverhb \half m \left(\frac{x - x'}{\Delta t}\right)^2 \Delta t \right] \psi(x',t) \d x' \SR
-  = \int_{-\infty}^{\infty} \reci{A} \exp\left[ \ioverhb \frac{m (x - x')^2}{2 \Delta t} \right] \psi(x',t) \d x'.
+een vrij deeltje.
+Wanneer we de maat uit \see[for:padintegraal maat] gebruiken en onze benaderingsmethode uit \see[for:benadering product] invullen krijgen we een lange reeks integralen. Effectief splitsen we de integraal over alle paden op in integralen over alle mogelijke tussenpunten:
+  \startformula\startsplit%FIXME
+  \SC
+  K(x,t;x',t') \SR
+  %= \lim_{N \to \infty} \int \cdots \iint
+  = \lim_{N \to \infty} \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
+    A^N \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right]
+    \d x_1 \d x_2 \;\cdots \d x_{N-1} \SR
+  = \lim_{N \to \infty} A^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
+    \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \half m \left(\frac{x_{n+1} - x_n}{\Delta t}\right)^2 \Delta t \right]
+    \d x_1 \d x_2 \;\cdots \d x_{N-1} \SR
+  = \lim_{N \to \infty} A^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
+    \exp\left[ \frac{i m}{2 \hbar \Delta t} \sum_{n=0}^{N-1} (x_{n+1} - x_n)^2 \right].
+    \d x_1 \d x_2 \;\cdots \d x_{N-1}
   \stopsplit\stopformula
+Hierbij hebben we het product vervangen door een som in de exponent.\footnote{Niet geheel onzinnig als je bedenkt dat we in \see[sec:padintegraal] hebben beredeneerd dat we fases moeten optellen.} Deze reeks integralen zijn stuk voor stuk op te lossen. Bekijk eerst de exponentiële factoren die $x_1$ bevatten. Deze komt voor in combinatie met $x_0$ en $x_2$:
+  \startformula
+  \int_{-\infty}^\infty \exp\left[ k \left( (x_2 - x_1)^2 + (x_1 - x_0)^2 \right) \right] \d x_1
+  = \int_{-\infty}^\infty \exp\left[ k \left( 2x_1^2 - 2 (x_2 + x_0) x_1 + (x_2^2 + x_0^2) \right) \right] \d x_1.
+  \stopformula
+Voor ons gemak hebben we de contstante $k := \frac{i m}{2 \hbar \Delta t}$ gedefinieerd. We hebben een integraal over een Gaussische functie die weer een Gaussische functie oplevert (zie ook \see[app:formules]). Met \see[for:exponent identiteit oneindig] krijgen we
+  \startformula
+  \frac{\sqrt{\pi}}{2\sqrt{2k}} \exp\left[ k \left( x_2^2 + x_0^2 - \frac{4 (x_2 + x_0)^2}{4 \cdot 2} \right) \right]
+  \sim \exp\left[ \frac{k}{2} (x_2 - x_0)^2 \right].
+  \stopformula
+De constante factor kunnen we buiten beschouwing laten, aangezien we die kunnen absorberen in de constante $A$. De volgende exponentiële factor heeft de vorm
+  \startformula
+  \exp\left[ k (x_3 - x_2)^2 \right].
+  \stopformula
+We vermenigvuldigen ons resultaat met bovenstaande en integreren over $x_2$:
+  \startformula\startsplit
+  \int_{-\infty}^\infty \exp\left[ \frac{k}{2} (x_2 - x_0)^2 \right] \exp\left[ k (x_3 - x_2)^2 \right] \d x_2 \SC
+  = \int_{-\infty}^\infty \exp\left[ \frac{k}{2} (x_2 - x_0)^2 + k (x_3 - x_2)^2 \right] \d x_2 \SR
+  \sim \exp\left[ \frac{k}{3} (x_3 - x_0)^2 \right].
+  \stopsplit\stopformula
+We zien een recursief patroon ontstaan. Na in totaal $N-1$ keer integreren krijgen we een exponent in de vorm
+  \startformula
+  \exp\left[ \frac{k}{N} (x_N - x_0)^2 \right]
+  = \exp\left[ \frac{i m}{2 \hbar N \Delta t} (x_N - x_0)^2 \right].
+  \stopformula
+We weten dat $x_0$ en $x_N$ respectievelijk onze begin- en eindpositie zijn, $x$ en $x'$ dus. Daarnaast volgt uit de definitie van $\Delta t$ in \see[for:delta t definitie] dat $N \Delta t = t - t'$. De kernel voor een vrij deeltje in één dimensie wordt dus
+  \placeformula[for:kernel vrij deeltje]
+  \startformula
+  K(x,t;x',t') = A^N \exp\left[ \frac{i m}{2 \hbar (t - t')} (x - x')^2 \right].
+  \stopformula
 
-Net als in \see[sec:todo] zie we dat wanneer $x'$ veel verschilt van $x$, de exponent sterk oscilleert. De integraal levert in deze gevallen een kleine waarde op. Pas als $x'$ in de buurt komt van $x$ ontstaan wel significante contributies. Hierop gebaseerd maken we de substitutie
+Wat ons nu nog rest is het berekenen van de normalisatie constante $A$.
+Stel nu dat we de \emph{toestand} van het deeltje op positie $x'$ en tijdstip $t'$ al weten: hij is gegeven door de \emph{toestandsfunctie} $\Psi(x',t')$. Wat we willen is de toestandsfunctie $\Psi$ berekenen voor $x$ op $t$.
+Dit kunnen we doen met de formule
+  \placeformula[for:toestandsfunctie]
+  \startformula
+  \Psi(x,t) = \int_{-\infty}^{\infty} K(x,t; x',t') \Psi(x',t') \d x'.
+  \stopformula
+We splitsen als het ware het pad op in tweeën: een pad naar $x'$ en vervolgens naar $x$.
+
+Met het resultaat uit \see[for:kernel vrij deeltje] kunnen we de toestandsfunctie uitrekenen om in een tijdsinterval $\Delta t$ van $x'$ naar $x$ te komen:
+%Het tijdsinterval tussen $t'$ en $t$ noemen we $\Delta t$. We kunnen nu het resultaat uit \see[for:kernel voor vrij deeltje] gebruiken om in \see[for:toestandsfunctie] in te vullen, zodat de toestandsfunctie gelijk is aan
+%We kunnen de actie op eenzelfde manier benaderen als in \see[for:benadering actie], zodat bovenstaande vergelijking transformeert in
+%  \placeformula[for:benaderde toestand]
+%  \startformula
+%  \Psi(x,t + \Delta t) = \int_{-\infty}^{\infty} A \exp\left[ \frac{i}{\hbar}
+%    L\left( \frac{x + x'}{2}, \frac{x - x'}{\Delta t}, t + \frac{\Delta t}{2} \right)
+%  \Delta t \right] \Psi(x',t) \d x'.
+%  \stopformula
+%Natuurlijk versimpelen we het probleem hier, maar het is voldoende voor de rest van deze tekst. Wanneer we dit invullen in \see[for:benaderde toestand] vinden we
+  \startformula
+  \Psi(x,t + \Delta t)
+  = \int_{-\infty}^{\infty} A \exp\left[ \frac{i m}{2 \hbar \Delta t} (x - x')^2 \right] \Psi(x',t) \d x'
+  \stopformula
+We zien dat wanneer $x'$ veel verschilt van $x$, de exponent sterk oscilleert. De integraal levert in deze gevallen een kleine waarde op. Pas als $x'$ in de buurt komt van $x$ ontstaan wel significante contributies. Hierop gebaseerd maken we de substitutie
   \startformula
   x' := x + \Delta x
   \stopformula
 waarbij $\Delta x$ kleine variaties zijn op $x$. Belangrijke contributies komen dus alleen voor wanneer $\Delta x$ klein is. Voor onze overgangsamplitude volgt dat
-  \define\SubExp{\math{\exp\left[ \ioverhb \frac{m \Delta x^2}{2 \Delta t} \right]}}
+  \define\SubExp{\math{\exp\left[ \frac{i m}{2 \hbar \Delta t} \Delta x^2 \right]}}
   \placeformula[for:toestand na substitutie]
   \startformula
-  \psi(x,t + \Delta t) = \int_{-\infty}^{\infty} \reci{A} \SubExp \psi(x + \Delta x,t) \d (\Delta x)
+  \Psi(x,t + \Delta t) = \int_{-\infty}^{\infty} A \SubExp \Psi(x + \Delta x,t) \d (\Delta x).
   \stopformula
 We zien dat de exponent varieert op eerste orde, wanneer
   \startformula
-  \Delta x \sim \sqrt{\frac{2 \hslash}{m} \Delta t}.
+  \Delta x \sim \sqrt{\frac{2 \hbar}{m} \Delta t}.
   \stopformula
 Wanneer we \see[for:toestand na substitutie] willen expanderen tot op eerste orde in $\Delta x$ (deze was immers klein ten opzichte van $x$) moeten we rekening houden met een expansie van $\Delta t$ tot op orde twee:
   \placeformula[for:toestand na expansie]
   \startformula
-  \psi(x,t) + \pdiff{\psi}{t} \Delta t
-  = \int_{-\infty}^{\infty} \reci{A} \SubExp
-    \left( \psi(x,t) + \Delta x \pdiff{\psi}{x} + \frac{\Delta x}{2} \pdiff{2}{\psi}{x} \right).
+  \Psi(x,t) + \pdiff{\Psi}{t} \Delta t
+  = \int_{-\infty}^{\infty} A \SubExp
+    \left( \Psi(x,t) + \Delta x \pdiff{\Psi}{x} + \frac{\Delta x}{2} \pdiff{2}{\Psi}{x} \right) \d (\Delta x).
   \stopformula
-Wanneer we bovenstaande term voor term bekijken, zien we dat moet gelden
+Bovenstaande uitdrukking bekijken we term voor term en we zien dat moet gelden dat
+  \placeformula[for:toestand onderdeel]
   \startformula
-  \psi(x,t) = \int_{-\infty}^{\infty} \reci{A} \SubExp \psi(x,t).
+  \Psi(x,t) = A \int_{-\infty}^{\infty} \SubExp \Psi(x,t) \d (\Delta x).
   \stopformula
-De enige mogelijkheid om hier aan te voldoen is wanneer de integraal gelijk is aan een. Hierdoor kunnen we een restrictie opleggen voor $A$:
+De enige mogelijkheid om hier aan te voldoen is wanneer de integraal gelijk is aan één. Hierdoor kunnen we een restrictie opleggen voor $A$:
   \startformula\startsplit
-  A \SC
+  \reci{A} \SC
   = \int_{-\infty}^{\infty} \SubExp \d (\Delta x) \SR
-  = \sqrt{\frac{2 \pi i \Delta t}{m}}
+  = \sqrt{\frac{2 \pi i \hbar \Delta t}{m}}
   \stopsplit\stopformula
+ofwel:
+  \placeformula[for:normalisatieconstante]
+  \startformula
+  A = \sqrt{\frac{m}{2 \pi i \hbar \Delta t}}.
+  \stopformula
+In de volgende hoofdstukken kunnen we hier verder mee rekenen.
 
 \stopcomponent
 
-% vim: spell spl=nl cole=1
+Wanneer we terugkijken naar het reflectie-experiment in \see[sec:reflecties] zien we dat we niet alle paden tussen de bron en de detector toestaan. We laten alleen die paden toe die vanuit $B$ recht naar de plaat gaan, daar reflecteren en in $D$ terecht komen. Dit zijn twee paden van gebeurtenissen die \emph{na elkaar} plaats vinden. Net als in \see[sec:padintegraal] moeten we de bijbehorende bijdragen met elkaar vermenigvuldigen. De beide bijdragen bevatten de factor $A$, zodat deze in het kwadraat komt te staan.
+Vervolgens nemen we $N$ reflectiepunten op de plaat, en berekenen voor elk pad dat via zo'n punt loopt de amplitude. Dit zijn \emph{verschillende} paden bij \emph{dezelfde} gebeurtenis, dus moeten we de gebeurtenissen optellen. Om de uiteindelijke amplitude onafhankelijk te maken van het aantal paden, delen we nog door $N$. De correcte waarschijnlijkheidsamplitude bij het reflectie-experiment wordt dan
+  \startformula\startsplit
+  \psi \SC
+  = \reci{N} \sum_{n=0}^{N} K(D,p_n) K(p_n,B) \SR
+  = \frac{A^2}{N} \sum_{n=0}^{N} \exp\left[ \frac{i}{\hbar} S(D,p_n) \right] \exp\left[ \frac{i}{\hbar} S(p_n,B) \right] \SR
+  = \frac{m}{2 \pi i (t_D - t_B)} \sum_{n=0}^{N} \exp\left[ \frac{i}{\hbar} \big( S(D,p_n) + S(p_n,B) \big) \right].
+  \stopsplit\stopformula
+
+%1. Neem een recht pad van de bron naar een willekeurig punt x dat op de reflecterende plaat lig.
+%2. Neem een recht pad van x naar de detector.
+%3. Dit zijn twee paden van gebeurtenissen die na elkaar plaats vinden, dus moeten we de bijbehorende amplitudes met elkaar vermenigvuldigen. Deze amplitudes bevatten de factor √(m/iht) al zodat deze factor in het kwadraat voorkomt.
+%4. We nemen nu N punten op de reflecterende plaat, en berekenen daarvoor de amplitudes. Dit zijn verschillende paden bij dezelfde gebeurtenis, dus moeten we de amplitudes optellen.
+%5. Om de uiteindelijke amplitude onafhankelijk te maken van het aantal paden, delen we door N.
+
+\subject{Notatie}
+
+  \starttabulate[|l|*4{lM|}]
+  \NC waarschijnlijkheidsamplitude \NC \psi   \NC \Psi \NC K      \NC \Phi   \NC\NR
+  \NC bijdrage/microkernel/fasor   \NC \psi_n \NC \psi \NC \kappa \NC \phi   \NC\NR
+  \NC bijdrage/fasor subpad       
+      \NC \psi_{n\to n+1}             \NC \psi \NC \kappa \NC \phi   \NC\NR
+  \NC hoek/fase                    \NC \phi   \NC \phi \NC \phi   \NC \alpha \NC\NR
+  \NC toestandsfunctie             \NC \Psi   \NC ?    \NC \Psi   \NC \Psi   \NC\NR
+  \NC kernel                       \NC K      \NC K    \NC K      \NC K      \NC\NR
+  \stoptabulate
+
+% vim: ft=context spell spl=nl cole=1

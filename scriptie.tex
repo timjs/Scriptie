@@ -1,39 +1,44 @@
 \startproduct scriptie
 \environment  thesislayout
 
-\define\ioverhb
-  {\math{\frac{i}{\hbar}}}
-
 \version[concept]
 
 \startfrontmatter
 
   %\component zetwerk/kaft
-  \completecontent
-  %\component hoofdstukken/inleiding
+  \component hoofdstukken/voorwoord
+  \completecontent[criterium=all]
 
 \stopfrontmatter
 
 \startbodymatter
 
   \component hoofdstukken/paden
-  \component hoofdstukken/methoden
-
-  % Moet eigenlijk in de backmatter...
-  \completepublications[criterium=text]
+  \component hoofdstukken/reflecties
+  \component hoofdstukken/afleiding
+  %\component hoofdstukken/methoden
 
 \stopbodymatter
 
 \startappendices
+
+  \component hoofdstukken/formules
+  \component hoofdstukken/code
+
 \stopappendices
 
 \startbackmatter
 
+  \chapter{Literatuur}
   % Werkt hier alleen met criterium=all...
-  %\completepublications[criterium=all]
+  % text werkt blijbaar ook in mkii!
+  \nocite[*]
+  \placepublications[criterium=text]
 
-  \completetodos
+  %\completetodos
 
 \stopbackmatter
 
 \stopproduct
+
+% vim: ft=context spell spl=nl cole=1 

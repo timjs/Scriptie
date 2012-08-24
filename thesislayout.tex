@@ -3,6 +3,9 @@
 % Author:  Tim Steenvoorden
 % Changed: 30 Jan 2012
 %
+% TODO:
+% * Inspringen na figuren
+%
 \startenvironment thesislayout
 \environment      documentdefinitions
 
@@ -38,7 +41,8 @@
 
   \definetypeface[aldus][rm][serif][palatino]
   \definetypeface[aldus][rm][Xserif][Aldus LT Std]
-  \definetypeface[aldus][mm][math][palatino]
+  \definetypeface[aldus][tt][Xmono][Latin Modern Mono]
+  \definetypeface[aldus][mm][math][palatino][default][rscale=0.9]
 
   \setupbodyfont[aldus]
 \stopmode
@@ -75,6 +79,7 @@
     [state=start]
   \definecolor[light orange]
     [r=0.996,g=0.800,b=0.620]
+    %[r=1,g=0.9,b=0.8]
 \stopmode
 
 % ------------------------------------------------------------------------------
@@ -136,14 +141,21 @@
    location=left,%*mkii
    distance=0.5em]
 
-\setupformulas
-  [align=right,
-   margin=yes,
-   spacebefore=medium,
-   indentnext=auto]
-
 %\setupsynonyms[abbreviation]
   %[synonymstyle=\sc]
+
+% ------------------------------------------------------------------------------
+% Verbatim & Framed Text
+% ------------------------------------------------------------------------------
+
+\setuptyping
+  [lines=yes,
+   style=\tfx\tt,
+   numbering=line]
+
+\setuplinenumbering
+  [step=5,
+   style=small]
 
 \setupframedtexts
   [width=local,
@@ -161,7 +173,7 @@
    width=2\marginwidth]
 
 % ------------------------------------------------------------------------------
-% Definitions
+% Itemgroups, Delimited Text & Enumerations
 % ------------------------------------------------------------------------------
 
 \setupitemgroup[itemize][each]
@@ -171,9 +183,9 @@
    before=,
    after=]
 
-\setupquote
-  [location=margin,
-   leftmargin=standard,
+\setupdelimitedtext[quote]
+  [location=paragraph,
+   spacebefore=medium,
    style=\it]
 
 \defineenumeration[postulate]
@@ -193,9 +205,10 @@
 
 \setuphead[chapter]
   [alternative=inmargin,
+   header=empty,
    style=\tfb,
    color=orange,
-   numberstyle={\switchtobodyfont[48pt]},
+   numberstyle={\switchtobodyfont[48pt]\sc},
    numbercolor=light orange,
    after={\blank\blank}]
 \setuphead[section]
@@ -208,6 +221,9 @@
   [textstyle=\it,
    aligntitle=float]
 
+\setupsection[chapter]
+  [appendixconversion=characters]
+
 % ------------------------------------------------------------------------------
 % Lists & Registers
 % ------------------------------------------------------------------------------
@@ -218,7 +234,7 @@
    pagestyle=\quad\it]
 
 % ------------------------------------------------------------------------------
-% Floats
+% Figures, Tables & Math
 % ------------------------------------------------------------------------------
 
 \setupfloat[intermezzo]
@@ -232,6 +248,26 @@
 
 \setuptabulate
   [rulethickness=0.8pt]
+
+\setupformulas
+  [align=right,
+   margin=yes,%Works for \start/stopformula but not \start/stopformulas so...
+   leftmargin=1.5em,%...we have to correct that
+   spacebefore=medium,
+   numberstyle=\sc,
+   %spaceafter=medium,%Automatically adjusted
+   indentnext=auto]
+
+% ------------------------------------------------------------------------------
+% Publications
+% ------------------------------------------------------------------------------
+
+\setupbibtex
+  [database=bronnen,
+   sort=author]
+
+\setuppublications
+  [alternative=ams]
 
 % ------------------------------------------------------------------------------
 % Sectionblocks
@@ -257,17 +293,6 @@
 \stopsectionblockenvironment
 
 % ------------------------------------------------------------------------------
-% Publications
-% ------------------------------------------------------------------------------
-
-\setupbibtex
-  [database=bronnen,
-   sort=author]
-
-\setuppublications
-  [alternative=ams]
-
-% ------------------------------------------------------------------------------
 % Synonyms
 % ------------------------------------------------------------------------------
 
@@ -289,9 +314,9 @@
 
 \startmode[draft]
   \version[temporary]
+  \showframe
 \stopmode
 
 \stopenvironment
 
-% vim: ts=2 sw=2 et spell
-
+% vim: ft=context ts=2 sw=2 et spell
