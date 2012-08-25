@@ -298,52 +298,30 @@
 \stoptexdefinition
 
 % -----------------------------------------------------------------------------
-% TikZ pictures
+% TikZ graphics
 % -----------------------------------------------------------------------------
 
-\starttexdefinition setuptikz
-  \dosingleargument\dosetuptikz
+\define\graphic\tikz
+
+\starttexdefinition startgraphic
+  \bgroup
+    \hbox\bgroup
+      \dosingleempty\starttikzpicture
 \stoptexdefinition
 
-\starttexdefinition dosetuptikz [#1]
-  \getparameters[tikzparam][#1]
-  \doifinset{\tikzparamboxed}{yes,on}
-    {\dotikzboxed}
+\starttexdefinition stopgraphic
+      \stoptikzpicture
+    \egroup
+  \egroup
 \stoptexdefinition
 
-\starttexdefinition dotikzboxed
-  \let\normalstarttikzpicture\starttikzpicture
-  \let\normalstoptikzpicture\stoptikzpicture
-
-  \redefine\starttikzpicture
-    {\hbox\bgroup\normalstarttikzpicture} 
-  \redefine\stoptikzpicture
-    {\normalstoptikzpicture\egroup}
+\starttexdefinition setupgraphicstyle
+  \dodoubleargument\dosetupgraphicstyle
 \stoptexdefinition
 
-\starttexdefinition setuptikzstyle
-  \dodoubleargument\dosetuptikzstyle
-\stoptexdefinition
-
-\starttexdefinition dosetuptikzstyle [#1][#2]
+\starttexdefinition dosetupgraphicstyle [#1][#2]
   \tikzset{#1/.style={#2}}
 \stoptexdefinition
-
-\starttexdefinition externaltikzpicture
-  \dodoubleempty\doexternaltikzpicture
-\stoptexdefinition
-
-\startmode[quick]
-  \starttexdefinition doexternaltikzpicture [#1][#2]
-    \externalfigure[#1]
-  \stoptexdefinition
-\stopmode \startnotmode[quick]
-  \starttexdefinition doexternaltikzpicture [#1][#2]
-    \starttikzpicture[#2]
-      \processfile{\tikzparamprefix #1.tikz}
-    \stoptikzpicture
-  \stoptexdefinition
-\stopnotmode
 
 % -----------------------------------------------------------------------------
 % Tabbed data

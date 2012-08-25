@@ -14,28 +14,27 @@ We beginnen weer met de opzet van het reflectie-experiment uit \see[chp:reflecti
 
 \placefigure[][fig:reflecties afstanden]
   {Het reflectie-experiment met alle gebruikte afstanden. Bron $B$ staat op een afstand $r$ links van de $y$-as. Rechts van de $y$-as staat detector $D$, ook op afstand $r$. De plaat staat op afstand $y$ van de bron en de detector. De plaat loopt van $-l$ tot $l$ op de $x$-as en heeft dus een lengte van $2l$. Het reflectiepunt $X$ ligt op de $x$-as op een afstand $x$. Een deeltje legt eerst een traject af van $B$ naar $X$ in $t_1$ seconden, vervolgens legt het het traject van $X$ naar $D$ af in $t_2$ seconden. Het klassieke pad is licht weergegeven en loop door de oorsprong.}
-  {\starttikzpicture[scale=0.8]
-   \coordinate[source,label=above:$B$] (B) at (-5,4);
-   \coordinate[detector,label=above:$D$] (D) at (5,4);
-   \coordinate (I) at (0,4);
-   \coordinate (V) at (5,0);
-   \coordinate[label=below:$X$] (X) at (3,0);
+  \startgraphic[scale=0.8]
+  \coordinate[source,label=above:$B$] (B) at (-5,4);
+  \coordinate[detector,label=above:$D$] (D) at (5,4);
+  \coordinate (I) at (0,4);
+  \coordinate (V) at (5,0);
+  \coordinate[label=below:$X$] (X) at (3,0);
 
-   \draw[axis lines] (-7,0) -- (7,0) node[right] {$x$};
-   \draw[axis lines] (0,-0.5) -- (0,5) node[above] {$y$};
+  \draw[axis lines] (-7,0) -- (7,0) node[right] {$x$};
+  \draw[axis lines] (0,-0.5) -- (0,5) node[above] {$y$};
 
-   \draw[distance lines] (B) -- node[distance label] {$r$} (I);
-   \draw[distance lines] (I) -- node[distance label] {$r$} (D);
-   \draw[distance lines] (D) -- node[distance label] {$y$} (V);
-   \draw[distance lines] (0,-0.3) -- node[distance label] {$x$} (3,-0.3);
+  \draw[distance lines] (B) -- node[distance label] {$r$} (I);
+  \draw[distance lines] (I) -- node[distance label] {$r$} (D);
+  \draw[distance lines] (D) -- node[distance label] {$y$} (V);
+  \draw[distance lines] (0,-0.3) -- node[distance label] {$x$} (3,-0.3);
 
+  \draw[ultra thick] (-6,0) node[below] {$-l$} -- (6,0) node[below] {$l$};
 
-   \draw[ultra thick] (-6,0) node[below] {$-l$} -- (6,0) node[below] {$l$};
-
-   %\draw[thin,orange] (B) -- (-4,0) -- (D);
-   \draw[thin,light orange] (B) -- (0,0) -- (D);
-   \draw[thin,orange] (B) -- node[auto] {$t_1$} (X) -- node[auto] {$t_2$} (D);
-   \stoptikzpicture}
+  %\draw[thin,orange] (B) -- (-4,0) -- (D);
+  \draw[thin,light orange] (B) -- (0,0) -- (D);
+  \draw[thin,orange] (B) -- node[auto] {$t_1$} (X) -- node[auto] {$t_2$} (D);
+  \stopgraphic
 
 Allereerst bekijken we het traject van $B$ naar $X$. Op $t=0$ vertrekt een deeltje uit $B$, dat is de positie $(-r,y)$. We nemen aan dat na een tijd $t_1$ het deeltje te vinden is op de plaat, dus op $y=0$ en $x$ tussen $-l$ en $l$. Dit noemen we het \emph{reflectiepunt} $X$. Hierna vervolgt het deeltje zijn weg naar $D$ op $(r,y)$ waar het $t_2$ later aankomt. Wij vragen ons af:
   \startquote

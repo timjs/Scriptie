@@ -1,8 +1,0 @@
-
-\draw[axis lines] (-0.2,0) -- (2.2,0) node[right] {$\Re$};
-\draw[axis lines] (0,-0.2) -- (0,2.2) node[above] {$\Im$};
-
-\draw[->,just lines] (0,0) -- node[auto] {$A$} (30:2) node[right] {$\psi_n$};
-\draw (1,0) arc[start angle=0,end angle=30,radius=1] node[below right] {$\phi$};
-
-% vim: syn=context

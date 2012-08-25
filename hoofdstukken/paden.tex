@@ -12,11 +12,19 @@ Aan de hand van een tweetal experimenten bekijken we de verschillen tussen het k
 
 \section[sec:klassiek pad]{Het klassieke pad}
 
-Het eerste experiment dat wij in dit hoofdstuk beschouwen is simpel van opzet. We nemen een bron $B$ van deeltjes met massa $m$. Op afstand $x$ zetten we een detector $D$ die de uitgezonden deeltjes opvangt. Dit is weergegeven in \see[fig:simpel experiment]. Voor nu is het voldoende om klassieke deeltjes door $B$ te laten produceren. Later zullen we juist naar kwantummechanische deeltjes gaan kijken. Dit experiment zullen we hiervoor stap voor stap uitbreiden in de rest van dit hoofdstuk.
+Het eerste experiment dat wij in dit hoofdstuk beschouwen is simpel van opzet. We nemen een bron $B$ van deeltjes met massa $m$.
+Zo'n bron kunnen we opvatten als een spleet waaruit het deeltje te voorschijn komt
+Op afstand $x$ zetten we een detector $D$ die de uitgezonden deeltjes opvangt. Dit is weergegeven in \see[fig:simpel experiment]. Voor nu is het voldoende om klassieke deeltjes door $B$ te laten produceren. Later zullen we juist naar kwantummechanische deeltjes gaan kijken. Dit experiment zullen we hiervoor stap voor stap uitbreiden in de rest van dit hoofdstuk.
 
 \placefigure[][fig:simpel experiment]
   {Eerste opzet van ons experiment. Een bron $B$ met op een afstand $x$ een detector $D$. Klassieke deeltjes reizen over het pad met de kleinste actie van $B$ naar $D$.}
-  {\externaltikzpicture[simpel_experiment][scale=0.5]}
+  \startgraphic[scale=0.5]
+  \coordinate[source,label=left:$B$] (B) at (0,5);
+  \coordinate[detector,label=right:$D$] (D) at (10,5);
+
+  \draw[just lines] (B) -- (D);
+  \draw[axis lines] (-1,0) -- (11,0) node[right] {$x$};
+  \stopgraphic
 
 In de klassieke wereld is het niet ingewikkeld om het tijdsafhankelijke \emph{klassieke pad} $\bar{x}(t)$ uit te rekenen dat een deeltje van $B$ naar $D$ aflegt. Natuurlijk zijn de wetten van Newton een goed hulpmiddel, maar laten wij gebruik maken van het (meer analytische) formalisme van Lagrange \cite[Beenakker:2007uc,Goldstein:2002uj,Taylor:2005uj]. Lagrange karakteriseert een systeem met de vergelijking
   \placeformula[for:lagrangiaan definitie]
@@ -32,12 +40,12 @@ Hier is $L$ expliciet een functie van $x$, $\dot{x}$ en $t$. We maken gebruik va
 Om nu het pad te berekenen dat ons deeltje van de bron naar de detector aflegt maken we gebruik van \emph{het principe van de kleinste actie}. Dit wil zeggen dat we een grootheid $S$, de \emph{actie}, invoeren die we voor elk pad kunnen uitrekenen. Het pad dat het deeltje uiteindelijk aflegt is dat pad waarbij $S$ minimaal is.
 % Met andere woorden: $S$ verandert niet in eerste orde wanneer het klassieke pad $\bar{x}(t)$ een beetje verandert.
 
-Om dit kwantitatief te maken, moeten we eerst een definitie geven van de actie. Deze wordt gegeven door een integraal van de Lagrangiaan van begintijdstip $t_{\text{b}}$ tot eindtijdstip $t_{\text{e}}$:
+Om dit kwantitatief te maken, moeten we eerst een definitie geven van de actie. Deze wordt gegeven door een integraal van de Lagrangiaan van begintijdstip $t_B$ tot eindtijdstip $t_D$:
   \placeformula[for:actie definitie]
   \startformula
-  S := \int_{t_{\text{b}}}^{t_{\text{e}}} L(x,\dot{x},t) \d t.
+  S := \int_{t_B}^{t_D} L(x,\dot{x},t) \d t.
   \stopformula
-Er zijn natuurlijk veel verschillende manieren om van een positie $x_b$ op tijdstip $t_{\text{b}}$ naar positie $x_e$ op tijdstip $t_{\text{e}}$ te komen. De positie $x$ in de Lagrangiaan is immers een functie van $t$ en kan vele vormen aannemen.
+Er zijn natuurlijk veel verschillende manieren om van een positie $x_B$ op tijdstip $t_B$ naar positie $x_D$ op tijdstip $t_D$ te komen. De positie $x$ in de Lagrangiaan is immers een functie van $t$ en kan vele vormen aannemen.
 
 Stel dat het klassieke pad wordt gegeven door de functie $\bar{x}(t)$. Alle andere paden zijn variaties op dit pad. Deze representeren we met een functie $\delta x(t)$, zodat een willekeurig pad te schrijven is als de som van het klassieke pad en de variaties daarop:
   \placeformula[for:variatie pad]
@@ -47,9 +55,9 @@ Stel dat het klassieke pad wordt gegeven door de functie $\bar{x}(t)$. Alle ande
 Van deze afwijking weten we dat
   \placeformula[for:variatie restrictie]
   \startformula
-  \delta x(t_{\text{b}}) = \delta x(t_{\text{e}}) = 0,
+  \delta x(t_B) = \delta x(t_D) = 0,
   \stopformula
-aangezien de begin- en eindpunten niet veranderen. Wanneer we willen dat de actie een minimum\footnote{Of eigenlijk een extremum.} heeft, wil dat zeggen dat $S$ niet verandert wanneer we het pad waarover we hem berekenen een klein beetje verandert. Dit heet het \emph{Variatieprincipe van Hamilton}. Op eerste orde geldt dan
+aangezien de begin- en eindpunten niet veranderen. Wanneer we willen dat de actie een minimum\footnote{Of eigenlijk een extremum.} heeft, wil dat zeggen dat $S$ niet verandert wanneer we het pad waarover we hem berekenen een infinitesimaal verandert. Dit heet het \emph{Variatieprincipe van Hamilton}. Op eerste orde geldt dan
   \placeformula[for:variatie eis]
   \startformula
   \delta S = S(\bar{x} + \delta x) - S(\bar{x}) = 0.
@@ -57,32 +65,33 @@ aangezien de begin- en eindpunten niet veranderen. Wanneer we willen dat de acti
 Met andere woorden: de variatie in de actie, gegeven door de actie bij een alternatief pad minus de actie bij een klassiek pad, is nul. Voor de actie over een alternatief pad krijgen we
   \startformula
   S(\bar{x} + \delta x)
-  = \int_{t_{\text{b}}}^{t_{\text{e}}} L(x + \delta x, \dot{x} + \delta \dot{x}, t) \d t.
+  = \int_{t_B}^{t_D} L(x + \delta x, \dot{x} + \delta \dot{x}, t) \d t.
   \stopformula
 En wanneer we dit expanderen tot op eerste orde
   \startformula\startsplit
   S(\bar{x} + \delta x) \SC
-  = \int_{t_{\text{b}}}^{t_{\text{e}}} \left( L(x, \dot{x}, t) + \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
-  = S(x) + \int_{t_{\text{b}}}^{t_{\text{e}}} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t
+  = \int_{t_B}^{t_D} \left( L(x, \dot{x}, t) + \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
+  = S(x) + \int_{t_B}^{t_D} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t
   \stopsplit\stopformula
 Dus voor de variatie in $S$ zoals gegeven in \see[for:variatie eis] geldt
   \startformula\startsplit
   \delta S \SC
-  = \int_{t_{\text{b}}}^{t_{\text{e}}} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
-  = \delta x \left. \pdiff{L}{\dot{x}} \right|_{t_{\text{b}}}^{t_{\text{e}}}
-    - \int_{t_{\text{b}}}^{t_{\text{e}}} \delta x \left( \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \right) \d t
+  = \int_{t_B}^{t_D} \left( \delta \dot{x} \pdiff{L}{\dot{x}} + \delta x \pdiff{L}{x} \right) \d t \SR
+  = \delta x \left. \pdiff{L}{\dot{x}} \right|_{t_B}^{t_D}
+    - \int_{t_B}^{t_D} \delta x \left( \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \right) \d t
   = 0.
   \stopsplit\stopformula
-Hierbij hebben we gebruik gemaakt van partiële integratie. De eerste term valt weg door de restrictie die we aan $\delta x(t)$ hebben opgelegd in \see[for:variatie restrictie]. Om de integraal nul te krijgen, moet de integrand nul zijn zodat:
+Hierbij hebben we gebruik gemaakt van partiële integratie. De eerste term valt weg door de restrictie die we aan $\delta x(t)$ hebben opgelegd in \see[for:variatie restrictie]. Om de integraal nul te krijgen voor willekeurige, infinitesimale $\d x$, moet de integrand nul zijn zodat:
   \placeformula[for:euler-lagrange]
   \startformula\startsteps
   \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \SC= 0            \SR
                  \ddiff{t} \pdiff{L}{\dot{x}} \SC= \pdiff{L}{x}
   \stopsteps\stopformula
-Deze differentiaalvergelijking levert ons een beweging op wanneer de Lagrangiaan van een deeltje bekend is. Hij staat bekend als de \emph{Euler-Lagrange vergelijking}.
+Deze differentiaalvergelijking levert ons een beweging op wanneer de Lagrangiaan van een deeltje bekend is. Hij staat bekend als de \emph{Euler-Lagrange vergelijking}, een klassieke bewegingsvergelijking van rond 1750 van Leonhard Euler en Joseph Louis Lagrange.
 %Verderop in deze tekst zullen we hem nog eens tegenkomen.
 
-Bij de berekening van deze bewegingsvergelijking is de actie $S$ zelf niet zozeer interessant. Wat een veel grotere rol speelt is de manier waarop we deze uitrekenen. Om $S$ te berekenen hebben we namelijk de naburige paden nodig om \emph{dat} pad uit te zoeken dat de kleinste actie heeft. We hebben immers variaties $\delta x(t)$ op het klassieke pad $\bar{x}(t)$ bekeken en hiervan de minst afwijkende gekozen. Iets om in ons achterhoofd te houden.
+Bij de berekening van deze bewegingsvergelijking is de actie $S$ zelf niet zozeer interessant. Wat een veel grotere rol speelt is de manier waarop we deze uitrekenen. Om $S$ te berekenen hebben we namelijk de naburige paden nodig om \emph{dat} pad uit te zoeken dat de kleinste actie heeft. We hebben immers variaties $\delta x(t)$ op het pad $\bar{x}(t)$ bekeken en precies die paden uitgekozen met de minste afwijking op het klassieke pad
+We hebben immers paden $x(t)$ bekeken, en precies die paden uitgekozen waarvoor de variaties $\delta x(t)$ het minste afwijken van het klassieke pad $\bar{x}(t)$. Iets om in ons achterhoofd te houden.
 
 \section[sec:kwantum pad]{Kwantummechanische paden}
 
@@ -92,7 +101,9 @@ We noemen een deeltje klassiek als zijn afmetingen groot zijn ten opzichte van e
   \startformula
   \lambda = \frac{h}{p}.
   \stopformula
-Wanneer een deeltje een grootte heeft in de orde van een De~Broglie golflengte, mogen we kwantummechanische effecten \emph{niet} verwaarlozen.
+Waarbij $h=6.626068\E{-34} {\rm m^2 kg / s}$ de constante van Planck is en $p$ de impuls van het deeltje. Wanneer een deeltje een grootte heeft in de orde van een De~Broglie golflengte, mogen we kwantummechanische effecten \emph{niet} verwaarlozen.
+\todo{Ook macroscopische lengteschalen meenemen.}
+
 Laten we eens kijken wat er gebeurt wanneer we een bron gebruiken die kwantummechanische deeltjes maakt, zoals elektronen.
 %Dit kunnen we doen door bijvoorbeeld een spanning te zetten op een gloeidraad.
 Wanneer we nu de detector aanzetten, merken we dat we niet meer alle deeltjes meten die door $B$ zijn uitgezonden.
@@ -101,11 +112,19 @@ Om een poging te wagen de \quote{verloren} deeltjes terug te vinden passen we de
 
 \placefigure[][fig:detectie]
   {In plaats van klassieke deeltjes produceert bron $B$ nu elektronen. Niet alle elektronen komen in detector $D$ terecht, ze waaieren uit. We passen de detector zo aan dat deze verticaal kan bewegen over een afstand $y$ ten opzichte van de horizontale as door $B$.}
-  {\externaltikzpicture[detectie][scale=0.5]}
+  \startgraphic[scale=0.5]
+  \coordinate[source,label=left:$B$] (B) at (0,5);
+  \coordinate[detector,label=above right:$D$] (D) at (10,7);
+
+  %\draw[just lines] (B) -- (D);
+  \shade[top color=light orange,bottom color=light orange,middle color=orange] (B) -- (10,2) -- (10,8) -- cycle;
+
+  \draw[axis lines,<->] (11,5) -- node[auto=right] {$y$} (11,7);
+  \draw[axis lines] (-1,0) -- (11,0) node[right] {$x$};
+  \stopgraphic
 
 \placefigure[][fig:spreiding-enkel]
   {Spreiding zoals gemeten door de detector na integratie over de tijd. Dit komt overeen met een diffractiepatroon van een golf door een spleet.}
-  %{\externaltikzpicture[spreiding-enkel][scale=0.5]}
   {\externalfigure[diffractie][width=0.5\textwidth]}
 
 Het patroon in \see[fig:spreiding-enkel] lijkt op het diffractiepatroon van een golf door één spleet. Toch kunnen we te weten komen of we echt met deeltjes te maken hebben. Bij een zwakke elektronenbron geeft de detector af en toe een signaal, niet continu. Dit wijst er op dat we losse objecten meten. Ook is de sterkte van het signaal altijd even groot (we gaan uit van een zeer gevoelige detector). We meten dus telkens één elektron en niet een halve of een andere breuk.
@@ -120,16 +139,40 @@ Dit is het welbekende twee-spleten experiment van Young. We zullen hier de uitko
 
 \placefigure[][fig:twee spleten]
   {Het twee-spleten experiment. Tussen bron $B$ en detector $D$ plaatsen we een scherm $s$ met daarin twee spleten $S_1$ en $S_2$. Deeltjes uit $B$ kunnen twee paden afleggen om in $D$ aan te komen.}
-  {\externaltikzpicture[twee_spleten][scale=0.5]}
+  \startgraphic[scale=0.5]
+  \coordinate[source,label=left:$B$] (B) at (0,5);
+  \coordinate[detector,label=right:$D$] (D) at (10,5);
+  \coordinate[label=above right:$S_1$] (S1) at (5,7);
+  \coordinate[label=below right:$S_2$] (S2) at (5,3);
+  %\node[slit] (S1) at (5,7) [label=above right:$S_1$] {};
+  %\node[slit] (S2) at (5,3) [label=below right:$S_2$] {};
+
+  \draw[screen lines] (5,1) -- (S1) -- (S2) -- (5,9) node[above] {$s$};
+  \fill[slit] (S1) circle;
+  \fill[slit] (S2) circle;
+
+  \draw[just lines] (B) -- (S1) -- (D);
+  \draw[just lines] (B) -- (S2) -- (D);
+
+  %\draw[screen lines] (10,1) -- (10,9) node[above] {$d$};
+  \draw[axis lines] (-1,0) -- (11,0) node[right] {$x$};
+  \stopgraphic
 
 De spleten $S_1$ en $S_2$ kunnen we beschouwen als afzonderlijke bronnen. De elektronen uit $S_1$ zullen een spreiding vertonen zoals we hebben gezien in \see[fig:spreiding-enkel]. Hetzelfde geldt voor elektronen uit $S_2$. Wanneer we beide spreidingen optellen ontstaat een patroon zoals te zien in \see[fig:spreidingen]{a}. Klaar! Of toch niet\dots
 
 \placefigure[][fig:spreidingen]
   {a. Spreiding door optellen van de losse spreidingen behorende bij spleet $S_1$ en spleet $S_2$. b. Spreiding zoals gemeten door de detector bij het twee-spleten experiment. De grijs gestreepte lijn geeft het diffractiepatroon weer bij twee spleten.}
   \startcombination[2*1]
-  {\externaltikzpicture[spreiding-dubbel][scale=0.5]}        {a}
+  {\startgraphic[scale=0.5]
+   \draw[help lines] (-5,0) -- (5,0) node[right] {$+$};
+
+   \startscope[just lines,smooth,domain=-4.5:4.5]
+     \draw[yshift=100] plot (\x,{3*\Gauss{-2}{1}});
+     \draw[yshift= 40] plot (\x,{3*\Gauss{ 2}{1}});
+     \draw[yshift=-60] plot (\x,{3*(\Gauss{-2}{1} + \Gauss{2}{1})});
+   \stopscope
+   \stopgraphic}                                              {a}
   {\externalfigure[interferentie][width=0.45\textwidth]}      {b}
-  %{\externaltikzpicture[spreiding-interferentie][scale=0.5]} {b}
   \stopcombination
 
 Wanneer we het experiment uitvoeren en de intensiteit uitzetten tegen de plaats van de detector blijkt er een veel ingewikkelder patroon te ontstaan (zie \see[fig:spreidingen]{b}). We zien een combinatie van een interferentie- en een diffractiepatroon. Het moge duidelijk zijn dat bovenstaande redenatie niet klopt. Blijkbaar kunnen we niet zomaar de waarschijnlijkheden van $S_1$ en $S_2$ bij elkaar optellen, met andere woorden:
@@ -174,7 +217,13 @@ Dit levert ons het tweede postulaat.
 
 \placefigure[right][fig:fasor]
   {Een vector met lengte $A$ onder hoek $\phi$ in het complexe vlak. Dit komt overeen met een fasor $A \e^{i \phi}$.}
-  {\externaltikzpicture[fasor]}
+  \startgraphic
+  \draw[axis lines] (-0.2,0) -- (2.2,0) node[right] {$\Re$};
+  \draw[axis lines] (0,-0.2) -- (0,2.2) node[above] {$\Im$};
+
+  \draw[->,just lines] (0,0) -- node[auto] {$A$} (30:2) node[right] {$\psi_n$};
+  \draw (1,0) arc[start angle=0,end angle=30,radius=1] node[below right] {$\phi$};
+  \stopgraphic
 
 Om inzicht te krijgen in wat de waarschijnlijkheidsamplitude eigenlijk is, maken we een uitstapje naar de golfmechanica van Schrödinger. De Schrödingervergelijking geeft ons een beschrijving van de beweging van een kwantummechanisch deeltje in de vorm van een golfvergelijking.
 De oplossingen van de Schrödingervergelijking zijn golven. Een superpositie van deze golven geeft ons een beschrijving van de evolutie van een deeltje. Voor een deeltje met gegeven impuls $p$ en totale energie $E$ heeft zo een golf de vorm
@@ -226,7 +275,22 @@ Merk op dat het deeltje niet terug kan in de tijd. Wel kan het heen en weer bewe
 
 \placefigure[][fig:tijdsnedes]
   {}
-  {\externaltikzpicture[tijdsnedes][yscale=0.5]}
+  \startgraphic[yscale=0.5]
+  \draw[axis lines] (0.5,0) -- (9.5,0) node[right] {$t$};
+  \draw[axis lines] (0,0.5) -- (0,10.5) node[above] {$x$};
+  \foreach \t in {2,...,8}
+   \draw[help lines] (\t,1) -- (\t,10);
+  \draw[<->] (5,-0.5) -- node[below] {$\Delta t$} (6,-0.5);
+
+  \coordinate[source,label=below left:$B$] (B) at (1,3);
+  \coordinate[detector,label=above right:$D$] (D) at (9,9);
+
+  %\draw[just lines] (B)
+  %  \foreach \x [count=\t from 2] in {3,4,7,5,6,8,9}
+  %    {-- (\t,\x)}
+  %  -- (D);
+  \draw[just lines] plot coordinates {(B) (2,2) (3,4) (4,7) (5,5) (6,6) (7,8) (8,9) (D)};
+  \stopgraphic
 
 Om de padintegraal af te leiden lopen we effectief de postulaten uit \see[sec:postulaten] in omgekeerde volgorde af. 
 Uit het derde postulaat weten we dat de \emph{bijdrage} aan een pad proportioneel is met de actie. Wanneer we van tijdsnede $n$ naar snede $n+1$ gaan kunnen we de bijdrage $\psi_{n \to n+1}$ uitrekenen met

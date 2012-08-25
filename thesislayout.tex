@@ -39,7 +39,7 @@
   \usetypescript[serif][hanging][normal]
   \setupalign[hanging]
 
-  \definetypeface[aldus][rm][serif][palatino]
+  \definetypeface[aldus][rm][serif][palatino] % Als fallback voor PDFTeX...
   \definetypeface[aldus][rm][Xserif][Aldus LT Std]
   \definetypeface[aldus][tt][Xmono][Latin Modern Mono]
   \definetypeface[aldus][mm][math][palatino][default][rscale=0.9]
@@ -59,12 +59,7 @@
 
 \startnotmode[quick]
   \usemodule[tikz]
-
-  \setuptikz
-    [boxed=yes,
-     prefix={tekeningen/}]
-
-  \environment tekeningen/tikzstyles
+  \environment tikzstyles
 \stopnotmode
 
 \startmode[*mkiv]
