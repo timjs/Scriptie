@@ -13,7 +13,7 @@ Aan de hand van een tweetal experimenten bekijken we de verschillen tussen het k
 \section[sec:klassiek pad]{Het klassieke pad}
 
 Het eerste experiment dat wij in dit hoofdstuk beschouwen is simpel van opzet. We nemen een bron $B$ van deeltjes met massa $m$.
-Zo'n bron kunnen we opvatten als een spleet waaruit het deeltje te voorschijn komt
+Zo een bron kunnen we opvatten als een smalle spleet waaruit de deeltjes te voorschijn komen en zich rechtlijnig voortbewegen. Dit in tegenstelling tot een zwarte doos die deeltjes alle kanten op schiet.
 Op afstand $x$ zetten we een detector $D$ die de uitgezonden deeltjes opvangt. Dit is weergegeven in \see[fig:simpel experiment]. Voor nu is het voldoende om klassieke deeltjes door $B$ te laten produceren. Later zullen we juist naar kwantummechanische deeltjes gaan kijken. Dit experiment zullen we hiervoor stap voor stap uitbreiden in de rest van dit hoofdstuk.
 
 \placefigure[][fig:simpel experiment]
@@ -102,7 +102,9 @@ We noemen een deeltje klassiek als zijn afmetingen groot zijn ten opzichte van e
   \lambda = \frac{h}{p}.
   \stopformula
 Waarbij $h=6.626068\E{-34} {\rm m^2 kg / s}$ de constante van Planck is en $p$ de impuls van het deeltje. Wanneer een deeltje een grootte heeft in de orde van een De~Broglie golflengte, mogen we kwantummechanische effecten \emph{niet} verwaarlozen.
+
 \todo{Ook macroscopische lengteschalen meenemen.}
+\todo{Iets extra's over de spleet?}
 
 Laten we eens kijken wat er gebeurt wanneer we een bron gebruiken die kwantummechanische deeltjes maakt, zoals elektronen.
 %Dit kunnen we doen door bijvoorbeeld een spanning te zetten op een gloeidraad.
@@ -161,7 +163,7 @@ Dit is het welbekende twee-spleten experiment van Young. We zullen hier de uitko
 De spleten $S_1$ en $S_2$ kunnen we beschouwen als afzonderlijke bronnen. De elektronen uit $S_1$ zullen een spreiding vertonen zoals we hebben gezien in \see[fig:spreiding-enkel]. Hetzelfde geldt voor elektronen uit $S_2$. Wanneer we beide spreidingen optellen ontstaat een patroon zoals te zien in \see[fig:spreidingen]{a}. Klaar! Of toch niet\dots
 
 \placefigure[][fig:spreidingen]
-  {a. Spreiding door optellen van de losse spreidingen behorende bij spleet $S_1$ en spleet $S_2$. b. Spreiding zoals gemeten door de detector bij het twee-spleten experiment. De grijs gestreepte lijn geeft het diffractiepatroon weer bij twee spleten.}
+  {a. Spreiding door optellen van de losse spreidingen behorende bij spleet $S_1$ en spleet $S_2$. b. Spreiding zoals gemeten door de detector bij het twee-spleten experiment. De gestreepte lijn geeft het diffractiepatroon weer bij twee spleten.}
   \startcombination[2*1]
   {\startgraphic[scale=0.5]
    \draw[help lines] (-5,0) -- (5,0) node[right] {$+$};
@@ -226,7 +228,7 @@ Dit levert ons het tweede postulaat.
   \stopgraphic
 
 Om inzicht te krijgen in wat de waarschijnlijkheidsamplitude eigenlijk is, maken we een uitstapje naar de golfmechanica van Schrödinger. De Schrödingervergelijking geeft ons een beschrijving van de beweging van een kwantummechanisch deeltje in de vorm van een golfvergelijking.
-De oplossingen van de Schrödingervergelijking zijn golven. Een superpositie van deze golven geeft ons een beschrijving van de evolutie van een deeltje. Voor een deeltje met gegeven impuls $p$ en totale energie $E$ heeft zo een golf de vorm
+De oplossingen van de Schrödingervergelijking zijn golven. Een superpositie van deze golven geeft ons een beschrijving van de evolutie van een deeltje. Voor een vrij deeltje met gegeven impuls $p$ en totale energie $E$ heeft zo een golf de vorm
   \placeformula[for:vlakke golf]
   \startformula
   \Psi(x, t) = A \e^{i (p x - E t) / \hbar}.
@@ -235,15 +237,15 @@ Dit is een \emph{vlakke golf} met amplitude $A$ en complexe fase
   \startformula
   \phi := (p x - E t) / \hbar.
   \stopformula
-Uitdrukkingen van de vorm $A \e^{i \phi}$ noemen we een \emph{fasor}. Een fasor kunnen we weergeven in het complexe vlak als een vector met lengte $A$ onder een hoek $\phi$ (zie \see[fig:fasor]).
-Wanneer we met een deeltje meereizen over zijn pad zal $\phi$ veranderen met een snelheid van
+Uitdrukkingen van de vorm $A \e^{i \phi}$ noemen we een \emph{fasor}. Een fasor kunnen we weergeven in het complexe vlak als een vector met lengte~$A$ onder een hoek $\phi$ (zie \see[fig:fasor]).
+Wanneer we met dit deeltje meereizen over zijn pad zal $\phi$ veranderen met een snelheid van
 %Wanneer $\vec{r}$ de plaats aangeeft van de top van deze golf, dan wordt de faseverandering op dat punt gegeven door:
   \placeformula[for:faseverandering]
   \startformula\startsplit
   \tdiff{\phi}{t}  \SC
   = \left(p v - E\right) / \hbar  \SR
-  = \left(m v^2 - \half m v^2 - V\right) / \hbar  \SR
-  = \left(\half m v^2 - V\right) / \hbar  \SR
+  = \left(m v^2 - \half m v^2\right) / \hbar  \SR
+  = \left(\half m v^2\right) / \hbar  \SR
   = L / \hbar.
   \stopsplit\stopformula
 Het faseverschil tussen twee tijdstippen $t_1$ en $t_2$ wordt dan grof gezegd
@@ -279,16 +281,12 @@ Merk op dat het deeltje niet terug kan in de tijd. Wel kan het heen en weer bewe
   \draw[axis lines] (0.5,0) -- (9.5,0) node[right] {$t$};
   \draw[axis lines] (0,0.5) -- (0,10.5) node[above] {$x$};
   \foreach \t in {2,...,8}
-   \draw[help lines] (\t,1) -- (\t,10);
+    \draw[help lines] (\t,1) -- (\t,10);
   \draw[<->] (5,-0.5) -- node[below] {$\Delta t$} (6,-0.5);
 
   \coordinate[source,label=below left:$B$] (B) at (1,3);
   \coordinate[detector,label=above right:$D$] (D) at (9,9);
 
-  %\draw[just lines] (B)
-  %  \foreach \x [count=\t from 2] in {3,4,7,5,6,8,9}
-  %    {-- (\t,\x)}
-  %  -- (D);
   \draw[just lines] plot coordinates {(B) (2,2) (3,4) (4,7) (5,5) (6,6) (7,8) (8,9) (D)};
   \stopgraphic
 
@@ -296,9 +294,10 @@ Om de padintegraal af te leiden lopen we effectief de postulaten uit \see[sec:po
 Uit het derde postulaat weten we dat de \emph{bijdrage} aan een pad proportioneel is met de actie. Wanneer we van tijdsnede $n$ naar snede $n+1$ gaan kunnen we de bijdrage $\psi_{n \to n+1}$ uitrekenen met
   \placeformula[for:bijdrage]
   \startformula
-  \psi_{n \to n+1} = A \e^{i S / \hbar}.
+  \psi_{n \to n+1} = A(\Delta t) \e^{i S / \hbar}.
   \stopformula
-Wel moeten we de actie voor dit korte pad kunnen uitrekenen. Dit kan met een benadering van de Lagrangiaan tot op eerste orde,
+Hierbij is de normalisatie constante $A$ afhankelijk van het tijdsinterval $\Delta t$.
+Natuurlijk moeten we de actie voor dit korte pad kunnen uitrekenen. Dit kan met een benadering van de Lagrangiaan tot op eerste orde,
   \define\LApprox{\math{L\left( \frac{x_{n+1} + x_n}{2}, \frac{x_{n+1} - x_n}{\Delta t}, \frac{t_{n+1} + t_n}{2} \right)}}
 zodat
   \placeformula[for:benadering actie]
@@ -307,7 +306,7 @@ zodat
   \stopformula
 De bijdrage voor een stukje pad tussen tijdstippen $t_n$ en $t_{n+1}$ is dan bij benadering
   \startformula
-  \psi_{n \to n+1} \approx A \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right].
+  \psi_{n \to n+1} \approx A(\Delta t) \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right].
   \stopformula
 Maar we willen de bijdrage van het \emph{volledige} pad. Hier komen de fasoren weer om de hoek kijken.
 De gebeurtenissen $t_0, t_1, \dots, t_N$ vinden na elkaar plaats op hetzelfde pad. Stel je op tijdstip $t_0$ een fasor voor die langs de reële as ligt ($\phi_0=0$). We laten de fasor nu meereizen over het pad. Ondertussen draait hij rond met een snelheid die we in \see[for:faseverandering] hebben afgeleid. Wanneer hij is aangekomen op tijdstip $t_1$ is hij gedraaid met een hoek
@@ -320,7 +319,7 @@ De gebeurtenissen $t_0, t_1, \dots, t_N$ vinden na elkaar plaats op hetzelfde pa
   %\approx \exp\left[ \left( \frac{i}{\hbar} \sum_{n=0}^{N-1} \LApprox \Delta t \right)^A \right] \SR
   \approx \prod_{n=0}^{N-1} \psi_{n \to n+1} \SR
   %\approx \prod_{n=0}^{N-1} A \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right] \SR
-  = A^N \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right].
+  = A(\Delta t)^N \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right].
   \stopsplit\stopformula
 
 Om de \emph{waarschijnlijkheidsamplitude} uit te rekenen bij de overgang van $B$ naar $D$ moeten we, volgens het tweede postulaat, de som nemen over \emph{alle mogelijke paden} van $x_B$ naar $x_D$. Tot nu toe hebben we alleen maar één pad uitgerekend. Daarbij zijn we er van uit gegaan dat ons pad op ieder tijdstip $t_n$ over vastgelegde punten $x_n$ loopt. (Met andere woorden: we laten het deeltje door specifieke spleten gaan.) Deze plaats is natuurlijk willekeurig te kiezen uit \emph{alle mogelijke waarden} van $x$. Om elk mogelijk pad van $B$ naar $D$ te krijgen, moeten we dus integreren over alle mogelijke tussenpunten voor elke tijdsnede $t_n$. In \see[fig:tijdsnedes] kunnen we zien dat $t_0$ en $t_N$ hierop een uitzondering zijn, de bijbehorende $x$-waarden liggen immers vast. We krijgen dus $N-1$ keer een integraal over $x_n$ waarbij $n$ loopt van $1$ tot $N-1$. Dit leid tot
@@ -340,7 +339,7 @@ Hier hebben we nog steeds te maken met een benadering. Door onze tijdsnedes smal
 Hierbij is de uitdrukking
   \placeformula[for:padintegraal maat]
   \startformula
-  \int_{x_B}^{x_D} \D x := \lim_{N \to \infty} A^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \d x_1 \d x_2 \;\cdots \d x_{N-1}
+  \int_{x_B}^{x_D} \D x := \lim_{N \to \infty} A(\Delta t)^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \d x_1 \d x_2 \;\cdots \d x_{N-1}
   \stopformula
 de \emph{maat} van de padintegraal.
 
@@ -355,7 +354,7 @@ Tot nu toe beschouwden we $\psi$ als een waarschijnlijkheidsamplitude. Wanneer w
   K(x,t;x',t') := \psi
   \stopformula
 en wordt ook wel de \emph{kernel} genoemd. 
-Deze kernel is voor één dimensie en wordt volgens \see[for:padintegraal definitie] uitgerekend door
+Bovenstaande kernel is voor één dimensie en wordt volgens~\see[for:padintegraal definitie] uitgerekend door
   \startformula
   K(x,t;x',t') = \int_{x=x(t)}^{x'=x(t')} \e^{i S / \hbar} \D x.
   \stopformula
@@ -368,16 +367,15 @@ Laten we deze keer een concrete Lagrangiaan nemen
 een vrij deeltje.
 Wanneer we de maat uit \see[for:padintegraal maat] gebruiken en onze benaderingsmethode uit \see[for:benadering product] invullen krijgen we een lange reeks integralen. Effectief splitsen we de integraal over alle paden op in integralen over alle mogelijke tussenpunten:
   \startformula\startsplit%FIXME
-  \SC
-  K(x,t;x',t') \SR
+  K(x,t;x',t') \SC
   %= \lim_{N \to \infty} \int \cdots \iint
   = \lim_{N \to \infty} \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
-    A^N \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right]
+    A(\Delta t)^N \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right]
     \d x_1 \d x_2 \;\cdots \d x_{N-1} \SR
-  = \lim_{N \to \infty} A^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
+  = \lim_{N \to \infty} A(\Delta t)^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
     \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \half m \left(\frac{x_{n+1} - x_n}{\Delta t}\right)^2 \Delta t \right]
     \d x_1 \d x_2 \;\cdots \d x_{N-1} \SR
-  = \lim_{N \to \infty} A^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
+  = \lim_{N \to \infty} A(\Delta t)^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
     \exp\left[ \frac{i m}{2 \hbar \Delta t} \sum_{n=0}^{N-1} (x_{n+1} - x_n)^2 \right].
     \d x_1 \d x_2 \;\cdots \d x_{N-1}
   \stopsplit\stopformula
@@ -388,30 +386,52 @@ Hierbij hebben we het product vervangen door een som in de exponent.\footnote{Ni
   \stopformula
 Voor ons gemak hebben we de contstante $k := \frac{i m}{2 \hbar \Delta t}$ gedefinieerd. We hebben een integraal over een Gaussische functie die weer een Gaussische functie oplevert (zie ook \see[app:formules]). Met \see[for:exponent identiteit oneindig] krijgen we
   \startformula
-  \frac{\sqrt{\pi}}{2\sqrt{2k}} \exp\left[ k \left( x_2^2 + x_0^2 - \frac{4 (x_2 + x_0)^2}{4 \cdot 2} \right) \right]
-  \sim \exp\left[ \frac{k}{2} (x_2 - x_0)^2 \right].
+  \sqrt{\frac{\pi}{-2k}} \exp\left[ k \left( x_2^2 + x_0^2 - \frac{4 (x_2 + x_0)^2}{4 \cdot 2} \right) \right]
+  = \reci{\sqrt{2}} \sqrt{\frac{\pi}{-k}} \exp\left[ \frac{k}{2} (x_2 - x_0)^2 \right].
   \stopformula
-De constante factor kunnen we buiten beschouwing laten, aangezien we die kunnen absorberen in de constante $A$. De volgende exponentiële factor heeft de vorm
-  \startformula
-  \exp\left[ k (x_3 - x_2)^2 \right].
-  \stopformula
-We vermenigvuldigen ons resultaat met bovenstaande en integreren over $x_2$:
+De volgende exponentiële factor heeft de vorm $\exp\left[ k (x_3 - x_2)^2 \right]$.
+We vermenigvuldigen ons resultaat met deze factor en integreren over $x_2$:
   \startformula\startsplit
-  \int_{-\infty}^\infty \exp\left[ \frac{k}{2} (x_2 - x_0)^2 \right] \exp\left[ k (x_3 - x_2)^2 \right] \d x_2 \SC
-  = \int_{-\infty}^\infty \exp\left[ \frac{k}{2} (x_2 - x_0)^2 + k (x_3 - x_2)^2 \right] \d x_2 \SR
-  \sim \exp\left[ \frac{k}{3} (x_3 - x_0)^2 \right].
+  \SC
+  \reci{\sqrt{2}} \sqrt{\frac{\pi}{-k}} \int_{-\infty}^\infty \exp\left[ \frac{k}{2} (x_2 - x_0)^2 \right] \exp\left[ k (x_3 - x_2)^2 \right] \d x_2 \SR
+  %= \reci{\sqrt{2}} \sqrt{\frac{\pi}{-k}} \int_{-\infty}^\infty \exp\left[ \frac{k}{2} (x_2 - x_0)^2 + k (x_3 - x_2)^2 \right] \d x_2 \SR
+  = \reci{\sqrt{2}} \sqrt{\frac{\pi}{-k}} \sqrt{\frac{\pi}{-3/2 k}} \exp\left[ \frac{k}{3} (x_3 - x_0)^2 \right] \SR
+  = \reci{\sqrt{3}} \sqrt{\frac{\pi}{-k}}^2 \exp\left[ \frac{k}{3} (x_3 - x_0)^2 \right].
   \stopsplit\stopformula
-We zien een recursief patroon ontstaan. Na in totaal $N-1$ keer integreren krijgen we een exponent in de vorm
+We zien een recursief patroon ontstaan. Na twee keer integreren is er een factor $\reci{\sqrt{3}}$ ontstaan en een factor $\sqrt{\frac{\pi}{-k}}$ tot de tweede macht. Na in totaal $N-1$ keer integreren krijgen we een exponent van de vorm
+  \startformula\startsplit
+  \reci{\sqrt{N}} \sqrt{\frac{\pi}{-k}}^{N-1} \exp\left[ \frac{k}{N} (x_N - x_0)^2 \right] \SC
+  = \reci{\sqrt{N}} \sqrt{\frac{2\pi i \hbar \Delta t}{m}}^{N-1} \exp\left[ \frac{i m}{2 \hbar N \Delta t} (x_N - x_0)^2 \right] \SR
+  = \sqrt{\frac{m}{2\pi i \hbar N \Delta t}} \sqrt{\frac{2\pi i \hbar \Delta t}{m}}^N \exp\left[ \frac{i m}{2 \hbar N \Delta t} (x_N - x_0)^2 \right].
+  \stopsplit\stopformula
+We weten dat $x_0$ en $x_N$ respectievelijk onze begin- en eindpositie zijn, $x'$ en $x$ dus. Daarnaast volgt uit de definitie van $\Delta t$ in \see[for:delta t definitie] dat $N \Delta t = t - t'$. Daarnaast moeten we de normalisatieconstante $A(\Delta t)$ nog meenemen. De kernel voor een vrij deeltje in één dimensie wordt dan
+  \startformula\startsplit
+  K(x,t;x',t') \SC
+  = \lim_{N\to\infty} A(\Delta t)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} \sqrt{\frac{2\pi i \hbar \Delta t}{m}}^N \exp\left[ \frac{i m}{2 \hbar (t - t')} (x - x')^2 \right] \SR
+  = \lim_{N\to\infty} \left(A(\Delta t) \sqrt{\frac{2\pi i \hbar \Delta t}{m}}\right)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} \exp\left[ \frac{i m}{2 \hbar (t - t')} (x - x')^2 \right].
+  \stopsplit\stopformula
+We zitten alleen nog met de normalisatieconstante. Stel nu dat $t-t'$ heel klein is, dan gelden dat
   \startformula
-  \exp\left[ \frac{k}{N} (x_N - x_0)^2 \right]
-  = \exp\left[ \frac{i m}{2 \hbar N \Delta t} (x_N - x_0)^2 \right].
+  \left(A(\Delta t) \sqrt{\frac{2\pi i \hbar \Delta t}{m}}\right)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} = A',
   \stopformula
-We weten dat $x_0$ en $x_N$ respectievelijk onze begin- en eindpositie zijn, $x$ en $x'$ dus. Daarnaast volgt uit de definitie van $\Delta t$ in \see[for:delta t definitie] dat $N \Delta t = t - t'$. De kernel voor een vrij deeltje in één dimensie wordt dus
+waarbij
+  \startformula
+  A' = A\big|_{\Delta t \to t - t'}.
+  \stopformula
+Dit kan alleen maar als
+  \startformula\startspread[m=3]
+  A = \sqrt{\frac{m}{2\pi i \hbar \Delta t}} \SC
+  \text{en} \SC
+  A' = \sqrt{\frac{m}{2\pi i \hbar (t - t')}},
+  \stopspread\stopformula
+zodat
   \placeformula[for:kernel vrij deeltje]
   \startformula
-  K(x,t;x',t') = A^N \exp\left[ \frac{i m}{2 \hbar (t - t')} (x - x')^2 \right].
+  K(x,t;x',t') = \sqrt{\frac{m}{2\pi i \hbar (t - t')}} \exp\left[ \frac{i m}{2 \hbar (t - t')} (x - x')^2 \right].
   \stopformula
+Hiermee hebben we de kernel voor een vrij deeltje bepaald in één dimensie inclusief de normalisatieconstante $A$!
 
+\starthiding
 Wat ons nu nog rest is het berekenen van de normalisatie constante $A$.
 Stel nu dat we de \emph{toestand} van het deeltje op positie $x'$ en tijdstip $t'$ al weten: hij is gegeven door de \emph{toestandsfunctie} $\Psi(x',t')$. Wat we willen is de toestandsfunctie $\Psi$ berekenen voor $x$ op $t$.
 Dit kunnen we doen met de formule
@@ -473,6 +493,7 @@ ofwel:
   A = \sqrt{\frac{m}{2 \pi i \hbar \Delta t}}.
   \stopformula
 In de volgende hoofdstukken kunnen we hier verder mee rekenen.
+\stophiding
 
 \stopcomponent
 

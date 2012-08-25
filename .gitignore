@@ -32,6 +32,9 @@
 *.pdf
 *.xls
 
+# Mathematica
+*.cdf
+
 # Tests
 test*
 *.backup
