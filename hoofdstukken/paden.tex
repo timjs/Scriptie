@@ -13,7 +13,7 @@ Aan de hand van een tweetal experimenten bekijken we de verschillen tussen het k
 \section[sec:klassiek pad]{Het klassieke pad}
 
 Het eerste experiment dat wij in dit hoofdstuk beschouwen is simpel van opzet. We nemen een bron $B$ van deeltjes met massa $m$.
-Zo een bron kunnen we opvatten als een smalle spleet waaruit de deeltjes te voorschijn komen en zich rechtlijnig voortbewegen. Dit in tegenstelling tot een zwarte doos die deeltjes alle kanten op schiet.
+%Zo een bron kunnen we opvatten als een smalle spleet waaruit de deeltjes te voorschijn komen en zich rechtlijnig voortbewegen. Dit in tegenstelling tot een zwarte doos die deeltjes alle kanten op schiet.
 Op afstand $x$ zetten we een detector $D$ die de uitgezonden deeltjes opvangt. Dit is weergegeven in \see[fig:simpel experiment]. Voor nu is het voldoende om klassieke deeltjes door $B$ te laten produceren. Later zullen we juist naar kwantummechanische deeltjes gaan kijken. Dit experiment zullen we hiervoor stap voor stap uitbreiden in de rest van dit hoofdstuk.
 
 \placefigure[][fig:simpel experiment]
@@ -99,15 +99,13 @@ In de vorige sectie produceerde de bron alleen klassieke deeltjes.
 We noemen een deeltje klassiek als zijn afmetingen groot zijn ten opzichte van een kwantummechanische lengteschaal. Hiervoor hanteren we de De~Broglie golflengte
   \placeformula[for:de broglie]
   \startformula
-  \lambda = \frac{h}{p}.
+  \lambda = \frac{h}{p},
   \stopformula
-Waarbij $h=6.626068\E{-34} {\rm m^2 kg / s}$ de constante van Planck is en $p$ de impuls van het deeltje. Wanneer een deeltje een grootte heeft in de orde van een De~Broglie golflengte, mogen we kwantummechanische effecten \emph{niet} verwaarlozen.
-
-\todo{Ook macroscopische lengteschalen meenemen.}
-\todo{Iets extra's over de spleet?}
+waarbij $h=6.626068\E{-34} \;{\rm m^2 kg / s}$ de constante van Planck is en $p$ de impuls van het deeltje. Wanneer een deeltje een grootte heeft in de orde van een De~Broglie golflengte, mogen we kwantummechanische effecten \emph{niet} verwaarlozen. Naast de grootte van een deeltje kunnen we ook kijken naar de afstand die een deeltje aflegt. Wanneer deze afstand vele ordes groter is dan een De~Broglie golflengte, bevinden we ons in een semi klassieke situatie. Dan mogen we kwantummechanische effecten \emph{wel} verwaarlozen.
 
 Laten we eens kijken wat er gebeurt wanneer we een bron gebruiken die kwantummechanische deeltjes maakt, zoals elektronen.
-%Dit kunnen we doen door bijvoorbeeld een spanning te zetten op een gloeidraad.
+Dit kunnen we realiseren door bijvoorbeeld een spanning te zetten op een gloeidraad en deze achter een smalle spleet te zetten.
+%FIXME: extra uitleg?
 Wanneer we nu de detector aanzetten, merken we dat we niet meer alle deeltjes meten die door $B$ zijn uitgezonden.
 %We passen de opstelling dusdanig aan dat we detector $D$ vervangen door een detectiescherm $d$. Hierop kunnen we, nadat we enige tijd elektronen hebben geproduceerd, een spreiding waarnemen zoals te zien in \see[fig:detectiescherm].
 Om een poging te wagen de \quote{verloren} deeltjes terug te vinden passen we de detector dusdanig aan dat we $D$ in verticale richting kunnen bewegen over een afstand $y$ ten opzichte van de horizontale as door $B$ (zie \see[fig:detectie]). Nu kunnen we de \emph{intensiteit} $I$ verkrijgen door het signaal van de detector op verschillende hoogtes te integreren over de tijd. Wanneer we dit uitzetten tegen de hoogte $y$ ontstaat een patroon zoals weergegeven in \see[fig:spreiding-enkel].
@@ -366,7 +364,7 @@ Laten we deze keer een concrete Lagrangiaan nemen
   \stopformula
 een vrij deeltje.
 Wanneer we de maat uit \see[for:padintegraal maat] gebruiken en onze benaderingsmethode uit \see[for:benadering product] invullen krijgen we een lange reeks integralen. Effectief splitsen we de integraal over alle paden op in integralen over alle mogelijke tussenpunten:
-  \startformula\startsplit%FIXME
+  \startformula\startsplit%FIXME: Loopt van pagina af!
   K(x,t;x',t') \SC
   %= \lim_{N \to \infty} \int \cdots \iint
   = \lim_{N \to \infty} \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
