@@ -410,6 +410,7 @@ We weten dat $x_0$ en $x_N$ respectievelijk onze begin- en eindpositie zijn, $x'
   = \lim_{N\to\infty} A(\Delta t)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} \sqrt{\frac{2\pi i \hbar \Delta t}{m}}^N \exp\left[ \frac{i m}{2 \hbar (t - t')} (x - x')^2 \right] \SR
   = \lim_{N\to\infty} \left(A(\Delta t) \sqrt{\frac{2\pi i \hbar \Delta t}{m}}\right)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} \exp\left[ \frac{i m}{2 \hbar (t - t')} (x - x')^2 \right].
   \stopsplit\stopformula
+\todo{Duidelijker.}
 We zitten alleen nog met de normalisatieconstante. Stel nu dat $t-t'$ heel klein is, dan gelden dat
   \startformula
   \left(A(\Delta t) \sqrt{\frac{2\pi i \hbar \Delta t}{m}}\right)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} = A',
@@ -493,9 +494,6 @@ ofwel:
   A = \sqrt{\frac{m}{2 \pi i \hbar \Delta t}}.
   \stopformula
 In de volgende hoofdstukken kunnen we hier verder mee rekenen.
-\stophiding
-
-\stopcomponent
 
 Wanneer we terugkijken naar het reflectie-experiment in \see[sec:reflecties] zien we dat we niet alle paden tussen de bron en de detector toestaan. We laten alleen die paden toe die vanuit $B$ recht naar de plaat gaan, daar reflecteren en in $D$ terecht komen. Dit zijn twee paden van gebeurtenissen die \emph{na elkaar} plaats vinden. Net als in \see[sec:padintegraal] moeten we de bijbehorende bijdragen met elkaar vermenigvuldigen. De beide bijdragen bevatten de factor $A$, zodat deze in het kwadraat komt te staan.
 Vervolgens nemen we $N$ reflectiepunten op de plaat, en berekenen voor elk pad dat via zo'n punt loopt de amplitude. Dit zijn \emph{verschillende} paden bij \emph{dezelfde} gebeurtenis, dus moeten we de gebeurtenissen optellen. Om de uiteindelijke amplitude onafhankelijk te maken van het aantal paden, delen we nog door $N$. De correcte waarschijnlijkheidsamplitude bij het reflectie-experiment wordt dan
@@ -523,5 +521,8 @@ Vervolgens nemen we $N$ reflectiepunten op de plaat, en berekenen voor elk pad d
   \NC toestandsfunctie             \NC \Psi   \NC ?    \NC \Psi   \NC \Psi   \NC\NR
   \NC kernel                       \NC K      \NC K    \NC K      \NC K      \NC\NR
   \stoptabulate
+\stophiding
+
+\stopcomponent
 
 % vim: ft=context spell spl=nl cole=1
