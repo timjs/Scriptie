@@ -5,12 +5,12 @@
 \chapter[chp:reflecties]{Reflecterende deeltjes en klassieke paden}
 
 \startemphasize
-\todo{Inleiding}
+Was het vorige hoofdstuk voornamelijk theoretisch en wiskundig van aard, in dit hoofdstuk proberen we de lezer een \emph{beeld} te geven bij de Feynman padintegraal. Aan de hand van een alternatief experiment, waarbij we deeltjes laten reflecteren aan een plaat, bekijken we wat de consequenties zijn van niet-klassieke paden in een berekening. Daarbij zijn de resultaten van deze berekening visueel weer te geven met behulp van fasoren, die we in het vorige hoofdstuk hebben geïntroduceerd.
 \stopemphasize
 
 \section[sec:reflecties]{Een reflectie-experiment}
 
-We stappen even af van ons spleten-experiment en bekijken een nieuwe opstelling \cite[Feynman:100771,Klauber:2010tc]. In plaats van deeltjes rechtstreeks van een bron $B$ naar een detector $D$ te sturen, schieten we elektronen richting een reflecterende plaat $r$. Klassiek gezien zou een deeltje het pad volgen waarbij de hoek van inval gelijk is aan de hoek van terugkaatsing. In \see[chp:paden] hebben we al gezien dat er kwantummechanisch gezien veel meer paden mogelijk zijn. In \see[fig:reflecties] zijn, naast het klassieke pad, veertien van zulke paden getekend.
+We stappen af van ons spleten-experiment en bekijken een nieuwe opstelling \cite[Feynman:1985tw,Klauber:2010tc]. In plaats van deeltjes rechtstreeks van een bron $B$ naar een detector $D$ te sturen, schieten we elektronen richting een reflecterende plaat $r$. Daarna wachten we voor een tijd $t$ en meten of het deeltje detector $D$ heeft bereikt. Klassiek gezien zou een deeltje het pad volgen waarbij de hoek van inval gelijk is aan de hoek van terugkaatsing. In \see[chp:paden] hebben we al gezien dat er kwantummechanisch gezien veel meer paden mogelijk zijn. In \see[fig:reflecties] zijn, naast het klassieke pad, veertien van zulke paden getekend.
 Voor elk pad $p_i$ kunnen we een actie $S_i$ uitrekenen met behulp van \see[for:actie definitie], deze zijn in \see[fig:acties] uitgezet. Het pad waarbij de actie minimaal is, komt overeen met het klassieke pad $p_7$ in \see[fig:reflecties]. Dit is in overeenstemming met het variatieprincipe van Hamilton dat we in \see[sec:klassiek pad] besproken hebben.
 
 \placefigure[][fig:reflecties]
@@ -42,7 +42,7 @@ Voor elk pad $p_i$ kunnen we een actie $S_i$ uitrekenen met behulp van \see[for:
   \draw[light lines] plot[samples at={-7,...,7},smooth,mark=*,mark options={orange}] (\x,{\x*\x/10+1});
   \stopgraphic
 
-In \see[sec:postulaten] hebben we gezien dat de actie een maat is voor de fase op het moment dat een deeltje zijn pad heeft doorlopen. Met behulp van de berekende acties in \see[fig:acties] kunnen we aan elk pad een fase toekennen en een bijbehorende fasor opstellen. Dit zijn bijdragen voor \emph{verschillende} paden bij de \emph{zelfde} gebeurtenis. De fasoren moeten we dus bij elkaar \emph{optellen}. Een fasor is weer te geven met een vector in het complexe vlak. Fasoren optellen is analoog aan het optellen van deze vectoren. Om de som over alle bijdragen grafisch weer te geven kunnen we de berekende fasoren kop-staart leggen in het complexe vlak. Dit is te zien in \see[fig:padensom]. De resulterende fasor (vector) geeft dan de waarschijnlijkheidsamplitude om van $B$ naar $D$ te komen. Volgens het tweede postulaat moeten we deze modulus kwadraat nemen om de waarschijnlijkheid te vinden. Dat betekend dat de \emph{lengte} van de verkregen fasor een maat is voor de waarschijnlijkheid waarmee we een deeltje, dat uit bron $B$ is vertrokken en gereflecteerd is op de plaat, in detector $D$ kunnen aantreffen.
+In \see[sec:postulaten] hebben we gezien dat de actie een maat is voor de fase op het moment dat een deeltje zijn pad heeft doorlopen. Met behulp van de berekende acties in \see[fig:acties] kunnen we aan elk pad een fase toekennen en een bijbehorende fasor opstellen. Dit zijn bijdragen voor \emph{verschillende} paden bij de \emph{zelfde} gebeurtenis. De fasoren moeten we dus bij elkaar \emph{optellen}. Een fasor is weer te geven met een vector in het complexe vlak. Fasoren optellen is analoog aan het optellen van deze vectoren. Om de som over alle bijdragen grafisch weer te geven kunnen we de berekende fasoren kop-staart leggen in het complexe vlak. Dit is te zien in \see[fig:padensom]. De resulterende fasor (vector) geeft dan de waarschijnlijkheidsamplitude om van $B$ naar $D$ te komen. Volgens het tweede postulaat moeten we deze modulus kwadraat nemen om de waarschijnlijkheid te vinden. Dat betekent dat de \emph{lengte} van de verkregen fasor een maat is voor de waarschijnlijkheid waarmee we een deeltje, dat uit bron $B$ is vertrokken en gereflecteerd is aan de plaat, in detector $D$ kunnen aantreffen.
 
 \placefigure[][fig:padensom]
   {}
@@ -67,9 +67,9 @@ In \see[sec:postulaten] hebben we gezien dat de actie een maat is voor de fase o
 
 \section{Klassiek of niet?}
 
-Als we \see[fig:padensom] bestuderen vallen een paar dingen op. Allereerst zijn alle afzonderlijke fasoren even lang: ze worden allemaal gewogen met dezelfde maat. Dat betekend dat alle paden \emph{even zwaar} mee wegen in de som over alle paden. De paden die dichter bij het klassieke pad liggen hebben dus \emph{geen} voorkeur ten opzichte van de paden die totaal niet klassiek zijn.
+Als we \see[fig:padensom] bestuderen vallen een paar dingen op. Allereerst zijn alle afzonderlijke fasoren even lang: ze worden allemaal gewogen met dezelfde maat. Dat betekent dat alle paden \emph{even zwaar} mee wegen in de som over alle paden. De paden die dichter bij het klassieke pad liggen hebben dus \emph{geen} voorkeur ten opzichte van de paden die totaal niet klassiek zijn.
 
-Vervolgens valt op dat niet alle fasoren even veel invloed hebben op het resultaat. We zien dat de fasoren die bij totaal niet klassieke paden horen elkaar tegenwerken. Zo draaien de fasoren $\psi_0$ tot en met $\psi_4$ bijna een rondje om het beginpunt. Hetzelfde geldt voor de fasoren $\psi_{10}$ tot en met $\psi_{14}$, alleen draaien deze rond het eindpunt. Er is sprake van \emph{destructieve interferentie} van de bijdragen van \emph{niet} klassiek paden. Dit is ook mooi terug te zien in \see[fig:acties]. Hoe verder we van het klassieke pad komen, hoe sterker de fases onderling van elkaar gaan verschillen.
+Vervolgens valt op dat niet alle fasoren even veel invloed hebben op het resultaat. We zien dat de fasoren die bij totaal niet klassieke paden horen elkaar tegenwerken. Zo draaien de fasoren $\psi_0$ tot en met $\psi_4$ bijna een rondje om het beginpunt. Hetzelfde geldt voor de fasoren $\psi_{10}$ tot en met $\psi_{14}$, alleen draaien deze rond het eindpunt. Er is sprake van \emph{destructieve interferentie} van de bijdragen van \emph{niet} klassieke paden. Dit is ook mooi terug te zien in \see[fig:acties]. Hoe verder we van het klassieke pad komen, hoe sterker de fases onderling van elkaar gaan verschillen.
 
 %FIXME: aantal paden klopt niet!!!
 Dit kunnen we verder illustreren door de reflecterende plaat naar links en naar rechts uit te breiden. Terwijl we de dichtheid gelijk houden, kunnen we nu meer paden toelaten. Het resultaat voor een twee keer zo lange plaat en twee keer zoveel paden is te zien in \see[fig:simulaties]{a}. Er zijn nu meer paden die ver van klassiek zijn, wat er voor zorgt dat we langer rond begin en eindpunten blijven hangen. We kunnen ook de lengte van de plaat gelijk houden, en het aantal paden opschroeven. De dichtheid van de paden wordt nu groter. Dit levert ons een curve zoals weergegeven in \see[fig:simulaties]{b}. We zien dat de curve steeds gladder wordt naarmate we steeds meer paden nemen.
@@ -81,20 +81,21 @@ Dit kunnen we verder illustreren door de reflecterende plaat naar links en naar 
   {\externalfigure[simulatie-28-240][width=0.5\textwidth]} {b\quad $l=28$ en $N=240$}
   \stopcombination
 
-Daartegenover staan de fasoren $\psi_5$ tot en met $\psi_9$, die er juist voor zorgen dat we meer in de richting van het eindpunt komen. Hier is sprake van \emph{constructieve interferentie} van de bijdragen van \emph{bijna} klassieke paden. Deze fasoren wegen dus \emph{niet} zwaarder, maar dragen \emph{wel} meer bij aan het resultaat. In \see[fig:acties] is te zien dat de grafiek rond het klassieke pad redelijk vlak is, en dat de fases dus dicht bij elkaar in de buurt zitten. Op deze manier \emph{kiezen} we als het ware automatisch het pad met de kleinste actie, precies zoals we ook met het Variatieprincipe van Hamilton zouden doen. Merk ook op dat fasor $\psi_7$, die hoort bij het klassieke pad, niet dezelfde fase heeft als het resultaat. Een belangrijke gedachte hierbij is dat de resulterende fase niet belangrijk is, maar resulterende lengte. Deze is immers een maat voor de waarschijnlijkheidsamplitude. Het is deze lengte waar fasoren meer aan bijdragen naarmate ze dichter rond het klassieke pad zitten.
+Daartegenover staan de fasoren $\psi_5$ tot en met $\psi_9$, die er juist voor zorgen dat we meer in de richting van het eindpunt komen. Hier is sprake van \emph{constructieve interferentie} van de bijdragen van \emph{bijna} klassieke paden. Deze fasoren wegen dus \emph{niet} zwaarder, maar dragen \emph{wel} meer bij aan het resultaat. In \see[fig:acties] is te zien dat de grafiek rond het klassieke pad redelijk vlak is, en dat de fases dus dicht bij elkaar in de buurt zitten. Op deze manier \emph{kiezen} we als het ware automatisch het pad met de kleinste actie, precies zoals we ook met het variatieprincipe van Hamilton zouden doen. Merk ook op dat fasor $\psi_7$, die hoort bij het klassieke pad, niet dezelfde fase heeft als het resultaat. Een belangrijke gedachte hierbij is dat de resulterende fase niet belangrijk is, maar de resulterende lengte wel. Deze is immers een maat voor de waarschijnlijkheidsamplitude. Het is deze lengte waar fasoren meer aan bijdragen naarmate ze dichter rond het klassieke pad zitten.
 
-De klassieke limiet kunnen we aanschouwelijk maken door de Lagrangiaan, waarmee we de klassieke actie hebben uitgerekend, groter te maken. De fasoren die eerst in het midden te zien waren, schuiven op naar buiten waar ze destructief interfereren. Dat betekend dat als we de massa van een deeltje groter maken, de paden die dichter bij het klassieke geval liggen een grotere bijdrage leveren.
+De klassieke limiet kunnen we aanschouwelijk maken door de Lagrangiaan, waarmee we de klassieke actie hebben uitgerekend, groter te maken. De fasoren die eerst in het midden te zien waren, schuiven op naar buiten waar ze destructief interfereren. Dat betekent dat als we de massa van een deeltje groter maken, de paden die dichter bij de klassieke situatie liggen een grotere bijdrage leveren.
+Een alternatieve manier om hier mee om te gaan is om naar de De~Broglie golflengte te kijken. Wanneer de massa toeneemt, wordt de impuls $p$ ook groter bij dezelfde snelheid. Het gevolg is dat in \see[for:de broglie] de karakteristieke golflengte $\lambda$ kleiner wordt. Door een kleinere golflengte zijn er minder paden die kwantummechanisch invloed hebben. We houden dus een smalle bundel van paden over die relevant zijn voor de resulterende fasor.
 
-Ten slotte merken we op dat de klok op elk pad \emph{vooruit} loop. Dit is impliciet gedefinieerd in \see[for:actie definitie], waarin $L$ geïntegreerd wordt over de tijd in positieve richting. We hebben hier ook al gebruik van gemaakt bij de afleiding van \see[for:faseverandering] en \see[for:padintegraal definitie]. Deeltjes op een pad kunnen dus niet teruggaan in de tijd en vervolgens weer vooruit lopen.
+Ten slotte merken we op dat de klok op elk pad \emph{vooruit} loopt. Dit is impliciet gedefinieerd in \see[for:actie definitie], waarin $L$ geïntegreerd wordt over de tijd in positieve richting. We hebben hier ook al gebruik van gemaakt bij de afleiding van \see[for:faseverandering] en \see[for:padintegraal definitie]. Deeltjes op een pad kunnen dus niet teruggaan in de tijd en vervolgens weer vooruit lopen.
 
 \starthiding
 \section[sec:spreiding]{Spreiding en snelheid}
 
-Laten we nog eens goed kijken naar de trajecten die een deeltje kan afleggen. Allereerst definiëren we onze assen. De reflecterende plaat leggen we op de $x$-as zodanig dat deze in het midden wordt gesneden door de $y$-as. Als de plaat een lengte heeft van $2l$, loopt deze dus van $-l$ tot $l$. Het klassieke pad gaat door het midden van de plaat. Dat betekend dat het reflectiepunt in onze opstelling precies in de oorsprong ligt.
+Laten we nog eens goed kijken naar de trajecten die een deeltje kan afleggen. Allereerst definiëren we onze assen. De reflecterende plaat leggen we op de $x$-as zodanig dat deze in het midden wordt gesneden door de $y$-as. Als de plaat een lengte heeft van $2l$, loopt deze dus van $-l$ tot $l$. Het klassieke pad gaat door het midden van de plaat. Dat betekent dat het reflectiepunt in onze opstelling precies in de oorsprong ligt.
 Wanneer bron $B$ op een afstand $r$ links van de $y$-as ligt, ligt detector $D$ ook op een afstand $r$ van de $y$-as, maar dan rechts ervan. Dit alles is schematisch weergegeven in \see[fig:reflectie spreiding].
 
 \placefigure[][fig:reflectie spreiding]
-  {De assen in ons experiment zijn zo gedefinieerd dat de plaat op de $x$-as ligt en de $y$-as de plaat middendoor deelt. De lengte van de plaat is $2l$ en loopt dus van $x=-l$ tot $x=l$. De afstand van bron $B$ tot detector $D$ is $2r$ en, aangezien onze opstelling symmetrisch is, is de afstand van beide objecten tot de $y$-as gelijk $r$. De spreiding die we dan (klassiek gezien) kunnen verwachten is $2l(1 + t_2/t_1)$. Hierin zijn $t_1$ en $t_2$ respectievelijk de tijd waarin het deeltje het traject van $B$ naar de plaat aflegt en de tijd waarin het deeltje het traject van de plaat naar $D$.}
+  {De assen in ons experiment zijn zo gedefinieerd dat de plaat op de $x$-as ligt en de $y$-as de plaat middendoor deelt. De lengte van de plaat is $2l$ en loopt dus van $x=-l$ tot $x=l$. De afstand van bron $B$ tot detector $D$ is $2r$ en, aangezien onze opstelling symmetrisch is, is de afstand van beide objecten tot de $y$-as gelijk aan $r$. De spreiding die we dan (klassiek gezien) kunnen verwachten is $2l(1 + t_2/t_1)$. Hierin zijn $t_1$ en $t_2$ respectievelijk de tijd waarin het deeltje het traject van $B$ naar de plaat aflegt en de tijd waarin het deeltje het traject van de plaat naar $D$ aflegt.}
   \startgraphic[scale=0.7]
   \coordinate[source,label=left:$B$] (B) at (-5,5);
   \coordinate[detector,gray,label=right:$D_{\text{min}}$] (D-) at (-3,5);
@@ -121,7 +122,7 @@ Wanneer bron $B$ op een afstand $r$ links van de $y$-as ligt, ligt detector $D$ 
 
 \todo{Deze sectie kan beter}
 
-We stellen dat het deeltje in een tijd $t_1$ van bron $B$ naar de plaat reist. Dat betekend dat zijn snelheid in horizontale richting over het klassieke pad gelijk is aan
+We stellen dat het deeltje in een tijd $t_1$ van bron $B$ naar de plaat reist. Dat betekent dat zijn snelheid in horizontale richting over het klassieke pad gelijk is aan
   \placeformula[for:snelheid]
   \startformula
   v_{\text{mid}} = \frac{r}{t_1}.
@@ -142,12 +143,12 @@ meter af. De plaats waar het deeltje te vinden is, is dan
   \startformula
   l + (r + l) \frac{t_2}{t_1} = r \frac{t_2}{t_1} + l (1 + \frac{t_2}{t_1}).
   \stopformula
-Het verschil met de het deeltje dat weerkaats op het midden van de plaat is
+Het verschil met een deeltje dat weerkaats op het midden van de plaat is
   \startformula
   l (1 + \frac{t_2}{t_1}).
   \stopformula
-Hetzelfde geld voor een deeltje dat op het eerste punt op de plaat is gereflecteerd.
-Dat betekend dat waar we eerst een spreiding van deeltjes hadden van $2l$, we nu, klassiek gezien, een spreiding hebben van $2l (1 + \frac{t_2}{t_1})$. Dit zullen we in \see[chp:afleiding] nog tegenkomen.
+Hetzelfde geldt voor een deeltje dat op het eerste punt op de plaat is gereflecteerd.
+Dat betekent dat waar we eerst een spreiding van deeltjes hadden van $2l$, we nu, klassiek gezien, een spreiding hebben van $2l (1 + \frac{t_2}{t_1})$. Dit zullen we in \see[chp:afleiding] nog tegenkomen.
 \stophiding
 
 \stopcomponent
