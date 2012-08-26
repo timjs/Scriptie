@@ -143,10 +143,21 @@
 % Verbatim & Framed Text
 % ------------------------------------------------------------------------------
 
+\starthiding
+\usemodule[vim]
+
+\define\SYNBOL{}
+\define\SYNEOL{}
+
+\definevimtyping[mathematica]
+  [syntax=mma,
+   numbering=yes]
+\stophiding
+
 \setuptyping
   [lines=yes,
-   style=\tfx\tt,
-   numbering=line]
+   style=\tfx\tt]
+   %numbering=line]
 
 \setuplinenumbering
   [step=5,
@@ -234,6 +245,9 @@
 % ------------------------------------------------------------------------------
 % Figures, Tables & Math
 % ------------------------------------------------------------------------------
+
+\setupfloats
+  [indentnext=yes]
 
 \setupfloat[intermezzo]
   [default={outermargin,none},

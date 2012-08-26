@@ -71,20 +71,27 @@ Als we \see[fig:padensom] bestuderen vallen een paar dingen op. Allereerst zijn 
 
 Vervolgens valt op dat niet alle fasoren even veel invloed hebben op het resultaat. We zien dat de fasoren die bij totaal niet klassieke paden horen elkaar tegenwerken. Zo draaien de fasoren $\psi_0$ tot en met $\psi_4$ bijna een rondje om het beginpunt. Hetzelfde geldt voor de fasoren $\psi_{10}$ tot en met $\psi_{14}$, alleen draaien deze rond het eindpunt. Er is sprake van \emph{destructieve interferentie} van de bijdragen van \emph{niet} klassieke paden. Dit is ook mooi terug te zien in \see[fig:acties]. Hoe verder we van het klassieke pad komen, hoe sterker de fases onderling van elkaar gaan verschillen.
 
-%FIXME: aantal paden klopt niet!!!
-Dit kunnen we verder illustreren door de reflecterende plaat naar links en naar rechts uit te breiden. Terwijl we de dichtheid gelijk houden, kunnen we nu meer paden toelaten. Het resultaat voor een twee keer zo lange plaat en twee keer zoveel paden is te zien in \see[fig:simulaties]{a}. Er zijn nu meer paden die ver van klassiek zijn, wat er voor zorgt dat we langer rond begin en eindpunten blijven hangen. We kunnen ook de lengte van de plaat gelijk houden, en het aantal paden opschroeven. De dichtheid van de paden wordt nu groter. Dit levert ons een curve zoals weergegeven in \see[fig:simulaties]{b}. We zien dat de curve steeds gladder wordt naarmate we steeds meer paden nemen.
+Dit kunnen we verder illustreren door de reflecterende plaat naar links en naar rechts uit te breiden. Terwijl we de dichtheid gelijk houden, kunnen we nu meer paden toelaten. Het resultaat voor een twee keer zo lange plaat en twee keer zoveel paden is te zien in \see[fig:simulaties aantal]{a}. Er zijn nu meer paden die ver van klassiek zijn, wat er voor zorgt dat we langer rond begin en eindpunten blijven hangen. We kunnen ook de lengte van de plaat gelijk houden, en het aantal paden opschroeven. De dichtheid van de paden wordt nu groter. Dit levert ons \see[fig:simulaties aantal]{b}. We zien dat de curve steeds gladder wordt naarmate we steeds meer paden nemen.
 
-\placefigure[][fig:simulaties]
+\placefigure[][fig:simulaties aantal]
   {}
   \startcombination[2*1]
-  {\externalfigure[simulatie-28-60] [width=0.5\textwidth]} {a\quad $l=28$ en $N=30$}
+  {\externalfigure[simulatie-28-30] [width=0.5\textwidth]} {a\quad $l=28$ en $N=30$}
   {\externalfigure[simulatie-28-240][width=0.5\textwidth]} {b\quad $l=28$ en $N=240$}
   \stopcombination
 
 Daartegenover staan de fasoren $\psi_5$ tot en met $\psi_9$, die er juist voor zorgen dat we meer in de richting van het eindpunt komen. Hier is sprake van \emph{constructieve interferentie} van de bijdragen van \emph{bijna} klassieke paden. Deze fasoren wegen dus \emph{niet} zwaarder, maar dragen \emph{wel} meer bij aan het resultaat. In \see[fig:acties] is te zien dat de grafiek rond het klassieke pad redelijk vlak is, en dat de fases dus dicht bij elkaar in de buurt zitten. Op deze manier \emph{kiezen} we als het ware automatisch het pad met de kleinste actie, precies zoals we ook met het variatieprincipe van Hamilton zouden doen. Merk ook op dat fasor $\psi_7$, die hoort bij het klassieke pad, niet dezelfde fase heeft als het resultaat. Een belangrijke gedachte hierbij is dat de resulterende fase niet belangrijk is, maar de resulterende lengte wel. Deze is immers een maat voor de waarschijnlijkheidsamplitude. Het is deze lengte waar fasoren meer aan bijdragen naarmate ze dichter rond het klassieke pad zitten.
 
-De klassieke limiet kunnen we aanschouwelijk maken door de Lagrangiaan, waarmee we de klassieke actie hebben uitgerekend, groter te maken. De fasoren die eerst in het midden te zien waren, schuiven op naar buiten waar ze destructief interfereren. Dat betekent dat als we de massa van een deeltje groter maken, de paden die dichter bij de klassieke situatie liggen een grotere bijdrage leveren.
+De klassieke limiet kunnen we aanschouwelijk maken door de Lagrangiaan, waarmee we de klassieke actie hebben uitgerekend, groter te maken. De fasoren die eerst in het midden te zien waren, schuiven op naar buiten waar ze destructief interfereren. Dat betekent dat als we de massa van een deeltje groter maken, de paden die dichter bij de klassieke situatie liggen een grotere bijdrage leveren. In \see[fig:simulatie massa]{b} zien we dat de fasoren rond de klassieke oplossing allemaal dezelfde fase hebben, en zodoende een grote afstand overbruggen.
+
 Een alternatieve manier om hier mee om te gaan is om naar de De~Broglie golflengte te kijken. Wanneer de massa toeneemt, wordt de impuls $p$ ook groter bij dezelfde snelheid. Het gevolg is dat in \see[for:de broglie] de karakteristieke golflengte $\lambda$ kleiner wordt. Door een kleinere golflengte zijn er minder paden die kwantummechanisch invloed hebben. We houden dus een smalle bundel van paden over die relevant zijn voor de resulterende fasor.
+
+\placefigure[][fig:simulaties massa]
+  {}
+  \startcombination[2*1]
+  {\externalfigure[simulatie-14-15]        [width=0.5\textwidth]} {a\quad Massa in orde van elektron}
+  {\externalfigure[simulatie-14-15-bigmass][width=0.5\textwidth]} {b\quad Massa in orde van kilogrammen}
+  \stopcombination
 
 Ten slotte merken we op dat de klok op elk pad \emph{vooruit} loopt. Dit is impliciet gedefinieerd in \see[for:actie definitie], waarin $L$ geïntegreerd wordt over de tijd in positieve richting. We hebben hier ook al gebruik van gemaakt bij de afleiding van \see[for:faseverandering] en \see[for:padintegraal definitie]. Deeltjes op een pad kunnen dus niet teruggaan in de tijd en vervolgens weer vooruit lopen.
 
