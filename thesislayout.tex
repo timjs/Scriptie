@@ -216,8 +216,11 @@
   [textstyle=\it,
    aligntitle=float]
 
+\defineconversion[oldstylecharacters]
+  [\sc\characters]
+
 \setupsection[chapter]
-  [appendixconversion=characters]
+  [appendixconversion=oldstylecharacters]
 
 % ------------------------------------------------------------------------------
 % Lists & Registers
@@ -249,7 +252,6 @@
    margin=yes,%Works for \start/stopformula but not \start/stopformulas so...
    leftmargin=1.5em,%...we have to correct that
    spacebefore=medium,
-   numberstyle=\sc,
    %spaceafter=medium,%Automatically adjusted
    indentnext=auto]
 
