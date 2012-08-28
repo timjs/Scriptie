@@ -1,0 +1,55 @@
+\startcomponent kaft
+\product        scriptie
+\environment    thesislayout
+
+\startstandardmakeup
+
+\vfill
+
+\startalignment[middle]
+
+\color[orange]{\tfb De Feynman padintegraal aan de hand van klassieke reflecties}
+
+\blank
+
+\emph{Een bachelorscritie door}
+
+Tim Steenvoorden
+
+\blank
+
+\emph{Onder begeleiding van}
+
+dr. Wim Beenakker
+
+\stopalignment
+
+\vfill
+
+\placefigure[none]{}
+  \startgraphic[scale=0.5]
+  \coordinate[source,label=above:$B$] (B) at ( 0,10);
+  \coordinate[detector,label=above:$D$] (D) at (10,10);
+
+  \foreach \x [count=\l from 0] in {-2,...,12}
+    \draw[thin,light orange] (B) -- (\x,0) node[below] {$p_{\l}$} -- (D);
+
+  \draw[thin,orange] (B) -- (5,0) node[orange,below] {$p_7$} -- (D);
+  \draw[ultra thick] (-3,0) -- (13,0) node[right] {$r$};
+  \stopgraphic
+
+\vfill
+\vfill
+
+\startlines
+Afdeling Theoretische Hoge Energiefysica
+Faculteit der Natuurwetenschappen, Wiskunde en Informatica
+Radboud Universiteit Nijmegen
+Augustus 2012
+\stoplines
+
+\stopstandardmakeup
+
+\stopcomponent
+
+% vim: ft=context spell spl=nl cole=1

@@ -5,8 +5,8 @@
 
 \startfrontmatter
 
-  %\component zetwerk/kaft
-  %\component hoofdstukken/voorwoord
+  \component hoofdstukken/kaft
+  \component hoofdstukken/voorwoord
   \completecontent[criterium=all]
 
 \stopfrontmatter
@@ -15,9 +15,9 @@
 
   \component hoofdstukken/paden
   \component hoofdstukken/reflecties
-  %\component hoofdstukken/normalisatie
   %\component hoofdstukken/afleiding
   %\component hoofdstukken/methoden
+  \component hoofdstukken/normalisatie
 
 \stopbodymatter
 
@@ -31,8 +31,7 @@
 \startbackmatter
 
   % Werkt hier alleen met criterium=all...
-  % text werkt blijbaar ook in mkii! Hmm, toch niet...
-  %\nocite[*]
+  % Niet met text en \nocite werkt ook niet!
   \completepublications[criterium=all]
 
   %\completetodos
