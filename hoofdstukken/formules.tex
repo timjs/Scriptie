@@ -28,14 +28,14 @@ Verder kunnen we in \see[fig:fresnelintegralen] zien dat beide functies in het o
   \placeformula[for:fresnel limiet eigenschap]
   \startformula\startspread
   \fres[\infty] = \half \SC
-  \frec[\infty] =   \half \frec[z]
+  \frec[\infty] = \half
   \stopspread\stopformula
 
 \placefigure[][fig:fresnelintegralen]
   {Fresnelintegralen, links de sinus, rechts de cosinus.}
   \startcombination[2*1]
-  {\externalfigure[fres][width=0.5\textwidth]} {$\fres[z]$}
-  {\externalfigure[frec][width=0.5\textwidth]} {$\frec[z]$}
+  {\externalfigure[fres][width=0.5\textwidth]} {$\fres[x]$}
+  {\externalfigure[frec][width=0.5\textwidth]} {$\frec[x]$}
   \stopcombination
 
 \page%FIXME
@@ -46,8 +46,9 @@ Fresnelintegralen kunnen we gebruiken bij het integreren van niet triviale expon
   \int \exp[\alpha z^2 + \beta z + \gamma] \d z \SC
   = \frac{1-i}{2} \sqrt{\frac{\pi}{\alpha}} \exp\left[ \gamma - \frac{\beta^2}{4\alpha} \right] \SR
   \cdot \left( \frec\left[ \frac{1+i}{2} \frac{\beta + 2 \alpha z}{\sqrt{\pi \alpha}} \right]
-  - i \fres\left[ \frac{1+i}{2} \frac{\beta + 2 \alpha z}{\sqrt{\pi \alpha}} \right] \right).
+  - i \fres\left[ \frac{1+i}{2} \frac{\beta + 2 \alpha z}{\sqrt{\pi \alpha}} \right] \right),
   \stopsplit\stopformula
+met de kanttekening dat $\Re(\alpha) \ngtr 0$.
 Wanneer we bovenstaande integraal willen uitrekenen met grenzen $\pm\infty$ wordt de integraal gegeven door
   \placeformula[for:exponent identiteit oneindig]
   \startformula
@@ -71,7 +72,7 @@ met extra kanttekening dat wanneer we over de deltafunctie integreren, er één 
   \stopformula
 
 \placefigure[][fig:dirac delta]
-  {Dirac deltadistributie.}
+  {Dirac deltadistributie $\delta(x)$.}
   {\externalfigure[deltapeak][width=0.5\textwidth]}
 
 Het product van een nette functie $f(x)$ en de deltafunctie $\delta(x)$ levert overal nul op, \emph{behalve} op $x=0$. We \emph{selecteren} als het ware de waarde van $f(x)$ op $x=0$. Met behulp van bovenstaande definitie geldt

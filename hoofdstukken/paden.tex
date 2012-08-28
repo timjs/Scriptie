@@ -57,7 +57,7 @@ Van deze afwijking weten we dat
   \startformula
   \delta x(t_B) = \delta x(t_D) = 0,
   \stopformula
-aangezien de begin- en eindpunten niet veranderen. Wanneer we willen dat de actie een minimum\footnote{Of eigenlijk een extremum.} heeft, wil dat zeggen dat $S$ niet verandert wanneer we het pad waarover we hem berekenen een infinitesimaal verandert. Dit heet het \emph{Variatieprincipe van Hamilton}. Op eerste orde geldt dan
+aangezien de begin- en eindpunten niet veranderen. Wanneer we willen dat de actie een minimum\footnote{Of eigenlijk een extremum.} heeft, wil dat zeggen dat $S$ niet verandert wanneer we het pad waarover we hem berekenen infinitesimaal veranderen. Dit heet het \emph{Variatieprincipe van Hamilton}. Op eerste orde geldt dan
   \placeformula[for:variatie eis]
   \startformula
   \delta S = S(\bar{x} + \delta x) - S(\bar{x}) = 0.
@@ -81,7 +81,7 @@ Dus voor de variatie in $S$ zoals gegeven in \see[for:variatie eis] geldt
     - \int_{t_B}^{t_D} \delta x \left( \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \right) \d t
   = 0.
   \stopsplit\stopformula
-Hierbij hebben we gebruik gemaakt van partiële integratie. De eerste term valt weg door de restrictie die we aan $\delta x(t)$ hebben opgelegd in \see[for:variatie restrictie]. Om de integraal nul te krijgen voor willekeurige, infinitesimale $\d x$, moet de integrand nul zijn zodat:
+Hierbij hebben we gebruik gemaakt van partiële integratie. De eerste term valt weg door de restrictie die we aan $\delta x(t)$ hebben opgelegd in \see[for:variatie restrictie]. Om de integraal nul te krijgen voor willekeurige, infinitesimale $\delta x$, moet de integrand nul zijn zodat:
   \placeformula[for:euler-lagrange]
   \startformula\startsteps
   \ddiff{t} \pdiff{L}{\dot{x}} - \pdiff{L}{x} \SC= 0            \SR
@@ -90,8 +90,10 @@ Hierbij hebben we gebruik gemaakt van partiële integratie. De eerste term valt 
 Deze differentiaalvergelijking levert ons een beweging op wanneer de Lagrangiaan van een deeltje bekend is. Hij staat bekend als de \emph{Euler-Lagrange vergelijking}, een klassieke bewegingsvergelijking van rond 1750 van Leonhard Euler en Joseph Louis Lagrange.
 %Verderop in deze tekst zullen we hem nog eens tegenkomen.
 
-Bij de berekening van deze bewegingsvergelijking is de actie $S$ zelf niet zozeer interessant. Wat een veel grotere rol speelt is de manier waarop we deze uitrekenen. Om $S$ te berekenen hebben we namelijk de naburige paden nodig om \emph{dat} pad uit te zoeken dat de kleinste actie heeft. We hebben immers variaties $\delta x(t)$ op het pad $\bar{x}(t)$ bekeken en precies die paden uitgekozen met de minste afwijking op het klassieke pad
-We hebben immers paden $x(t)$ bekeken, en precies die paden uitgekozen waarvoor de variaties $\delta x(t)$ het minste afwijken van het klassieke pad $\bar{x}(t)$. Iets om in ons achterhoofd te houden.
+Bij de berekening van deze bewegingsvergelijking is de actie $S$ zelf niet zozeer interessant. Wat een veel grotere rol speelt is de manier waarop we deze uitrekenen. Om $S$ te berekenen hebben we namelijk de naburige paden nodig om \emph{dat} pad uit te zoeken dat de kleinste actie heeft.
+%We hebben immers variaties $\delta x(t)$ op het pad $\bar{x}(t)$ bekeken en precies die paden uitgekozen met de minste afwijking op het klassieke pad
+%We hebben immers paden $x(t)$ bekeken, en precies die paden uitgekozen waarvoor de variaties $\delta x(t)$ het minste afwijken van het klassieke pad $\bar{x}(t)$.
+Iets om in ons achterhoofd te houden.
 
 \section[sec:kwantum pad]{Kwantummechanische paden}
 
@@ -101,7 +103,7 @@ We noemen een deeltje klassiek als zijn afmetingen groot zijn ten opzichte van e
   \startformula
   \lambda = \frac{h}{p},
   \stopformula
-waarbij $h=6.626068\E{-34} \;{\rm m^2 kg / s}$ de constante van Planck is en $p$ de impuls van het deeltje. Wanneer een deeltje een grootte heeft in de orde van een De~Broglie golflengte, mogen we kwantummechanische effecten \emph{niet} verwaarlozen. Naast de grootte van een deeltje kunnen we ook kijken naar de afstand die een deeltje aflegt. Wanneer deze afstand vele ordes groter is dan een De~Broglie golflengte, bevinden we ons in een semi klassieke situatie. Dan mogen we kwantummechanische effecten \emph{wel} verwaarlozen.
+waarbij $h=6.626068\E{-34} \;{\rm m^2 kg / s}$ de constante van Planck is en $p$ de impuls van het deeltje. Wanneer een deeltje een grootte heeft in de orde van een De~Broglie golflengte, mogen we kwantummechanische effecten \emph{niet} verwaarlozen. Naast de grootte van een deeltje kunnen we ook kijken naar de afstand die een deeltje aflegt. Wanneer deze afstand vele ordes groter is dan een De~Broglie golflengte, bevinden we ons in een semi klassieke situatie. Dan zijn kwantummechanische effecten meestal \emph{wel} verwaarloosbaar.
 
 Laten we eens kijken wat er gebeurt wanneer we een bron gebruiken die kwantummechanische deeltjes maakt, zoals elektronen.
 Dit kunnen we realiseren door bijvoorbeeld een spanning te zetten op een gloeidraad en deze achter een smalle spleet te zetten.
@@ -161,7 +163,7 @@ Dit is het welbekende twee-spleten experiment van Young. We zullen hier de uitko
 De spleten $S_1$ en $S_2$ kunnen we beschouwen als afzonderlijke bronnen. De elektronen uit $S_1$ zullen een spreiding vertonen zoals we hebben gezien in \see[fig:spreiding-enkel]. Hetzelfde geldt voor elektronen uit $S_2$. Wanneer we beide spreidingen optellen ontstaat een patroon zoals te zien in \see[fig:spreidingen]{a}. Klaar! Of toch niet\dots
 
 \placefigure[][fig:spreidingen]
-  {a. Spreiding door optellen van de losse spreidingen behorende bij spleet $S_1$ en spleet $S_2$. b. Spreiding zoals gemeten door de detector bij het twee-spleten experiment. De gestreepte lijn geeft het diffractiepatroon weer bij twee spleten.}
+  {Links zien we de spreiding door het optellen van de losse spreidingen behorende bij spleet $S_1$ en spleet $S_2$. Rechts de spreiding zoals gemeten door de detector bij het twee-spleten experiment. De gestreepte lijn geeft het diffractiepatroon weer bij twee spleten.}
   \startcombination[2*1]
   {\startgraphic[scale=0.5]
    \draw[help lines] (-5,0) -- (5,0) node[right] {$+$};
@@ -171,8 +173,8 @@ De spleten $S_1$ en $S_2$ kunnen we beschouwen als afzonderlijke bronnen. De ele
      \draw[yshift= 40] plot (\x,{3*\Gauss{ 2}{1}});
      \draw[yshift=-60] plot (\x,{3*(\Gauss{-2}{1} + \Gauss{2}{1})});
    \stopscope
-   \stopgraphic}                                              {a}
-  {\externalfigure[interferentie][width=0.45\textwidth]}      {b}
+   \stopgraphic}                                              {}
+  {\externalfigure[interferentie][width=0.45\textwidth]}      {}
   \stopcombination
 
 Wanneer we het experiment uitvoeren en de intensiteit uitzetten tegen de plaats van de detector blijkt er een veel ingewikkelder patroon te ontstaan (zie \see[fig:spreidingen]{b}). We zien een combinatie van een interferentie- en een diffractiepatroon. Het moge duidelijk zijn dat bovenstaande redenatie niet klopt. Blijkbaar kunnen we niet zomaar de waarschijnlijkheden van $S_1$ en $S_2$ bij elkaar optellen, met andere woorden:
@@ -221,7 +223,7 @@ Dit levert ons het tweede postulaat.
   \draw[axis lines] (-0.2,0) -- (2.2,0) node[right] {$\Re$};
   \draw[axis lines] (0,-0.2) -- (0,2.2) node[above] {$\Im$};
 
-  \draw[->,just lines] (0,0) -- node[auto] {$A$} (30:2) node[right] {$\psi_n$};
+  \draw[->,just lines] (0,0) -- node[auto] {$A$} (30:2) node[right] {$\psi$};
   \draw (1,0) arc[start angle=0,end angle=30,radius=1] node[below right] {$\phi$};
   \stopgraphic
 
@@ -229,7 +231,7 @@ Om inzicht te krijgen in wat de waarschijnlijkheidsamplitude eigenlijk is, maken
 De oplossingen van de Schrödingervergelijking zijn golven. Een superpositie van deze golven geeft ons een beschrijving van de evolutie van een deeltje. Voor een vrij deeltje met gegeven impuls $p$ en totale energie $E$ heeft zo een golf de vorm
   \placeformula[for:vlakke golf]
   \startformula
-  \Psi(x, t) = A \e^{i (p x - E t) / \hbar}.
+  \psi(x, t) = A \e^{i (p x - E t) / \hbar}.
   \stopformula
 Dit is een \emph{vlakke golf} met amplitude $A$ en complexe fase
   \startformula
@@ -274,7 +276,7 @@ Het pad is in de tijd uitgerekt, zodat we op ieder tijdstip $t_n$ kunnen aangeve
 Merk op dat het deeltje niet terug kan in de tijd. Wel kan het heen en weer bewegen in de plaats en hoeft dus niet met constante snelheid van $B$ naar $D$ te reizen.
 
 \placefigure[][fig:tijdsnedes]
-  {}
+  {Een mogelijk pad van bron $B$ naar detector $D$ waarbij het pad in de tijd is uitgerekt. Na elk tijdsinterval $\Delta t$ weten we precies waar het deeltje zich bevindt. Dit is op te vatten als een één dimensionaal spleten-experiment waarbij we de reistijd van $B$ naar $D$ opsplitsen in $N$ stukken, en na elk stuk een scherm plaatsen. Bij een scherm aangekomen kan het deeltje kiezen uit oneindig veel spleten om zijn reis voort te zetten.}
   \startgraphic[yscale=0.5]
   \draw[axis lines] (0.5,0) -- (9.5,0) node[right] {$t$};
   \draw[axis lines] (0,0.5) -- (0,10.5) node[above] {$x$};
@@ -325,7 +327,7 @@ Om de \emph{waarschijnlijkheidsamplitude} uit te rekenen bij de overgang van $B$
   \startformula
   \psi \approx \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \psi_{0 \to N} \d x_1 \d x_2 \;\cdots \d x_{N-1}.
   \stopformula
-Hier hebben we nog steeds te maken met een benadering. Door onze tijdsnedes smaller te maken, krijgen we de correcte uitdrukking voor de waarschijnlijkheidsamplitude. We nemen dus de limiet van $N$ naar oneindig zodat $\Delta t$ naar nul gaat volgens de definitie in \see[for:delta t definitie]. We krijgen
+Hier hebben we nog steeds te maken met een benadering. Door onze tijdsnedes kleiner te maken, krijgen we de correcte uitdrukking voor de waarschijnlijkheidsamplitude. We nemen dus de limiet van $N$ naar oneindig zodat $\Delta t$ naar nul gaat volgens de definitie in \see[for:delta t definitie]. We krijgen
   \placeformula[for:padintegraal definitie]
   \startformula\startsplit
   \psi \SC
@@ -374,8 +376,8 @@ Wanneer we de maat uit \see[for:padintegraal maat] gebruiken en onze benaderings
     \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \half m \left(\frac{x_{n+1} - x_n}{\Delta t}\right)^2 \Delta t \right]
     \d x_1 \d x_2 \;\cdots \d x_{N-1} \SR
   = \lim_{N \to \infty} A(\Delta t)^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
-    \exp\left[ \frac{i m}{2 \hbar \Delta t} \sum_{n=0}^{N-1} (x_{n+1} - x_n)^2 \right].
-    \d x_1 \d x_2 \;\cdots \d x_{N-1}
+    \exp\left[ \frac{i m}{2 \hbar \Delta t} \sum_{n=0}^{N-1} (x_{n+1} - x_n)^2 \right]
+    \d x_1 \d x_2 \;\cdots \d x_{N-1}.
   \stopsplit\stopformula
 Hierbij hebben we het product vervangen door een som in de exponent.\footnote{Niet geheel onzinnig als je bedenkt dat we in \see[sec:padintegraal] hebben beredeneerd dat we fases moeten optellen.} Deze reeks integralen zijn stuk voor stuk op te lossen. Bekijk eerst de exponentiële factoren die $x_1$ bevatten. Deze komt voor in combinatie met $x_0$ en $x_2$:
   \startformula
@@ -408,20 +410,15 @@ We weten dat $x_0$ en $x_N$ respectievelijk onze begin- en eindpositie zijn, $x'
   = \lim_{N\to\infty} A(\Delta t)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} \sqrt{\frac{2\pi i \hbar \Delta t}{m}}^N \exp\left[ \frac{i m}{2 \hbar (t - t')} (x - x')^2 \right] \SR
   = \lim_{N\to\infty} \left(A(\Delta t) \sqrt{\frac{2\pi i \hbar \Delta t}{m}}\right)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} \exp\left[ \frac{i m}{2 \hbar (t - t')} (x - x')^2 \right].
   \stopsplit\stopformula
-\todo{Duidelijker.}
-We zitten alleen nog met de normalisatieconstante. Stel nu dat $t-t'$ heel klein is, dan gelden dat
+We zitten alleen nog met de normalisatieconstante. Stel nu dat $t-t'$ heel klein is, dan moet voor dit infinitesimale tijdsinterval wederom \see[for:bijdrage] gelden, zodat
   \startformula
-  \left(A(\Delta t) \sqrt{\frac{2\pi i \hbar \Delta t}{m}}\right)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} = A',
-  \stopformula
-waarbij
-  \startformula
-  A' = A\big|_{\Delta t \to t - t'}.
+  \left(A(\Delta t) \sqrt{\frac{2\pi i \hbar \Delta t}{m}}\right)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} = A(t-t').
   \stopformula
 Dit kan alleen maar als
   \startformula\startspread[m=3]
-  A = \sqrt{\frac{m}{2\pi i \hbar \Delta t}} \SC
+  A(\Delta t) = \sqrt{\frac{m}{2\pi i \hbar \Delta t}} \SC
   \text{en} \SC
-  A' = \sqrt{\frac{m}{2\pi i \hbar (t - t')}},
+  A(t-t') = \sqrt{\frac{m}{2\pi i \hbar (t - t')}},
   \stopspread\stopformula
 zodat
   \placeformula[for:kernel vrij deeltje]
