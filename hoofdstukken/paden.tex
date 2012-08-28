@@ -165,16 +165,16 @@ De spleten $S_1$ en $S_2$ kunnen we beschouwen als afzonderlijke bronnen. De ele
 \placefigure[][fig:spreidingen]
   {Links zien we de spreiding door het optellen van de losse spreidingen behorende bij spleet $S_1$ en spleet $S_2$. Rechts de spreiding zoals gemeten door de detector bij het twee-spleten experiment. De gestreepte lijn geeft het diffractiepatroon weer bij twee spleten.}
   \startcombination[2*1]
-  {\startgraphic[scale=0.5]
-   \draw[help lines] (-5,0) -- (5,0) node[right] {$+$};
+  \startgraphic[scale=0.5]
+  \draw[help lines] (-5,0) -- (5,0) node[right] {$+$};
 
-   \startscope[just lines,smooth,domain=-4.5:4.5]
-     \draw[yshift=100] plot (\x,{3*\Gauss{-2}{1}});
-     \draw[yshift= 40] plot (\x,{3*\Gauss{ 2}{1}});
-     \draw[yshift=-60] plot (\x,{3*(\Gauss{-2}{1} + \Gauss{2}{1})});
-   \stopscope
-   \stopgraphic}                                              {}
-  {\externalfigure[interferentie][width=0.45\textwidth]}      {}
+    \startscope[just lines,smooth,domain=-4.5:4.5]
+    \draw[yshift=100] plot (\x,{3*\Gauss{-2}{1}});
+    \draw[yshift= 40] plot (\x,{3*\Gauss{ 2}{1}});
+    \draw[yshift=-60] plot (\x,{3*(\Gauss{-2}{1} + \Gauss{2}{1})});
+    \stopscope
+  \stopgraphic {}
+  {\externalfigure[interferentie][width=0.45\textwidth]} {}
   \stopcombination
 
 Wanneer we het experiment uitvoeren en de intensiteit uitzetten tegen de plaats van de detector blijkt er een veel ingewikkelder patroon te ontstaan (zie \see[fig:spreidingen]{b}). We zien een combinatie van een interferentie- en een diffractiepatroon. Het moge duidelijk zijn dat bovenstaande redenatie niet klopt. Blijkbaar kunnen we niet zomaar de waarschijnlijkheden van $S_1$ en $S_2$ bij elkaar optellen, met andere woorden:
