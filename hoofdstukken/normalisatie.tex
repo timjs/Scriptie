@@ -5,18 +5,18 @@
 \chapter[chp:normalisatie]{Pogingen tot normalisatie}
 
 \startemphasize
-Nu hebben we in \see[chp:reflecties] een mooie, visuele methoden gevonden waarmee we de padintegraal aanschouwelijk kunnen maken. Zoals we al eerder hebben opgemerkt, is de lengte van de resulterende fasor een maat voor de waarschijnlijkheid om een deeltje in de detector aan te treffen. Er is echter een detail waar we overheen zijn gestapt. Blaast het geheel niet op als we, in plaats van vijftien verschillende paden zoals in \see[fig:reflecties], oneindig veel paden nemen? Met andere woorden: is deze methode normaliseerbaar? En zo ja, hoe ziet de normalisatieconstante $A$ en dan uit?
+Nu hebben we in \see[chp:reflecties] een mooie, visuele methoden gevonden waarmee we de padintegraal aanschouwelijk kunnen maken. Zoals we al eerder hebben opgemerkt, is de lengte van de resulterende fasor een maat voor de waarschijnlijkheid om een deeltje in de detector aan te treffen. Er is echter een detail waar we overheen zijn gestapt. Blaast het geheel niet op als we, in plaats van vijftien verschillende paden zoals in \see[fig:reflecties], oneindig veel paden nemen? Met andere woorden: is deze methode normaliseerbaar? En zo ja, hoe ziet de normalisatieconstante $A$ in gesloten vorm er dan uit?
 
 In dit hoofdstuk bekijken we drie verschillende pogingen om de methode uit \see[chp:reflecties] te normaliseren. We zullen zien dat al deze methoden of tekort schieten of extra uitdagingen met zich mee brengen.
-Het moge duidelijk zijn dat bij een zoektocht naar een juiste methode, onderstaande als uitgangspunt kan dienen, maar dat er toch een andere weg in geslagen moet worden.
+Het moge duidelijk zijn dat bij een zoektocht naar een juiste methode, het onderstaande als uitgangspunt kan dienen, maar dat er toch een andere weg ingeslagen moet worden.
 \stopemphasize
 
 \section{In één dimensie}
 
-De meest simplistische manier zou zijn om het reflectie-experiment eerst in één dimensie te beschouwen. Wat moeten we ons hier bij voorstellen? Dat zou betekenen dat een deeltje vertrekt uit een bron $B$ en zicht voortbeweegt over een rechte lijn. Op een bepaald punt wordt dit deeltje tegengehouden, zodat het zijn reis moet voortzetten in tegengestelde richting. Hierna komt het deeltje terecht in detector $D$. Dit alles is te zien in \see[fig:reflectie in een dimensie].
+De meest simplistische manier zou zijn om het reflectie-experiment eerst in één dimensie te beschouwen. Wat moeten we ons hier bij voorstellen? Dat zou betekenen dat een deeltje vertrekt uit een bron $B$ en zich voortbeweegt over een rechte lijn. Op een bepaald punt wordt dit deeltje tegengehouden, zodat het zijn reis moet voortzetten in tegengestelde richting. Hierna komt het deeltje terecht in detector $D$. Dit alles is te zien in \see[fig:reflectie in een dimensie].
 
 \placefigure[][fig:reflectie in een dimensie]
-  {Links het reflectie-experiment in één dimensie. Een deeltje vertrekt uit bron $B$, \quote{botst} tegen een reflectiepunt en reist weer terug naar detector $D$. $B$ en $D$ staan op dezelfde positie, aangezien we in \see[fig:reflecties] er van uit zijn gegaan dat $B$ en $D$ even ver van de reflecterende plaat staan. Rechts is het zelfde experiment te zien, alleen hebben we, net als in \see[fig:tijdsnedes], de tijdas uitgerekt.}
+  {Links het reflectie-experiment in één dimensie. Een deeltje vertrekt uit bron $B$, \quote{botst} tegen een reflectiepunt en reist weer terug naar detector $D$. $B$ en $D$ staan op dezelfde positie, aangezien we in \see[fig:reflecties] er van uit zijn gegaan dat $B$ en $D$ even ver van de reflecterende plaat staan. Rechts is hetzelfde experiment te zien, alleen hebben we, net als in \see[fig:tijdsnedes], de tijdas uitgerekt.}
   \startcombination[2*1]
   \startgraphic[scale=0.5]
   \coordinate[source,label=below:$B$] (B) at (0,0);
@@ -82,7 +82,7 @@ Het traject dat een deeltje aflegt begint in bron $B$ op $t=0$, vervolgens reist
   %\text{en} \SC
   %r_2 = \sqrt{(r-x)^2 + y^2}.
   %\stopspread\stopformula
-Deze totale afstand $R$ die afgelegd wordt om van $B$ naar $D$ te komen is
+De totale afstand $R$ die afgelegd wordt om van $B$ naar $D$ te komen is
   \placeformula[for:afstand voor reflectie]
   \startformula\startsplit
   R(x) \SC
@@ -128,7 +128,7 @@ Door een substitutie te maken is het mogelijk om integralen van de vorm
   \text{om te schrijven naar} \SC
   \int f(z) \exp[i \omega z] \d z.
   \stopspread\stopformula
-Dit is de zogenaamde \emph{Euler truuc}. We zien dat we niet meer hoeven te integreren over een variabele die diep weggestopt is in de e-macht. In plaats daarvan is het uitrekenen van een specifieke Fourier-integraal voldoende.
+Dit is de zogenaamde \emph{Euler truc}. We zien dat we niet meer hoeven te integreren over een variabele die diep weggestopt is in de e-macht. In plaats daarvan is het uitrekenen van een specifieke Fourier-integraal voldoende.
 Wanneer we de substitutie uitrekenen komen we tot de conclusie dat
   \placeformula[for:substitutie voor reflectie]
   \startformula
@@ -148,9 +148,9 @@ Zodat we de substitutie uit \see[for:substitutie voor reflectie] kunnen omschrij
   \placeformula[for:substitutie voor reflectie omgeschreven]
   \startformula\startsplit
   \d x \SC
-  = \frac{z - 2r^2 - 2x^2 - 2d^2}{x (z - 4 d^2)} \d z \SR
-  = \frac{16 d^2 \left(d^2+r^2\right) - 4 \left(2 d^2+r^2-y^2\right) z + z^2}
-         {\left(-4 d^2 + z\right)^2 \sqrt{z - \frac{4 y^2 z}{-4 d^2 + z}}} \d z
+  = \frac{z - 2x^2 - 2y^2 - 2d^2}{4x (z - 4 d^2)} \d z \SR
+  = \frac{16 d^2 \left(d^2+y^2\right) - 8 d^2 z + z^2}
+         {4 \left(-4 d^2 + z\right)^2 \sqrt{z - \frac{4 y^2 z}{-4 d^2 + z}}} \d z
   \stopsplit\stopformula
 Met \see[for:afstand voor reflectie] worden onze nieuwe grenzen
   \startformula\startspread[m=3]
@@ -161,11 +161,11 @@ Na dit voorbereidend rekenwerk ontstaat de volgende integraal:
   \placeformula[for:amplitude niet uit te rekenen]
   \startformula
   \Psi = 2 \int_{4(y^2 + d^2)}^\infty
-      \frac{16 d^2 \left(d^2+r^2\right) - 4 \left(2 d^2+r^2-y^2\right) z + z^2}
-         {\left(-4 d^2 + z\right)^2 \sqrt{z - \frac{4 y^2 z}{-4 d^2 + z}}}
+      \frac{16 d^2 \left(d^2+y^2\right) - 8 d^2 z + z^2}
+         {4 \left(-4 d^2 + z\right)^2 \sqrt{z - \frac{4 y^2 z}{-4 d^2 + z}}}
       \exp\left[\frac{im}{2\hbar T} z\right] \d z.
   \stopformula
-Helaas is het niet gelukt deze integraal op te lossen. De volgende stap zou zijn om de functie $\Psi$ te normaliseren. Dit zouden we doen door de modulus kwadraat te integreren over alle mogelijke posities $d$ van de detector en deze integraal gelijk te stellen aan één
+Helaas is het niet gelukt deze integraal in gesloten vorm op te lossen. De volgende stap zou zijn om de functie $\Psi$ te normaliseren. Dit zouden we doen door de modulus kwadraat te integreren over alle mogelijke posities $d$ van de detector en deze integraal gelijk te stellen aan één
   \startformula
   C \int_{-\infty}^\infty \left|\Psi\right|^2 \d d = 1.
   \stopformula
@@ -198,7 +198,7 @@ Helaas levert niet niet veel extra's op. De wortels onder de deelstreep kunnen w
 \section[sec:afleiding]{Twee dimensionale kernels}
 
 We kunnen nog een andere poging wagen door goed te kijken naar het resultaat uit \see[sec:kernel]. Is het mogelijk om twee kernels op te stellen: een voor het traject van $B$ naar $X$ en een voor het traject van $X$ naar $D$? Bekijk nog eens goed de variabelen in \see[fig:reflecties met afstanden].
-Op $t=0$ vertrekt een deeltje uit $B$, dat is de positie $(-d,y)$. We nemen aan dat na een tijd $t_1$ het deeltje te vinden is op de plaat. In deze sectie nemen we de plaat niet oneindig lang, dus het reflectiepunt $X$ ligt op $y=0$ en $x$ tussen $-l$ en $l$. Hierna vervolgt het deeltje zijn weg naar $D$ op $(d,y)$ waar het $t_2$ later aankomt.
+Op $t=0$ vertrekt een deeltje uit $B$, dat is de positie $(-d,y)$. We nemen aan dat na een tijd $t_1$ het deeltje te vinden is op de plaat. In deze sectie nemen we de plaat niet oneindig lang, dus het reflectiepunt $X$ ligt op $y=0$ en $x$ tussen $-l$ en $l$. Hierna vervolgt het deeltje zijn weg naar $D$ op $(d,y)$ waar het een tijd $t_2$ later aankomt.
 
 Met deze gegevens kunnen we het experiment doorrekenen met behulp van twee twee dimensionale kernels.
 %Als we het experiment op deze manier opzetten kunnen we het doorrekenen met behulp van twee twee dimensionale kernels.
@@ -232,7 +232,7 @@ Dit zijn twee gebeurtenissen die na elkaar plaatsvinden op hetzelfde pad. Net zo
   \stopsplit\stopformula
 We hebben nu een formule voor de \emph{waarschijnlijkheidsamplitude} van een deeltje om van de bron, via de plaat, naar de detector te komen. Deze is afhankelijk van $d$, de plaats waar de detector staat.
 
-De details van de verdere berekening zullen we de lezer besparen. Wel nemen we de belangrijkste tussenstappen door. Met behulp van Fresnelintegralen (zie ook \see[sec:fresnelintegralen] in \see[app:formules]) kunnen we de waarschijnlijkheidsamplitude van \see[for:integraal opgesteld] uitrekenen. We vinden dan dat
+De details van de verdere berekening zullen we de lezer besparen. Wel nemen we de belangrijkste tussenstappen door. Met behulp van Fresnelintegralen (zie ook \see[sec:fresnelintegralen] in \see[app:formules]) kunnen we de waarschijnlijkheidsamplitude van \see[for:integraal opgesteld] uitrekenen. Het is niet zo vreemd dat we in deze berekening Fresnelintegralen tegenkomen. Ze komen veelvuldig voor binnen de optica, onder andere bij diffractie-experimenten. Voor onze waarschijnlijkheidsamplitude vinden we dat
   \placeformula[for:amplitude herschreven]
   \startformula\startsplit
   \psi(d) = \SC
@@ -283,7 +283,7 @@ En analoog voor $t_2$:
   \startformula
   t_2 = \frac{\sqrt{(d-x)^2 + y^2}}{\sqrt{(d+x)^2 + y^2} + \sqrt{(d-x)^2 + y^2}} T.
   \stopformula
-Beide tijden zijn afhankelijk van $x$! Dat betekent dat de tijden $t_1$ en $t_2$ vast liggen \emph{per pad} en niet voor het \emph{hele experiment}. We kunnen de kernel in \see[for:kernel twee dimensies] helemaal niet gebruiken om dit experiment door te rekenen, er is namelijk geen vast tijdstip $t_1$ waarop een deeltje zich op de plaat bevindt. Bij het maken van deze berekening hebben we een aanname gemaakt die niet in overeenstemming is met het experiment. Helaas werkt deze methode dus ook niet.
+Beide tijden zijn afhankelijk van $x$! Dat betekent dat de tijden $t_1$ en $t_2$ vast liggen \emph{per pad} en niet voor het \emph{hele experiment}. We kunnen de kernel in \see[for:kernel twee dimensies] helemaal niet gebruiken om dit experiment door te rekenen, er is namelijk geen vast tijdstip $t_1$ waarop een deeltje zich op de plaat bevindt. Bij het maken van deze berekening hebben we in ons enthousiasme een aanname gemaakt die niet in overeenstemming is met het experiment. Helaas werkt deze methode dus ook niet.
 
 \starthiding Voorbeeld met pad uit figuur
 Neem een pad uit \see[fig:reflectie paden], bijvoorbeeld $p_{10}$. Deze komt grofweg overeen met het getekende pad in \see[fig:reflecties met afstanden]. In het experiment uit \see[chp:reflecties] blijft de snelheid van een deeltje over een pad ten alle tijden constant. We zenden een deeltje uit op $t=0$ en op $t=T$ kijken we of we het deeltje kunnen vinden in de detector. De snelheid van het deeltje in horizontale richting wordt gegeven door
