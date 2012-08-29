@@ -48,14 +48,14 @@ We hebben al eerder de overgangsamplitude voor een vrij deeltje berekend in \see
   \stopformula
 Merk op dat we in de voorfactor de wortel kwijt zijn aangezien we twee vrijheidsgraden hebben en we de voorfactor moeten kwadrateren.
 De overgangsamplitude voor de overgang van $B$ naar $X$ wordt dan
-  \placeformula[for:kernel van bron]
+  \placeformula[for:kernel van bron]%XXX
   \startformula\startsplit
   K(X,B) \SC
   = K(x,0,t_1; -r,y,0) \SR
   = \frac{m}{2\pi i \hbar t_1} \exp\left[ \frac{i m}{2 \hbar} \frac{(x + r)^2 + y^2}{t_1} \right].
   \stopsplit\stopformula
 En voor de overgang van $X$ naar $D$
-  \placeformula[for:kernel naar detector]
+  \placeformula[for:kernel naar detector]%XXX
   \startformula\startsplit
   K(D,X) \SC
   = K(r,y,t_1+t_2; x,0,t_1) \SR
@@ -105,7 +105,7 @@ Merk op dat deze uitdrukking dimensieloos is. Na het invullen van de grenzen vin
   \stopformula
 
 We definiëren twee nieuwe variabelen $u_+$ en $u_-$ aan de hand van bovenstaande uitdrukking, maar \emph{zonder} de imaginaire eenheid $i$. Door gebruik te maken van de eigenschappen van Fresnelintegralen (zoals beschreven in \see[sec:fresnelintegralen]) kunnen we deze later uit de argumenten halen.
-  \placeformula[for:grens definitie]
+  \placeformula[for:grens definitie]%XXX
   \startformula
   u_\pm := \frac{u(\pm l)}{i} = \sqrt{\frac{m}{\pi\hbar}} \frac{(\pm l + r) t_1 + (\pm l - r) t_2}{\sqrt{t_1 t_2 (t_1 + t_2)}}
   \stopformula
@@ -134,7 +134,7 @@ De exponent van de tweede regel vereenvoudigt tot
   = \exp\left[ \frac{im}{2\hbar} \left( \frac{r^2}{t_1 + t_2} + y^2 \left(\reci{t_1} + \reci{t_2}\right) \right) \right].
   \stopsplit\stopformula
 Na deze vereenvoudigingen vinden we voor de waarschijnlijkheidsamplitude
-  \placeformula[for:amplitude herschreven]
+  \placeformula[for:amplitude herschreven]%XXX
   \startformula\startsplit
   \psi(r) = \SC
   - \reci{4} \left( \frac{m}{\pi\hbar} \right)^{3/2} \reci{\sqrt{t_1 t_2 (t_1 + t_2)}} \SR
@@ -186,7 +186,7 @@ Beide integralen gaan over dezelfde variabelen. Wanneer we we ze optellen kunnen
   = \int_{u_-}^{u_+} \int_{u_-}^{u_+} \cos\left[ \halfpi (p - q) (p + q) \right] \d p \d q.
   \stopsplit\stopformula
 De waarschijnlijkheidsdichtheid wordt dan
-  \placeformula[for:dichtheid klaar]
+  \placeformula[for:dichtheid klaar]%XXX
   \startformula
   p(r)
   = \reci{16} \left(\frac{m}{\pi\hbar}\right)^3 \reci{t_1 t_2 (t_1 + t_2)}
@@ -196,7 +196,7 @@ De waarschijnlijkheidsdichtheid wordt dan
 \section{Einde van het einde}
 
 We hebben nu een dichtheid, maar we willen de kans zelf weten. Hiervoor moeten we alle mogelijke posities van de detector meenemen. Dat wil zeggen: we moeten integreren over $r$:
-  \placeformula[for:waarschijnlijkheid]
+  \placeformula[for:waarschijnlijkheid]%XXX
   \startformula\startsplit
   P \SC
   = 2 \int_0^\infty p(r) \d r \SR

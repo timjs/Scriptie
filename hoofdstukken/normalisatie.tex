@@ -2,6 +2,301 @@
 \product        scriptie
 \environment    thesislayout
 
+\chapter[chp:normalisatie]{Pogingen tot normalisatie}
+
+\startemphasize
+Nu hebben we in \see[chp:reflecties] een mooie, visuele methoden gevonden waarmee we de padintegraal aanschouwelijk kunnen maken. Zoals we al eerder hebben opgemerkt, is de lengte van de resulterende fasor een maat voor de waarschijnlijkheid om een deeltje in de detector aan te treffen. Er is echter een detail waar we overheen zijn gestapt. Blaast het geheel niet op als we, in plaats van vijftien verschillende paden zoals in \see[fig:reflecties], oneindig veel paden nemen? Met andere woorden: is deze methode normaliseerbaar? En zo ja, hoe ziet de normalisatieconstante $A$ en dan uit?
+
+In dit hoofdstuk bekijken we drie verschillende pogingen om de methode uit \see[chp:reflecties] te normaliseren. We zullen zien dat al deze methoden of tekort schieten of extra uitdagingen met zich mee brengen.
+Het moge duidelijk zijn dat bij een zoektocht naar een juiste methode, onderstaande als uitgangspunt kan dienen, maar dat er toch een andere weg in geslagen moet worden.
+\stopemphasize
+
+\section{In één dimensie}
+
+De meest simplistische manier zou zijn om het reflectie-experiment eerst in één dimensie te beschouwen. Wat moeten we ons hier bij voorstellen? Dat zou betekenen dat een deeltje vertrekt uit een bron $B$ en zicht voortbeweegt over een rechte lijn. Op een bepaald punt wordt dit deeltje tegengehouden, zodat het zijn reis moet voortzetten in tegengestelde richting. Hierna komt het deeltje terecht in detector $D$. Dit alles is te zien in \see[fig:reflectie in een dimensie].
+
+\placefigure[][fig:reflectie in een dimensie]
+  {Links het reflectie-experiment in één dimensie. Een deeltje vertrekt uit bron $B$, \quote{botst} tegen een reflectiepunt en reist weer terug naar detector $D$. $B$ en $D$ staan op dezelfde positie, aangezien we in \see[fig:reflecties] er van uit zijn gegaan dat $B$ en $D$ even ver van de reflecterende plaat staan. Rechts is het zelfde experiment te zien, alleen hebben we, net als in \see[fig:tijdsnedes], de tijdas uitgerekt.}
+  \startcombination[2*1]
+  \startgraphic[scale=0.5]
+  \coordinate[source,label=below:$B$] (B) at (0,0);
+  \coordinate[label=above:$D$] (D) at (B);
+  \coordinate (R) at (10,0);
+
+  \draw[just lines] (B) -- (R) -- (D);
+  \draw[ultra thick] (10,-0.5) -- (R) -- (10,0.5);
+  \stopgraphic {}
+  \startgraphic[scale=0.5]
+  \coordinate[source,label=below:$B$] (B) at (0,-3);
+  \coordinate[detector,label=above:$D$] (D) at (0,3);
+  \coordinate (R) at (10,0);
+
+  \draw[just lines] (B) -- (R) -- (D);
+  \draw[ultra thick] (10,-4) -- (R) -- (10,4);
+
+  \draw[axis lines] (0.5,-5) -- (9.5,-5) node [right] {$x$};
+  \draw[axis lines] (-1,-4) -- (-1,4) node [above] {$t$};
+  \stopgraphic {}
+  \stopcombination
+
+Maar hoe representeren we in dit model verschillende paden? Er is maar één mogelijk reflectiepunt. Het pad in \see[fig:reflectie in een dimensie] is de enige mogelijkheid en is dan ook het klassieke pad. Hier zijn we duidelijk snel klaar mee.
+
+\section{Snelheden langs het pad}
+
+We zullen dus op zoek moeten naar een methode waar we het twee dimensionale karakter van het experiment mee behouden. Hiervoor kennen we eerst enkele variabelen toe aan de afstanden en tijden die een rol spelen bij het experiment.
+We beginnen weer met de opzet van het reflectie-experiment uit \see[chp:reflecties]. We nemen een bron $B$. Op afstand $2d$ zetten we een detector $D$. Onder de bron en de detector plaatsen we een oneindig lange reflecterende plaat op afstand $y$. Het geheel centreren we rond de $y$-as zodat het klassieke pad door de oorsprong gaat. Een deeltje dat door $B$ uitgezonden wordt, reflecteert in punt $X$ op de plaat en komt vervolgens in $D$ terecht.
+Al deze variabelen zijn te zien in \see[fig:reflecties met afstanden].
+
+\placefigure[][fig:reflecties met afstanden]
+  {Het reflectie-experiment met alle gebruikte afstanden. Bron $B$ staat op een afstand $d$ links van de $y$-as. Rechts van de $y$-as staat detector $D$, ook op afstand $d$. De plaat staat op afstand $y$ van de bron en de detector en is oneindig lang.
+  %De plaat loopt van $-l$ tot $l$ op de $x$-as en heeft dus een lengte van $2l$.
+  Het reflectiepunt $X$ ligt op de $x$-as op een afstand $x$. Een deeltje legt eerst een traject af van $B$ naar $X$ in een tijd $t_1$. De afstand die hij daarbij aflegt noemen we $r_1$. Vervolgens legt het deeltje een traject af van $X$ naar $D$ in een tijd $t_2$. Die afstand noemen we $r_2$. Het klassieke pad is licht weergegeven en loopt door de oorsprong.}
+  \startgraphic[scale=0.9]
+  \coordinate[source,label=above:{$B,t=0$}] (B) at (-5,4);
+  \coordinate[detector,label=above:{$D,t=T$}] (D) at (5,4);
+  \coordinate (I) at (0,4);
+  \coordinate (V) at (5,0);
+  \coordinate[label=below:$X$] (X) at (3,0);
+
+  \draw[axis lines] (-7,0) -- (7,0) node[right] {$x$};
+  \draw[axis lines] (0,-0.5) -- (0,5) node[above] {$y$};
+
+  \draw[distance lines] (B) -- node[distance label] {$d$} (I);
+  \draw[distance lines] (I) -- node[distance label] {$d$} (D);
+  \draw[distance lines] (D) -- node[distance label] {$y$} (V);
+  \draw[distance lines] (0,-0.3) -- node[distance label] {$x$} (3,-0.3);
+
+  %\draw[ultra thick] (-6,0) node[below] {$-l$} -- (6,0) node[below] {$l$};
+  \draw[ultra thick] (-6,0) -- (6,0);
+
+  %\draw[thin,orange] (B) -- (-4,0) -- (D);
+  \draw[thin,light orange] (B) -- (0,0) -- (D);
+  \draw[thin,orange] (B) -- node[auto] {$r_1,t_1$} (X) -- node[auto] {$r_2,t_2$} (D);
+  \stopgraphic
+
+Het traject dat een deeltje aflegt begint in bron $B$ op $t=0$, vervolgens reist het met een snelheid $v$, via het reflectiepunt $X$ naar detector $D$. Daar kijken we of het deeltje is aangekomen op het vaste tijdstip $t=T$. Het enige dat in het reflectiepunt gebeurt, is dat het deeltje van richting verandert. De snelheid $v$ blijft over het hele traject behouden.
+%Deze snelheid wordt gegeven door de som van de afstanden $r_1$ en $r_2$ over de totale tijd $T$.
+%Deze afstanden zijn respectievelijk
+  %\startformula\startspread[m=3]
+  %r_1 = \sqrt{(r+x)^2 + y^2} \SC
+  %\text{en} \SC
+  %r_2 = \sqrt{(r-x)^2 + y^2}.
+  %\stopspread\stopformula
+Deze totale afstand $R$ die afgelegd wordt om van $B$ naar $D$ te komen is
+  \placeformula[for:afstand voor reflectie]
+  \startformula\startsplit
+  R(x) \SC
+  := r_1(x) + r_2(x) \SR
+  = \sqrt{(d+x)^2 + y^2} + \sqrt{(d-x)^2 + y^2}.
+  \stopsplit\stopformula
+We zien dat de afstand afhankelijk is van $x$, wat logisch is aangezien het traject van $B$ naar $D$ langer wordt naarmate het reflectiepunt $X$ verder van de oorsprong af komt te liggen.
+De snelheid wordt dan simpelweg gegeven door
+  \placeformula[for:snelheid voor reflectie]
+  \startformula
+  v(x) = \frac{\sqrt{(d+x)^2 + y^2} + \sqrt{(d-x)^2 + y^2}}{T}
+  \stopformula
+Hiermee kunnen we aan elk pad $p$ een actie $S$ toekennen zoals we hebben laten zien in \see[sec:reflecties]. Voor deze actie geldt
+  \placeformula[for:actie voor reflectie]
+  \startformula\startsplit
+  S(x) \SC
+  = \half m v(x)^2 T \SR
+  %= \frac{m}{2} \frac{\left(\sqrt{(d+x)^2 + y^2} + \sqrt{(d-x)^2 + y^2}\right)^2}{T^2} T \SR
+  = \frac{m}{2T} \left(\sqrt{(d+x)^2 + y^2} + \sqrt{(d-x)^2 + y^2}\right)^2.
+  \stopsplit\stopformula
+
+Tot zover de klassieke berekeningen. Gewapend met de klassieke actie kunnen we nu de kwantummechanische bijdrage uitrekenen bij ieder pad. Deze wordt volgens het derde postulaat gegeven door een complexe e-macht van de actie, geschaald met de gereduceerde constante van Planck. Laten we meteen onze actie uit \see[for:actie voor reflectie] invullen:
+  \placeformula[for:bijdrage voor reflectie]
+  \startformula\startsplit
+  \psi(x) \SC
+  = \exp\left[\frac{i}{\hbar} S\right] \SR
+  = \exp\left[\frac{im}{2\hbar T} \left(\sqrt{(d+x)^2 + y^2} + \sqrt{(d-x)^2 + y^2}\right)^2\right].
+  \stopsplit\stopformula
+Dit is de bijdrage voor één pad $p$ afhankelijk van de positie $x$ waar het pad reflecteert op de plaat. Volgens het tweede postulaat moeten we al deze bijdragen sommeren om de waarschijnlijkheidsamplitude te verkrijgen. Dit doen we door te integreren over alle mogelijke reflectiepunten $x$ op de plaat. In plaats van te integreren van $-\infty$ tot $\infty$ kunnen we natuurlijk ook als grenzen $0$ en $\infty$ nemen en de integraal veremenigvuldigen met $2$. Dat levert het volgende op:
+  \placeformula[for:amplitude voor reflectie]
+  \startformula
+  \Psi = 2 \int_0^\infty \exp\left[\frac{im}{2\hbar T} \left(\sqrt{(d+x)^2 + y^2} + \sqrt{(d-x)^2 + y^2}\right)^2\right] \d x.
+  \stopformula
+Helaas is het uitrekenen hiervan niet triviaal. We hebben te maken met een kwadraat van twee wortels met daarin een polynoom van $x$. Hoe moeten we dit uitwerken?
+
+%Laten we de definitie van de afstand $R$ gebruiken en de integraal uit \see[for:amplitude voor reflectie] opschrijven als
+  %\startformula
+  %\Psi = 2 \int_0^\infty \exp\left[\frac{im}{2\hbar T} R(x)^2\right] \d x.
+  %\stopformula
+Door een substitutie te maken is het mogelijk om integralen van de vorm
+  \startformula\startspread[m=3]
+  \int \exp[i \omega z(x)] \d x \SC
+  \text{om te schrijven naar} \SC
+  \int f(z) \exp[i \omega z] \d z.
+  \stopspread\stopformula
+Dit is de zogenaamde \emph{Euler truuc}. We zien dat we niet meer hoeven te integreren over een variabele die diep weggestopt is in de e-macht. In plaats daarvan is het uitrekenen van een specifieke Fourier-integraal voldoende.
+Wanneer we de substitutie uitrekenen komen we tot de conclusie dat
+  \placeformula[for:substitutie voor reflectie]
+  \startformula
+  \d x = \frac{\sqrt{(d+x)^2 + y^2} \cdot \sqrt{(d-x)^2 + y^2}}{2 x (z - 4 d^2)} \d z.
+  \stopformula
+Maar hier staat de variabele $x$ nog in genoemd. Deze moeten we nog uitdrukken in $z$. Na enig rekenwerk kunnen we te weten komen dat
+%Om deze substitutie uit te voeren schrijven we allereerst $x$ om naar $z$. Na enig rekenwerk dat de lezer zelf kan nalopen volgt
+  \startformula
+  2 \cdot \sqrt{(d+x)^2 + y^2} \cdot \sqrt{(d-x)^2 + y^2}
+  = z - 2y^2 - 2x^2 - 2d^2
+  \stopformula
+en vervolgens
+  \startformula
+  x^2 = \frac{z}{4} \left(1 - \frac{4 y^2}{z - 4 d^2}\right).
+  \stopformula
+Zodat we de substitutie uit \see[for:substitutie voor reflectie] kunnen omschrijven naar
+  \placeformula[for:substitutie voor reflectie omgeschreven]
+  \startformula\startsplit
+  \d x \SC
+  = \frac{z - 2r^2 - 2x^2 - 2d^2}{x (z - 4 d^2)} \d z \SR
+  = \frac{16 d^2 \left(d^2+r^2\right) - 4 \left(2 d^2+r^2-y^2\right) z + z^2}
+         {\left(-4 d^2 + z\right)^2 \sqrt{z - \frac{4 y^2 z}{-4 d^2 + z}}} \d z
+  \stopsplit\stopformula
+Met \see[for:afstand voor reflectie] worden onze nieuwe grenzen
+  \startformula\startspread[m=3]
+  x \to \infty \SC \implies \SC z \to \infty \SR
+  x = 0 \SC \implies \SC z = 4 (y^2 + d^2).
+  \stopspread\stopformula
+Na dit voorbereidend rekenwerk ontstaat de volgende integraal:
+  \placeformula[for:amplitude niet uit te rekenen]
+  \startformula
+  \Psi = 2 \int_{4(y^2 + d^2)}^\infty
+      \frac{16 d^2 \left(d^2+r^2\right) - 4 \left(2 d^2+r^2-y^2\right) z + z^2}
+         {\left(-4 d^2 + z\right)^2 \sqrt{z - \frac{4 y^2 z}{-4 d^2 + z}}}
+      \exp\left[\frac{im}{2\hbar T} z\right] \d z.
+  \stopformula
+Helaas is het niet gelukt deze integraal op te lossen. De volgende stap zou zijn om de functie $\Psi$ te normaliseren. Dit zouden we doen door de modulus kwadraat te integreren over alle mogelijke posities $d$ van de detector en deze integraal gelijk te stellen aan één
+  \startformula
+  C \int_{-\infty}^\infty \left|\Psi\right|^2 \d d = 1.
+  \stopformula
+
+\starthiding Normalisatieconstante A
+We houden nog steeds nare wortels als we dit invullen in \see[for:substitutie voor reflectie]. Maar we hebben de normalisatieconstante $A$ nog niet bekeken. Volgens \see[for:normalisatieconstante] wordt deze gegeven door
+  \placeformula[for:constante voor reflectie]
+  \startformula
+  A = \frac{m}{2\pi i \hbar} \reci{\sqrt{t_1 \cdot t_2}}
+  \stopformula
+Aangezien we te maken hebben met twee trajecten: eentje van duur $t_1$ en eentje met duur $t_2$ waarbij $t_1 + t_2 = T$. Door de constante snelheid kunnen we de twee tijden te weten komen
+  \startformula\startspread[m=3]
+  t_1 = \frac{r_1}{v(x)} = \frac{r_1}{r_1 + r_2} T \SC
+  \text{en} \SC
+  t_2 = \frac{r_2}{v(x)} = \frac{r_2}{r_1 + r_2} T.
+  \stopspread\stopformula
+Wanneer we dit invullen in \see[for:constante voor reflectie] krijgen we
+  \placeformula[for:constante voor reflectie uitgewerkt]
+  \startformula\startsplit
+  A \SC
+  = \frac{m}{2\pi i \hbar}
+    \reci{\sqrt{\frac{r_1}{r_1 + r_2} T \cdot \frac{r_2}{r_1 + r_2} T}} \SR
+  = \frac{m}{2\pi i \hbar T} \sqrt{\frac{\left(r_1 + r_2\right)^2}{r_1 \cdot r_2}} \SR
+  %= \frac{m}{2\pi i \hbar T} \frac{z}{\sqrt{r_1 \cdot r_2}}.
+  = \frac{m}{2\pi i \hbar T} \frac{z}{\sqrt{\sqrt{(d+x)^2 + y^2} \cdot \sqrt{(d-x)^2 + y^2}}}.
+  \stopsplit\stopformula
+Helaas levert niet niet veel extra's op. De wortels onder de deelstreep kunnen we gedeeltelijk wegstrepen tegen de wortels boven de deelstreep in \see[for:substitutie voor reflectie].
+\stophiding
+
+\section[sec:afleiding]{Twee dimensionale kernels}
+
+We kunnen nog een andere poging wagen door goed te kijken naar het resultaat uit \see[sec:kernel]. Is het mogelijk om twee kernels op te stellen: een voor het traject van $B$ naar $X$ en een voor het traject van $X$ naar $D$? Bekijk nog eens goed de variabelen in \see[fig:reflecties met afstanden].
+Op $t=0$ vertrekt een deeltje uit $B$, dat is de positie $(-d,y)$. We nemen aan dat na een tijd $t_1$ het deeltje te vinden is op de plaat. In deze sectie nemen we de plaat niet oneindig lang, dus het reflectiepunt $X$ ligt op $y=0$ en $x$ tussen $-l$ en $l$. Hierna vervolgt het deeltje zijn weg naar $D$ op $(d,y)$ waar het $t_2$ later aankomt.
+
+Met deze gegevens kunnen we het experiment doorrekenen met behulp van twee twee dimensionale kernels.
+%Als we het experiment op deze manier opzetten kunnen we het doorrekenen met behulp van twee twee dimensionale kernels.
+Een twee dimensionale kernel van een vrij deeltje is direct te verkrijgen uit \see[for:kernel vrij deeltje] door $x$ te generaliseren naar twee componenten $x$ en $y$.
+  \placeformula[for:kernel twee dimensies]
+  \startformula
+  K(x,y,t;x',y',t') = \frac{m}{2\pi i \hbar (t-t')} \exp\left[ \frac{i m}{2\hbar} \frac{(x-x')^2 + (y-y')^2}{t-t'} \right].
+  \stopformula
+Merk op dat we in de voorfactor de wortel kwijt zijn. Aangezien we te maken hebben met twee vrijheidsgraden moeten we de voorfactor kwadrateren.
+De overgangsamplitude voor het traject van $B$ naar $X$ wordt
+  \placeformula[for:kernel van bron]
+  \startformula\startsplit
+  K(X,B) \SC
+  = K(x,0,t_1; -d,y,0) \SR
+  = \frac{m}{2\pi i \hbar t_1} \exp\left[ \frac{i m}{2 \hbar} \frac{(x + d)^2 + y^2}{t_1} \right].
+  \stopsplit\stopformula
+En voor het traject van $X$ naar $D$ krijgen we
+  \placeformula[for:kernel naar detector]
+  \startformula\startsplit
+  K(D,X) \SC
+  = K(d,y,t_1+t_2; x,0,t_1) \SR
+  = \frac{m}{2\pi i \hbar t_2} \exp\left[ \frac{i m}{2 \hbar} \frac{(d - x)^2 + y^2}{t_2} \right].
+  \stopsplit\stopformula
+Dit zijn twee gebeurtenissen die na elkaar plaatsvinden op hetzelfde pad. Net zoals in \see[sec:padintegraal] moeten we de overgangsamplitudes met elkaar vermenigvuldigen. Daarnaast moeten we nog integreren over alle mogelijke reflectiepunten $X$. Dat wil zeggen, alle mogelijke waarden van $x$, en die lag tussen $-l$ en $l$:
+  \placeformula[for:integraal opgesteld]
+  \startformula\startsplit
+  \psi(d) \SC
+  = \int_{-l}^{l} K(D,X) \cdot K(X,B) \d x \SR
+  = \left(\frac{m}{2\pi i \hbar}\right)^2 \reci{t_1 t_2}
+  \int_{-l}^{l} \exp\left[ \frac{im}{2\hbar} \left( \frac{(x + d)^2 + y^2}{t_1} + \frac{(d - x)^2 + y^2}{t_2} \right) \right] \d x
+  \stopsplit\stopformula
+We hebben nu een formule voor de \emph{waarschijnlijkheidsamplitude} van een deeltje om van de bron, via de plaat, naar de detector te komen. Deze is afhankelijk van $d$, de plaats waar de detector staat.
+
+De details van de verdere berekening zullen we de lezer besparen. Wel nemen we de belangrijkste tussenstappen door. Met behulp van Fresnelintegralen (zie ook \see[sec:fresnelintegralen] in \see[app:formules]) kunnen we de waarschijnlijkheidsamplitude van \see[for:integraal opgesteld] uitrekenen. We vinden dan dat
+  \placeformula[for:amplitude herschreven]
+  \startformula\startsplit
+  \psi(d) = \SC
+  - \reci{4} \left( \frac{m}{\pi\hbar} \right)^{3/2} \reci{\sqrt{t_1 t_2 (t_1 + t_2)}} \SR
+  \cdot \exp\left[ \frac{im}{2\hbar} \left( \frac{4 d^2}{t_1 + t_2} + y^2 \left(\reci{t_1} + \reci{t_2}\right) \right) \right] \SR
+  \cdot \big( \frec[u_+] - \frec[u_-] + i (\fres[u_+] - \fres[u_-]) \big).
+  \stopsplit\stopformula
+Hierin zijn $u_+$ en $u_-$ functies die afhangen van $d$, de positie van de detector. Ze worden gegeven door
+  \placeformula[for:grens definitie]
+  \startformula
+  u_\pm(d) := \sqrt{\frac{m}{\pi\hbar}} \frac{(\pm l + d) t_1 + (\pm l - d) t_2}{\sqrt{t_1 t_2 (t_1 + t_2)}}.
+  \stopformula
+De volgende stap is het berekenen van de 
+waarschijnlijkheidsdichtheid dat een deeltje door de plaat wordt gereflecteerd.
+Dat is de modulus kwadraat van de amplitude berekend in \see[for:amplitude herschreven]. Na het uitschrijven van de Fresnelintegralen vinden we dat
+  \placeformula[for:dichtheid]
+  \startformula\startsplit
+  p(d) \SC
+  = \left|\psi(d)\right|^2 \SR
+  = \reci{16} \left(\frac{m}{\pi\hbar}\right)^3 \reci{t_1 t_2 (t_1 + t_2)}
+    \int_{u_-}^{u_+} \int_{u_-}^{u_+} \cos\left[ \halfpi (p - q) (p + q) \right] \d p \d q.
+  \stopsplit\stopformula
+We hebben nu een dichtheid, maar we willen de kans zelf weten. Hiervoor moeten we alle mogelijke posities van de detector meenemen. Dat wil zeggen: we moeten integreren over $d$.
+Als we \see[for:waarschijnlijkheid] goed bestuderen zien we een uitdaging. De integratievariabele $d$ komt alleen voor in de \emph{grenzen} $u_\pm(d)$!
+Nadat we hiervoor enkele trucs hebben uitgehaald, volgt uiteindelijk
+  \placeformula[for:waarschijnlijkheid]
+  \startformula\startsplit
+  P \SC
+  = 2 \int_0^\infty p(d) \d d \SR
+  %= \reci{4\pi} \left(\frac{m}{\pi\hbar}\right)^{5/2} \reci{t_1 \sqrt{t_1 t_2 (t_1 + t_2)}}.
+  = \reci{4} \left(\frac{m}{\pi\hbar}\right)^3 \frac{l}{t_1^2 t_2}
+  \stopsplit\stopformula
+
+Helaas hebben we hiermee niet de berekening gedaan die we zouden willen doen. We hebben namelijk antwoord gegeven op de vraag 
+  \startquote
+  \noindentation Wat is de kans om een deeltje in $D$ aan te treffen op tijdstip $t_1 + t_2$ als het zich op $t_1$ op de plaat bevond.
+  \stopquote
+Het probleem zit in de aanname dat op $t_1$ het deeltje zich op de plaat moet bevinden. Deze stap is essentieel om bovenstaande berekening tot een goed einde te brengen. Zonder deze aanname kunnen we namelijk niet afzonderlijke kernels opstellen voor de trajecten van de bron naar de plaat en van de plaat naar de detector zoals in \see[for:kernel van bron] en \see[for:kernel naar detector]. Maar deze aanname strookt niet met het experiment uit \see[chp:reflecties].
+Daar moet gelden dat $t_1 + t_2 = T$ en de snelheid $v$ uit \see[for:snelheid voor reflectie] is constant over het pad. Wanneer we nu $t_1$ uitdrukken in de afstanden zoals gegeven in \see[fig:reflecties met afstanden] zien we het volgende:
+  \startformula\startsplit
+  t_1 \SC
+  = \frac{r_1}{v(x)} \SR
+  = \frac{r_1}{r_1 + r_2} T \SR
+  = \frac{\sqrt{(d+x)^2 + y^2}}{\sqrt{(d+x)^2 + y^2} + \sqrt{(d-x)^2 + y^2}} T.
+  \stopsplit\stopformula
+En analoog voor $t_2$:
+  \startformula
+  t_2 = \frac{\sqrt{(d-x)^2 + y^2}}{\sqrt{(d+x)^2 + y^2} + \sqrt{(d-x)^2 + y^2}} T.
+  \stopformula
+Beide tijden zijn afhankelijk van $x$! Dat betekent dat de tijden $t_1$ en $t_2$ vast liggen \emph{per pad} en niet voor het \emph{hele experiment}. We kunnen de kernel in \see[for:kernel twee dimensies] helemaal niet gebruiken om dit experiment door te rekenen, er is namelijk geen vast tijdstip $t_1$ waarop een deeltje zich op de plaat bevindt. Bij het maken van deze berekening hebben we een aanname gemaakt die niet in overeenstemming is met het experiment. Helaas werkt deze methode dus ook niet.
+
+\starthiding Voorbeeld met pad uit figuur
+Neem een pad uit \see[fig:reflectie paden], bijvoorbeeld $p_{10}$. Deze komt grofweg overeen met het getekende pad in \see[fig:reflecties met afstanden]. In het experiment uit \see[chp:reflecties] blijft de snelheid van een deeltje over een pad ten alle tijden constant. We zenden een deeltje uit op $t=0$ en op $t=T$ kijken we of we het deeltje kunnen vinden in de detector. De snelheid van het deeltje in horizontale richting wordt gegeven door
+  \startformula
+  v = \frac{(d+x) + (d-x)}{T}.
+  \stopformula
+\todo
+
+Neem het pad uit \see[fig:reflecties met afstanden]. Deze komt grofweg overeen met pad $p_{10}$ uit uit \see[fig:reflectie paden]. Het eerste traject, dat van $B$ naar $X$, legt een deeltje af met snelheid
+  \startformula
+  v_1 = \frac{\sqrt{(d+x)^2 + y^2}}{t_1}.
+  \stopformula
+\stophiding
+
 \stopcomponent
 
 % vim: ft=context spell spl=nl cole=1
