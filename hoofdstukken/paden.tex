@@ -107,7 +107,6 @@ waarbij $h=6.626068\E{-34} \;{\rm m^2 kg / s}$ de constante van Planck is en $p$
 
 Laten we eens kijken wat er gebeurt wanneer we een bron gebruiken die kwantummechanische deeltjes maakt, zoals elektronen.
 Dit kunnen we realiseren door bijvoorbeeld een spanning te zetten op een gloeidraad en deze achter een smalle spleet te zetten.
-%FIXME: extra uitleg?
 Wanneer we nu de detector aanzetten, merken we dat we niet meer alle deeltjes meten die door $B$ zijn uitgezonden.
 %We passen de opstelling dusdanig aan dat we detector $D$ vervangen door een detectiescherm $d$. Hierop kunnen we, nadat we enige tijd elektronen hebben geproduceerd, een spreiding waarnemen zoals te zien in \see[fig:detectiescherm].
 Om een poging te wagen de \quote{verloren} deeltjes terug te vinden passen we de detector dusdanig aan dat we $D$ in verticale richting kunnen bewegen over een afstand $y$ ten opzichte van de horizontale as door $B$ (zie \see[fig:detectie]). Nu kunnen we de \emph{intensiteit} $I$ verkrijgen door het signaal van de detector op verschillende hoogtes te integreren over de tijd. Wanneer we dit uitzetten tegen de hoogte $y$ ontstaat een patroon zoals weergegeven in \see[fig:spreiding-enkel].
@@ -211,7 +210,7 @@ Dit levert ons het tweede postulaat.
   De waarschijnlijkheidsamplitude van een gebeurtenis is de som van de \emph{bijdragen} behorende bij de verschillende paden tussen begin en eindpunt.
   \stoppostulate
 
-%Het patroon in \see[fig:spreidingen]{b} komt ons echter bekend voor. Het is precies het interferentiepatroon van een golf uit $S_1$ met een golf uit $S_2$. De amplitude van een golf kunnen we het beste beschrijven met een complex getal $\psi$. %FIXME
+%Het patroon in \see[fig:spreidingen]{b} komt ons echter bekend voor. Het is precies het interferentiepatroon van een golf uit $S_1$ met een golf uit $S_2$. De amplitude van een golf kunnen we het beste beschrijven met een complex getal $\psi$.
 %In plaats van direct de waarschijnlijkheid $P$ te bekijken voeren we een nieuw begrip in, de \emph{waarschijnlijkheidsamplitude}. Dit is een complex getal $\psi$ dat we koppelen aan de waarschijnlijkheid met de formule
 %Het patroon in \see[fig:spreidingen]{b} komt ons bekend voor. Het is precies het interferentiepatroon van een golf uit $S_1$ met een golf uit $S_2$. Een golf kunnen we het beste beschrijven met een complexe $\e$-macht.
 
@@ -322,7 +321,7 @@ De gebeurtenissen $t_0, t_1, \dots, t_N$ vinden na elkaar plaats op hetzelfde pa
   = A(\Delta t)^N \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right].
   \stopsplit\stopformula
 
-Om de \emph{waarschijnlijkheidsamplitude} uit te rekenen bij de overgang van $B$ naar $D$ moeten we, volgens het tweede postulaat, de som nemen over \emph{alle mogelijke paden} van $x_B$ naar $x_D$. Tot nu toe hebben we alleen maar één pad uitgerekend. Daarbij zijn we er van uit gegaan dat ons pad op ieder tijdstip $t_n$ over vastgelegde punten $x_n$ loopt. (Met andere woorden: we laten het deeltje door specifieke spleten gaan.) Deze plaats is natuurlijk willekeurig te kiezen uit \emph{alle mogelijke waarden} van $x$. Om elk mogelijk pad van $B$ naar $D$ te krijgen, moeten we dus integreren over alle mogelijke tussenpunten voor elke tijdsnede $t_n$. In \see[fig:tijdsnedes] kunnen we zien dat $t_0$ en $t_N$ hierop een uitzondering zijn, de bijbehorende $x$-waarden liggen immers vast. We krijgen dus $N-1$ keer een integraal over $x_n$ waarbij $n$ loopt van $1$ tot $N-1$. Dit leid tot
+Om de \emph{waarschijnlijkheidsamplitude} uit te rekenen bij de overgang van $B$ naar $D$ moeten we, volgens het tweede postulaat, de som nemen over \emph{alle mogelijke paden} van $x_B$ naar $x_D$. Tot nu toe hebben we alleen maar één pad uitgerekend. Daarbij zijn we er van uit gegaan dat ons pad op ieder tijdstip $t_n$ over vastgelegde punten $x_n$ loopt. (Met andere woorden: we laten het deeltje door specifieke spleten gaan.) Deze plaats is natuurlijk willekeurig te kiezen uit \emph{alle mogelijke waarden} van $x$. Om elk mogelijk pad van $B$ naar $D$ te krijgen, moeten we dus integreren over alle mogelijke tussenpunten voor elke tijdsnede $t_n$. In \see[fig:tijdsnedes] kunnen we zien dat $t_0$ en $t_N$ hierop een uitzondering zijn, de bijbehorende $x$-waarden liggen immers vast. We krijgen dus $N-1$ keer een integraal over $x_n$ waarbij $n$ loopt van $1$ tot $N-1$. Dit leidt tot
   %\placeformula[for:integraal over alle punten]
   \startformula
   \psi \approx \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty \psi_{0 \to N} \d x_1 \d x_2 \;\cdots \d x_{N-1}.
@@ -366,8 +365,12 @@ Laten we deze keer een concrete Lagrangiaan nemen
   \stopformula
 een vrij deeltje.
 Wanneer we de maat uit \see[for:padintegraal maat] gebruiken en onze benaderingsmethode uit \see[for:benadering product] invullen krijgen we een lange reeks integralen. Effectief splitsen we de integraal over alle paden op in integralen over alle mogelijke tussenpunten:
-  \startformula\startsplit%FIXME: Loopt van pagina af!
-  K(x,t;x',t') \SC
+
+  % Noodgreep:
+  \hskip 2.5em \hbox{
+  \startformula\startsplit
+  \SC
+  K(x,t;x',t') \SR
   %= \lim_{N \to \infty} \int \cdots \iint
   = \lim_{N \to \infty} \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
     A(\Delta t)^N \prod_{n=0}^{N-1} \exp\left[ \frac{i}{\hbar} \LApprox \Delta t \right]
@@ -378,7 +381,8 @@ Wanneer we de maat uit \see[for:padintegraal maat] gebruiken en onze benaderings
   = \lim_{N \to \infty} A(\Delta t)^N \int_{-\infty}^\infty \cdots \int_{-\infty}^\infty \int_{-\infty}^\infty 
     \exp\left[ \frac{i m}{2 \hbar \Delta t} \sum_{n=0}^{N-1} (x_{n+1} - x_n)^2 \right]
     \d x_1 \d x_2 \;\cdots \d x_{N-1}.
-  \stopsplit\stopformula
+  \stopsplit\stopformula}
+
 Hierbij hebben we het product vervangen door een som in de exponent.\footnote{Niet geheel onzinnig als je bedenkt dat we in \see[sec:padintegraal] hebben beredeneerd dat we fases moeten optellen.} Deze reeks integralen zijn stuk voor stuk op te lossen. Bekijk eerst de exponentiële factoren die $x_1$ bevatten. Deze komt voor in combinatie met $x_0$ en $x_2$:
   \startformula
   \int_{-\infty}^\infty \exp\left[ k \left( (x_2 - x_1)^2 + (x_1 - x_0)^2 \right) \right] \d x_1
@@ -412,7 +416,7 @@ We weten dat $x_0$ en $x_N$ respectievelijk onze begin- en eindpositie zijn, $x'
   \stopsplit\stopformula
 We zitten alleen nog met de normalisatieconstante. Stel nu dat $t-t'$ heel klein is, dan moet voor dit infinitesimale tijdsinterval wederom \see[for:bijdrage] gelden, zodat
   \startformula
-  \left(A(\Delta t) \sqrt{\frac{2\pi i \hbar \Delta t}{m}}\right)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} = A(t-t').
+  \lim_{N\to\infty} \left(A(\Delta t) \sqrt{\frac{2\pi i \hbar \Delta t}{m}}\right)^N \sqrt{\frac{m}{2\pi i \hbar (t - t')}} = A(t-t').
   \stopformula
 Dit kan alleen maar als
   \placeformula[for:normalisatieconstante]
