@@ -29,11 +29,11 @@
 *.bbl
 
 # Compiled
-*.pdf
-*.xls
+#*.pdf
+#*.xls
 
 # Mathematica
-*.cdf
+#*.cdf
 
 # Tests
 test*
